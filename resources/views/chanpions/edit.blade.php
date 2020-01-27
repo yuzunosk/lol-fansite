@@ -8,7 +8,7 @@
                 <div class="card-header text-center">{{ __('ChanpionRegister') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('chanpions.create') }}">
+                    <form method="POST" action="{{ route('chanpions.update',$chanpion->id) }}">
                         @csrf
 
                     <div class="container mb-1 p-0">
@@ -17,7 +17,7 @@
                                 <label for="name" class="col-md-2 col-4 col-form-label mb-1">{{ __('name') }}</label>
 
                                 <div class="col-md-4 col-8">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name', $chanpion->name)}}" autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                                 <label for="sub_name" class="col-md-2 col-4 col-form-label mb-1">{{ __('sub_name') }}</label>
 
                                 <div class="col-md-4 col-8">
-                                    <input id="sub_name" type="text" class="form-control @error('sub_name') is-invalid @enderror" name="sub_name" value="{{ old('sub_name') }}" autocomplete="sub_name" autofocus>
+                                    <input id="sub_name" type="text" class="form-control @error('sub_name') is-invalid @enderror" name="sub_name" value="{{old('sub_name', $chanpion->sub_name)}}" autocomplete="sub_name" autofocus>
 
                                     @error('sub_name')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                                 </label>
 
                                 <div class="col-md-8">
-                                    <input id="popular_name" type="text" class="form-control @error('popular_name') is-invalid @enderror" name="popular_name" value="{{ old('popular_name') }}" autocomplete="popular_name" autofocus>
+                                    <input id="popular_name" type="text" class="form-control @error('popular_name') is-invalid @enderror" name="popular_name" value="{{old('popular_name', $chanpion->popular_name)}}" autocomplete="popular_name" autofocus>
 
                                     @error('popular_name')
                                     <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
 
                                 <div class="col-md-8">
                                     <input id="feature" type="text" class="form-control @error('feature') is-invalid @enderror" name="feature" 
-                                    value="{{ old('feature') }}" autocomplete="feature" autofocus>
+                                    value="{{old('feature', $chanpion->feature)}}" autocomplete="feature" autofocus>
 
                                     @error('feature')
                                     <span class="invalid-feedback" role="alert">
@@ -89,7 +89,7 @@
                         <select name="main_roll_id"
                         id = "select-main_roll"
                         class = "form-control text-center @error('main_roll_id') is-invalid @enderror"
-                        value="{{ old('main_roll_id') }}"
+                        value="{{old('main_roll_id', $chanpion->main_roll_id)}}"
                         >
                             <option value="1">Assasin</option>
                             <option value="2">Mage</option>
@@ -113,7 +113,7 @@
                         <select name="sub_roll_id"
                         id = "select-sub_roll"
                         class = "form-control text-center @error('sub_roll_id') is-invalid @enderror"
-                        value="{{ old('sub_roll_id') }}"
+                        value="{{old('sub_roll_id', $chanpion->sub_roll_id)}}"
                         >
                             <option value="0">なし</option>
                             <option value="1">Assasin</option>
@@ -145,7 +145,7 @@
                             name="be_cost" 
                             id = "select-be_cost" 
                             class = "form-control text-center @error('be_cost') is-invalid @enderror"
-                            value="{{ old('be_cost') }}"
+                            value="{{old('be_cost', $chanpion->be_cost)}}"
                             >
                                 <!-- <option>7800</option> -->
                                 <option>6300</option>
@@ -169,7 +169,7 @@
                                 name="rp_cost" 
                                 id ="select-rp_cost" 
                                 class = "form-control text-center @error('rp_cost') is-invalid @enderror"
-                                value="{{ old('rp_cost') }}"
+                                value="{{old('rp_cost', $chanpion->rp_cost)}}"
                                 >
                                     <option>975</option>
                                     <option>880</option>
@@ -204,7 +204,7 @@
                             id="file1"
                             class="form-control-file @error('chanpion_img') is-invalid @enderror"
                             style="height:200px;opacity:0;"
-                            value="img">
+                            value="{{old('chanpion_img', $chanpion->chanpion_img)}}">
                             @error('chanpion_img')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -232,7 +232,7 @@
                         type="number" 
                         class="form-control text-center border-0 bg-secondary text-light @error('st_attack') is-invalid @enderror"
                         name="st_attack" 
-                        value="{{ old('st_attack') }}"
+                        value="{{old('st_attack', $chanpion->st_attack)}}"
                         required
                         max=10
                         min=1
@@ -258,7 +258,7 @@
                         type="number" 
                         class="form-control text-center border-0 bg-secondary text-light @error('st_magic') is-invalid @enderror"
                         name="st_magic" 
-                        value="{{ old('st_magic') }}"
+                        value="{{old('st_magic', $chanpion->st_magic)}}"
                         required
                         max=10
                         min=1
@@ -284,7 +284,7 @@
                         type="number" 
                         class="form-control text-center border-0 bg-secondary text-light @error('st_toughness') is-invalid @enderror"
                         name="st_toughness" 
-                        value="{{ old('st_toughness') }}"
+                        value="{{old('st_toughness', $chanpion->st_toughness)}}"
                         required
                         max=10
                         min=1
@@ -310,7 +310,7 @@
                         type="number" 
                         class="form-control text-center border-0 bg-secondary text-light @error('st_mobility') is-invalid @enderror"
                         name="st_mobility" 
-                        value="{{ old('st_mobility') }}"
+                        value="{{old('st_mobility', $chanpion->st_mobility)}}"
                         required
                         max=10
                         min=1
@@ -336,7 +336,7 @@
                         type="number" 
                         class="form-control text-center border-0 bg-secondary text-light @error('st_difficulty') is-invalid @enderror"
                         name="st_difficulty" 
-                        value="{{ old('st_difficulty') }}"
+                        value="{{old('st_difficulty', $chanpion->st_difficulty)}}"
                         required
                         max=10
                         min=1
@@ -362,7 +362,8 @@
                         <div class="col-md-4 col-6">
                         <select name="user_id"
                         id = "select-user_id" 
-                        class="form-control @error('user_id') is-invalid @enderror">
+                        class="form-control @error('user_id') is-invalid @enderror"
+                        value="{{old('user_id', $chanpion->user_id)}}">
                             <option value="1">user_1</option>
                             <option value="2">user_2</option>
                             <option value="3">user_3</option>
@@ -385,7 +386,9 @@
                         <div class="col-md-4 col-7">
                         <select name="chanpion_tag_id"
                         id = "select-chanpion_tag_id" 
-                        class="form-control @error('chanpion_tag_id') is-invalid @enderror">
+                        class="form-control @error('chanpion_tag_id') is-invalid @enderror"
+                        value="{{old('chanpion_tag_id', $chanpion->chanpion_tag_id)}}"
+                        >
                             <option value="1">chanpion_tag_id 1</option>
                             <option value="2">chanpion_tag_id 2</option>
                             <option value="3">chanpion_tag_id 3</option>

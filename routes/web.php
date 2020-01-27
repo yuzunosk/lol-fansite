@@ -14,14 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/child', function () {
-    return view('child');
-});
+
+Route::get('/chanpions/new', 'ChanpionsController@newChanpion')->name('chanpions.new');
+Route::post('/chanpions', 'ChanpionsController@createChanpion')->name('chanpions.create');
+Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('chanpions.create');
+Route::get('/chanpions/{id}/edit', 'ChanpionsController@editChanpion')->name('Chanpions.edit');
+Route::post('/chanpions/{id}', 'ChanpionsController@updateChanpion')->name('Chanpions.update');
+
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/chanpions/new', 'ChanpionsController@newChanpion')->name('chanpions.new');
-Route::post('/chanpions', 'ChanpionsController@createChanpion')->name('chanpions.create');
+
 

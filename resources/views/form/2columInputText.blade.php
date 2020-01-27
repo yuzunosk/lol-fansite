@@ -1,4 +1,5 @@
-                            <label for={{ $text }} class="col-xl-2 col-md-4 col-form-label" style="margin-bottom: 10px;">
+                            <label for={{ $text }} class="col-xl-2 col-md-4 col-form-label"
+                            >
                             {{ __($text) }}
                             </label>
 

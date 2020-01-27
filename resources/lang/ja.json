@@ -1,6 +1,7 @@
 {
     "Register": "登録",
     "Registered": "登録しました",
+    "Invalid operation was performed": "不正な操作が行われました",
     "Login": "ログイン",
     "ChanpionRegister": "チャンピオン登録",
     "name": "名前",
@@ -19,7 +20,11 @@
     "st_mobility": "機動力",
     "st_difficulty": "難易度",
     "user_id": "登録者",
-    "chanpion_tag_id": "チャンピオンに付けるタグ"
+    "chanpion_tag_id": "チャンピオンに付けるタグ",
+    "Name": "名前",
+    "E-Mail Address": "Eメールアドレス",
+    "Password": "パスワード",
+    "Confirm Password": "パスワード再入力"
 
 
 
