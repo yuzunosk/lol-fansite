@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateChanpionSkillsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('chanpionSkills', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('na_name');
+            $table->string('skill_type');
+            $table->unsignedBigInteger('chanpion_id');
+            // $table->foreign('chanpion_id')->references('id')->on('chanpions');
+            $table->string('text' , 255);
+            $table->string('skill_icon1');
+            $table->string('skill_icon2');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('chanpionSkills');
+    }
+}

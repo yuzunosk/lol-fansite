@@ -1,0 +1,28 @@
+{
+    "Register": "登録",
+    "Registered": "登録しました",
+    "Login": "ログイン",
+    "ChanpionRegister": "チャンピオン登録",
+    "name": "名前",
+    "sub_name": "英名",
+    "popular_name": "通り名",
+    "feature": "特徴",
+    "main_roll": "メインロール",
+    "sub_roll": "サブロール",
+    "BE": "消費ブルーエッセンス",
+    "RP": "消費ライオットポイント",
+    "chanpion_img": "チャンピオン画像",
+    "Status input": "簡易能力値入力",
+    "st_attack": "物理攻撃力",
+    "st_magic": "魔力",
+    "st_toughness": "耐久力",
+    "st_mobility": "機動力",
+    "st_difficulty": "難易度",
+    "user_id": "登録者",
+    "chanpion_tag_id": "チャンピオンに付けるタグ"
+
+
+
+
+
+}
