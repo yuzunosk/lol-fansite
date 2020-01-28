@@ -32,6 +32,21 @@ Route::post('/skills/{id}/delete', 'ChanpionsController@deleteSkill')->name('ski
 
 //ロール追加ページ
 Route::get('/rolls/new', 'ChanpionsController@newRoll')->name('rolls.new');
+Route::post('/rolls', 'ChanpionsController@createRoll')->name('rolls.create');
+Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('rolls.create');
+Route::get('/rolls/{id}/edit', 'ChanpionsController@editRoll')->name('rolls.edit');
+Route::post('/rolls/{id}', 'ChanpionsController@updateRoll')->name('rolls.update');
+Route::post('/rolls/{id}/delete', 'ChanpionsController@deleteRoll')->name('rolls.delete');
+
+
+//タグ追加ページ
+Route::get('/tags/new', 'ChanpionsController@newTag')->name('tags.new');
+Route::post('/tags', 'ChanpionsController@createTag')->name('tags.create');
+Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('tags.create');
+Route::get('/tags/{id}/edit', 'ChanpionsController@editTag')->name('tags.edit');
+Route::post('/tags/{id}', 'ChanpionsController@updateTag')->name('tags.update');
+Route::post('/tags/{id}/delete', 'ChanpionsController@deleteTag')->name('tags.delete');
+
 
 
 Auth::routes();

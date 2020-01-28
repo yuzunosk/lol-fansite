@@ -1,6 +1,9 @@
 {
     "Register": "登録",
     "Skill Register": "スキル登録",
+    "Roll Register": "ロール登録",
+    "New Roll Registered.": "新しいロールを登録しました",
+    "New Tag Registered.": "新しいタグを登録しました",
     "Registered.": "登録しました",
     "Updated.": "更新しました",
     "Deleted.": "削除しました",

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Chanpion;
 use App\Skill;
+use App\Roll;
+use App\Tag;
+
+
 use Illuminate\Support\Facades\Auth;
 
 // use Illuminate\Auth\Events\Registered;
@@ -216,10 +220,103 @@ class ChanpionsController extends Controller
 
     public function createRoll(Request $request) {
         $request->validate([
-
+            'name' => 'string|max:20',
+        ],
+        [
+            'name.string' => 'ロール名は文字で入力して下さい',
+            'name.max' => 'ロール名は20文字以内で入力して下さい',
         ]);
-        
+        error_log('バリデーションOK');
+
+        $rollsData = new Roll;
+        $rollsData->fill($request->all())->save();
+        return redirect('/chanpions')->with('flash_message', __('New Roll Registered.'));
     }
 
+    public function editRoll($id){
+        // GETパラメータが数字かどうかをチェックする
+        //事前にチェックする事で無駄なアクセスを減らせる
+        if(!ctype_digit($id)){
+
+            return redirect('/rolls/new')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
+       $roll = Roll::find($id);
+        // $chanpion = Auth::user()->drills()->find($id);
+        return view('chanpions.rollEdit', compact('roll'));
+    }
+    public function updateRoll(Request $request ,$id) {
+        if(!ctype_digit($id)){
+            return view('chanpions.rollEdit')->with('flash_message',__('Invalid operation was performed.'));
+        }
+
+        $rollData = Roll::find($id);
+        $rollData->fill($request->all())->save();
+
+        return redirect('/chanpions')->with('flash_message', __('Updated Roll.'));
+    }
+
+    public function deleteRoll($id) {
+        if(!ctype_digit($id)){
+            return view('chanpions.index')->with('flash_mesage', __('Invalid operation was performed.'));
+        }
+        Roll::find($id)->delete();
+        return redirect('/chanpions')->with('flash_message', __('Deleted Roll.'));
+    }
+
+// ---------------------------------
+// タグ系
+// ---------------------------------
+public function newTag(){
+    return view('chanpions.newTag');
+}
+
+public function createTag(Request $request) {
+    $request->validate([
+        'name' => 'string|max:20',
+        'sub_name' => 'string|max:20',
+    ],
+    [
+        'name.string' => 'ロール名は文字で入力して下さい',
+        'sub_name.string' => 'ロール名は文字で入力して下さい',
+        'name.max' => 'ロール名は20文字以内で入力して下さい',
+        'sub_name.max' => 'ロール名は20文字以内で入力して下さい',
+    ]);
+    error_log('バリデーションOK');
+
+    $tagsData = new Tag;
+    $tagsData->fill($request->all())->save();
+    return redirect('/chanpions')->with('flash_message', __('New Tag Registered.'));
+}
+
+public function editTag($id){
+    // GETパラメータが数字かどうかをチェックする
+    //事前にチェックする事で無駄なアクセスを減らせる
+    if(!ctype_digit($id)){
+
+        return redirect('/tags/new')->with('flash_message', __('Invalid operation was performed.'));
+    }
+
+   $tag = Tag::find($id);
+    // $chanpion = Auth::user()->drills()->find($id);
+    return view('chanpions.tagEdit', compact('tag'));
+}
+public function updateTag(Request $request ,$id) {
+    if(!ctype_digit($id)){
+        return view('chanpions.tagEdit')->with('flash_message',__('Invalid operation was performed.'));
+    }
+
+    $tagData = Tag::find($id);
+    $tagData->fill($request->all())->save();
+
+    return redirect('/chanpions')->with('flash_message', __('Updated Tag.'));
+}
+public function deleteTag($id) {
+    if(!ctype_digit($id)){
+        return view('chanpions.index')->with('flash_mesage', __('Invalid operation was performed.'));
+    }
+    Tag::find($id)->delete();
+    return redirect('/chanpions')->with('flash_message', __('Deleted Tag.'));
+}
 
 }
