@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Skill Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('skills.create') }}">
+                        <form method="POST" action="{{ route('skills.update', $skillData->id) }}">
                             @csrf
 
 <!-- 名前・英名 -->
@@ -21,7 +21,7 @@
                                     id="name" 
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name') }}" 
+                                    value="{{ old('name', $skillData->name) }}" 
                                     autocomplete="name" autofocus>
 
                                     @error('name')
@@ -38,7 +38,7 @@
                                     id="na_name" 
                                     type="text" 
                                     class="form-control @error('na_name') is-invalid @enderror" name="na_name" 
-                                    value="{{ old('na_name') }}" 
+                                    value="{{ old('na_name', $skillData->na_name) }}" 
                                     autocomplete="na_name" autofocus>
 
                                     @error('na_name')
@@ -63,7 +63,7 @@
                                     id="skill_type" 
                                     class="form-control @error('skill_type') is-invalid @enderror" 
                                     name="skill_type" 
-                                    value="{{ old('skill_type') }}"
+                                    value="{{ old('skill_type', $skillData->skill_type) }}"
                                     >
                                     <option value="0">passive</option>
                                     <option value="1">Qスキル</option>
@@ -94,7 +94,7 @@
                                     id="chanpion_id" 
                                     class="form-control @error('chanpion_id') is-invalid @enderror" 
                                     name="chanpion_id" 
-                                    value="{{ old('chanpion_id') }}"
+                                    value="{{ old('chanpion_id', $skillData->chanpion_id) }}"
                                     >
                                     <option value="0">chanpion_id 1</option>
                                     <option value="1">chanpion_id 2</option>
@@ -120,7 +120,7 @@
                                     <textarea 
                                     id="text" 
                                     class="form-control @error('text') is-invalid @enderror" name="text" 
-                                    value="{{ old('text') }}" 
+                                    value="{{ old('text', $skillData->text) }}" 
                                     cols="100"
                                     rows="5"
                                     autofocus

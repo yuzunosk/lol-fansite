@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Chanpion;
+use App\Skill;
 use Illuminate\Support\Facades\Auth;
 
 // use Illuminate\Auth\Events\Registered;
 
 class ChanpionsController extends Controller
 {
+// ---------------------------------
+// チャンピオン系
+// ---------------------------------
     public function indexChanpion(){
         $chanpionsData = Chanpion::all();
         return view('chanpions.index', compact('chanpionsData'));
@@ -119,7 +123,15 @@ class ChanpionsController extends Controller
 
     return redirect('/chanpions')->with('flash_message', __('Deleted.'));
     }
+
+// ---------------------------------
 // スキル系
+// ---------------------------------
+
+    public function indexSkill(){
+        $skillsData = Skill::all();
+        return view('chanpions.skillIndex', compact('skillsData'));
+    }
 
     public function newSkill() {
         //chanpionスキル登録画面を呼ぶ
@@ -129,66 +141,85 @@ class ChanpionsController extends Controller
     public function createSkill(Request $request) {
 
         $request->validate([
-            // 'name' => 'string|max:255',
-            // 'sub_name' => 'string|max:255',
-            // 'popular_name' => 'string|max:20',
-            // 'feature' => 'string|max:60',
-            // 'main_roll_id' => 'nullable',
-            // 'sub_roll_id' => 'different:main_roll_id|nullable|',
-            // 'be_cost' => 'nullable|numeric',
-            // 'rp_cost' => 'nullable|numeric',
-            // 'chanpion_img' => 'nullable|file|image',
-            // 'st_attack' => 'required|numeric|max:10|min:1',
-            // 'st_magic' => 'required|numeric|max:10|min:1',
-            // 'st_toughness' => 'required|numeric|max:10|min:1',
-            // 'st_mobility' => 'required|numeric|max:10|min:1',
-            // 'st_difficulty' => 'required|numeric|max:10|min:1',
-            // 'user_id' => 'required'
-        // ]
-        // ,[
-        //     'name.required' => '名前は必須入力です',
-        //     'name.string' => '文字列で入力してください',
-        //     'name.max' => '名前は255文字以内で入力して下さい',
-        //     'sub_name.required' => '英名は必須入力です',
-        //     'sub_name.max' => '英名は255文字以内で入力して下さい',
-        //     'sub_name.string' => '文字列で入力して下さい',
-        //     'popular_name.string' => '文字列で入力して下さい',
-        //     'popular_name.max' => '20文字以内で入力して下さい',
-        //     'feature.string' => '文字列で入力して下さい',
-        //     'feature.max' => '60文字以内で入力して下さい',
-        //     'sub_roll_id.different' => 'メインロールと同一ロールは、選択できません',
-        //     'be_cost.numeric' => '数値ではありません',
-        //     'rp_cost.numeric' => '数値ではありません',
-        //     'chanpion_img.file' => 'アップロードできませんでした',
-        //     'chanpion_img.image' => 'アップロードできない形式です',
-        //     'chanpion_img.nullable' => '画像は後にいれることが出来ます',
-        //     'st_attack.required' => '必須入力です',
-        //     'st_magic.required' => '必須入力です',
-        //     'st_toughness.required' => '必須入力です',
-        //     'st_mobility.required' => '必須入力です',
-        //     'st_difficulty.required' => '必須入力です',
-        //     'st_attack.max' => '10以下の値を入力してください',
-        //     'st_attack.min' => '0以上の値を入力してください',
-        //     'st_magic.max' => '10以下の値を入力してください',
-        //     'st_magic.min' => '0以上の値を入力してください',
-        //     'st_toughness.max' => '10以下の値を入力してください',
-        //     'st_toughness.min' => '0以上の値を入力してください',
-        //     'st_mobility.max' => '10以下の値を入力してください',
-        //     'st_mobility.min' => '0以上の値を入力してください',
-        //     'st_difficulty.max' => '10以下の値を入力してください',
-        //     'st_difficulty.min' => '0以上の値を入力してください',
-        //     'user_id.required' => '必須入力です'
-        // ]);
-            $chanpionData = new Chanpion;
+            'name' => 'string|max:255',
+            'na_name' => 'string|max:255',
+            'skill_type' => 'string',
+            'chanpion_id' => 'required|numeric',
+            'text' => 'string|nullable|max:255',
+            // 'skill_icon_1' => 'nullable|file|image',
+            // 'skill_icon_2' => 'nullable|file|image',
+        ]
+        ,[
+            'name.required' => '名前は必須入力です',
+            'name.string' => '文字列で入力してください',
+            'name.max' => '名前は255文字以内で入力して下さい',
+            'na_name.required' => '英名は必須入力です',
+            'na_name.max' => '英名は255文字以内で入力して下さい',
+            'na_name.string' => '文字列で入力して下さい',
+            'skill_type.string' => '文字列で入力して下さい',
+            'text.string' => '文字列で入力して下さい',
+            'text.max' => 'テキストは255文字以内で入力して下さい',
+            'text.nullable' => 'テキストの入力をお忘れではないですか？',
+            'skill_icon_1.file' => 'アップロードできませんでした',
+            'skill_icon_1.image' => 'アップロードできない形式です',
+            'skill_icon_1.nullable' => '画像は後にいれることが出来ます',
+            'skill_icon_2.file' => 'アップロードできませんでした',
+            'skill_icon_2.image' => 'アップロードできない形式です',
+            'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
+        ]);
+            $skillDatas = new Skill;
 
-
-            $chanpionData->fill($request->all())->save();
+            $skillDatas->fill($request->all())->save();
 
             error_log('ここまで処理しました');
 
 
             //リダイレクトする、その時にフラッシュメッセージをいれる
-            return redirect('/chanpions')->with('flash_message',__('Registered.'));
+            return redirect('/skills')->with('flash_message',__('Registered.'));
     }
+
+    public function editSkill($id) {
+        if(!ctype_digit($id)){
+            return view('chanpion.skillEdit')->with('flash_message',__('Invalid operation was performed.'));
+        }
+
+        $skillData = Skill::find($id);
+
+        return view('chanpions.skillEdit', compact('skillData'));
+    }
+
+    public function updateSkill(Request $request ,$id) {
+        if(!ctype_digit($id)){
+            return view('chanpions.skillEdit')->with('flash_message',__('Invalid operation was performed.'));
+        }
+
+        $skillData = Skill::find($id);
+        $skillData->fill($request->all())->save();
+
+        return redirect('/skills')->with('flash_message', __('Updated.'));
+    }
+
+    public function deleteSkill($id) {
+        if(!ctype_digit($id)){
+            return view('chanpions.skillIndex')->with('flash_mesage', __('Invalid operation was performed.'));
+        }
+        Skill::find($id)->delete();
+        return redirect('/skills')->with('flash_message', __('Deleted.'));
+    }
+
+// ---------------------------------
+// ロール系
+// ---------------------------------
+    public function newRoll(){
+        return view('chanpions.newRoll');
+    }
+
+    public function createRoll(Request $request) {
+        $request->validate([
+
+        ]);
+        
+    }
+
 
 }
