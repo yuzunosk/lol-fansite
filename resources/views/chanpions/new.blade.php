@@ -188,7 +188,7 @@
 <!-- チャンピオン コスト END-->
 
 <!-- チャンピオン img -->
-            <div class="container">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="form-group col">
                         <label for="file1">
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 <!-- チャンピオン　簡易ステータス -->
             <div class="container mb-2 p-0">
                 <h4>
@@ -401,7 +401,7 @@
 <!-- チャンピオンタグ END-->
 
 <!-- submit -->
-                    <div class="container text-center my-5">
+                    <div class="container text-center mt-4">
                         <div class="form-group row">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary px-5">
