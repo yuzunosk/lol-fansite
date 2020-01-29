@@ -79,8 +79,80 @@
         @endif
 
 
-        <main class="py-4">
-            @yield('content')
+        <main class="p-4">
+            <div class="container-fluied">
+                <div class="row">
+                    @yield('content')
+                    @section('sidebar')
+                    <div class="col-2">
+                        <div class="container-fluied text-center">
+                            <div class="row justify-content-end">
+                                <div class="col list-group list-group-flush">
+                                    <p class="list-group-item list-group-item-dark">my menu</p>
+                                    <!-- dropdown_menu -->
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        profile
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="#" class="dropdown-item">E-mail</a>
+                                                <a href="#" class="dropdown-item">Password</a>
+                                            </div>
+                                    </div>
+
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        Chanpion Skills
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="#" class="dropdown-item">New Skill Registration</a>
+                                                <a href="#" class="dropdown-item">Registration Skills List</a>
+                                            </div>
+                                    </div>
+
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        Chanpion Rolls
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="#" class="dropdown-item">New Roll Registration</a>
+                                                <a href="#" class="dropdown-item">Registration Rolls List</a>
+                                            </div>
+                                    </div>
+
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        Chanpion Tags
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="#" class="dropdown-item">New Tag Registration</a>
+                                                <a href="#" class="dropdown-item">Registration Tags List</a>
+                                            </div>
+                                    <!-- dropdown_menu END-->
+
+<!-- content -->
+                                    <a href="#" class="list-group-item list-group-item-action">Contents</a>
+<!-- content end-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div> <!-- col2 -->
+                    @show
+            <div> <!-- row -->
+            </div> <!-- container -->
         </main>
     </div>
 </body>
