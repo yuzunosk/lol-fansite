@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ __('ChanpionRegister') }}</div>
+                <div class="card-header text-center">{{ __('Chanpion Editer') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('chanpions.update',$chanpion->id) }}">

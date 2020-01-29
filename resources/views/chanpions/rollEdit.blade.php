@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Roll Register') }}</div>
+                    <div class="card-header text-center">{{ __('Roll Editer') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('rolls.update',$roll->id) }}">

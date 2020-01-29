@@ -214,6 +214,11 @@ class ChanpionsController extends Controller
 // ---------------------------------
 // ロール系
 // ---------------------------------
+    public function indexRoll(){
+        $rollsData = Roll::all();
+        return view('chanpions.rollIndex', compact('rollsData'));
+}
+
     public function newRoll(){
         return view('chanpions.newRoll');
     }
@@ -230,14 +235,13 @@ class ChanpionsController extends Controller
 
         $rollsData = new Roll;
         $rollsData->fill($request->all())->save();
-        return redirect('/chanpions')->with('flash_message', __('New Roll Registered.'));
+        return redirect('/rolls')->with('flash_message', __('New Roll Registered.'));
     }
 
     public function editRoll($id){
         // GETパラメータが数字かどうかをチェックする
         //事前にチェックする事で無駄なアクセスを減らせる
         if(!ctype_digit($id)){
-
             return redirect('/rolls/new')->with('flash_message', __('Invalid operation was performed.'));
         }
 
@@ -245,15 +249,14 @@ class ChanpionsController extends Controller
         // $chanpion = Auth::user()->drills()->find($id);
         return view('chanpions.rollEdit', compact('roll'));
     }
+
     public function updateRoll(Request $request ,$id) {
         if(!ctype_digit($id)){
             return view('chanpions.rollEdit')->with('flash_message',__('Invalid operation was performed.'));
         }
-
         $rollData = Roll::find($id);
         $rollData->fill($request->all())->save();
-
-        return redirect('/chanpions')->with('flash_message', __('Updated Roll.'));
+        return redirect('/rolls')->with('flash_message', __('Updated Roll.'));
     }
 
     public function deleteRoll($id) {
@@ -261,12 +264,17 @@ class ChanpionsController extends Controller
             return view('chanpions.index')->with('flash_mesage', __('Invalid operation was performed.'));
         }
         Roll::find($id)->delete();
-        return redirect('/chanpions')->with('flash_message', __('Deleted Roll.'));
+        return redirect('/rolls')->with('flash_message', __('Deleted Roll.'));
     }
 
 // ---------------------------------
 // タグ系
 // ---------------------------------
+public function indexTag(){
+    $tagsData = Tag::all();
+    return view('chanpions.tagIndex', compact('tagsData'));
+}
+
 public function newTag(){
     return view('chanpions.newTag');
 }
@@ -286,7 +294,7 @@ public function createTag(Request $request) {
 
     $tagsData = new Tag;
     $tagsData->fill($request->all())->save();
-    return redirect('/chanpions')->with('flash_message', __('New Tag Registered.'));
+    return redirect('/tags')->with('flash_message', __('New Tag Registered.'));
 }
 
 public function editTag($id){
@@ -298,7 +306,7 @@ public function editTag($id){
     }
 
    $tag = Tag::find($id);
-    // $chanpion = Auth::user()->drills()->find($id);
+    // $tag = Auth::user()->drills()->find($id);
     return view('chanpions.tagEdit', compact('tag'));
 }
 public function updateTag(Request $request ,$id) {
@@ -309,14 +317,14 @@ public function updateTag(Request $request ,$id) {
     $tagData = Tag::find($id);
     $tagData->fill($request->all())->save();
 
-    return redirect('/chanpions')->with('flash_message', __('Updated Tag.'));
+    return redirect('/tags')->with('flash_message', __('Updated Tag.'));
 }
 public function deleteTag($id) {
     if(!ctype_digit($id)){
-        return view('chanpions.index')->with('flash_mesage', __('Invalid operation was performed.'));
+        return view('chanpions.tagIndex')->with('flash_mesage', __('Invalid operation was performed.'));
     }
     Tag::find($id)->delete();
-    return redirect('/chanpions')->with('flash_message', __('Deleted Tag.'));
+    return redirect('/tags')->with('flash_message', __('Deleted Tag.'));
 }
 
 }

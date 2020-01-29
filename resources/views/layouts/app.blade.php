@@ -108,11 +108,24 @@
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        Chanpions
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="{{ route('chanpions.new') }}" class="dropdown-item">New Chanpion Registration</a>
+                                                <a href="{{ route('chanpions.create') }}" class="dropdown-item">Registration Chanpions List</a>
+                                            </div>
+                                    </div>
+
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
                                         Chanpion Skills
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="#" class="dropdown-item">New Skill Registration</a>
-                                                <a href="#" class="dropdown-item">Registration Skills List</a>
+                                                <a href="{{ route('skills.new') }}" class="dropdown-item">New Skill Registration</a>
+                                                <a href="{{ route('skills.create') }}" class="dropdown-item">Registration Skills List</a>
                                             </div>
                                     </div>
 
@@ -124,8 +137,8 @@
                                         Chanpion Rolls
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="#" class="dropdown-item">New Roll Registration</a>
-                                                <a href="#" class="dropdown-item">Registration Rolls List</a>
+                                                <a href="{{ route('rolls.new') }}" class="dropdown-item">New Roll Registration</a>
+                                                <a href="{{ route('rolls.create') }}" class="dropdown-item">Registration Rolls List</a>
                                             </div>
                                     </div>
 
@@ -137,13 +150,25 @@
                                         Chanpion Tags
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="#" class="dropdown-item">New Tag Registration</a>
-                                                <a href="#" class="dropdown-item">Registration Tags List</a>
+                                                <a href="{{ route('tags.new') }}" class="dropdown-item">New Tag Registration</a>
+                                                <a href="{{ route('tags.create') }}" class="dropdown-item">Registration Tags List</a>
                                             </div>
+
                                     <!-- dropdown_menu END-->
 
 <!-- content -->
-                                    <a href="#" class="list-group-item list-group-item-action">Contents</a>
+                                            <div class="btn-group dropleft list-group-item p-0">
+                                                <button 
+                                                type="button" class="btn btn-white dropdown-toggle p-3" 
+                                                data-toggle="dropdown" aria-haspopup="true" 
+                                                aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                                Contents
+                                                </button>
+                                            <div class="dropdown-menu">
+                                                <a href="{{ route('articles.new') }}" class="dropdown-item">New Articles Registration</a>
+                                                <a href="{{ route('categorys.new') }}" class="dropdown-item">New Category Registration</a>
+                                                <a href="{{ route('articles.create') }}" class="dropdown-item">Registration Articles List</a>
+                                            </div>
 <!-- content end-->
                                 </div>
                             </div>

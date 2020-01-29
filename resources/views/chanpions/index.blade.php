@@ -4,6 +4,8 @@
 @section('content')
         @section('sidebar')
         <div class="col-10">
+
+        <div class="row row-cols-1 row-cols-md-2">
                 @foreach($chanpionsData AS $chanpionData)
 
                 <div class="col-md-6">
@@ -36,7 +38,7 @@
                       </div>
                 </div>
             @endforeach
-
+            </div>
         </div>
             @parent
         @endsection
