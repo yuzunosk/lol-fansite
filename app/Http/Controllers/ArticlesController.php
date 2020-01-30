@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    // --------
+    // 記事
+    // --------
     public function indexArticles() {
         //記事一覧表示画面を呼ぶ
         //全てのデータを取り出す
@@ -26,22 +29,51 @@ class ArticlesController extends Controller
             'title' => 'string|max:255'
 
         ]);
-
         $articleData = new Articles;
 
         $articleData->fill($request->all())->save();
         return redirect('/articles')->with('flash_message', __('Registered.'));
     }
 
+    public function deleteArticles($id){
+        if(!ctype_digit($id)) {
+           return redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        Articles::fill($id)->delete();
+        return redirect('/articles')->with('flash_message', __('Article Deleted.'));
+    }
+    
+    public function updateArticles(Request $request , $id) {
+         if(!ctype_digit($id)){
+             return redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
+         }
+         $updataData = Article::find($id);
+         $updataData->fill($reqest->all())->save();
+         return redirect('/articles')->with('flash_message', __('Updated Article'));
+    }
 
-    public function indexCategory() {
-        //記事一覧表示画面を呼ぶ
-        //全てのデータを取り出す
-        $articleDatas = Articles::all();
+    public function editArticles($id){
+        if(ctype_digit($id)){
+            return redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        $articleEditData = Article::fill($id);
+        return view('articles.edit', compact('articleEditData'));
+    }
+    // 記事 END---------------------------
+
+
+
+// ----------------------
+// 記事カテゴリー
+// -----------------------
+public function indexCategory() {
+    //記事一覧表示画面を呼ぶ
+    //全てのデータを取り出す
+    $articleDatas = Articles::all();
         return view('articles.index', compact('articleDatas'));
     }
 
-    public function newCategorys() {
+    public function newCategory() {
         return view('articles.newCategory');
     }
 
@@ -55,4 +87,14 @@ class ArticlesController extends Controller
 
         return redirect('/articles')->with('flash_message', __('Registered'));
     }
+    
+    public function deleteCategory($id){
+        if(!ctype_digit($id)) {
+            redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        ArticleCategory::fill($id)->delete();
+        return redirect('/articles')->with('flash_message' ,__('Category Deleted'));
+    }
+    
+    // 記事カテゴリー END
 }

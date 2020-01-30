@@ -38,7 +38,6 @@ Route::get('/rolls/{id}/edit', 'ChanpionsController@editRoll')->name('rolls.edit
 Route::post('/rolls/{id}', 'ChanpionsController@updateRoll')->name('rolls.update');
 Route::post('/rolls/{id}/delete', 'ChanpionsController@deleteRoll')->name('rolls.delete');
 
-
 //タグ追加ページ
 Route::get('/tags/new', 'ChanpionsController@newTag')->name('tags.new');
 Route::post('/tags', 'ChanpionsController@createTag')->name('tags.create');
@@ -51,8 +50,12 @@ Route::post('/tags/{id}/delete', 'ChanpionsController@deleteTag')->name('tags.de
 Route::get('/articles/new', 'ArticlesController@newArticles')->name('articles.new');
 Route::post('/articles', 'ArticlesController@createArticles')->name('articles.create');
 Route::get('/articles', 'ArticlesController@indexArticles')->name('articles.create');
-Route::get('/categorys/new', 'ArticlesController@newCategorys')->name('categorys.new');
-Route::post('/articles', 'ArticlesController@createCategory')->name('category.create');
+Route::get('/articles/{id}/edit', 'ArticlesController@editArticles')->name('articles.edit');
+Route::post('/articles/{id}', 'ArticlesController@updateArticles')->name('articles.update');
+Route::post('/articles/{id}/delete', 'ArticlesController@deleteArticles')->name('articles.delete');
+//カテゴリー追加ページ
+Route::get('/categorys/new', 'ArticlesController@newCategory')->name('categorys.new');
+Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('category.delete');
 
 
 

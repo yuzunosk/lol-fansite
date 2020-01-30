@@ -99,7 +99,7 @@ class ChanpionsController extends Controller
         //事前にチェックする事で無駄なアクセスを減らせる
         if(!ctype_digit($id)){
 
-            return redirect('/chanpions/new')->with('flash_message', __('Invalid operation was performed.'));
+            return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
         }
 
        $chanpion = Chanpion::find($id);
@@ -110,7 +110,7 @@ class ChanpionsController extends Controller
     public function updateChanpion(Request $request, $id){
     // GETパラメータが数字かどうかをチェックする
     if(!ctype_digit($id)){
-        return redirect('/chanpions/new')->with('flash_message', __('Invalid operation was performed.'));
+        return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
     }
 
     $chanpionsData = Chanpion::find($id);
@@ -121,7 +121,7 @@ class ChanpionsController extends Controller
 
     public function deleteChanpion($id) {
         if(!ctype_digit($id)){
-            return redirect('/chanpions/new')->with('flash_message', __('Invalid operation was performed.'));
+            return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
     }
     Chanpion::find($id)->delete();
 
@@ -184,7 +184,7 @@ class ChanpionsController extends Controller
 
     public function editSkill($id) {
         if(!ctype_digit($id)){
-            return view('chanpion.skillEdit')->with('flash_message',__('Invalid operation was performed.'));
+            return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
 
         $skillData = Skill::find($id);
@@ -194,7 +194,7 @@ class ChanpionsController extends Controller
 
     public function updateSkill(Request $request ,$id) {
         if(!ctype_digit($id)){
-            return view('chanpions.skillEdit')->with('flash_message',__('Invalid operation was performed.'));
+            return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
 
         $skillData = Skill::find($id);
@@ -205,7 +205,7 @@ class ChanpionsController extends Controller
 
     public function deleteSkill($id) {
         if(!ctype_digit($id)){
-            return view('chanpions.skillIndex')->with('flash_mesage', __('Invalid operation was performed.'));
+            return redirect('/skills')->with('flash_mesage', __('Invalid operation was performed.'));
         }
         Skill::find($id)->delete();
         return redirect('/skills')->with('flash_message', __('Deleted.'));
@@ -242,7 +242,7 @@ class ChanpionsController extends Controller
         // GETパラメータが数字かどうかをチェックする
         //事前にチェックする事で無駄なアクセスを減らせる
         if(!ctype_digit($id)){
-            return redirect('/rolls/new')->with('flash_message', __('Invalid operation was performed.'));
+            return redirect('/rolls')->with('flash_message', __('Invalid operation was performed.'));
         }
 
        $roll = Roll::find($id);
@@ -252,7 +252,7 @@ class ChanpionsController extends Controller
 
     public function updateRoll(Request $request ,$id) {
         if(!ctype_digit($id)){
-            return view('chanpions.rollEdit')->with('flash_message',__('Invalid operation was performed.'));
+            return redirect('/rolls')->with('flash_message',__('Invalid operation was performed.'));
         }
         $rollData = Roll::find($id);
         $rollData->fill($request->all())->save();
@@ -261,7 +261,7 @@ class ChanpionsController extends Controller
 
     public function deleteRoll($id) {
         if(!ctype_digit($id)){
-            return view('chanpions.index')->with('flash_mesage', __('Invalid operation was performed.'));
+            return redirect('/rolls')->with('flash_mesage', __('Invalid operation was performed.'));
         }
         Roll::find($id)->delete();
         return redirect('/rolls')->with('flash_message', __('Deleted Roll.'));
@@ -302,7 +302,7 @@ public function editTag($id){
     //事前にチェックする事で無駄なアクセスを減らせる
     if(!ctype_digit($id)){
 
-        return redirect('/tags/new')->with('flash_message', __('Invalid operation was performed.'));
+        return redirect('/tags')->with('flash_message', __('Invalid operation was performed.'));
     }
 
    $tag = Tag::find($id);
@@ -311,7 +311,7 @@ public function editTag($id){
 }
 public function updateTag(Request $request ,$id) {
     if(!ctype_digit($id)){
-        return view('chanpions.tagEdit')->with('flash_message',__('Invalid operation was performed.'));
+        return redirect('/tags')->with('flash_message',__('Invalid operation was performed.'));
     }
 
     $tagData = Tag::find($id);
@@ -321,7 +321,7 @@ public function updateTag(Request $request ,$id) {
 }
 public function deleteTag($id) {
     if(!ctype_digit($id)){
-        return view('chanpions.tagIndex')->with('flash_mesage', __('Invalid operation was performed.'));
+        return redirect('/tags')->with('flash_mesage', __('Invalid operation was performed.'));
     }
     Tag::find($id)->delete();
     return redirect('/tags')->with('flash_message', __('Deleted Tag.'));
