@@ -8,34 +8,48 @@
         <div class="row row-cols-1 row-cols-md-2">
                 @foreach($chanpionsData AS $chanpionData)
 
-                <div class="col-md-6">
+                <div class="col-md-3 col-12 mb-4">
                     <div class="card bg-dark text-white">
-                      <img src="" class="card-img" alt="" width="400px" height="300px">
-                      <div class="card-img-overlay">
-                        <h4 class="card-title">{{ $chanpionData -> name }}<span class="px-3 ml-3">{{ $chanpionData -> sub_name }}</span></h4>
-                        <p class="card-text">{{ $chanpionData -> popular_name }}</p>
-                        <p class="card-text">{{ $chanpionData -> feature }}</p>
-                            <div class="conteinar">
-                                <div class="row">
-                                <p class="btn btn-dark p-0 mr-2">Main Roll<span class="badge badge-light px-3 ml-1">{{$chanpionData->main_roll_id }}</span></p>
-                                <p class="btn btn-dark p-0 mr-2">Sub Roll<span class="badge badge-light px-3 ml-1">{{ $chanpionData->sub_roll_id }}</span></p>
-                                <p class="btn btn-dark p-0 mr-2">Be Cost<span class="badge badge-light px-3 ml-1">{{ $chanpionData->be_cost }}</span></p>
-                                <p class="btn btn-dark p-0 mr-2">Rp Cost<span class="badge badge-light px-3 ml-1">{{ $chanpionData->rp_cost }}</span></p>
-                                </div>
+                        <div class="container p-0">
+                      <img src="@if($chanpionData->chanpion_img){{ asset('storage/'.$chanpionData->chanpion_img) }}@else{{ asset('storage/img/etc/img_no.png') }}   @endif" class="card-img"
+                      style="position:relative;height:300px;object-fit:cover">
+                      <div class="card-img-overlay p-0">
+                        <h3 class="card-title font-weight-boldre" 
+                        style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;">
+                        {{ $chanpionData -> name }}</h3>
+                            <div class="card-text row ml-2" style="position: absolute;bottom:20%;">
+                                <p class="bg-light text-dark p-0 px-2 mr-2">Main Roll<span class="badge badge-dark px-3 ml-1">{{$chanpionData->main_roll_id }}</span></p>
+                                <p class="bg-light text-dark p-0 px-2 mr-2">Sub Roll<span class="badge badge-dark px-3 ml-1">{{ $chanpionData->sub_roll_id }}</span></p>
                             </div>
-                            <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a>
-                            <a href="{{ route('chanpions.edit', $chanpionData->id) }}"
-                                class="btn btn-warning">
-                                {{ __('Go Edit')}}</a>
-                            <form action="{{ route('chanpions.delete',$chanpionData->id) }}" method="post"
-                            class="d-inline">
-                            @csrf
-                            <button class="btn btn-secondary" 
-                            onclick="return confirm('本当に削除しますか？');">
-                            {{  __('Go Delete') }}</button>
-                            </form>
                         </div>
-                      </div>
+                        </div>
+                                <!-- <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a> -->
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <form action="{{ route('tagbox.new',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm border-dark text-dark bg-white" >
+                                        <i class="fas fa-bookmark fa-2x fa-fw"></i>Tag
+                                        </button>
+                                        </form>
+
+                                        <form action="{{ route('chanpions.edit',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm border-dark text-dark bg-white" >
+                                        <i class="fas fa-edit fa-2x fa-fw"></i>Edit
+                                        </button>
+                                        </form>
+
+                                        <form action="{{ route('chanpions.delete',$chanpionData->id) }}" method="post" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm border-dark text-dark bg-white" 
+                                        onclick="return confirm('本当に削除しますか？');">
+                                        <i class="fas fa-trash fa-2x fa-fw"></i>Delete
+                                        </button>
+                                        </form>
+                                    </div>
+                                </div>
+                      </div>    <!--card -->
                 </div>
             @endforeach
             </div>

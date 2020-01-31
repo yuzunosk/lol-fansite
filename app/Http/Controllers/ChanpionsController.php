@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Chanpion;
 use App\Skill;
 use App\Roll;
 use App\Tag;
+use App\TagBox;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +27,13 @@ class ChanpionsController extends Controller
 
     public function newChanpion() {
         //chanpion登録画面を呼ぶ
-        return view('chanpions.new');
+        //ロールカテゴリーデータをDBから呼び出す
+        //ユーザーデータをDBから呼び出す
+        $rollCategorys = Roll::all();
+        $userDatas = User::all();
+        $tagDatas = Tag::all();
+
+        return view('chanpions.new' ,compact(['rollCategorys','userDatas','tagDatas']));
     }
 
     public function createChanpion(Request $request) {
@@ -39,14 +47,14 @@ class ChanpionsController extends Controller
             'sub_roll_id' => 'different:main_roll_id|nullable|',
             'be_cost' => 'nullable|numeric',
             'rp_cost' => 'nullable|numeric',
-            'chanpion_img' => 'nullable|file|image',
+            'chanpion_img' => 'nullable|file|image|max:10240',
             'st_attack' => 'required|numeric|max:10|min:1',
             'st_magic' => 'required|numeric|max:10|min:1',
             'st_toughness' => 'required|numeric|max:10|min:1',
             'st_mobility' => 'required|numeric|max:10|min:1',
             'st_difficulty' => 'required|numeric|max:10|min:1',
-            'user_id' => 'required'
-            // 'chanpion_tag_id' => 'required|numeric'
+            'user_id' => 'required',
+            'chanpion_tagId[]' => 'array|string'
         ]
         ,[
             'name.required' => '名前は必須入力です',
@@ -82,14 +90,34 @@ class ChanpionsController extends Controller
             'st_difficulty.min' => '0以上の値を入力してください',
             'user_id.required' => '必須入力です'
         ]);
+            //一つずつ入れた方が後の変更に対応しやすい
             $chanpionData = new Chanpion;
+            $chanpionData->name = $request->name;
+            $chanpionData->sub_name = $request->sub_name;
+            $chanpionData->popular_name = $request->popular_name;
+            $chanpionData->feature = $request->feature;
+            $chanpionData->main_roll_id = $request->main_roll_id;
+            $chanpionData->sub_roll_id = $request->sub_roll_id;
+            $chanpionData->be_cost = $request->be_cost;
+            $chanpionData->rp_cost = $request->rp_cost;
 
+            $file = $request->file('chanpion_img');
+            $filename = $file->getClientOriginalName();
+            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img.chanpion' , $filename);
 
-            $chanpionData->fill($request->all())->save();
+            //ファイル・リサイズ
+            // var_dump($name);
+            // $updateFile = InterventionImage::make($file)->resize(350, null, function ($constraint) {$constraint->aspectRatio();});
+            // $chanpionData->chanpion_img = $updateFile->store('/img/chanpion');
 
-            error_log('ここまで処理しました');
-
-
+            $chanpionData->st_attack = $request->st_attack;
+            $chanpionData->st_magic = $request->st_magic;
+            $chanpionData->st_toughness = $request->st_toughness;
+            $chanpionData->st_mobility = $request->st_mobility;
+            $chanpionData->st_difficulty = $request->st_difficulty;
+            $chanpionData->user_id = $request->user_id;
+            $chanpionData->chanpion_tag = $request->chanpion_tag;
+            $chanpionData->save();
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
     }
@@ -326,5 +354,28 @@ public function deleteTag($id) {
     Tag::find($id)->delete();
     return redirect('/tags')->with('flash_message', __('Deleted Tag.'));
 }
+// ---------------------------------
+// タグボックス系
+// ---------------------------------
+
+            public function newTagBox($id){
+                if(!ctype_digit($id)){
+                    return redirect('/chanpions')->with('flash_mesage', __('Invalid operation was performed.'));
+                }
+                $chanpionData = Chanpion::find($id);
+                $tagDatas  = Tag::all();
+                return view('chanpions.newTagBox',compact(['chanpionData','tagDatas']));
+            }
+
+            public function createTagBox(Request $request) {
+              $request->validate([
+                // 'name' => 'string|max:255',
+                // 'chanpion_tag_id_1' => 'required|string|max:20'
+              ]);
+                $tagboxDatas = new TagBox;
+                $tagboxDatas->fill($request->all())->save();
+                return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));
+            }
+
 
 }

@@ -42,13 +42,13 @@ class ArticlesController extends Controller
         Articles::fill($id)->delete();
         return redirect('/articles')->with('flash_message', __('Article Deleted.'));
     }
-    
+
     public function updateArticles(Request $request , $id) {
          if(!ctype_digit($id)){
              return redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
          }
-         $updataData = Article::find($id);
-         $updataData->fill($reqest->all())->save();
+         $updataData = Articles::find($id);
+         $updataData->fill($request->all())->save();
          return redirect('/articles')->with('flash_message', __('Updated Article'));
     }
 
@@ -56,7 +56,7 @@ class ArticlesController extends Controller
         if(ctype_digit($id)){
             return redirect('/articles')->with('flash_message', __('Invalid operation was performed.'));
         }
-        $articleEditData = Article::fill($id);
+        $articleEditData = Articles::fill($id);
         return view('articles.edit', compact('articleEditData'));
     }
     // 記事 END---------------------------

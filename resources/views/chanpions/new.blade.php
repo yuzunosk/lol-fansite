@@ -8,7 +8,7 @@
                 <div class="card-header text-center">{{ __('ChanpionRegister') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('chanpions.create') }}">
+                    <form method="POST" enctype='multipart/form-data' action="{{ route('chanpions.create') }}">
                         @csrf
 
                     <div class="container mb-1 p-0">
@@ -89,13 +89,12 @@
                         <select name="main_roll_id"
                         id = "select-main_roll"
                         class = "form-control text-center @error('main_roll_id') is-invalid @enderror"
-                        value="{{ old('main_roll_id') }}"
                         >
-                            <option value="1">Assasin</option>
-                            <option value="2">Mage</option>
-                            <option value="3">Fighter</option>
-                            <option value="4">Support</option>
-                            <option value="5">Marksman</option>
+                        @foreach($rollCategorys as $rollCategory)
+                            <option value="{{ $rollCategory->id }}" @if(old("main_roll_id") == $rollCategory->id) selected @endif>
+                            {{ $rollCategory->name }}
+                            </option>
+                        @endforeach
                         </select>
                         @error('main_roll_id')
                                     <span class="invalid-feedback" role="alert">
@@ -113,14 +112,13 @@
                         <select name="sub_roll_id"
                         id = "select-sub_roll"
                         class = "form-control text-center @error('sub_roll_id') is-invalid @enderror"
-                        value="{{ old('sub_roll_id') }}"
                         >
-                            <option value="0">なし</option>
-                            <option value="1">Assasin</option>
-                            <option value="2">Mage</option>
-                            <option value="3">Fighter</option>
-                            <option value="4">Support</option>
-                            <option value="5">Marksman</option>
+                            <option value="999" selected>なし</option>
+                            @foreach($rollCategorys as $rollCategory)
+                            <option value="{{ $rollCategory->id }}" @if(old("sub_roll_id") == $rollCategory->id) selected @endif>
+                            {{ $rollCategory->name }}
+                            </option>
+                            @endforeach
                         </select>
                         @error('sub_roll_id')
                                     <span class="invalid-feedback" role="alert">
@@ -188,10 +186,10 @@
 <!-- チャンピオン コスト END-->
 
 <!-- チャンピオン img -->
-            <!-- <div class="container">
+            <div class="container">
                 <div class="row">
                     <div class="form-group col">
-                        <label for="file1">
+                        <label for="file">
                         {{ __("chanpion_img") }}
                         </label>
                         <div class="chanpion_img_container p-3" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px;">
@@ -201,7 +199,7 @@
                         </span>
                             <input name="chanpion_img"
                             type = "file"
-                            id="file1"
+                            id="file"
                             class="form-control-file @error('chanpion_img') is-invalid @enderror"
                             style="height:200px;opacity:0;"
                             value="img">
@@ -213,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 <!-- チャンピオン　簡易ステータス -->
             <div class="container mb-2 p-0">
                 <h4>
@@ -363,9 +361,12 @@
                         <select name="user_id"
                         id = "select-user_id" 
                         class="form-control @error('user_id') is-invalid @enderror">
-                            <option value="1">user_1</option>
-                            <option value="2">user_2</option>
-                            <option value="3">user_3</option>
+
+                            @foreach($userDatas as $userData)
+                            <option value="{{ $userData->id }}" @if(old("user_id") == $userData->id) selected @endif>
+                            {{ $userData->name }}
+                            </option>
+                            @endforeach
                         </select>
                         @error('user_id')
                                     <span class="invalid-feedback" role="alert">
@@ -379,26 +380,26 @@
 <!-- チャンピオンタグ -->
                 <!-- <div class="container  mb-1 p-0">
                     <div class="form-group row mb-1">
-                        <label for="select-chanpion_tag_id" class="col-md-8 col-5 col-form-label">
-                        {{ __("chanpion_tag_id") }}
-                        </label>
-                        <div class="col-md-4 col-7">
-                        <select name="chanpion_tag_id"
-                        id = "select-chanpion_tag_id" 
-                        class="form-control @error('chanpion_tag_id') is-invalid @enderror">
-                            <option value="1">chanpion_tag_id 1</option>
-                            <option value="2">chanpion_tag_id 2</option>
-                            <option value="3">chanpion_tag_id 3</option>
-                        </select>
+                    <h4 class="col-12">{{ __("chanpion_tag_id") }}<span class="badgi badge-danger px-2">※複数選択可能です</span></h4>
+
+                            @foreach($tagDatas as $tagData)
+                            <div class="d-inline col-md-6 text-left">
+                            <label><input type="checkbox" name="chanpion_tagId[]" id="tag_check" class="" value="{{ $tagData->name }}">
+                            {{ $tagData->name }} / {{ $tagData->sub_name }}
+                            </label>
+                            </div>
+                            @endforeach
+
+
+
                         @error('chanpion_tag_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
                         </div>
-                    </div>
-                </div> -->
-<!-- チャンピオンタグ END-->
+                    </div> -->
+<!-- チャンピオンタグ END
 
 <!-- submit -->
                     <div class="container text-center mt-4">
