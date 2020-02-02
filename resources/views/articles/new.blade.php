@@ -8,14 +8,17 @@
                 <div class="card-header text-center">{{ __('Articles Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('articles.create') }}">
+                    <form method="POST" enctype='multipart/form-data' action="{{ route('articles.create') }}">
                         @csrf
 
 <!-- タイトル -->
                     <div class="container mb-1 p-0">
                         <div class="form-group row">
 
-                                <label for="title" class="col-md-4 col-4 col-form-label mb-1">{{ __('title') }}</label>
+                                <label for="title" class="col-md-4 col-4 col-form-label mb-1">
+                                {{ __('title') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                </label>
 
                                 <div class="col-md-8 col-8">
                                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
@@ -43,10 +46,11 @@
                                     class = "form-control text-center @error('category_id') is-invalid @enderror"
                                     value="{{ old('category_id') }}"
                                     >
-                                        <option value="1">category-1</option>
-                                        <option value="2">category-2</option>
-                                        <option value="3">category-3</option>
-                                        <option value="4">category-4</option>
+                                    <option value="999" selected>未設定</option>
+                                      @foreach($categoryDatas as $categoryData)
+                                            <option value="{{ $categoryData->name }}" @if(old('category_id') == $categoryData->name) selected @endif>
+                                            {{ $categoryData->name }}</option>
+                                      @endforeach
                                     </select>
                             @error('category_id')
                                         <span class="invalid-feedback" role="alert">
@@ -71,10 +75,11 @@
                                     class = "form-control text-center @error('user_id') is-invalid @enderror"
                                     value="{{ old('user_id') }}"
                                     >
-                                        <option value="1">user-1</option>
-                                        <option value="2">user-2</option>
-                                        <option value="3">user-3</option>
-                                        <option value="4">user-4</option>
+                                    <option value="999" selected>未設定</option>
+                                    @foreach($userDatas as $userData)
+                                            <option value="{{ $userData->name }}" @if(old('user_id') == $userData->name) selected @endif>
+                                            {{ $userData->name }}</option>
+                                    @endforeach
                                     </select>
                             @error('user_id')
                                         <span class="invalid-feedback" role="alert">
@@ -86,7 +91,7 @@
                     </div>
 <!-- user_id  end-->
 
-<!-- text 選択 -->
+<!-- text -->
             <div class="container p-0">
                             <div class="form-group row">
                                 <label for="text" class="col-md-4 col-form-label">{{ __('text') }}</label>
@@ -110,9 +115,9 @@
                                 </div>
                             </div>
             </div>
-<!-- text 選択 END -->
+<!-- text  END -->
 
-<!-- チャンピオン img -->
+<!-- 記事 img -->
             <div class="container p-0">
                 <div class="row">
                     <div class="form-group col">
@@ -139,7 +144,7 @@
                     </div>
                 </div>
             </div>
-<!-- チャンピオン img end-->
+<!-- 記事 img end-->
 
 
 

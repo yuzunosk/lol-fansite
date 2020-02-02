@@ -2,74 +2,56 @@
 
 
 @section('content')
-    <div class="container ">
-        <div class="row">
+    @section('sidebar')
+        <div class="col-10">    
+            <div class="container">
 
-                @foreach($skillsData AS $skillData)
+            <div class="row">
+                <div class="card-deck col-12 border border-dark p-4">
+                <h1 class="col-12 text-center mb-3">{{ $chanpion->name }}</h1>
 
-                <div class="col-md-6">
-                <div class="card">
-                    <!-- <router-link :to="routerLink"> -->
-                        <div class="card-body">
-                        <h3 class="card-title p-3 mb-3">{{ $skillData -> name }}
-                        <span class="px-3 ml-3">{{ $skillData -> na_name }}</span>
-                        </h3>
 
-                        <p>
-                        <span class="bg-primary px-3 text-light ml-1">skill_type / {{ $skillData -> skill_type }}</span>
-                        <span class="bg-secondary px-3 text-white ml-1">use_chanpion / {{ $skillData -> chanpion_id }}</span>
-                        </p>
+                @foreach($skillDatas as $skillData)
+                    <div class="card  col-2 bg-dark text-light p-0" style="box-sizing: border-box;">
+                        <h5 class="card-header">
+                        Passive
+                        </h5>
+                        <div class="cadr-body">
+                                <img src="@if($skillData->skill_icon_1){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-image-top" style="height:100px;object-fit:cover;">
 
-<!-- アイコン -->
-                        <div class="container">
-                            <div class="row">
-                                <img 
-                                class="col-6" 
-                                src="{{ $skillData -> skill_icon_1 }}"      alt="">
+                                <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <img class="col-6" 
-                                src="{{ $skillData -> skill_icon_2 }}"      alt="">
-                            </div>
+                                <h4 class="card-title col-10">{{ $skillData->name }}</h4>
+                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
-<!-- アイコン END -->
+                        <div class="card-footer">
+                                    <div class="row">
+                                        <form action="{{ route('skills.edit', $skillData->id) }}" method="get" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
+                                        <i class="fas fa-edit fa-lg fa-fw"></i>Edit
+                                        </button>
+                                        </form>
 
-<!-- テキスト -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <p>
-                                        {{ $skillData -> text }}
-                                    </p>
-                                </div>
-                            </div>
+                                        <form action="{{ route('skills.delete', $skillData->id) }}" method="post" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm border-dark text-dark bg-white" style="cursor:pointer;"
+                                        onclick="return confirm('本当に削除しますか？');">
+                                        <i class="fas fa-trash fa-lg fa-fw"></i>Delete
+                                        </button>
+                                        </form>
+                                    </div>
                         </div>
-<!-- テキスト  end-->
+                    </div>
 
-                    <!-- </router-link> -->
-                        <!-- <a href="{{ route('chanpions.edit', $skillData->id) }}"
-                        class="btn btn-warning">
-                        {{ __('Go Edit')}}</a>
-                        <form action="{{ route('chanpions.delete',$skillData->id) }}" method="post"
-                        class="d-inline">
-                        @csrf
-                        <button class="btn btn-secondary" 
-                        onclick="return confirm('本当に削除しますか？');">
-                        {{  __('Go Delete') }}</button>
-                        </form> -->
-
-                                <!-- </router-link> -->
-                                <a href="#" class="btn btn-primary">{{ __('Go Linked') }}</a>
-                                <a href="{{ route('skills.edit', $skillData->id) }}" class="btn btn-warning">
-                                {{ __('Go Edit') }}</a>
-                                <form class="d-inline" action="{{ route('skills.delete', $skillData->id) }}" method="post">
-                                @csrf
-                                <button class="btn btn-secondary" onclick="return confirm('本当に削除しますか？?'); ">
-                                {{ __('Go Delete') }}</button>
-                                </form>
-                        </div>
-                </div>
+                    
+                @endforeach
             </div>
-            @endforeach
+            </div>
         </div>
-    </div>
+        </div>
+        @parent
+        @endsection
 @endsection

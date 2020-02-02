@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use App\Articles;
 use App\ArticleCategory;
 
@@ -16,22 +17,39 @@ class ArticlesController extends Controller
         //全てのデータを取り出す
         $articleDatas = Articles::all();
 
-        return view('articles.index', compact('articleDatas'));
+        return view('articles.index', compact('articleDatas',));
     }
 
     public function newArticles() {
         //記事登録画面を呼ぶ
-        return view('articles.new');
+        $categoryDatas = ArticleCategory::all();
+        $userDatas = User::all();
+
+        return view('articles.new', compact(['categoryDatas','userDatas']));
     }
 
     public function createArticles(Request $request) {
         $request->validate([
-            'title' => 'string|max:255'
+            'title' => 'string|max:255',
+            'text' => 'nullable|string|max:255',
+            'img' => 'nullable|file|image|max:10240',
+        ],
+    [
+        'title.string' => 'タイトルは必須入力です',
+    ]);
 
-        ]);
         $articleData = new Articles;
-
-        $articleData->fill($request->all())->save();
+        $articleData->title = $request->title;
+        $articleData->category_id = $request->category_id;
+        $articleData->text = $request->text;
+        $articleData->user_id = $request->user_id;
+        //ファイルアップロード
+        if($request->file('img')){
+            $file = $request->file('img');
+            $filename = $file->getClientOriginalName();
+            $articleData->img = $request->file('img')->storeAs('img/article' , $filename);
+        }
+        $articleData->save();
         return redirect('/articles')->with('flash_message', __('Registered.'));
     }
 
@@ -74,6 +92,7 @@ public function indexCategory() {
     }
 
     public function newCategory() {
+        
         return view('articles.newCategory');
     }
 

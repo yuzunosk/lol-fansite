@@ -14,7 +14,10 @@
 <!-- 名前・英名 -->
                         <div class="container mt-4">
                             <div class="form-group row">
-                                <label for="name" class="col-md-3 col-8 col-form-label mb-3">{{ __('name') }}</label>
+                                <label for="name" class="col-md-3 col-8 col-form-label mb-3">
+                                {{ __('name') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                </label>
 
                                 <div class="col-md-3 col-4">
                                     <input 
@@ -31,7 +34,10 @@
                                     @enderror
                                 </div>
 
-                                <label for="na_name" class="col-md-3 col-8 col-form-label">{{ __('na_name') }}</label>
+                                <label for="na_name" class="col-md-3 col-8 col-form-label">
+                                {{ __('na_name') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                </label>
 
                                 <div class="col-md-3 col-4">
                                     <input 
@@ -56,6 +62,7 @@
                             <div class="form-group row">
                                 <label for="skill_type" class="col-md-8 col-9 col-form-label">
                                 {{ __('skill_type') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
                                 </label>
 
                                 <div class="col-md-4 col-3">
@@ -86,7 +93,8 @@
                         <div class="container mb-4">
                             <div class="form-group row">
                                 <label for="chanpion_id" class="col-md-8 col-8 col-form-label">
-                                {{ __('chanpion_id') }}
+                                {{ __('use_chanpion') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
                                 </label>
 
                                 <div class="col-md-4 col-4">
@@ -96,9 +104,10 @@
                                     name="chanpion_id" 
                                     value="{{ old('chanpion_id') }}"
                                     >
-                                    <option value="0">chanpion_id 1</option>
-                                    <option value="1">chanpion_id 2</option>
-                                    <option value="2">chanpion_id 3</option>
+                                    @foreach($chanpionDatas as $chanpionData)
+                                        <option value="{{ $chanpionData->name}}" @if(old('chanpion_id') == $chanpionData->id) selected @endif>
+                                        {{ $chanpionData->name }}</option>
+                                    @endforeach
                                     </select>
 
                                     @error('chanpion_id')

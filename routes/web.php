@@ -25,7 +25,8 @@ Route::post('/chanpions/{id}/delete', 'ChanpionsController@deleteChanpion')->nam
 // スキル追加ページ
 Route::get('/skills/new', 'ChanpionsController@newSkill')->name('skills.new');
 Route::post('/skills', 'ChanpionsController@createSkill')->name('skills.create');
-Route::get('/skills', 'ChanpionsController@indexSkill')->name('skills.create');
+Route::get('/skills','ChanpionsController@indexSkill')->name('skills.create');
+Route::get('/skills/{id}','ChanpionsController@listSkill')->name('skills.index');
 Route::get('/skills/{id}/edit', 'ChanpionsController@editSkill')->name('skills.edit');
 Route::post('/skills/{id}', 'ChanpionsController@updateSkill')->name('skills.update');
 Route::post('/skills/{id}/delete', 'ChanpionsController@deleteSkill')->name('skills.delete');
@@ -60,7 +61,8 @@ Route::post('/articles/{id}', 'ArticlesController@updateArticles')->name('articl
 Route::post('/articles/{id}/delete', 'ArticlesController@deleteArticles')->name('articles.delete');
 //カテゴリー追加ページ
 Route::get('/categorys/new', 'ArticlesController@newCategory')->name('categorys.new');
-Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('category.delete');
+Route::post('/categorys/new', 'ArticlesController@createCategory')->name('categorys.create');
+Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('categorys.delete');
 
 
 

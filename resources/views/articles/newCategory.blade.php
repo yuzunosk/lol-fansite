@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Category Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('category.create') }}">
+                        <form method="POST" action="{{ route('categorys.create') }}">
                             @csrf
 
 <!-- 名前・英名 -->

@@ -66,16 +66,15 @@
                             {{ __("tags ").$i }}
                             </label>
                             <div class="col-md-4 col-5">
-                                    <select name="tags"
+                                    <select name="tags{{$i}}"
                                         id = "tags{{$i}}"
                                         class = "form-control text-center @error('tags'.($i)) is-invalid @enderror">
-
-                                                <option value="999" selected>なし</option>
-                                            @foreach($tagDatas as $tagData)
-                                                <option value="{{ $tagData->id }}" @if(old("tags") == $tagData->id) selected @endif>
-                                                {{ $tagData->name }}
-                                                </option>
-                                            @endforeach
+                                                <option value="" selected>なし</option>
+                                                     @foreach($tagDatas as $tagData)
+                                                            <option value="{{ $tagData->name }}" @if(old("tags") == $tagData->name) selected @endif>
+                                                            {{ $tagData->name }}
+                                                            </option>
+                                                    @endforeach
                                     </select>
                                 @error('tags'.($i))
                                             <span class="invalid-feedback" role="alert">
@@ -88,9 +87,6 @@
                     </div>
 @endfor
 <!-- タグボックス END -->
-
-<!-- スキル　アイコン -->
-<!-- 未実装 -->
 
 <!-- スキル　アイコン END -->
                         <div class="container text-center mt-4">

@@ -91,7 +91,7 @@
                             <div class="row justify-content-end">
                                 <div class="col list-group list-group-flush">
                                     <p class="list-group-item list-group-item-dark">my menu</p>
-                                    <!-- dropdown_menu -->
+<!-- menu profile-->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button 
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
@@ -104,7 +104,9 @@
                                                 <a href="#" class="dropdown-item">Password</a>
                                             </div>
                                     </div>
+<!-- menu profile end-->
 
+<!-- chanpion -->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button 
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
@@ -117,20 +119,9 @@
                                                 <a href="{{ route('chanpions.create') }}" class="dropdown-item">Registration Chanpions List</a>
                                             </div>
                                     </div>
+<!-- chanpion End -->
 
-                                    <div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        Chanpion Skills
-                                        </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('skills.new') }}" class="dropdown-item">New Skill Registration</a>
-                                                <a href="{{ route('skills.create') }}" class="dropdown-item">Registration Skills List</a>
-                                            </div>
-                                    </div>
-
+<!-- Roll -->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button 
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
@@ -143,7 +134,9 @@
                                                 <a href="{{ route('rolls.create') }}" class="dropdown-item">Registration Rolls List</a>
                                             </div>
                                     </div>
+<!-- Roll END -->
 
+<!-- Tag -->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button 
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
@@ -155,8 +148,7 @@
                                                 <a href="{{ route('tags.new') }}" class="dropdown-item">New Tag Registration</a>
                                                 <a href="{{ route('tags.create') }}" class="dropdown-item">Registration Tags List</a>
                                             </div>
-
-                                    <!-- dropdown_menu END-->
+<!-- Tag END -->
 
 <!-- content -->
                                             <div class="btn-group dropleft list-group-item p-0">

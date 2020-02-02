@@ -43,7 +43,7 @@ class ChanpionsController extends Controller
             'sub_name' => 'string|max:255',
             'popular_name' => 'string|max:20',
             'feature' => 'string|max:60',
-            'main_roll_id' => 'nullable',
+            'main_roll_id' => 'nullable|string',
             'sub_roll_id' => 'different:main_roll_id|nullable|',
             'be_cost' => 'nullable|numeric',
             'rp_cost' => 'nullable|numeric',
@@ -101,9 +101,11 @@ class ChanpionsController extends Controller
             $chanpionData->be_cost = $request->be_cost;
             $chanpionData->rp_cost = $request->rp_cost;
 
-            $file = $request->file('chanpion_img');
-            $filename = $file->getClientOriginalName();
-            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img.chanpion' , $filename);
+            if($request->file('chanpion_img')){
+                $file = $request->file('chanpion_img');
+                $filename = $file->getClientOriginalName();
+                $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
+            }
 
             //ファイル・リサイズ
             // var_dump($name);
@@ -129,10 +131,10 @@ class ChanpionsController extends Controller
 
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
         }
-
-       $chanpion = Chanpion::find($id);
+        $rollCategorys = Roll::all();
+        $chanpion = Chanpion::find($id);
         // $chanpion = Auth::user()->drills()->find($id);
-        return view('chanpions.edit', compact('chanpion'));
+        return view('chanpions.edit', compact(['chanpion','rollCategorys']));
     }
 
     public function updateChanpion(Request $request, $id){
@@ -141,8 +143,82 @@ class ChanpionsController extends Controller
         return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
     }
 
-    $chanpionsData = Chanpion::find($id);
-    $chanpionsData->fill($request->all())->save();
+        $request->validate([
+            'name' => 'string|max:255',
+            'sub_name' => 'string|max:255',
+            'popular_name' => 'string|max:20',
+            'feature' => 'string|max:60',
+            'main_roll_id' => 'nullable|string',
+            'sub_roll_id' => 'different:main_roll_id|nullable|',
+            'be_cost' => 'nullable|numeric',
+            'rp_cost' => 'nullable|numeric',
+            'chanpion_img' => 'nullable|file|image|max:10240',
+            'st_attack' => 'required|numeric|max:10|min:1',
+            'st_magic' => 'required|numeric|max:10|min:1',
+            'st_toughness' => 'required|numeric|max:10|min:1',
+            'st_mobility' => 'required|numeric|max:10|min:1',
+            'st_difficulty' => 'required|numeric|max:10|min:1',
+            'user_id' => 'required',
+            'chanpion_tagId[]' => 'array|string'
+        ]
+        ,[
+            'name.required' => '名前は必須入力です',
+            'name.string' => '文字列で入力してください',
+            'name.max' => '名前は255文字以内で入力して下さい',
+            'sub_name.required' => '英名は必須入力です',
+            'sub_name.max' => '英名は255文字以内で入力して下さい',
+            'sub_name.string' => '文字列で入力して下さい',
+            'popular_name.string' => '文字列で入力して下さい',
+            'popular_name.max' => '20文字以内で入力して下さい',
+            'feature.string' => '文字列で入力して下さい',
+            'feature.max' => '60文字以内で入力して下さい',
+            'sub_roll_id.different' => 'メインロールと同一ロールは、選択できません',
+            'be_cost.numeric' => '数値ではありません',
+            'rp_cost.numeric' => '数値ではありません',
+            'chanpion_img.file' => 'アップロードできませんでした',
+            'chanpion_img.image' => 'アップロードできない形式です',
+            'chanpion_img.nullable' => '画像は後にいれることが出来ます',
+            'st_attack.required' => '必須入力です',
+            'st_magic.required' => '必須入力です',
+            'st_toughness.required' => '必須入力です',
+            'st_mobility.required' => '必須入力です',
+            'st_difficulty.required' => '必須入力です',
+            'st_attack.max' => '10以下の値を入力してください',
+            'st_attack.min' => '0以上の値を入力してください',
+            'st_magic.max' => '10以下の値を入力してください',
+            'st_magic.min' => '0以上の値を入力してください',
+            'st_toughness.max' => '10以下の値を入力してください',
+            'st_toughness.min' => '0以上の値を入力してください',
+            'st_mobility.max' => '10以下の値を入力してください',
+            'st_mobility.min' => '0以上の値を入力してください',
+            'st_difficulty.max' => '10以下の値を入力してください',
+            'st_difficulty.min' => '0以上の値を入力してください',
+            'user_id.required' => '必須入力です'
+        ]);
+
+    $chanpionData = Chanpion::find($id);
+    $chanpionData->name = $request->name;
+    $chanpionData->sub_name = $request->sub_name;
+    $chanpionData->popular_name = $request->popular_name;
+    $chanpionData->feature = $request->feature;
+    $chanpionData->main_roll_id = $request->main_roll_id;
+    $chanpionData->sub_roll_id = $request->sub_roll_id;
+    $chanpionData->be_cost = $request->be_cost;
+    $chanpionData->rp_cost = $request->rp_cost;
+
+    if($request->file('chanpion_img')){
+        $file = $request->file('chanpion_img');
+        $filename = $file->getClientOriginalName();
+        $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
+    }
+    $chanpionData->st_attack = $request->st_attack;
+    $chanpionData->st_magic = $request->st_magic;
+    $chanpionData->st_toughness = $request->st_toughness;
+    $chanpionData->st_mobility = $request->st_mobility;
+    $chanpionData->st_difficulty = $request->st_difficulty;
+    $chanpionData->user_id = $request->user_id;
+    $chanpionData->chanpion_tag = $request->chanpion_tag;
+    $chanpionData->save();
 
     return redirect('/chanpions')->with('flash_message', __('Updated.'));
 }
@@ -161,13 +237,19 @@ class ChanpionsController extends Controller
 // ---------------------------------
 
     public function indexSkill(){
-        $skillsData = Skill::all();
-        return view('chanpions.skillIndex', compact('skillsData'));
+        $skillDatas = Skill::all();
+        return view('chanpions.skillIndex', compact('skillDatas'));
+    }
+    public function listSkill($id){
+        $chanpion = Chanpion::find($id);
+        $skillDatas = Skill::all();
+        return view('chanpions.skillIndex', compact(['chanpion','skillDatas']));
     }
 
     public function newSkill() {
         //chanpionスキル登録画面を呼ぶ
-        return view('chanpions.newSkill');
+        $chanpionDatas = Chanpion::all();
+        return view('chanpions.newSkill',compact('chanpionDatas'));
     }
 
     public function createSkill(Request $request) {
@@ -368,10 +450,34 @@ public function deleteTag($id) {
             }
 
             public function createTagBox(Request $request) {
+                // var_dump($request);
+
               $request->validate([
-                // 'name' => 'string|max:255',
-                // 'chanpion_tag_id_1' => 'required|string|max:20'
+                'name' => 'string|max:255',
+                'chanpion_id' => 'string',
+                'chanpion_tag_id_1' => 'required|string|max:20',
+                // 'chanpion_tag_id_2' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_3' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_4' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_5' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_6' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_7' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_8' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_9' => 'nullable|string|max:20',
+                // 'chanpion_tag_id_10' => 'nullable|string|max:20',
               ]);
+            // [
+            //     'chanpion_tag_id_1.required' => 'タグ１は、必須入力です',
+            //     'chanpion_tag_id_2.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_3.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_4.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_5.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_6.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_7.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_8.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_9.max' => '21文字以上の入力は出来ません',
+            //     'chanpion_tag_id_10.max' => '21文字以上の入力は出来ません',
+            // ]);
                 $tagboxDatas = new TagBox;
                 $tagboxDatas->fill($request->all())->save();
                 return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));

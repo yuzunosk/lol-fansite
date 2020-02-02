@@ -8,7 +8,7 @@
                 <div class="card-header text-center">{{ __('Chanpion Editer') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('chanpions.update',$chanpion->id) }}">
+                    <form method="POST" enctype='multipart/form-data' action="{{ route('chanpions.update',$chanpion->id) }}">
                         @csrf
 
                     <div class="container mb-1 p-0">
@@ -91,11 +91,11 @@
                         class = "form-control text-center @error('main_roll_id') is-invalid @enderror"
                         value="{{old('main_roll_id', $chanpion->main_roll_id)}}"
                         >
-                            <option value="1">Assasin</option>
-                            <option value="2">Mage</option>
-                            <option value="3">Fighter</option>
-                            <option value="4">Support</option>
-                            <option value="5">Marksman</option>
+                        @foreach($rollCategorys as $rollCategory)
+                            <option value="{{ $rollCategory->name }}" @if(old('main_roll_id',$chanpion) == $rollCategory->name) selected @endif>
+                            {{ $rollCategory->name }}
+                            </option> 
+                        @endforeach
                         </select>
                         @error('main_roll_id')
                                     <span class="invalid-feedback" role="alert">
@@ -115,12 +115,12 @@
                         class = "form-control text-center @error('sub_roll_id') is-invalid @enderror"
                         value="{{old('sub_roll_id', $chanpion->sub_roll_id)}}"
                         >
-                            <option value="0">なし</option>
-                            <option value="1">Assasin</option>
-                            <option value="2">Mage</option>
-                            <option value="3">Fighter</option>
-                            <option value="4">Support</option>
-                            <option value="5">Marksman</option>
+                        <option value="なし" selected >なし</option>
+                        @foreach($rollCategorys as $rollCategory)
+                            <option value="{{ $rollCategory->name }}" @if(old("sub_roll_id") == $rollCategory->name) selected @endif>
+                            {{ $rollCategory->name }}
+                            </option>
+                        @endforeach
                         </select>
                         @error('sub_roll_id')
                                     <span class="invalid-feedback" role="alert">
@@ -148,11 +148,11 @@
                             value="{{old('be_cost', $chanpion->be_cost)}}"
                             >
                                 <!-- <option>7800</option> -->
-                                <option>6300</option>
-                                <option>4800</option>
-                                <option>3150</option>
-                                <option>1350</option>
-                                <option>450</option>
+                                <option value=6300 @if(old("be_cost") == 6300) selected @endif>6300</option>
+                                <option value=4800 @if(old("be_cost") == 4800) selected @endif>4800</option>
+                                <option value=3150 @if(old("be_cost") == 3150) selected @endif>3150</option>
+                                <option value=1350 @if(old("be_cost") == 1350) selected @endif>1350</option>
+                                <option value=450 @if(old("be_cost") == 450) selected @endif>450</option>
                             </select>
                             @error('be_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -171,11 +171,11 @@
                                 class = "form-control text-center @error('rp_cost') is-invalid @enderror"
                                 value="{{old('rp_cost', $chanpion->rp_cost)}}"
                                 >
-                                    <option>975</option>
-                                    <option>880</option>
-                                    <option>790</option>
-                                    <option>585</option>
-                                    <option>260</option>
+                                    <option value="975" @if(old("rp_cost") == 975) selected @endif>975</option>
+                                    <option value="880" @if(old("rp_cost") == 880) selected @endif>880</option>
+                                    <option value="790" @if(old("rp_cost") == 790) selected @endif>790</option>
+                                    <option value="585" @if(old("rp_cost") == 585) selected @endif>585</option>
+                                    <option value="260" @if(old("rp_cost") == 260) selected @endif>260</option>
                                 </select>
                                 @error('rp_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -189,31 +189,38 @@
 
 <!-- チャンピオン img -->
             <div class="container">
-                <div class="row">
-                    <div class="form-group col">
+                <div class="row justify-content-between">
+                    <div class="form-group col-12 col-md-4">
                         <label for="file1">
                         {{ __("chanpion_img") }}
                         </label>
-                        <div class="chanpion_img_container p-3" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px;">
+                    </div>
+                        <div class="chanpion_img_container p-0 col-12 col-md-4" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px; height:250px;
+                        overflow:hidden;">
                         <span
-                        style="position: absolute;">
+                        class="text-light"
+                        style="position: absolute; top:5%; left:5%;">
                         drag&drop
                         </span>
+
+                            <img src="@if($chanpion->chanpion_img){{ asset('storage/'.$chanpion->chanpion_img) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" 
+                            style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover; @if(empty($chanpion->chanpion_img)) display:none @endif">
                             <input name="chanpion_img"
                             type = "file"
                             id="file1"
                             class="form-control-file @error('chanpion_img') is-invalid @enderror"
-                            style="height:200px;opacity:0;"
+                            style="width:100%;height:100%;opacity:0;"
                             value="{{old('chanpion_img', $chanpion->chanpion_img)}}">
+
+                        </div>
+
                             @error('chanpion_img')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                        </div>
+                            @enderror
                     </div>
                 </div>
-            </div>
 <!-- チャンピオン　簡易ステータス -->
             <div class="container mb-2 p-0">
                 <h4>

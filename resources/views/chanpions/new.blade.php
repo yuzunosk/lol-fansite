@@ -14,7 +14,10 @@
                     <div class="container mb-1 p-0">
                         <div class="form-group row">
 
-                                <label for="name" class="col-md-2 col-4 col-form-label mb-1">{{ __('name') }}</label>
+                                <label for="name" class="col-md-2 col-4 col-form-label mb-1">
+                                {{ __('name') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                </label>
 
                                 <div class="col-md-4 col-8">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
@@ -26,7 +29,10 @@
                                     @enderror
                                 </div>
 
-                                <label for="sub_name" class="col-md-2 col-4 col-form-label mb-1">{{ __('sub_name') }}</label>
+                                <label for="sub_name" class="col-md-2 col-4 col-form-label mb-1">
+                                {{ __('sub_name') }}
+                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                </label>
 
                                 <div class="col-md-4 col-8">
                                     <input id="sub_name" type="text" class="form-control @error('sub_name') is-invalid @enderror" name="sub_name" value="{{ old('sub_name') }}" autocomplete="sub_name" autofocus>
@@ -91,7 +97,7 @@
                         class = "form-control text-center @error('main_roll_id') is-invalid @enderror"
                         >
                         @foreach($rollCategorys as $rollCategory)
-                            <option value="{{ $rollCategory->id }}" @if(old("main_roll_id") == $rollCategory->id) selected @endif>
+                            <option value="{{ $rollCategory->name }}" @if(old("main_roll_id") == $rollCategory->name) selected @endif>
                             {{ $rollCategory->name }}
                             </option>
                         @endforeach
@@ -113,9 +119,9 @@
                         id = "select-sub_roll"
                         class = "form-control text-center @error('sub_roll_id') is-invalid @enderror"
                         >
-                            <option value="999" selected>なし</option>
+                            <option value="なし" selected>なし</option>
                             @foreach($rollCategorys as $rollCategory)
-                            <option value="{{ $rollCategory->id }}" @if(old("sub_roll_id") == $rollCategory->id) selected @endif>
+                            <option value="{{ $rollCategory->name }}" @if(old("sub_roll_id") == $rollCategory->name) selected @endif>
                             {{ $rollCategory->name }}
                             </option>
                             @endforeach
@@ -146,11 +152,11 @@
                             value="{{ old('be_cost') }}"
                             >
                                 <!-- <option>7800</option> -->
-                                <option>6300</option>
-                                <option>4800</option>
-                                <option>3150</option>
-                                <option>1350</option>
-                                <option>450</option>
+                                <option value=6300 @if(old("be_cost") == 6300) selected @endif>6300</option>
+                                <option value=4800 @if(old("be_cost") == 4800) selected @endif>4800</option>
+                                <option value=3150 @if(old("be_cost") == 3150) selected @endif>3150</option>
+                                <option value=1350 @if(old("be_cost") == 1350) selected @endif>1350</option>
+                                <option value=450 @if(old("be_cost") == 450) selected @endif>450</option>
                             </select>
                             @error('be_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -169,11 +175,11 @@
                                 class = "form-control text-center @error('rp_cost') is-invalid @enderror"
                                 value="{{ old('rp_cost') }}"
                                 >
-                                    <option>975</option>
-                                    <option>880</option>
-                                    <option>790</option>
-                                    <option>585</option>
-                                    <option>260</option>
+                                    <option value=975 @if(old("rp_cost") == 975) selected @endif>975</option>
+                                    <option value=880 @if(old("rp_cost") == 880) selected @endif>880</option>
+                                    <option value=790 @if(old("rp_cost") == 790) selected @endif>790</option>
+                                    <option value=585 @if(old("rp_cost") == 585) selected @endif>585</option>
+                                    <option value=260 @if(old("rp_cost") == 260) selected @endif>260</option>
                                 </select>
                                 @error('rp_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -216,6 +222,7 @@
             <div class="container mb-2 p-0">
                 <h4>
                 {{ __("Status input") }}
+                <span class="badge badge-danger py-1 ml-2">必須</span>
                 </h4>
                 <p class="text-danger text-small">※最大 10 ~ 最低 1</p>
 
@@ -362,6 +369,7 @@
                         id = "select-user_id" 
                         class="form-control @error('user_id') is-invalid @enderror">
 
+                            <option value="999" selected>なし</option>
                             @foreach($userDatas as $userData)
                             <option value="{{ $userData->id }}" @if(old("user_id") == $userData->id) selected @endif>
                             {{ $userData->name }}

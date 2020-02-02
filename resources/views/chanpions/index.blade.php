@@ -18,8 +18,8 @@
                         style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;">
                         {{ $chanpionData -> name }}</h3>
                             <div class="card-text row ml-2" style="position: absolute;bottom:20%;">
-                                <p class="bg-light text-dark p-0 px-2 mr-2">Main Roll<span class="badge badge-dark px-3 ml-1">{{$chanpionData->main_roll_id }}</span></p>
-                                <p class="bg-light text-dark p-0 px-2 mr-2">Sub Roll<span class="badge badge-dark px-3 ml-1">{{ $chanpionData->sub_roll_id }}</span></p>
+                                <p class="bg-light text-dark p-0 px-2">Main Roll<span class="badge badge-dark px-3 ml-1">{{$chanpionData->main_roll_id }}</span></p>
+                                <p class="bg-light text-dark p-0 px-2">Sub Roll<span class="badge badge-dark px-3 ml-1">{{ $chanpionData->sub_roll_id }}</span></p>
                             </div>
                         </div>
                         </div>
@@ -28,21 +28,28 @@
                                     <div class="row">
                                         <form action="{{ route('tagbox.new',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
                                         @csrf
-                                        <button class="btn-sm border-dark text-dark bg-white" >
+                                        <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-bookmark fa-2x fa-fw"></i>Tag
+                                        </button>
+                                        </form>
+
+                                        <form action="{{ route('skills.index',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
+                                        @csrf
+                                        <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
+                                        <i class="fas fa-star fa-2x fa-fw"></i></i>Skill
                                         </button>
                                         </form>
 
                                         <form action="{{ route('chanpions.edit',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
                                         @csrf
-                                        <button class="btn-sm border-dark text-dark bg-white" >
+                                        <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-edit fa-2x fa-fw"></i>Edit
                                         </button>
                                         </form>
 
                                         <form action="{{ route('chanpions.delete',$chanpionData->id) }}" method="post" class="col-md-3 p-0 m-0">
                                         @csrf
-                                        <button class="btn-sm border-dark text-dark bg-white" 
+                                        <button class="btn-sm border-dark text-dark bg-white" style="cursor:pointer;"
                                         onclick="return confirm('本当に削除しますか？');">
                                         <i class="fas fa-trash fa-2x fa-fw"></i>Delete
                                         </button>

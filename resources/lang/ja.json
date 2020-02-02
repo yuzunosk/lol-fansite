@@ -42,7 +42,7 @@
     "Name": "名前",
     "na_name": "英名",
     "skill_type": "スキル タイプ",
-    "chanpion_id": "チャンピオンID",
+    "use_chanpion": "スキル使用チャンピオン",
     "text": "テキスト",
     "title": "タイトル",
     "category_id": "記事カテゴリー",
