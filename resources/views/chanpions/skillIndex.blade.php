@@ -16,8 +16,8 @@
                         <h5 class="card-header">
                         Passive
                         </h5>
-                        <div class="cadr-body">
-                                <img src="@if($skillData->skill_icon_1){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-image-top" style="height:100px;object-fit:cover;">
+                        <div class="card-body p-0" >
+                                <img src="@if($skillData->skill_icon_1){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
                                 <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">

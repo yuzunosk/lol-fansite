@@ -203,7 +203,7 @@
                         drag&drop
                         </span>
 
-                            <img src="@if($chanpion->chanpion_img){{ asset('storage/'.$chanpion->chanpion_img) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" 
+                            <img src="@if($chanpion->chanpion_img){{ asset('storage/'.$chanpion->chanpion_img) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif"
                             style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover; @if(empty($chanpion->chanpion_img)) display:none @endif">
                             <input name="chanpion_img"
                             type = "file"
@@ -221,7 +221,10 @@
                             @enderror
                     </div>
                 </div>
+
+
 <!-- チャンピオン　簡易ステータス -->
+
             <div class="container mb-2 p-0">
                 <h4>
                 {{ __("Status input") }}

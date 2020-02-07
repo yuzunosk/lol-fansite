@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Skill Editer') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('skills.update', $skillData->id) }}">
+                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.update', $skillData->id) }}">
                             @csrf
 
 <!-- 名前・英名 -->
@@ -65,11 +65,11 @@
                                     name="skill_type" 
                                     value="{{ old('skill_type', $skillData->skill_type) }}"
                                     >
-                                    <option value="0">passive</option>
-                                    <option value="1">Qスキル</option>
-                                    <option value="2">Wスキル</option>
-                                    <option value="3">Eスキル</option>
-                                    <option value="4">Ultimate</option>
+                                    <option value="passive" @if(old('skill_type') == 'passive' ) selected @endif>passive</option>
+                                    <option value="Qスキル" @if(old('skill_type') == 'Qスキル' ) selected @endif>Qスキル</option>
+                                    <option value="Wスキル" @if(old('skill_type') == 'Wスキル' ) selected @endif>Wスキル</option>
+                                    <option value="Eスキル" @if(old('skill_type') == 'Eスキル' ) selected @endif>Eスキル</option>
+                                    <option value="Ultimate" @if(old('skill_type') == 'Ultimate' ) selected @endif>Ultimate</option>
                                     </select>
 
                                     @error('skill_type')
@@ -92,13 +92,14 @@
                                 <div class="col-md-4 col-4">
                                     <select 
                                     id="chanpion_id" 
-                                    class="form-control @error('chanpion_id') is-invalid @enderror" 
+                                    class="form-control @error('chanpion_id') is-invalid @enderror"
                                     name="chanpion_id" 
-                                    value="{{ old('chanpion_id', $skillData->chanpion_id) }}"
+                                    value="{{ old('chanpion_id', $chanpion->id) }}"
                                     >
-                                    <option value="0">chanpion_id 1</option>
-                                    <option value="1">chanpion_id 2</option>
-                                    <option value="2">chanpion_id 3</option>
+                                    @foreach($chanpionDatas as $chanpionData)
+                                        <option value="{{ old(chanpion_id,$chanpion->name) }}" @if(old('chanpion_id') == $chanpionData->name) selected @endif>
+                                        {{ $chanpionData->name }}</option>
+                                    @endforeach
                                     </select>
 
                                     @error('chanpion_id')
@@ -140,6 +141,36 @@
 <!-- スキルテキスト END -->
 
 <!-- スキル　アイコン -->
+<div class="container">
+                                            <div class="row justify-content-between">
+                                                <div class="form-group col-12 col-md-4">
+                                                    <label for="file">
+                                                    {{ __("skill_icon_1") }}
+                                                    </label>
+                                                    <div class="skill_icon_1_container p-3" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px; height:250px;overflow:hidden;">
+                                                    <span
+                                                    style="position: absolute;top:5%;left:5%;">
+                                                    drag&drop
+                                                    </span>
+                                                    <img src="@if($skillData->skill_icon_1){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif"
+                                                        style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover; @if(empty($skillData->skill_icon_1)) display:none @endif">
+                                                        <input name="skill_icon_1"
+                                                        type = "file"
+                                                        id="file"
+                                                        class="form-control-file @error('skill_icon_1') is-invalid @enderror"
+                                                        style="width:100%;height:100%;opacity:0;"
+                                                        value="{{ old('skill_icon_1',$skillData->skill_icon_1) }}">
+                                                        @error('skill_icon_1')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                    @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
 <!-- 未実装 -->
 
 <!-- スキル　アイコン END -->

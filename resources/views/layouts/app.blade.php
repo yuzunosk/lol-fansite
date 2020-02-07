@@ -120,6 +120,18 @@
                                             </div>
                                     </div>
 <!-- chanpion End -->
+<div class="btn-group dropleft list-group-item p-0">
+                                        <button 
+                                        type="button" class="btn btn-white dropdown-toggle p-3" 
+                                        data-toggle="dropdown" aria-haspopup="true" 
+                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        Chanpion Skills
+                                        </button>
+                                            <div class="dropdown-menu">
+                                                <a href="{{ route('skills.new') }}" class="dropdown-item">New Skill Registration</a>
+                                            </div>
+                                    </div>
+
 
 <!-- Roll -->
                                     <div class="btn-group dropleft list-group-item p-0">

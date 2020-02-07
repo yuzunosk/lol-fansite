@@ -33,7 +33,7 @@
                                         </button>
                                         </form>
 
-                                        <form action="{{ route('skills.index',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0">
+                                        <form action="{{ route('skills.index',[$chanpionData->id,]) }}" method="get" class="col-md-3 p-0 m-0">
                                         @csrf
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-star fa-2x fa-fw"></i></i>Skill

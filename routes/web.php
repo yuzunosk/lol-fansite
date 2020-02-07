@@ -1,5 +1,8 @@
 <?php
 
+use App\Chanpion;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +14,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 // チャンピオン追加ページ
 Route::get('/chanpions/new', 'ChanpionsController@newChanpion')->name('chanpions.new');
 Route::post('/chanpions', 'ChanpionsController@createChanpion')->name('chanpions.create');
@@ -25,7 +26,7 @@ Route::post('/chanpions/{id}/delete', 'ChanpionsController@deleteChanpion')->nam
 // スキル追加ページ
 Route::get('/skills/new', 'ChanpionsController@newSkill')->name('skills.new');
 Route::post('/skills', 'ChanpionsController@createSkill')->name('skills.create');
-Route::get('/skills','ChanpionsController@indexSkill')->name('skills.create');
+Route::get('/chanpions','ChanpionsController@indexChanpion')->name('skills.create');
 Route::get('/skills/{id}','ChanpionsController@listSkill')->name('skills.index');
 Route::get('/skills/{id}/edit', 'ChanpionsController@editSkill')->name('skills.edit');
 Route::post('/skills/{id}', 'ChanpionsController@updateSkill')->name('skills.update');
@@ -64,6 +65,10 @@ Route::get('/categorys/new', 'ArticlesController@newCategory')->name('categorys.
 Route::post('/categorys/new', 'ArticlesController@createCategory')->name('categorys.create');
 Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('categorys.delete');
 
+
+
+//ホーム画面表示
+Route::get('/home{any}', 'HomeController@showHome')->name('Home.show')->where('any', '.*');
 
 
 

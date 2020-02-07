@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Skill Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('skills.create') }}">
+                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.create') }}">
                             @csrf
 
 <!-- 名前・英名 -->
@@ -72,11 +72,11 @@
                                     name="skill_type" 
                                     value="{{ old('skill_type') }}"
                                     >
-                                    <option value="0">passive</option>
-                                    <option value="1">Qスキル</option>
-                                    <option value="2">Wスキル</option>
-                                    <option value="3">Eスキル</option>
-                                    <option value="4">Ultimate</option>
+                                    <option value="passive" @if old('skill_type') == 'passive'  selected @endif>passive</option>
+                                    <option value="Qスキル" @if old('skill_type') == 'Qスキル'  selected @endif>Qスキル</option>
+                                    <option value="Wスキル" @if old('skill_type') == 'Wスキル'  selected @endif>Wスキル</option>
+                                    <option value="Eスキル" @if old('skill_type') == 'Eスキル'  selected @endif>Eスキル</option>
+                                    <option value="Ultimate" @if old('skill_type') == 'Ultimate'  selected @endif>Ultimate</option>
                                     </select>
 
                                     @error('skill_type')
@@ -105,7 +105,7 @@
                                     value="{{ old('chanpion_id') }}"
                                     >
                                     @foreach($chanpionDatas as $chanpionData)
-                                        <option value="{{ $chanpionData->name}}" @if(old('chanpion_id') == $chanpionData->id) selected @endif>
+                                        <option value="{{ $chanpionData->name}}" @if(old('chanpion_id') == $chanpionData->name) selected @endif>
                                         {{ $chanpionData->name }}</option>
                                     @endforeach
                                     </select>
@@ -149,6 +149,33 @@
 <!-- スキルテキスト END -->
 
 <!-- スキル　アイコン -->
+                            <div class="container">
+                                            <div class="row justify-content-between">
+                                                <div class="form-group col-12 col-md-4">
+                                                    <label for="file">
+                                                    {{ __("skill_icon_1") }}
+                                                    </label>
+                                                    <div class="skill_icon_1_container p-3" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px; height:250px;overflow:hidden;">
+                                                    <span
+                                                    style="position: absolute;top:5%;left:5%;">
+                                                    drag&drop
+                                                    </span>
+                                                        <input name="skill_icon_1"
+                                                        type = "file"
+                                                        id="file"
+                                                        class="form-control-file @error('skill_icon_1') is-invalid @enderror"
+                                                        style="width:100%;height:100%;opacity:0;"
+                                                        value="{{ old('skill_icon_1') }}">
+                                                        @error('skill_icon_1')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                    @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 <!-- 未実装 -->
 
 <!-- スキル　アイコン END -->

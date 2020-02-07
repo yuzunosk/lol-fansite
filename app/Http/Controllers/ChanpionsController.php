@@ -237,7 +237,6 @@ class ChanpionsController extends Controller
 // ---------------------------------
 
     public function indexSkill(){
-        $skillDatas = Skill::all();
         return view('chanpions.skillIndex', compact('skillDatas'));
     }
     public function listSkill($id){
@@ -258,10 +257,10 @@ class ChanpionsController extends Controller
             'name' => 'string|max:255',
             'na_name' => 'string|max:255',
             'skill_type' => 'string',
-            'chanpion_id' => 'required|numeric',
+            'chanpion_id' => 'required|string',
             'text' => 'string|nullable|max:255',
-            // 'skill_icon_1' => 'nullable|file|image',
-            // 'skill_icon_2' => 'nullable|file|image',
+            'skill_icon_1' => 'nullable|file|image|max:10240',
+            // 'skill_icon_2' => 'nullable|file|image|max:10240',
         ]
         ,[
             'name.required' => '名前は必須入力です',
@@ -277,40 +276,91 @@ class ChanpionsController extends Controller
             'skill_icon_1.file' => 'アップロードできませんでした',
             'skill_icon_1.image' => 'アップロードできない形式です',
             'skill_icon_1.nullable' => '画像は後にいれることが出来ます',
+            'skill_icon_1.max' => 'データが大きすぎます',
             'skill_icon_2.file' => 'アップロードできませんでした',
             'skill_icon_2.image' => 'アップロードできない形式です',
             'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
+            'skill_icon_1.max' => 'データが大きすぎます',
+
         ]);
             $skillDatas = new Skill;
+            $skillDatas->name = $request->name;
+            $skillDatas->na_name = $request->na_name;
+            $skillDatas->skill_type = $request->skill_type;
+            $skillDatas->chanpion_id = $request->chanpion_id;
+            $skillDatas->text = $request->text;
 
-            $skillDatas->fill($request->all())->save();
-
-            error_log('ここまで処理しました');
-
+            if($request->file('skill_icon_1')){
+                $file = $request->file('skill_icon_1');
+                $filename = $file->getClientOriginalName();
+                $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
+            }
+            $skillDatas->save();
 
             //リダイレクトする、その時にフラッシュメッセージをいれる
-            return redirect('/skills')->with('flash_message',__('Registered.'));
+            return redirect('/chanpions')->with('flash_message',__('Registered.'));
     }
 
     public function editSkill($id) {
         if(!ctype_digit($id)){
             return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
-
+        $chanpion = Chanpion::all();
         $skillData = Skill::find($id);
 
-        return view('chanpions.skillEdit', compact('skillData'));
+        return view('chanpions.skillEdit', compact(['skillData','chanpion']));
     }
 
     public function updateSkill(Request $request ,$id) {
         if(!ctype_digit($id)){
             return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
+        $request->validate([
+            'name' => 'string|max:255',
+            'na_name' => 'string|max:255',
+            'skill_type' => 'string',
+            'chanpion_id' => 'required|string',
+            'text' => 'string|nullable|max:255',
+            'skill_icon_1' => 'nullable|file|image|max:10240',
+            // 'skill_icon_2' => 'nullable|file|image|max:10240',
+        ]
+        ,[
+            'name.required' => '名前は必須入力です',
+            'name.string' => '文字列で入力してください',
+            'name.max' => '名前は255文字以内で入力して下さい',
+            'na_name.required' => '英名は必須入力です',
+            'na_name.max' => '英名は255文字以内で入力して下さい',
+            'na_name.string' => '文字列で入力して下さい',
+            'skill_type.string' => '文字列で入力して下さい',
+            'text.string' => '文字列で入力して下さい',
+            'text.max' => 'テキストは255文字以内で入力して下さい',
+            'text.nullable' => 'テキストの入力をお忘れではないですか？',
+            'skill_icon_1.file' => 'アップロードできませんでした',
+            'skill_icon_1.image' => 'アップロードできない形式です',
+            'skill_icon_1.nullable' => '画像は後にいれることが出来ます',
+            'skill_icon_1.max' => 'データが大きすぎます',
+            'skill_icon_2.file' => 'アップロードできませんでした',
+            'skill_icon_2.image' => 'アップロードできない形式です',
+            'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
+            'skill_icon_1.max' => 'データが大きすぎます',
 
-        $skillData = Skill::find($id);
-        $skillData->fill($request->all())->save();
+        ]);
 
-        return redirect('/skills')->with('flash_message', __('Updated.'));
+        $skillDatas = new Skill;
+        $skillDatas->name = $request->name;
+        $skillDatas->na_name = $request->na_name;
+        $skillDatas->skill_type = $request->skill_type;
+        $skillDatas->chanpion_id = $request->chanpion_id;
+        $skillDatas->text = $request->text;
+
+        if($request->file('skill_icon_1')){
+            $file = $request->file('skill_icon_1');
+            $filename = $file->getClientOriginalName();
+            $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
+        }
+        $skillDatas->save();
+
+        return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }
 
     public function deleteSkill($id) {
@@ -318,7 +368,7 @@ class ChanpionsController extends Controller
             return redirect('/skills')->with('flash_mesage', __('Invalid operation was performed.'));
         }
         Skill::find($id)->delete();
-        return redirect('/skills')->with('flash_message', __('Deleted.'));
+        return redirect('/chanpions')->with('flash_message', __('Deleted.'));
     }
 
 // ---------------------------------
