@@ -13,7 +13,7 @@
 <script>
 export default {
 
-    props: ["data"],
+    props: ["id","data"],
     data() {
         return {
         cardRoll: {
@@ -29,7 +29,7 @@ export default {
     },
         computed: {
           routerLink() {
-              return "/home/chanpion/" + this.data.index;
+              return "/home/chanpion/" + this.id;
           }
       },
 

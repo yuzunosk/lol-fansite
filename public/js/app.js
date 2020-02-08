@@ -2080,6 +2080,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2227,7 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["data"],
+  props: ["id", "data"],
   data: function data() {
     return {
       cardRoll: {
@@ -2243,7 +2244,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     routerLink: function routerLink() {
-      return "/home/chanpion/" + this.data.index;
+      return "/home/chanpion/" + this.id;
     }
   }
 });
@@ -2440,6 +2441,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2451,10 +2486,9 @@ __webpack_require__.r(__webpack_exports__);
       scrollLeft: 0,
       x: 0,
       y: 0,
-      slide: {
-        slide: true
-      },
       sliderContainer: {
+        slide: true,
+        carousel: true,
         slider_container: true
       },
       slideItem: {
@@ -2473,61 +2507,31 @@ __webpack_require__.r(__webpack_exports__);
         bottom: true,
         subMessage: true
       },
-      icons: [//  {id: 1 , img: require(asset('storage/'))},
-        //  {id: 2 , img: require('.././assets/TOP/runeterra-demacia-01.jpg')},
-        //  {id: 3 , img: require('.././assets/TOP/runeterra-freljord-02.jpg')},
-        //  {id: 4 , img: require('.././assets/TOP/runeterra-ionia-01.jpg')},
-        //  {id: 5 , img: require('.././assets/TOP/runeterra-shurima-02.jpg')},
-        //  {id: 6 , img: require('.././assets/TOP/runeterra-piltover-10.jpg')},
-        //  {id: 7 , img: require('.././assets/TOP/runeterra-noxus-01.jpg')},
-      ]
+      icons: [{
+        id: 1,
+        img: '/storage/img/TOP/runeterra-bilgewater-01.jpg'
+      }, {
+        id: 2,
+        img: 'storage/img/TOP/runeterra-demacia-01.jpg'
+      }, {
+        id: 3,
+        img: 'storage/img/TOP/runeterra-freljord-02.jpg'
+      }, {
+        id: 4,
+        img: 'storage/img/TOP/runeterra-ionia-01.jpg'
+      }, {
+        id: 5,
+        img: 'storage/img//TOP/runeterra-shurima-02.jpg'
+      }, {
+        id: 6,
+        img: 'storage/img/TOP/runeterra-piltover-10.jpg'
+      }, {
+        id: 7,
+        img: 'storage/img/TOP/runeterra-noxus-01.jpg'
+      }]
     };
   },
-  computed: {},
-  methods: {
-    scrollPrev: function scrollPrev() {
-      if (this.currentItrmNum > 1) {
-        this.scrollLeft = this.scrollLeft + this.scrollMove; //eslint-disable-next-line no-console
-
-        console.log('現在の座標は、' + this.scrollLeft);
-        this.currentItrmNum--; //eslint-disable-next-line no-console
-
-        console.log(this.currentItrmNum);
-        return;
-      } else {
-        var maxSlideNum = this.slideItemNum - 1;
-        this.scrollLeft = -this.scrollMove * maxSlideNum;
-        this.currentItrmNum = 7; //eslint-disable-next-line no-console
-
-        console.log(this.currentItrmNum);
-        return;
-      }
-    },
-    scrollNext: function scrollNext() {
-      if (this.currentItrmNum < this.slideItemNum) {
-        this.scrollLeft = this.scrollLeft + -this.scrollMove; //eslint-disable-next-line no-console
-
-        console.log('現在の座標は、' + this.scrollLeft);
-        this.currentItrmNum++; //eslint-disable-next-line no-console
-
-        console.log(this.currentItrmNum);
-        return;
-      } else {
-        this.scrollLeft = 0;
-        this.currentItrmNum = 1; //eslint-disable-next-line no-console
-
-        console.log(this.currentItrmNum);
-        return;
-      }
-    },
-    mouseMove: function mouseMove(event) {
-      this.x = event.clientX;
-      this.y = event.clientY; //eslint-disable-next-line no-console
-
-      console.log(event);
-      return;
-    }
-  }
+  computed: {}
 });
 
 /***/ }),
@@ -2688,16 +2692,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
     return {
       storage: "/storage/",
-      bgColor: "bule",
-      costLogo: [// { img: require('/storage/app/public/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png') },
-        // { img: require('/storage/app/public/img/logo/riot-games_owler_20180821_223624_original-500x500.png') },
-      ]
+      bgColor: "bule"
     };
   }
 });
@@ -2849,11 +2849,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
-    return {};
+    return {
+      statusDatas: [{
+        name: "Attack",
+        value: this.data.st_attack,
+        color: "color:red"
+      }, {
+        name: "Magic",
+        value: this.data.st_magic,
+        color: "color:purple"
+      }, {
+        name: "Toughness",
+        value: this.data.st_toughness,
+        color: "color:green"
+      }, {
+        name: "Mobility",
+        value: this.data.st_mobility,
+        color: "color:skyblue"
+      }, {
+        name: "Difficulty",
+        value: this.data.st_difficulty,
+        color: "color:#cddc39"
+      }]
+    };
   },
   methods: {}
 });
@@ -2909,6 +2930,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+// import {chanpionDatas} from "../.././chanpionDatas"
 
 
 
@@ -7479,7 +7501,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 1280px;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    /* margin-right: 50px; */\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n", ""]);
+exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n", ""]);
 
 // exports
 
@@ -7537,7 +7559,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.header-nuv{\n    /* padding: 0 10px; */\n    flex-basis: 25%;\n}\n.list_warapper {\n    padding: 0;\n    margin: 0;\n    height: 100px;\n}\nli {\n  list-style:none;\n}\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  -webkit-transition: .5s;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.sublistItem{\n    font-size: 12px;\n    box-sizing: border-box;\n    -webkit-transition: .5s;\n    transition: .5s;\n    height: 30px;\n    padding: 8px 20px;\n    flex-basis: 25%;\n}\n.nav_itemBord{\n    background: #fff;\n    width: 1280px;\n    height: 150px;\n    box-sizing: border-box;\n    margin: 0 auto;\n    padding-left: 200px;\n    position: absolute;\n    top: 85px;\n    left: 0;\n    z-index: 5;\n}\n.nav_itemBord > ul{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  height: 100px;\n  max-width: 100%;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.header-nuv{\n    /* padding: 0 10px; */\n    flex-basis: 25%;\n}\n.list_warapper {\n    padding: 0;\n    margin: 0;\n    height: 100px;\n}\nli {\n  list-style:none;\n}\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  -webkit-transition: .5s;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.sublistItem{\n    font-size: 12px;\n    box-sizing: border-box;\n    -webkit-transition: .5s;\n    transition: .5s;\n    height: 30px;\n    padding: 8px 20px;\n    flex-basis: 25%;\n}\n.nav_itemBord{\n    background: #fff;\n    width: 100%;\n    height: 150px;\n    box-sizing: border-box;\n    margin: 0 auto;\n    padding-left: 200px;\n    position: absolute;\n    top: 85px;\n    left: 0;\n    z-index: 5;\n}\n.nav_itemBord > ul{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  height: 100px;\n  max-width: 100%;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -7556,7 +7578,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.slide{\n  width: 1280px;\n  height: 550px;\n  overflow: hidden;\n  margin: 0 auto;\n  position: relative;\n  margin-bottom: 50px;\n}\n.slider_container{\n  padding: 0;\n  overflow: hidden;\n  margin: 0;\n  position: relative;\n  -webkit-transition: .5s;\n  transition: .5s;\n}\n.slider_item{\n  overflow: hidden;\n  width: 1280px;\n  /* height: 400px; */\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav:active{\n  opacity: 1;\n  -webkit-transition: .1s;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    /* background: #5434346e; */\n    text-shadow: 2px 2px 6px #232222;\n}\n.top{\n    position: absolute;\n    top: -20px;\n    left: 480px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom{\n   position: absolute;\n  top: 400px;\n  left: 100px;\n  z-index: 2;\n}\n.mainMessage{\n  font-size: 45px;\n}\n.subMessage{\n  font-size: 24px;\n}\n.pointer{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.slider_container{\n  padding: 0;\n  overflow: hidden;\n  margin: 0;\n  position: relative;\n  -webkit-transition: .5s;\n  transition: .5s;\n  margin-bottom:50px;\n}\n.slider_item{\n  overflow: hidden;\n  width: 1280px;\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav:active{\n  opacity: 1;\n  -webkit-transition: .1s;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    text-shadow: 2px 2px 6px #232222;\n}\n.top{\n    position: absolute;\n    top: 10px;\n    right: 50px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom{\n  position: absolute;\n  bottom: 70px;\n  left: 50px;\n  z-index: 2;\n}\n.mainMessage{\n  font-size: 45px;\n}\n.subMessage{\n  font-size: 24px;\n}\n.pointer{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -7575,7 +7597,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.logo_container{\n    /* display: flex; */\n}\nh1{\n    padding-left: 15px;\n    margin: 0;\n    font-size: 35px;\n    display: inline-block;\n    letter-spacing: .8px;\n    color: #f4f3f2;\n}\n.logo{\n    width: 150px;\n    height: 60px;\n    margin-left: 50px;\n}\n", ""]);
+exports.push([module.i, "\n.logo_container{\n    /* display: flex; */\n}\nh1{\n    padding-left: 15px;\n    margin: 0;\n    font-size: 35px;\n    display: inline-block;\n    letter-spacing: .8px;\n    color: #f4f3f2;\n}\n.logo{\n    width: 150px;\n    height: 60px;\n    margin-left: 100px;\n}\n", ""]);
 
 // exports
 
@@ -39568,7 +39590,7 @@ var render = function() {
           _vm._l(_vm.chanpionDatas, function(chanpionData, index) {
             return _c("ChanpionData", {
               key: index,
-              attrs: { data: _vm.chanpionDatas[index] }
+              attrs: { id: index, data: _vm.chanpionDatas[index] }
             })
           }),
           1
@@ -39997,10 +40019,7 @@ var staticRenderFns = [
     return _c("span", [
       _c("img", {
         staticClass: "footer_logo",
-        attrs: {
-          src: __webpack_require__(/*! ../.././public/storage/img/logo/lol_logo.png */ "./storage/app/public/img/logo/lol_logo.png"),
-          alt: ""
-        }
+        attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
       })
     ])
   }
@@ -40263,70 +40282,137 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { class: _vm.slide }, [
-    _c(
-      "p",
-      {
-        class: _vm.slideNuv,
-        staticStyle: { left: "20px" },
-        on: { click: _vm.scrollPrev }
-      },
-      [_vm._v(" ＜ ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "p",
-      {
-        class: _vm.slideNuv,
-        staticStyle: { right: "20px" },
-        on: { click: _vm.scrollNext }
-      },
-      [_vm._v(" ＞ ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "ul",
-      {
-        class: _vm.sliderContainer,
-        style: { width: _vm.width + "px", left: _vm.scrollLeft + "px" }
-      },
-      _vm._l(_vm.icons, function(icon, index) {
-        return _c(
-          "li",
-          {
-            key: icon,
-            class: _vm.slideItem,
-            attrs: { slideItemNum: _vm.slideItemNum + index }
-          },
-          [
-            _c("img", {
-              attrs: { src: icon.img },
-              on: { mousemove: _vm.mouseMove }
-            })
-          ]
-        )
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c("p", { class: _vm.heroMessageTop }, [
-      _vm._v("Summoners Lift Guide , started League of Legends")
-    ]),
-    _vm._v(" "),
-    _c("p", { class: _vm.heroMessageBottom }, [
-      _vm._v("Only those who have never feed throw stones"),
-      _c("br"),
-      _vm._v(" at those who have feed ...")
-    ]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.slideItemWidth))]),
-    _vm._v(" "),
-    _c("p", { staticClass: "pointer" }, [
-      _vm._v("(" + _vm._s(_vm.x) + "),(" + _vm._s(_vm.y) + ")")
-    ])
-  ])
+  return _c(
+    "div",
+    {
+      class: _vm.sliderContainer,
+      staticStyle: { width: "100%", height: "600px" },
+      attrs: { "data-ride": "carousel" }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "carousel-inner" }, [
+        _c("div", { staticClass: "carousel-item active" }, [
+          _c("img", { attrs: { src: _vm.icons[0].img, alt: "1st slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[1].img, alt: "2nd slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[2].img, alt: "3th slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[3].img, alt: "4th slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[4].img, alt: "5th slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[5].img, alt: "6th slide" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "carousel-item" }, [
+          _c("img", { attrs: { src: _vm.icons[6].img, alt: "7th slide" } })
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2)
+      ]),
+      _vm._v(" "),
+      _c("p", { class: _vm.heroMessageTop }, [
+        _vm._v("Summoners Lift Guide , started League of Legends")
+      ]),
+      _vm._v(" "),
+      _c("p", { class: _vm.heroMessageBottom }, [
+        _vm._v("Only those who have never feed throw stones"),
+        _c("br"),
+        _vm._v(" at those who have feed ...")
+      ])
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ol", { staticClass: "carousel-indicators" }, [
+      _c("li", {
+        staticClass: "active",
+        attrs: { "data-target": "#example-3", "data-slide-to": "0" }
+      }),
+      _vm._v(" "),
+      _c("li", {
+        attrs: { "data-target": "#example-3", "data-slide-to": "1" }
+      }),
+      _vm._v(" "),
+      _c("li", {
+        attrs: { "data-target": "#example-3", "data-slide-to": "2" }
+      }),
+      _vm._v(" "),
+      _c("li", {
+        attrs: { "data-target": "#example-3", "data-slide-to": "3" }
+      }),
+      _vm._v(" "),
+      _c("li", {
+        attrs: { "data-target": "#example-3", "data-slide-to": "4" }
+      }),
+      _vm._v(" "),
+      _c("li", {
+        attrs: { "data-target": "#example-3", "data-slide-to": "5" }
+      }),
+      _vm._v(" "),
+      _c("li", { attrs: { "data-target": "#example-3", "data-slide-to": "6" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: { href: "#example-2", role: "button", "data-slide": "prev" }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon pointer",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: { href: "#example-2", role: "button", "data-slide": "next" }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon pointer",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -40359,10 +40445,7 @@ var staticRenderFns = [
       _c("span", [
         _c("img", {
           staticClass: "logo",
-          attrs: {
-            src: __webpack_require__(/*! ../../.././public/storage/img/logo/lol_logo.png */ "./storage/app/public/img/logo/lol_logo.png"),
-            alt: ""
-          }
+          attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
         })
       ])
     ])
@@ -40465,7 +40548,7 @@ var staticRenderFns = [
       _c("h3", [
         _c("img", {
           attrs: {
-            src: "/public/storage/img/logo/perm_data_setting-24px.svg",
+            src: "/storage/img/logo/perm_data_setting-24px.svg",
             alt: "",
             width: "25px;"
           }
@@ -40499,7 +40582,6 @@ var render = function() {
   return _c("div", { staticClass: "chanpion_page_container" }, [
     _c("div", { staticClass: "chanpion_top" }, [
       _c("div", { staticClass: "top_picture", style: _vm.topImage }, [
-        _vm._v("TOP画像\n                    "),
         _c("img", {
           attrs: {
             src: _vm.storage + _vm.data.chanpion_img,
@@ -40513,18 +40595,18 @@ var render = function() {
         _c("div", { staticClass: "chanpion_head_name" }, [
           _c("h1", { staticClass: "name" }, [_vm._v(_vm._s(_vm.data.name))]),
           _c("span", { staticClass: "sub_name" }, [
-            _vm._v("-" + _vm._s(_vm.data.subName) + "-")
+            _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
           ]),
           _vm._v(" "),
           _c("hr", { staticStyle: { margin: "0" } }),
           _vm._v(" "),
-          _c("h2", [_vm._v(_vm._s(_vm.data.popularName))]),
+          _c("h2", [_vm._v(_vm._s(_vm.data.popular_name))]),
           _vm._v(" "),
           _c("div", { staticClass: "chanpion_head_roll" }, [
-            _c("p", [_vm._v(_vm._s(_vm.data.roll))]),
+            _c("p", [_vm._v(_vm._s(_vm.data.main_roll_id))]),
             _vm._v(" "),
             _c("p", { staticClass: "left_space" }, [
-              _vm._v(_vm._s(_vm.data.subRoll))
+              _vm._v(_vm._s(_vm.data.sub_roll_id))
             ])
           ])
         ]),
@@ -40533,17 +40615,25 @@ var render = function() {
           _c("span", { staticClass: "cost" }, [
             _c("img", {
               staticClass: "head_cost_img",
-              attrs: { src: _vm.costLogo[0].img, alt: "", width: "40px" }
+              attrs: {
+                src:
+                  "/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png",
+                width: "40px"
+              }
             }),
-            _vm._v(_vm._s(_vm.data.beCost))
+            _vm._v(_vm._s(_vm.data.be_cost))
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "cost left_space" }, [
             _c("img", {
               staticClass: "head_cost_img",
-              attrs: { src: _vm.costLogo[1].img, alt: "", width: "38px" }
+              attrs: {
+                src:
+                  "/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png",
+                width: "38px"
+              }
             }),
-            _vm._v(_vm._s(_vm.data.rpCost))
+            _vm._v(_vm._s(_vm.data.rp_cost))
           ])
         ]),
         _vm._v(" "),
@@ -40551,13 +40641,13 @@ var render = function() {
           _c("p", [
             _vm._v("実装日"),
             _c("span", [_vm._v("/")]),
-            _vm._v(_vm._s(_vm.data.createDate))
+            _vm._v(_vm._s(_vm.data.created_at))
           ]),
           _vm._v(" "),
           _c("p", [
             _vm._v("更新日"),
             _c("span", [_vm._v("/")]),
-            _vm._v(_vm._s(_vm.data.updateDate))
+            _vm._v(_vm._s(_vm.data.updated_at))
           ])
         ])
       ])
@@ -40693,17 +40783,14 @@ var render = function() {
       _c("div", { staticClass: "status_keybox" }, [
         _c(
           "ul",
-          _vm._l(_vm.data.statusDatas, function(status, index) {
+          _vm._l(_vm.statusDatas, function(status, index) {
             return _c("li", { key: index }, [
               _c("p", [_vm._v(_vm._s(status.name))]),
+              _vm._v(" "),
               _c(
                 "span",
-                {
-                  style: status.color,
-                  attrs: { value: status.value },
-                  on: { click: _vm.cleateStatusBox }
-                },
-                [_vm._v(_vm._s(status.value) + "\n                    ")]
+                { style: status.color, on: { click: _vm.cleateStatusBox } },
+                [_vm._v(_vm._s(status.value))]
               )
             ])
           }),
@@ -40738,15 +40825,13 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("p", [_vm._v("テスト")]),
-      _vm._v(" "),
       _c("ChanpionPageTop", {
-        key: _vm.chanpionDatas[1].id,
-        attrs: { data: _vm.chanpionDatas[1] }
+        key: _vm.$attrs.chanpionDatas[_vm.key].id,
+        attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
       }),
       _vm._v(" "),
       _c("p", { staticClass: "main_text" }, [
-        _vm._v(_vm._s(_vm.chanpionDatas[1].feature))
+        _vm._v(_vm._s(_vm.$attrs.chanpionDatas[_vm.key].feature))
       ]),
       _vm._v(" "),
       _c(
@@ -40754,21 +40839,16 @@ var render = function() {
         { staticClass: "chanpion_stetus_data" },
         [
           _c("ChanpionStatus", {
-            key: _vm.chanpionDatas[1].id,
-            attrs: { data: _vm.chanpionDatas[1] }
-          }),
-          _vm._v(" "),
-          _c("ChanpionSkill", {
-            key: _vm.chanpionDatas[1].id,
-            attrs: { data: _vm.chanpionDatas[1] }
+            key: _vm.$attrs.chanpionDatas[_vm.key].id,
+            attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
           })
         ],
         1
       ),
       _vm._v(" "),
       _c("ChanpionPageTag", {
-        key: _vm.chanpionDatas[1].id,
-        attrs: { data: _vm.chanpionDatas[1] }
+        key: _vm.$attrs.chanpionDatas[_vm.key].id,
+        attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
       })
     ],
     1
@@ -57116,6 +57196,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   {
     path: "/home",
     component: _Home__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: "/home/chanpion/:id",
+    component: _components_chanpionPage_Layout__WEBPACK_IMPORTED_MODULE_3__["default"]
   }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -57139,17 +57222,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./storage/app/public/img/logo/lol_logo.png":
-/*!**************************************************!*\
-  !*** ./storage/app/public/img/logo/lol_logo.png ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/lol_logo.png?1e3fc4aba9c778a8a97414305e5b2d4a";
 
 /***/ }),
 

@@ -126,7 +126,7 @@ li {
 }
 .nav_itemBord{
     background: #fff;
-    width: 1280px;
+    width: 100%;
     height: 150px;
     box-sizing: border-box;
     margin: 0 auto;

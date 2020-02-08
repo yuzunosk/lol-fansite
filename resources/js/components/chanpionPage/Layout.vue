@@ -1,40 +1,41 @@
 <template>
 <!-- チャンピオンページのレイアウト -->
     <div>
-        <p>テスト</p>
+        
         <ChanpionPageTop
-           :key="chanpionDatas[1].id"
-           :data="chanpionDatas[1]"
+           :key="$attrs.chanpionDatas[key].id"
+           :data="$attrs.chanpionDatas[key]"
         >
             <!-- チャンピオンTOP image -->
             <!-- <p>チャンピオン画像など</p> -->
         </ChanpionPageTop>
-        <p class="main_text">{{ chanpionDatas[1].feature }}</p>
+        <p class="main_text">{{ $attrs.chanpionDatas[key].feature }}</p>
 
         <div class="chanpion_stetus_data">
             <ChanpionStatus
-           :key="chanpionDatas[1].id"
-           :data="chanpionDatas[1]"
+           :key="$attrs.chanpionDatas[key].id"
+           :data="$attrs.chanpionDatas[key]"
             >
                 <!-- チャンピオン簡易ステータスコンポーネント -->
             </ChanpionStatus>
 
-            <ChanpionSkill
-           :key="chanpionDatas[1].id"
-           :data="chanpionDatas[1]">
+            <!-- <ChanpionSkill
+           :key="$attrs.chanpionDatas[key].id"
+           :data="$attrs.chanpionDatas[key]">
                  <!-- チャンピオンスキルコンポーネント -->
-            </ChanpionSkill>
+            <!-- </ChanpionSkill> -->
         </div>
         <!-- チャンピオンについての感想やステーステータス、スキン情報など -->
         <ChanpionPageTag
-           :key="chanpionDatas[1].id"
-           :data="chanpionDatas[1]"
+           :key="$attrs.chanpionDatas[key].id"
+           :data="$attrs.chanpionDatas[key]"
         >
         </ChanpionPageTag>
     </div>
 </template>
 
 <script>
+// import {chanpionDatas} from "../.././chanpionDatas"
 import ChanpionPageTop from "./ChanpionPageTop.vue";
 import ChanpionSkill from "./ChanpionSkill.vue";
 import ChanpionStatus from "./ChanpionStatus.vue";

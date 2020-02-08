@@ -51,6 +51,7 @@
           <ChanpionData
           v-for="(chanpionData, index) of chanpionDatas"
           :key="index"
+          :id="index"
           :data="chanpionDatas[index]"
            >
           </ChanpionData>
@@ -61,7 +62,7 @@
 <!-- footer -->
 <div class="footer_container">
   <div class="footer_body_container">
-    <span><img class="footer_logo" src="../.././public/storage/img/logo/lol_logo.png" alt=""></span>
+    <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
     <Footer
       v-for="footerData in footerDatas"
       :key="footerData.id"
@@ -261,7 +262,7 @@ export default {
 /* @import ResetCss from ".././public/reset"; */
 
     .header-content{
-    width: 1280px;
+    width: 100%;
     margin: 0 auto;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -270,7 +271,6 @@ export default {
     -ms-flex-pack: justify;
     justify-content: space-between;
     height: 100px;
-    /* margin-right: 50px; */
     position: relative;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -285,6 +285,7 @@ export default {
       justify-content: flex-end;
       height: 100px;
       line-height: 100px;
+      padding-right: 70px;
     }
 
     .sub_title{

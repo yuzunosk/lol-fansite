@@ -1,13 +1,12 @@
 <template>
     <div class="status_wrapper">
-                <!-- <p class="main_text">{{ data.feature }}</p> -->
         <h3>プレイ感</h3>
         <div class="status_container">
             <div class="status_keybox">
                 <ul>
-                    <li v-for="(status , index) in data.statusDatas" :key="index">
-                        <p>{{ status.name }}</p><span :style="status.color" @click="cleateStatusBox" :value="status.value">{{ status.value }}
-                        </span>
+                    <li v-for="(status,index) in statusDatas" :key="index">
+                        <p>{{ status.name }}</p>
+                        <span :style="status.color" @click="cleateStatusBox">{{ status.value }}</span>
                     </li>
                 </ul>
             </div>
@@ -20,6 +19,13 @@ export default {
     props: ["data"],
     data() {
         return {
+            statusDatas: [
+                {name: "Attack"    , value: this.data.st_attack , color: "color:red" },
+                {name: "Magic"     , value: this.data.st_magic , color: "color:purple" },
+                {name: "Toughness" , value: this.data.st_toughness , color: "color:green" },
+                {name: "Mobility"  , value: this.data.st_mobility , color: "color:skyblue" },
+                {name: "Difficulty", value: this.data.st_difficulty , color: "color:#cddc39" },
+        ],
         }
     },
     methods: {

@@ -12,6 +12,8 @@ export default new Router({
     routes: [
         //ルーティング
         { path: "/home", component: Home },
+        { path: "/home/chanpion/:id", component: Chanpion }
+
     ],
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {

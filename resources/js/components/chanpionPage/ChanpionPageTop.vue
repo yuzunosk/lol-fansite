@@ -1,7 +1,7 @@
 <template>
     <div class="chanpion_page_container">
         <div class="chanpion_top">
-            <div class="top_picture" :style="topImage">TOP画像
+            <div class="top_picture" :style="topImage">
                         <img :src="storage + data.chanpion_img" alt="" width="50%">
             </div>
 
@@ -9,24 +9,23 @@
             <div class="chanpion_top_state_container">
 
             <div class="chanpion_head_name">
-                <h1 class="name">{{ data.name }}</h1><span class="sub_name">-{{data.subName}}-</span>
+                <h1 class="name">{{ data.name }}</h1><span class="sub_name">-{{data.sub_name}}-</span>
                 <hr style="margin: 0;">
-                <h2>{{ data.popularName }}</h2>
+                <h2>{{ data.popular_name }}</h2>
                 <div class="chanpion_head_roll">
-                    <p>{{ data.roll }}</p>
-                    <p class="left_space">{{ data.subRoll }}</p>
+                    <p>{{ data.main_roll_id }}</p>
+                    <p class="left_space">{{ data.sub_roll_id }}</p>
                 </div>
             </div>
             <div class="chanpion_head_cost">
 
-                <span class="cost"><img class="head_cost_img" :src="costLogo[0].img" alt="" width="40px">{{ data.beCost }}</span>
-                <span class="cost left_space"><img class="head_cost_img" :src="costLogo[1].img" alt="" width="38px">{{  data.rpCost }}</span>
-
+                <span class="cost"><img class="head_cost_img" src="/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png" width="40px">{{ data.be_cost }}</span>
+                <span class="cost left_space"><img class="head_cost_img" src="/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png" width="38px">{{  data.rp_cost }}</span>
             </div>
 
             <div class="chanpion_head_date">
-                <p>実装日<span>/</span>{{ data.createDate }}</p>
-                <p>更新日<span>/</span>{{ data.updateDate }}</p>
+                <p>実装日<span>/</span>{{ data.created_at }}</p>
+                <p>更新日<span>/</span>{{ data.updated_at }}</p>
             </div>
 
 
@@ -45,12 +44,7 @@ export default {
     data() {
         return {
             storage: "/storage/",
-            bgColor: "bule",
-            costLogo: [
-                // { img: require('/storage/app/public/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png') },
-                // { img: require('/storage/app/public/img/logo/riot-games_owler_20180821_223624_original-500x500.png') },
-            ],
-
+            bgColor: "bule"
         }
     },
 }
