@@ -1,47 +1,46 @@
 <template>
 <!-- チャンピオンページのレイアウト -->
     <div>
+        <p>テスト</p>
         <ChanpionPageTop
-           :key="chanpionDatas[key].id"
-           :data="chanpionDatas[key]"
+           :key="chanpionDatas[1].id"
+           :data="chanpionDatas[1]"
         >
             <!-- チャンピオンTOP image -->
             <!-- <p>チャンピオン画像など</p> -->
         </ChanpionPageTop>
-        <p class="main_text">{{ chanpionDatas[key].feature }}</p>
+        <p class="main_text">{{ chanpionDatas[1].feature }}</p>
 
         <div class="chanpion_stetus_data">
             <ChanpionStatus
-           :key="chanpionDatas[key].id"
-           :data="chanpionDatas[key]"
+           :key="chanpionDatas[1].id"
+           :data="chanpionDatas[1]"
             >
                 <!-- チャンピオン簡易ステータスコンポーネント -->
             </ChanpionStatus>
 
             <ChanpionSkill
-           :key="chanpionDatas[key].id"
-           :data="chanpionDatas[key]">
+           :key="chanpionDatas[1].id"
+           :data="chanpionDatas[1]">
                  <!-- チャンピオンスキルコンポーネント -->
             </ChanpionSkill>
         </div>
         <!-- チャンピオンについての感想やステーステータス、スキン情報など -->
         <ChanpionPageTag
-           :key="chanpionDatas[key].id"
-           :data="chanpionDatas[key]"
+           :key="chanpionDatas[1].id"
+           :data="chanpionDatas[1]"
         >
         </ChanpionPageTag>
     </div>
 </template>
 
 <script>
-import {chanpionDatas} from "../.././chanpionDatas"
 import ChanpionPageTop from "./ChanpionPageTop.vue";
 import ChanpionSkill from "./ChanpionSkill.vue";
 import ChanpionStatus from "./ChanpionStatus.vue";
 import ChanpionPageTag from "./ChanpionPageTag";
 
 export default {
-    mixins: [chanpionDatas],
     data() {
         return {
             key: 0,

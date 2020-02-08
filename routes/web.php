@@ -68,7 +68,7 @@ Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name(
 
 
 //ホーム画面表示
-Route::get('/home{any}', 'HomeController@showHome')->name('Home.show')->where('any', '.*');
+Route::get('/home{any}', 'HomeController@showHome')->where('any', '.*')->name('Home.show');
 
 
 

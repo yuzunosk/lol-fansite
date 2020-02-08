@@ -2,6 +2,6 @@
 
 @section('content')
             <div id="app">
-                <example-component></example-component>
+                <example-component :chanpionDatas="{{ $chanpions }}"></example-component>
             </div>
 @endsection

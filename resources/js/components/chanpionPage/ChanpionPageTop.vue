@@ -2,7 +2,7 @@
     <div class="chanpion_page_container">
         <div class="chanpion_top">
             <div class="top_picture" :style="topImage">TOP画像
-                                    <img :src="data.img" alt="" width="50%">
+                        <img :src="storage + data.chanpion_img" alt="" width="50%">
             </div>
 
         <!-- TOP内データ管理 -->
@@ -44,10 +44,11 @@ export default {
     props: ["data"],
     data() {
         return {
+            storage: "/storage/",
             bgColor: "bule",
             costLogo: [
-                { img: require('../.././assets/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png') },
-                { img: require('../.././assets/logo/riot-games_owler_20180821_223624_original-500x500.png') },
+                // { img: require('/storage/app/public/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png') },
+                // { img: require('/storage/app/public/img/logo/riot-games_owler_20180821_223624_original-500x500.png') },
             ],
 
         }

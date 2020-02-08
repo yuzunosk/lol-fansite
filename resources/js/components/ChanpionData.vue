@@ -2,18 +2,18 @@
     <div class="chanpion_card">
         <div class="thmbnail">
             <router-link :to="routerLink">
-                <img class="chanpion_img" :src="data.img" alt="">
+                <img class="chanpion_img" :src="storage + data.chanpion_img" alt="">
             </router-link>
                 <p :class="cardRoll">{{ data.roll }}</p>
                 <p :class="cardName">{{ data.name }}</p>
         </div>
     </div>
 </template>
-ß
+
 <script>
 export default {
 
-    props: ["id" , "data"],
+    props: ["data"],
     data() {
         return {
         cardRoll: {
@@ -24,11 +24,12 @@ export default {
             card_message: true,
             bottomMs: true,
         },
+        storage: "/storage/",
       }
     },
         computed: {
           routerLink() {
-              return "/chanpion/" + this.data.id;
+              return "/home/chanpion/" + this.data.index;
           }
       },
 

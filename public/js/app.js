@@ -2080,7 +2080,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2089,7 +2088,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chanpions"],
+  props: ["chanpionDatas"],
   data: function data() {
     return {
       number: 14,
@@ -2228,7 +2227,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["id", "data"],
+  props: ["data"],
   data: function data() {
     return {
       cardRoll: {
@@ -2238,12 +2237,13 @@ __webpack_require__.r(__webpack_exports__);
       cardName: {
         card_message: true,
         bottomMs: true
-      }
+      },
+      storage: "/storage/"
     };
   },
   computed: {
     routerLink: function routerLink() {
-      return "/chanpion/" + this.data.id;
+      return "/home/chanpion/" + this.data.index;
     }
   }
 });
@@ -2295,6 +2295,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["chanpiondatas"],
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -2601,6 +2602,334 @@ __webpack_require__.r(__webpack_exports__);
 
       return;
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["data"],
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["data"],
+  data: function data() {
+    return {
+      storage: "/storage/",
+      bgColor: "bule",
+      costLogo: [// { img: require('/storage/app/public/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png') },
+        // { img: require('/storage/app/public/img/logo/riot-games_owler_20180821_223624_original-500x500.png') },
+      ]
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["data"],
+  data: function data() {
+    return {
+      tab_bottom: {
+        border_bottom: true,
+        tab_botton: true
+      },
+      secondIconShow: true,
+      nowNum: 0,
+      bottons: ['P', 'Q', 'W', 'E', 'R'],
+      banerColor: [{
+        bgColor: "background-color:#5e5ee4;color:#f6f5f4"
+      }, {
+        bgColor: "background-color:yellow"
+      }, {
+        bgColor: "background-color:yellow"
+      }, {
+        bgColor: "background-color:yellow"
+      }, {
+        bgColor: "background-color:#de3333;color:#f6f5f4"
+      }]
+    };
+  },
+  computed: {
+    skillIcon1: function skillIcon1() {
+      //eslint-disable-next-line no-console
+      // console.log(this.skills[this.nowNum].icon2);
+      return this.data.skills[this.nowNum].icon;
+    },
+    skillIcon2: function skillIcon2() {
+      return this.data.skills[this.nowNum].icon2;
+    },
+    skillName1: function skillName1() {
+      return this.data.skills[this.nowNum].name[0];
+    },
+    skillName2: function skillName2() {
+      return this.data.skills[this.nowNum].name[1];
+    },
+    skillText: function skillText() {
+      return this.data.skills[this.nowNum].text;
+    },
+    skillType: function skillType() {
+      return this.data.skills[this.nowNum].type;
+    },
+    tagStyle: function tagStyle() {
+      return this.banerColor[this.nowNum].bgColor;
+    }
+  },
+  methods: {
+    toggleBotton: function toggleBotton(event) {
+      //eslint-disable-next-line no-console
+      // console.log(event.currentTarget.attributes[1].value);
+      this.nowNum = event.currentTarget.attributes[1].value; //eslint-disable-next-line no-console
+      // console.log('現在のnumは、' + this.nowNum + 'です');
+
+      return;
+    },
+    toggleIconShow: function toggleIconShow() {
+      if (this.data.skills[this.nowNum].icon2 === undefined) {
+        this.secondIconShow = true;
+        return;
+      } else {
+        this.secondIconShow = false;
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["data"],
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChanpionPageTop_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionPageTop.vue */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue");
+/* harmony import */ var _ChanpionSkill_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionSkill.vue */ "./resources/js/components/chanpionPage/ChanpionSkill.vue");
+/* harmony import */ var _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue */ "./resources/js/components/chanpionPage/ChanpionStatus.vue");
+/* harmony import */ var _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChanpionPageTag */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      key: 0
+    };
+  },
+  components: {
+    ChanpionPageTop: _ChanpionPageTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ChanpionSkill: _ChanpionSkill_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ChanpionStatus: _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ChanpionPageTag: _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  created: function created() {
+    this.key = Number(this.$route.params.id); //eslint-disable-next-line no-console
+    // console.log('keyは、' + this.key + 'です');
+
+    return;
   }
 });
 
@@ -7266,6 +7595,101 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.news_body{\n    letter-spacing: 2px;\n    position: relative;\n    overflow: hidden;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_body:hover{\n    background: black;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_body_contents{\n    color:#333;\n    display: block;\n}\n.over_move{\n    color: #f6f5f4;\n    margin-left: 20px;\n}\n.news_body > ul {\n    margin: 0;\n    padding: 0;\n}\n.news_body > ul > li {\n    border-top: 1px dashed #333;\n    font-size: 12px;\n    height: 40px;\n    line-height: 40px;\n}\n.news_body > ul > li > a {\n    text-decoration:none;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_update{\n    margin-right: 30px;\n}\n.news_index{\n    margin-right: 70px;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    left: 5%;\n    text-align: center;\n    width: 400px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 5rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 5.5rem;\n    height: 28px;\n    line-height: 28px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -61%;\n    width: 60%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    position: absolute;\n    bottom: 8%;\n    left: 6%;\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    font-size: 16px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    display: -webkit-box;\n    display: flex;\n    overflow: hidden;\n    position: relative;\n}\n.table_body_left[data-v-00d17c7c] {\n    flex-basis: 35%;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 30px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 4px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    text-align: left;\n    padding: 30px;\n    box-sizing: border-box;\n    flex-basis: 70%;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n\n/* アニメーション END */\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.status_wrapper[data-v-6a14a852]{\n    margin: 18px 0;\n}\n.status_wrapper p[data-v-6a14a852]{\n    margin: 0;\n}\n.status_container[data-v-6a14a852]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.status_wrapper h3[data-v-6a14a852]{\n    font-size: 24px;\n    padding: 8px 30px;\n    background: #333;\n    border-radius: 5%;\n    text-align: center;\n    color: #f6f5f4;\n    margin-bottom: 20px;\n}\n.status_wrapper p[data-v-6a14a852]{\n    font-size: 14px;\n    margin: 5px 0;\n}\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.main_text{\n    margin: 0;\n    width: 100%;\n    font-size: 1.5rem;\n    color: #333;\n    padding: 10px;\n    text-align: center;\n    background: #e6e6e6;\n}\n.chanpion_stetus_data{\n    display: -webkit-box;\n    display: flex;\n    width: 1280px;\n    height: 500px;\n    margin: 50px auto;\n}\n", ""]);
 
 // exports
 
@@ -38318,6 +38742,156 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=style&index=0&scope=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -38991,10 +39565,10 @@ var render = function() {
         _c(
           "div",
           { staticClass: "chanpion_card_holder" },
-          _vm._l(_vm.chanpion, function(chanpions) {
+          _vm._l(_vm.chanpionDatas, function(chanpionData, index) {
             return _c("ChanpionData", {
-              key: _vm.chanpion.id,
-              attrs: { id: _vm.chanpion.id, data: _vm.chanpion }
+              key: index,
+              attrs: { data: _vm.chanpionDatas[index] }
             })
           }),
           1
@@ -39460,7 +40034,7 @@ var render = function() {
         _c("router-link", { attrs: { to: _vm.routerLink } }, [
           _c("img", {
             staticClass: "chanpion_img",
-            attrs: { src: _vm.data.img, alt: "" }
+            attrs: { src: _vm.storage + _vm.data.chanpion_img, alt: "" }
           })
         ]),
         _vm._v(" "),
@@ -39532,7 +40106,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("router-view")], 1)
+  return _c(
+    "div",
+    [_c("router-view", { attrs: { chanpionDatas: _vm.chanpiondatas } })],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39836,6 +40414,364 @@ var render = function() {
         ])
       ])
     ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "chanpion_tag_container" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "tag_form" },
+      _vm._l(_vm.data.tagLists, function(list, index) {
+        return _c("li", { key: index }, [
+          _c("div", { staticClass: "tag_body" }, [
+            _c("span", [_vm._v(_vm._s(list.subname))]),
+            _c("p", [_vm._v(_vm._s(list.name))])
+          ])
+        ])
+      }),
+      0
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tag_title" }, [
+      _c("h3", [
+        _c("img", {
+          attrs: {
+            src: "/public/storage/img/logo/perm_data_setting-24px.svg",
+            alt: "",
+            width: "25px;"
+          }
+        }),
+        _vm._v("メカニクス")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "chanpion_page_container" }, [
+    _c("div", { staticClass: "chanpion_top" }, [
+      _c("div", { staticClass: "top_picture", style: _vm.topImage }, [
+        _vm._v("TOP画像\n                    "),
+        _c("img", {
+          attrs: {
+            src: _vm.storage + _vm.data.chanpion_img,
+            alt: "",
+            width: "50%"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "chanpion_top_state_container" }, [
+        _c("div", { staticClass: "chanpion_head_name" }, [
+          _c("h1", { staticClass: "name" }, [_vm._v(_vm._s(_vm.data.name))]),
+          _c("span", { staticClass: "sub_name" }, [
+            _vm._v("-" + _vm._s(_vm.data.subName) + "-")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticStyle: { margin: "0" } }),
+          _vm._v(" "),
+          _c("h2", [_vm._v(_vm._s(_vm.data.popularName))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "chanpion_head_roll" }, [
+            _c("p", [_vm._v(_vm._s(_vm.data.roll))]),
+            _vm._v(" "),
+            _c("p", { staticClass: "left_space" }, [
+              _vm._v(_vm._s(_vm.data.subRoll))
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "chanpion_head_cost" }, [
+          _c("span", { staticClass: "cost" }, [
+            _c("img", {
+              staticClass: "head_cost_img",
+              attrs: { src: _vm.costLogo[0].img, alt: "", width: "40px" }
+            }),
+            _vm._v(_vm._s(_vm.data.beCost))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "cost left_space" }, [
+            _c("img", {
+              staticClass: "head_cost_img",
+              attrs: { src: _vm.costLogo[1].img, alt: "", width: "38px" }
+            }),
+            _vm._v(_vm._s(_vm.data.rpCost))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "chanpion_head_date" }, [
+          _c("p", [
+            _vm._v("実装日"),
+            _c("span", [_vm._v("/")]),
+            _vm._v(_vm._s(_vm.data.createDate))
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("更新日"),
+            _c("span", [_vm._v("/")]),
+            _vm._v(_vm._s(_vm.data.updateDate))
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "chanpion_skill_container" }, [
+    _c("div", { staticClass: "chanpion_skill_table" }, [
+      _c("div", { staticClass: "skill_table_tab" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.bottons, function(botton, index) {
+            return _c("li", { key: index }, [
+              _c(
+                "p",
+                {
+                  staticClass: "tab_botton",
+                  attrs: { num: index },
+                  on: {
+                    click: function($event) {
+                      _vm.toggleBotton($event)
+                      _vm.toggleIconShow($event)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(botton))]
+              )
+            ])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "table_body" }, [
+        _c("div", { staticClass: "table_body_left" }, [
+          _c("p", { staticClass: "skill_type_baner", style: _vm.tagStyle }, [
+            _vm._v(_vm._s(_vm.skillType))
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
+                _vm.secondIconShow
+                  ? _c("div", { key: "oneSkill" }, [
+                      _c("img", {
+                        staticClass: "skill_icon",
+                        attrs: { src: _vm.skillIcon1, alt: "", width: "150px" }
+                      })
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.secondIconShow
+                  ? _c("div", { key: "twoSklill" }, [
+                      _c("img", {
+                        staticClass: "skill_icon",
+                        attrs: { src: _vm.skillIcon1, alt: "", width: "150px" }
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "skill_icon",
+                        attrs: { src: _vm.skillIcon2, alt: "", width: "150px" }
+                      })
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.skillName1))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.skillName2))])
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "teble_body_right" }, [
+          _c("h2", [_vm._v("スキル解説")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.skillText))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "status_wrapper" }, [
+    _c("h3", [_vm._v("プレイ感")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "status_container" }, [
+      _c("div", { staticClass: "status_keybox" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.data.statusDatas, function(status, index) {
+            return _c("li", { key: index }, [
+              _c("p", [_vm._v(_vm._s(status.name))]),
+              _c(
+                "span",
+                {
+                  style: status.color,
+                  attrs: { value: status.value },
+                  on: { click: _vm.cleateStatusBox }
+                },
+                [_vm._v(_vm._s(status.value) + "\n                    ")]
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("p", [_vm._v("テスト")]),
+      _vm._v(" "),
+      _c("ChanpionPageTop", {
+        key: _vm.chanpionDatas[1].id,
+        attrs: { data: _vm.chanpionDatas[1] }
+      }),
+      _vm._v(" "),
+      _c("p", { staticClass: "main_text" }, [
+        _vm._v(_vm._s(_vm.chanpionDatas[1].feature))
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "chanpion_stetus_data" },
+        [
+          _c("ChanpionStatus", {
+            key: _vm.chanpionDatas[1].id,
+            attrs: { data: _vm.chanpionDatas[1] }
+          }),
+          _vm._v(" "),
+          _c("ChanpionSkill", {
+            key: _vm.chanpionDatas[1].id,
+            attrs: { data: _vm.chanpionDatas[1] }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("ChanpionPageTag", {
+        key: _vm.chanpionDatas[1].id,
+        attrs: { data: _vm.chanpionDatas[1] }
+      })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -55720,6 +56656,441 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTag.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTag.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true&");
+/* harmony import */ var _ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "29a4f2f6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chanpionPage/ChanpionPageTag.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTop.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTop.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true&");
+/* harmony import */ var _ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "42079f31",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chanpionPage/ChanpionPageTop.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionSkill.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionSkill.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true&");
+/* harmony import */ var _ChanpionSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionSkill.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ChanpionSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "00d17c7c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chanpionPage/ChanpionSkill.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionSkill.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_style_index_0_id_00d17c7c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=template&id=00d17c7c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionSkill_vue_vue_type_template_id_00d17c7c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionStatus.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&");
+/* harmony import */ var _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6a14a852",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chanpionPage/ChanpionStatus.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
+/*!**************************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/Layout.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/chanpionPage/Layout.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout.vue?vue&type=template&id=4ce65285& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285&");
+/* harmony import */ var _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Layout.vue?vue&type=style&index=0&scope=true&lang=css& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/chanpionPage/Layout.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css& ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=style&index=0&scope=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&scope=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_scope_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=template&id=4ce65285& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_template_id_4ce65285___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -55733,9 +57104,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home */ "./resources/js/Home.vue");
+/* harmony import */ var _components_chanpionPage_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/chanpionPage/Layout */ "./resources/js/components/chanpionPage/Layout.vue");
 
 
- // import home from './components/ExampleComponent';
+
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

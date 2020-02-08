@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './Home';
-// import home from './components/ExampleComponent';
+import Chanpion from './components/chanpionPage/Layout';
+
 
 Vue.use(Router);
 

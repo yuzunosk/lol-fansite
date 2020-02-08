@@ -49,10 +49,9 @@
       <h2 class="sub_title center">- Chanpions - </h2>
         <div class="chanpion_card_holder">
           <ChanpionData
-           v-for="chanpions in chanpion"
-           :key="chanpion.id"
-           :id="chanpion.id"
-           :data="chanpion"
+          v-for="(chanpionData, index) of chanpionDatas"
+          :key="index"
+          :data="chanpionDatas[index]"
            >
           </ChanpionData>
         </div>
@@ -174,7 +173,7 @@ import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-  props: ["chanpions"],
+  props: ["chanpionDatas"],
   data(){
     return {
       number: 14,
