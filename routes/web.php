@@ -20,6 +20,7 @@ Route::get('/mypage','ChanpionsController@mypage')->name('chanpions.mypage');
 // チャンピオン追加ページ
 Route::get('/chanpions/new', 'ChanpionsController@newChanpion')->name('chanpions.new');
 Route::post('/chanpions', 'ChanpionsController@createChanpion')->name('chanpions.create');
+//チャンピオン系管理画面表示
 Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('chanpions.create');
 Route::get('/chanpions/{id}/edit', 'ChanpionsController@editChanpion')->name('chanpions.edit');
 Route::post('/chanpions/{id}', 'ChanpionsController@updateChanpion')->name('chanpions.update');

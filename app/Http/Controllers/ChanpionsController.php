@@ -29,7 +29,10 @@ class ChanpionsController extends Controller
 // チャンピオン系
 // ---------------------------------
     public function indexChanpion(){
-        $chanpionsData = Chanpion::all();
+        $chanpionsData = Auth::user()->chanpions;
+        // $chanpionSkills = App\Chanpion::find()->skills(); 練習試してみる
+        // $chanpionTagBox = Chanpion::tagBoxs()->chanpionTagBox;
+
         return view('chanpions.index', compact('chanpionsData'));
     }
 
@@ -208,28 +211,30 @@ class ChanpionsController extends Controller
         ]);
 
     $chanpionData = Chanpion::find($id);
-    $chanpionData->name = $request->name;
-    $chanpionData->sub_name = $request->sub_name;
-    $chanpionData->popular_name = $request->popular_name;
-    $chanpionData->feature = $request->feature;
-    $chanpionData->main_roll_id = $request->main_roll_id;
-    $chanpionData->sub_roll_id = $request->sub_roll_id;
-    $chanpionData->be_cost = $request->be_cost;
-    $chanpionData->rp_cost = $request->rp_cost;
+    // $chanpionData->name = $request->name;
+    // $chanpionData->sub_name = $request->sub_name;
+    // $chanpionData->popular_name = $request->popular_name;
+    // $chanpionData->feature = $request->feature;
+    // $chanpionData->main_roll_id = $request->main_roll_id;
+    // $chanpionData->sub_roll_id = $request->sub_roll_id;
+    // $chanpionData->be_cost = $request->be_cost;
+    // $chanpionData->rp_cost = $request->rp_cost;
 
     if($request->file('chanpion_img')){
         $file = $request->file('chanpion_img');
         $filename = $file->getClientOriginalName();
         $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
     }
-    $chanpionData->st_attack = $request->st_attack;
-    $chanpionData->st_magic = $request->st_magic;
-    $chanpionData->st_toughness = $request->st_toughness;
-    $chanpionData->st_mobility = $request->st_mobility;
-    $chanpionData->st_difficulty = $request->st_difficulty;
-    $chanpionData->user_id = $request->user_id;
-    $chanpionData->chanpion_tag = $request->chanpion_tag;
-    $chanpionData->save();
+    // $chanpionData->st_attack = $request->st_attack;
+    // $chanpionData->st_magic = $request->st_magic;
+    // $chanpionData->st_toughness = $request->st_toughness;
+    // $chanpionData->st_mobility = $request->st_mobility;
+    // $chanpionData->st_difficulty = $request->st_difficulty;
+    // $chanpionData->user_id = $request->user_id;
+    // $chanpionData->chanpion_tag = $request->chanpion_tag;
+    // $chanpionData->save();
+    Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
+
 
     return redirect('/chanpions')->with('flash_message', __('Updated.'));
 }
@@ -295,18 +300,26 @@ class ChanpionsController extends Controller
 
         ]);
             $skillDatas = new Skill;
-            $skillDatas->name = $request->name;
-            $skillDatas->na_name = $request->na_name;
-            $skillDatas->skill_type = $request->skill_type;
-            $skillDatas->chanpion_id = $request->chanpion_id;
-            $skillDatas->text = $request->text;
+            // $skillDatas->name = $request->name;
+            // $skillDatas->na_name = $request->na_name;
+            // $skillDatas->skill_type = $request->skill_type;
+            // $skillDatas->chanpion_id = $request->chanpion_id;
+            // $skillDatas->text = $request->text;
 
             if($request->file('skill_icon_1')){
                 $file = $request->file('skill_icon_1');
                 $filename = $file->getClientOriginalName();
                 $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
             }
-            $skillDatas->save();
+            if($request->file('skill_icon_2')){
+                $file = $request->file('skill_icon_2');
+                $filename = $file->getClientOriginalName();
+                $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
+            }
+            $chanpion = Chanpion::find($request->chanpion_id);
+            // $skillDatas->save();
+            $chanpion->skills()->save($skillDatas->fill($request->all()));
+
 
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
@@ -369,7 +382,13 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
         }
-        $skillDatas->save();
+        if($request->file('skill_icon_2')){
+            $file = $request->file('skill_icon_2');
+            $filename = $file->getClientOriginalName();
+            $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
+        }
+        App\Chanpion::find()->skills()->save($skillDatas->fill($request->all()));
+
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }
