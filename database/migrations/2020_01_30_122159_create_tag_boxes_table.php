@@ -15,7 +15,7 @@ class CreateTagBoxesTable extends Migration
     {
         Schema::create('tag_boxes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('chanpion_id');
+            $table->unsignedBigInteger('chanpion_id');
             // $table->foreign('chanpion_id')->references('id')->on('chanpions');
             $table->string('chanpion_tag1');
             $table->string('chanpion_tag2');

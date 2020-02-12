@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Chanpion;
 use App\Skill;
@@ -11,12 +12,19 @@ use App\Tag;
 use App\TagBox;
 
 
-use Illuminate\Support\Facades\Auth;
-
 // use Illuminate\Auth\Events\Registered;
 
 class ChanpionsController extends Controller
 {
+// ------------------------
+//マイページ表示
+// ------------------------
+    public function mypage() {
+        $myChanpionData = Auth::user()->chanpions()->get();
+        return view('chanpions.mypage',compact('myChanpionData'));
+    }
+
+
 // ---------------------------------
 // チャンピオン系
 // ---------------------------------
@@ -92,14 +100,14 @@ class ChanpionsController extends Controller
         ]);
             //一つずつ入れた方が後の変更に対応しやすい
             $chanpionData = new Chanpion;
-            $chanpionData->name = $request->name;
-            $chanpionData->sub_name = $request->sub_name;
-            $chanpionData->popular_name = $request->popular_name;
-            $chanpionData->feature = $request->feature;
-            $chanpionData->main_roll_id = $request->main_roll_id;
-            $chanpionData->sub_roll_id = $request->sub_roll_id;
-            $chanpionData->be_cost = $request->be_cost;
-            $chanpionData->rp_cost = $request->rp_cost;
+            // $chanpionData->name = $request->name;
+            // $chanpionData->sub_name = $request->sub_name;
+            // $chanpionData->popular_name = $request->popular_name;
+            // $chanpionData->feature = $request->feature;
+            // $chanpionData->main_roll_id = $request->main_roll_id;
+            // $chanpionData->sub_roll_id = $request->sub_roll_id;
+            // $chanpionData->be_cost = $request->be_cost;
+            // $chanpionData->rp_cost = $request->rp_cost;
 
             if($request->file('chanpion_img')){
                 $file = $request->file('chanpion_img');
@@ -112,14 +120,17 @@ class ChanpionsController extends Controller
             // $updateFile = InterventionImage::make($file)->resize(350, null, function ($constraint) {$constraint->aspectRatio();});
             // $chanpionData->chanpion_img = $updateFile->store('/img/chanpion');
 
-            $chanpionData->st_attack = $request->st_attack;
-            $chanpionData->st_magic = $request->st_magic;
-            $chanpionData->st_toughness = $request->st_toughness;
-            $chanpionData->st_mobility = $request->st_mobility;
-            $chanpionData->st_difficulty = $request->st_difficulty;
-            $chanpionData->user_id = $request->user_id;
-            $chanpionData->chanpion_tag = $request->chanpion_tag;
-            $chanpionData->save();
+            // $chanpionData->st_attack = $request->st_attack;
+            // $chanpionData->st_magic = $request->st_magic;
+            // $chanpionData->st_toughness = $request->st_toughness;
+            // $chanpionData->st_mobility = $request->st_mobility;
+            // $chanpionData->st_difficulty = $request->st_difficulty;
+            // $chanpionData->user_id = $request->user_id;
+            // $chanpionData->chanpion_tag = $request->chanpion_tag;
+            // $chanpionData->save();
+            // var_dump($chanpionData);
+
+            Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
     }

@@ -13,6 +13,8 @@ use App\Chanpion;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//マイページ
+Route::get('/mypage','ChanpionsController@mypage')->name('chanpions.mypage');
 
 
 // チャンピオン追加ページ
