@@ -374,14 +374,14 @@
                         id = "select-user_id" 
                         class="form-control @error('user_id') is-invalid @enderror"
                         >
-                        <option value="999" selected>なし</option>
 
                             @foreach($userDatas as $userData)
                             <option value="{{ $userData->id }}" @if(old("user_id", $chanpion->user_id) == $userData->id) selected @endif>
                             {{ $userData->name }}
                             </option>
                             @endforeach
-                            
+                        </select>
+
                         @error('user_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

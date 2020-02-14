@@ -367,9 +367,9 @@
                         <div class="col-md-4 col-6">
                         <select name="user_id"
                         id = "select-user_id" 
-                        class="form-control @error('user_id') is-invalid @enderror">
+                        class="form-control @error('user_id') is-invalid @enderror"
+                        readonly>
 
-                            <option value="999" selected>なし</option>
                             @foreach($userDatas as $userData)
                             <option value="{{ $userData->id }}" @if(old("user_id") == $userData->id) selected @endif>
                             {{ $userData->name }}
@@ -385,29 +385,6 @@
                     </div>
                 </div>
 
-<!-- チャンピオンタグ -->
-                <!-- <div class="container  mb-1 p-0">
-                    <div class="form-group row mb-1">
-                    <h4 class="col-12">{{ __("chanpion_tag_id") }}<span class="badgi badge-danger px-2">※複数選択可能です</span></h4>
-
-                            @foreach($tagDatas as $tagData)
-                            <div class="d-inline col-md-6 text-left">
-                            <label><input type="checkbox" name="chanpion_tagId[]" id="tag_check" class="" value="{{ $tagData->name }}">
-                            {{ $tagData->name }} / {{ $tagData->sub_name }}
-                            </label>
-                            </div>
-                            @endforeach
-
-
-
-                        @error('chanpion_tag_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        </div>
-                    </div> -->
-<!-- チャンピオンタグ END
 
 <!-- submit -->
                     <div class="container text-center mt-4">

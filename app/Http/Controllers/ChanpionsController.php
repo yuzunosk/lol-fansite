@@ -148,7 +148,7 @@ class ChanpionsController extends Controller
         $userDatas = User::all();
         $chanpion = Chanpion::find($id);
         // $chanpion = Auth::user()->drills()->find($id);
-        return view('chanpions.edit', compact(['chanpion','rollCategorys']));
+        return view('chanpions.edit', compact(['chanpion','rollCategorys','userDatas']));
     }
 
     public function updateChanpion(Request $request, $id){
