@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use App\User;
 use App\Chanpion;
 use App\Skill;
@@ -29,9 +30,7 @@ class ChanpionsController extends Controller
 // チャンピオン系
 // ---------------------------------
     public function indexChanpion(){
-        $chanpionsData = Auth::user()->chanpions;
-        // $chanpionSkills = App\Chanpion::find()->skills(); 練習試してみる
-        // $chanpionTagBox = Chanpion::tagBoxs()->chanpionTagBox;
+        $chanpionsData = Auth::user()->chanpions()->get();
 
         return view('chanpions.index', compact('chanpionsData'));
     }
@@ -146,6 +145,7 @@ class ChanpionsController extends Controller
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
         }
         $rollCategorys = Roll::all();
+        $userDatas = User::all();
         $chanpion = Chanpion::find($id);
         // $chanpion = Auth::user()->drills()->find($id);
         return view('chanpions.edit', compact(['chanpion','rollCategorys']));
@@ -172,7 +172,7 @@ class ChanpionsController extends Controller
             'st_toughness' => 'required|numeric|max:10|min:1',
             'st_mobility' => 'required|numeric|max:10|min:1',
             'st_difficulty' => 'required|numeric|max:10|min:1',
-            'user_id' => 'required',
+            'user_id' => 'required|numeric',
             'chanpion_tagId[]' => 'array|string'
         ]
         ,[
@@ -273,7 +273,7 @@ class ChanpionsController extends Controller
             'name' => 'string|max:255',
             'na_name' => 'string|max:255',
             'skill_type' => 'string',
-            'chanpion_id' => 'required|string',
+            'chanpion_id' => 'required|numeric',
             'text' => 'string|nullable|max:255',
             'skill_icon_1' => 'nullable|file|image|max:10240',
             // 'skill_icon_2' => 'nullable|file|image|max:10240',
@@ -317,7 +317,6 @@ class ChanpionsController extends Controller
                 $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
             }
             $chanpion = Chanpion::find($request->chanpion_id);
-            // $skillDatas->save();
             $chanpion->skills()->save($skillDatas->fill($request->all()));
 
 
@@ -343,7 +342,7 @@ class ChanpionsController extends Controller
             'name' => 'string|max:255',
             'na_name' => 'string|max:255',
             'skill_type' => 'string',
-            'chanpion_id' => 'required|string',
+            'chanpion_id' => 'required|numeric',
             'text' => 'string|nullable|max:255',
             'skill_icon_1' => 'nullable|file|image|max:10240',
             // 'skill_icon_2' => 'nullable|file|image|max:10240',
@@ -371,11 +370,11 @@ class ChanpionsController extends Controller
         ]);
 
         $skillDatas = new Skill;
-        $skillDatas->name = $request->name;
-        $skillDatas->na_name = $request->na_name;
-        $skillDatas->skill_type = $request->skill_type;
-        $skillDatas->chanpion_id = $request->chanpion_id;
-        $skillDatas->text = $request->text;
+        // $skillDatas->name = $request->name;
+        // $skillDatas->na_name = $request->na_name;
+        // $skillDatas->skill_type = $request->skill_type;
+        // $skillDatas->chanpion_id = $request->chanpion_id;
+        // $skillDatas->text = $request->text;
 
         if($request->file('skill_icon_1')){
             $file = $request->file('skill_icon_1');
@@ -387,7 +386,8 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
         }
-        App\Chanpion::find()->skills()->save($skillDatas->fill($request->all()));
+        $chanpion = Chanpion::find($request->chanpion_id);
+        $chanpion->skills()->save($skillDatas->fill($request->all()));
 
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
@@ -533,33 +533,98 @@ public function deleteTag($id) {
                 // var_dump($request);
 
               $request->validate([
-                'name' => 'string|max:255',
-                'chanpion_id' => 'string',
+                'name' => 'string|max:255|required',
+                'chanpion_id' => 'required|numeric',
                 'chanpion_tag_id_1' => 'required|string|max:20',
-                // 'chanpion_tag_id_2' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_3' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_4' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_5' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_6' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_7' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_8' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_9' => 'nullable|string|max:20',
-                // 'chanpion_tag_id_10' => 'nullable|string|max:20',
-              ]);
-            // [
-            //     'chanpion_tag_id_1.required' => 'タグ１は、必須入力です',
-            //     'chanpion_tag_id_2.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_3.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_4.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_5.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_6.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_7.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_8.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_9.max' => '21文字以上の入力は出来ません',
-            //     'chanpion_tag_id_10.max' => '21文字以上の入力は出来ません',
-            // ]);
+                'chanpion_tag_id_2' => 'nullable|string|max:20',
+                'chanpion_tag_id_3' => 'nullable|string|max:20',
+                'chanpion_tag_id_4' => 'nullable|string|max:20',
+                'chanpion_tag_id_5' => 'nullable|string|max:20',
+                'chanpion_tag_id_6' => 'nullable|string|max:20',
+                'chanpion_tag_id_7' => 'nullable|string|max:20',
+                'chanpion_tag_id_8' => 'nullable|string|max:20',
+                'chanpion_tag_id_9' => 'nullable|string|max:20',
+                'chanpion_tag_id_10' => 'nullable|string|max:20',
+              ],
+            [
+                'name.required' => 'nameは必須入力です',
+                'chanpion_id.required' => 'IDは必須入力です',
+                'chanpion_id.numeric' => 'IDは数値でなければいけません',
+                'chanpion_tag_id_1.required' => 'タグ１は、必須入力です',
+                'chanpion_tag_id_2.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_3.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_4.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_5.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_6.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_7.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_8.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_9.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_10.max' => '21文字以上の入力は出来ません',
+            ]);
                 $tagboxDatas = new TagBox;
-                $tagboxDatas->fill($request->all())->save();
+
+                $chanpion = Chanpion::find($request->chanpion_id);
+                $chanpion->tagBoxs()->save($tagboxDatas->fill($request->all()));
+
+                return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));
+            }
+            public function editTagBox($id){
+                // GETパラメータが数字かどうかをチェックする
+                //事前にチェックする事で無駄なアクセスを減らせる
+                if(!ctype_digit($id)){
+                    return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
+                }
+                Log::info('IDは、'.$id);
+                $chanpionData = Chanpion::where('id', $id)->with('tagBoxs')->get();
+                Log::info('チャンピオンのデータ:'.$chanpionData);
+                $tagDatas = Tag::all();
+                
+                $test = Chanpion::where('id', 1)->with('tagBoxs')->get();
+                Log::info($test);
+                if(is_null($test)){
+                    Log::info('空です');
+                }
+                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagDatas']));
+            }
+
+            public function updateTagBox(Request $request , $id) {
+                // var_dump($request);
+
+              $request->validate([
+                'name' => 'string|max:255|required',
+                'chanpion_id' => 'required|numeric',
+                'chanpion_tag_id_1' => 'required|string|max:20',
+                'chanpion_tag_id_2' => 'nullable|string|max:20',
+                'chanpion_tag_id_3' => 'nullable|string|max:20',
+                'chanpion_tag_id_4' => 'nullable|string|max:20',
+                'chanpion_tag_id_5' => 'nullable|string|max:20',
+                'chanpion_tag_id_6' => 'nullable|string|max:20',
+                'chanpion_tag_id_7' => 'nullable|string|max:20',
+                'chanpion_tag_id_8' => 'nullable|string|max:20',
+                'chanpion_tag_id_9' => 'nullable|string|max:20',
+                'chanpion_tag_id_10' => 'nullable|string|max:20',
+              ],
+            [
+                'name.required' => 'nameは必須入力です',
+                'chanpion_id.required' => 'IDは必須入力です',
+                'chanpion_id.numeric' => 'IDは数値でなければいけません',
+                'chanpion_tag_id_1.required' => 'タグ１は、必須入力です',
+                'chanpion_tag_id_2.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_3.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_4.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_5.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_6.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_7.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_8.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_9.max' => '21文字以上の入力は出来ません',
+                'chanpion_tag_id_10.max' => '21文字以上の入力は出来ません',
+            ]);
+                $tagboxDatas = new TagBox;
+
+                $chanpion = Chanpion::find($request->chanpion_id);
+                $chanpion->tagBoxs()->save($tagboxDatas->fill($request->all()));
+
+
                 return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));
             }
 

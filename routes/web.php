@@ -55,6 +55,8 @@ Route::post('/tags/{id}/delete', 'ChanpionsController@deleteTag')->name('tags.de
 Route::get('/tagbox/{id}/new', 'ChanpionsController@newTagBox')->name('tagbox.new');
 Route::post('/tagbox', 'ChanpionsController@createTagBox')->name('tagbox.create');
 Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('tagbox.create');
+Route::get('/tagbox/{id}/edit', 'ChanpionsController@editTagBox')->name('tagbox.edit');
+
 
 //コンテンツ追加ページ
 Route::get('/articles/new', 'ArticlesController@newArticles')->name('articles.new');
@@ -63,6 +65,7 @@ Route::get('/articles', 'ArticlesController@indexArticles')->name('articles.crea
 Route::get('/articles/{id}/edit', 'ArticlesController@editArticles')->name('articles.edit');
 Route::post('/articles/{id}', 'ArticlesController@updateArticles')->name('articles.update');
 Route::post('/articles/{id}/delete', 'ArticlesController@deleteArticles')->name('articles.delete');
+
 //カテゴリー追加ページ
 Route::get('/categorys/new', 'ArticlesController@newCategory')->name('categorys.new');
 Route::post('/categorys/new', 'ArticlesController@createCategory')->name('categorys.create');

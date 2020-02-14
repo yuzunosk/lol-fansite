@@ -26,14 +26,19 @@
                                 <!-- <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a> -->
                                 <div class="card-footer">
                                     <div class="row">
-                                        <form action="{{ route('tagbox.new',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0 border border-dark">
+                                        <form @if (!is_null(App\Chanpion::where('id', $chanpionData->id)->with('tagBoxs')->get('name')))
+                                        action="{{ route('tagbox.new',$chanpionData->id) }}"
+                                         @else
+                                        action="{{ route('tagbox.edit',$chanpionData->id) }}"
+                                        @endif
+                                        method="get" class="col-md-3 p-0 m-0 border border-dark">
                                         @csrf
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-bookmark fa-2x fa-fw"></i>Tag
                                         </button>
                                         </form>
 
-                                        <form action="{{ route('skills.index',[$chanpionData->id,]) }}" method="get" class="col-md-3 p-0 m-0 border border-dark">
+                                        <form action="{{ route('skills.index',$chanpionData->id) }}" method="get" class="col-md-3 p-0 m-0 border border-dark">
                                         @csrf
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-star fa-2x fa-fw"></i></i>Skill

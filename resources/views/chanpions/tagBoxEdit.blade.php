@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ $chanpionData->name }}：{{ __('TagBox Register') }}</div>
+                    <div class="card-header text-center">{{ $chanpionData[0]->name }}：{{ __('TagBox Register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('tagbox.create') }}">
@@ -21,7 +21,7 @@
                                     id="name" 
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name',$chanpionData->name) }}" 
+                                    value="{{ old('name',$chanpionData[0]->name) }}" 
                                     autocomplete="name" readonly autofocus>
 
                                     @error('name')
@@ -42,12 +42,12 @@
                                 </label>
 
                                 <div class="col-4">
-                                    <input 
-                                    id="chanpion_id" 
-                                    type="text" 
-                                    class="form-control @error('chanpion_id') is-invalid @enderror" 
-                                    name="chanpion_id" 
-                                    value="{{ old('chanpion_id',$chanpionData->id) }}" 
+                                    <input
+                                    id="chanpion_id"
+                                    type="text"
+                                    class="form-control @error('chanpion_id') is-invalid @enderror"
+                                    name="chanpion_id"
+                                    value="{{ old('chanpion_id',$chanpionData[0]->id) }}"
                                     autofocus readonly
                                     >
 

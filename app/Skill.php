@@ -15,6 +15,6 @@ class Skill extends Model
     ];
 
     public function chanpion(){
-        return belongsTo('App\Chanpion');
+        return $this->belongsTo('App\Chanpion');
     }
 }

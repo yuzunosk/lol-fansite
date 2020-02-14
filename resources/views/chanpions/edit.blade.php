@@ -92,7 +92,7 @@
                         value="{{old('main_roll_id', $chanpion->main_roll_id)}}"
                         >
                         @foreach($rollCategorys as $rollCategory)
-                            <option value="{{ $rollCategory->name }}" @if(old('main_roll_id',$chanpion) == $rollCategory->name) selected @endif>
+                            <option value="{{ $rollCategory->name }}" @if(old('main_roll_id', $chanpion->main_roll_id) == $rollCategory->name) selected @endif>
                             {{ $rollCategory->name }}
                             </option> 
                         @endforeach
@@ -117,7 +117,7 @@
                         >
                         <option value="なし" selected >なし</option>
                         @foreach($rollCategorys as $rollCategory)
-                            <option value="{{ $rollCategory->name }}" @if(old("sub_roll_id") == $rollCategory->name) selected @endif>
+                            <option value="{{ $rollCategory->name }}" @if(old("sub_roll_id", $chanpion->sub_roll_id) == $rollCategory->name) selected @endif>
                             {{ $rollCategory->name }}
                             </option>
                         @endforeach
@@ -148,11 +148,11 @@
                             value="{{old('be_cost', $chanpion->be_cost)}}"
                             >
                                 <!-- <option>7800</option> -->
-                                <option value=6300 @if(old("be_cost") == 6300) selected @endif>6300</option>
-                                <option value=4800 @if(old("be_cost") == 4800) selected @endif>4800</option>
-                                <option value=3150 @if(old("be_cost") == 3150) selected @endif>3150</option>
-                                <option value=1350 @if(old("be_cost") == 1350) selected @endif>1350</option>
-                                <option value=450 @if(old("be_cost") == 450) selected @endif>450</option>
+                                <option value=6300 @if(old("be_cost", $chanpion->be_cost) == 6300) selected @endif>6300</option>
+                                <option value=4800 @if(old("be_cost", $chanpion->be_cost) == 4800) selected @endif>4800</option>
+                                <option value=3150 @if(old("be_cost", $chanpion->be_cost) == 3150) selected @endif>3150</option>
+                                <option value=1350 @if(old("be_cost", $chanpion->be_cost) == 1350) selected @endif>1350</option>
+                                <option value=450 @if(old("be_cost", $chanpion->be_cost) == 450) selected @endif>450</option>
                             </select>
                             @error('be_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -171,11 +171,11 @@
                                 class = "form-control text-center @error('rp_cost') is-invalid @enderror"
                                 value="{{old('rp_cost', $chanpion->rp_cost)}}"
                                 >
-                                    <option value="975" @if(old("rp_cost") == 975) selected @endif>975</option>
-                                    <option value="880" @if(old("rp_cost") == 880) selected @endif>880</option>
-                                    <option value="790" @if(old("rp_cost") == 790) selected @endif>790</option>
-                                    <option value="585" @if(old("rp_cost") == 585) selected @endif>585</option>
-                                    <option value="260" @if(old("rp_cost") == 260) selected @endif>260</option>
+                                    <option value="975" @if(old("rp_cost", $chanpion->rp_cost) == 975) selected @endif>975</option>
+                                    <option value="880" @if(old("rp_cost", $chanpion->rp_cost) == 880) selected @endif>880</option>
+                                    <option value="790" @if(old("rp_cost", $chanpion->rp_cost) == 790) selected @endif>790</option>
+                                    <option value="585" @if(old("rp_cost", $chanpion->rp_cost) == 585) selected @endif>585</option>
+                                    <option value="260" @if(old("rp_cost", $chanpion->rp_cost) == 260) selected @endif>260</option>
                                 </select>
                                 @error('rp_cost')
                                     <span class="invalid-feedback" role="alert">
@@ -373,11 +373,15 @@
                         <select name="user_id"
                         id = "select-user_id" 
                         class="form-control @error('user_id') is-invalid @enderror"
-                        value="{{old('user_id', $chanpion->user_id)}}">
-                            <option value="1">user_1</option>
-                            <option value="2">user_2</option>
-                            <option value="3">user_3</option>
-                        </select>
+                        >
+                        <option value="999" selected>なし</option>
+
+                            @foreach($userDatas as $userData)
+                            <option value="{{ $userData->id }}" @if(old("user_id", $chanpion->user_id) == $userData->id) selected @endif>
+                            {{ $userData->name }}
+                            </option>
+                            @endforeach
+                            
                         @error('user_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -387,31 +391,7 @@
                     </div>
                 </div>
 
-<!-- チャンピオンタグ -->
-                <!-- <div class="container  mb-1 p-0">
-                    <div class="form-group row mb-1">
-                        <label for="select-chanpion_tag_id" class="col-md-8 col-5 col-form-label">
-                        {{ __("chanpion_tag_id") }}
-                        </label>
-                        <div class="col-md-4 col-7">
-                        <select name="chanpion_tag_id"
-                        id = "select-chanpion_tag_id" 
-                        class="form-control @error('chanpion_tag_id') is-invalid @enderror"
-                        value="{{old('chanpion_tag_id', $chanpion->chanpion_tag_id)}}"
-                        >
-                            <option value="1">chanpion_tag_id 1</option>
-                            <option value="2">chanpion_tag_id 2</option>
-                            <option value="3">chanpion_tag_id 3</option>
-                        </select>
-                        @error('chanpion_tag_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        </div>
-                    </div>
-                </div> -->
-<!-- チャンピオンタグ END-->
+
 
 <!-- submit -->
                     <div class="container text-center my-5">

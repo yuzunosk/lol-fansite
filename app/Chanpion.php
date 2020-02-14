@@ -15,7 +15,12 @@ class Chanpion extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function skills(){
+    public function skills()
+    {
         return $this->hasMany('App\Skill');
+    }
+    public function tagBoxs()
+    {
+        return $this->hasMany('App\TagBox');
     }
 }
