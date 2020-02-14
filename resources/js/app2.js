@@ -5,7 +5,6 @@
  */
 
 import Vue from 'vue'
-import Router from './router'
 
 
 require('./bootstrap');
@@ -13,14 +12,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
-
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('master-component', require('./components/MasterComponent.vue').default);
 
 
 const app = new Vue({
-    el: '#app1',
-    router: Router
+    el: '#app2',
 });
 
 
