@@ -26,7 +26,7 @@
                                 <!-- <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a> -->
                                 <div class="card-footer">
                                     <div class="row">
-                                        <form @if (!is_null(App\Chanpion::where('id', $chanpionData->id)->with('tagBoxs')->get('name')))
+                                        <form @if (is_null(App\Chanpion::where('id', $chanpionData->id)->with('tagBoxs')->get('name')))
                                         action="{{ route('tagbox.new',$chanpionData->id) }}"
                                          @else
                                         action="{{ route('tagbox.edit',$chanpionData->id) }}"

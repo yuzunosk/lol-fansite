@@ -65,11 +65,11 @@
                                     name="skill_type" 
                                     value="{{ old('skill_type', $skillData->skill_type) }}"
                                     >
-                                    <option value="passive" @if(old('skill_type') == 'passive' ) selected @endif>passive</option>
-                                    <option value="Qスキル" @if(old('skill_type') == 'Qスキル' ) selected @endif>Qスキル</option>
-                                    <option value="Wスキル" @if(old('skill_type') == 'Wスキル' ) selected @endif>Wスキル</option>
-                                    <option value="Eスキル" @if(old('skill_type') == 'Eスキル' ) selected @endif>Eスキル</option>
-                                    <option value="Ultimate" @if(old('skill_type') == 'Ultimate' ) selected @endif>Ultimate</option>
+                                    <option value="passive" @if(old('skill_type', $skillData->skill_type) == 'passive' ) selected @endif>passive</option>
+                                    <option value="Qスキル" @if(old('skill_type', $skillData->skill_type) == 'Qスキル' ) selected @endif>Qスキル</option>
+                                    <option value="Wスキル" @if(old('skill_type', $skillData->skill_type) == 'Wスキル' ) selected @endif>Wスキル</option>
+                                    <option value="Eスキル" @if(old('skill_type', $skillData->skill_type) == 'Eスキル' ) selected @endif>Eスキル</option>
+                                    <option value="Ultimate" @if(old('skill_type', $skillData->skill_type) == 'Ultimate' ) selected @endif>Ultimate</option>
                                     </select>
 
                                     @error('skill_type')

@@ -75,7 +75,7 @@
                                         class = "form-control text-center @error('chanpion_tag_id_'.($i)) is-invalid @enderror">
                                                 <option value="" selected>なし</option>
                                                      @foreach($tagDatas as $tagData)
-                                                            <option value="{{ $tagData->name }}" @if(old("tags") == $tagData->name) selected @endif>
+                                                            <option value="{{ $tagData->name }}" @if(old("tags", $chanpionData[0]->chanpion_tag_id_ .$i) == $tagData->name) selected @endif>
                                                             {{ $tagData->name }}
                                                             </option>
                                                     @endforeach
