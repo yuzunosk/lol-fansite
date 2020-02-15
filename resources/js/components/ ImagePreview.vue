@@ -1,7 +1,8 @@
 <template>
     <div class="imgContent">
+        <h5>画像ファイルをアップロード</h5>
           <div class="imagePreview">
-          <img :src="uploadedImage" style="width:100%;" />
+          <img :src="uploadedImage" class="imgFile">
              <input type="file" class="file_input" name="photo" @change="onFileChange"  accept="image/*" />
           </div>
         </div>
@@ -11,7 +12,7 @@
 export default {
    data() {
       return{
-
+        uploadedImage: "",
       }
    },
    methods: {
@@ -22,10 +23,15 @@ export default {
     // アップロードした画像を表示
     createImage(file) {
       let reader = new FileReader();
+      if(file.type.indexOf('image') < 0) {
+        return false;
+      }
       reader.onload = (e) => {
         this.uploadedImage = e.target.result;
+        console.log(this.uploadedImage);
       };
       reader.readAsDataURL(file);
+
     }
    }
 }
@@ -42,13 +48,28 @@ export default {
 .imagePreview {
     height:30vh;
     background: rgb(240, 240, 240);
-    overflow:hidden;
+    overflow: hidden;
     border-radius: 10px;
     background-position: center center;
     background-size: cover;
      margin-bottom:30px;
      position: relative;
  }
+ .imgFile{
+   width:100%;
+   height: 400px;
+   object-fit: contain;
+ }
+ .file_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    opacity: 0;
+ }
+
  .fileUpload {
   text-align: center;
   position: absolute;
