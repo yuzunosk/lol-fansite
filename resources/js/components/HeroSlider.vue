@@ -99,7 +99,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 

@@ -42,7 +42,7 @@ export default {
 </script>
 
 
-<style scope>
+<style scoped>
 .news_body{
     letter-spacing: 2px;
     position: relative;

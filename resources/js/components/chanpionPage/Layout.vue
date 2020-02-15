@@ -64,7 +64,7 @@ export default {
 
 </script>
 
-<style scope>
+<style scoped>
     .main_text{
     margin: 0;
     width: 100%;

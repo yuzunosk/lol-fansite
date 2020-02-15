@@ -192,7 +192,7 @@
 <!-- チャンピオン コスト END-->
 
 <!-- チャンピオン img -->
-            <div class="container">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="form-group col">
                         <label for="file">
@@ -217,7 +217,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <preview-component></preview-component>
+
 <!-- チャンピオン　簡易ステータス -->
             <div class="container mb-2 p-0">
                 <h4>

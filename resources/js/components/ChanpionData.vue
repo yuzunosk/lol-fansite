@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap');
 
