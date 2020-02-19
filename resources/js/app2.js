@@ -12,7 +12,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
-Vue.component('preview-component', require('./components/ ImagePreview.vue').default);
+Vue.component('preview-component', require('./components/ImagePreview.vue').default);
+Vue.component('skill-preview', require('./components/SKillPreview.vue').default);
 
 
 const app = new Vue({

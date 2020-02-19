@@ -102,37 +102,35 @@ class ChanpionsController extends Controller
         ]);
             //一つずつ入れた方が後の変更に対応しやすい
             $chanpionData = new Chanpion;
-            // $chanpionData->name = $request->name;
-            // $chanpionData->sub_name = $request->sub_name;
-            // $chanpionData->popular_name = $request->popular_name;
-            // $chanpionData->feature = $request->feature;
-            // $chanpionData->main_roll_id = $request->main_roll_id;
-            // $chanpionData->sub_roll_id = $request->sub_roll_id;
-            // $chanpionData->be_cost = $request->be_cost;
-            // $chanpionData->rp_cost = $request->rp_cost;
 
+            //ファイル・リサイズ
             if($request->file('chanpion_img')){
+                Log::info('ファイル名前'.$request->file('chanpion_img'));
+                // dd($request->file('chanpion_img'));
                 $file = $request->file('chanpion_img');
                 $filename = $file->getClientOriginalName();
                 $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
             }
 
-            //ファイル・リサイズ
-            // var_dump($name);
-            // $updateFile = InterventionImage::make($file)->resize(350, null, function ($constraint) {$constraint->aspectRatio();});
-            // $chanpionData->chanpion_img = $updateFile->store('/img/chanpion');
+            //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
+            $chanpionData->name          = $request->name;
+            $chanpionData->sub_name      = $request->sub_name;
+            $chanpionData->popular_name  = $request->popular_name;
+            $chanpionData->feature       = $request->feature;
+            $chanpionData->main_roll_id  = $request->main_roll_id;
+            $chanpionData->sub_roll_id   = $request->sub_roll_id;
+            $chanpionData->be_cost       = $request->be_cost;
+            $chanpionData->rp_cost       = $request->rp_cost;
+            $chanpionData->st_attack     = $request->st_attack;
+            $chanpionData->st_magic      = $request->st_magic;
+            $chanpionData->st_toughness  = $request->st_toughness;
+            $chanpionData->st_mobility   = $request->st_mobility;
+            $chanpionData->st_difficulty = $request->st_difficulty;
+            $chanpionData->user_id       = $request->user_id;
 
-            // $chanpionData->st_attack = $request->st_attack;
-            // $chanpionData->st_magic = $request->st_magic;
-            // $chanpionData->st_toughness = $request->st_toughness;
-            // $chanpionData->st_mobility = $request->st_mobility;
-            // $chanpionData->st_difficulty = $request->st_difficulty;
-            // $chanpionData->user_id = $request->user_id;
-            // $chanpionData->chanpion_tag = $request->chanpion_tag;
-            // $chanpionData->save();
-            // var_dump($chanpionData);
+            Auth::user()->chanpions()->save($chanpionData);
 
-            Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
+
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
     }

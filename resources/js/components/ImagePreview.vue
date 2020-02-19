@@ -3,17 +3,37 @@
         <h5>画像ファイルをアップロード</h5>
           <div class="imagePreview">
           <img :src="uploadedImage" class="imgFile">
-             <input type="file" class="file_input" name="photo" @change="onFileChange"  accept="image/*" />
+             <input type="file" class="file_input" name="chanpion_img"
+             @change="onFileChange"  accept="image/*" />
           </div>
         </div>
 </template>
 
 <script>
 export default {
+  props: ["value"],
    data() {
       return{
-        uploadedImage: "",
+        uploadedImage: '',
+        storage: '/storage/',
+        noImage: '/storage/img/etc/img_no.png',
+        show: false,
       }
+   },
+   computed: {
+     judgmentData() {
+       // alert('読み込みました');
+       let $value = this.value;
+      //  alert('中身は、' + $value);
+       if($value){
+        //  alert('処理を実行します');
+         this.uploadedImage = this.storage + $value;
+        //  alert(this.uploadedImage);
+         return
+       }
+       return this.uploadedImage =  this.noImage;
+     }
+
    },
    methods: {
           onFileChange(e) {
@@ -32,8 +52,13 @@ export default {
       };
       reader.readAsDataURL(file);
 
-    }
+    },
+
+   },
+   beforeMount() {
+              this.judgmentData();
    }
+
 }
 </script>
 
@@ -56,8 +81,8 @@ export default {
      position: relative;
  }
  .imgFile{
-   width:100%;
-   height: 400px;
+   width: 100%;
+   height: 300px;
    object-fit: contain;
  }
  .file_input {
@@ -68,6 +93,11 @@ export default {
     height: 100%;
     display: inline-block;
     opacity: 0;
+ }
+
+ .file_input:hover{
+   border: 2px dotted #333;
+   transition: border .5s;
  }
 
  .fileUpload {

@@ -149,7 +149,7 @@
 <!-- スキルテキスト END -->
 
 <!-- スキル　アイコン -->
-                            <div class="container">
+                            <!-- <div class="container">
                                             <div class="row justify-content-between">
                                                 <div class="form-group col-12 col-md-4">
                                                     <label for="file">
@@ -174,7 +174,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                        <skill-preview></skill-preview>
 
 <!-- 未実装 -->
 

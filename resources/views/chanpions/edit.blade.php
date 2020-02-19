@@ -188,7 +188,7 @@
 <!-- チャンピオン コスト END-->
 
 <!-- チャンピオン img -->
-            <div class="container">
+            <!-- <div class="container">
                 <div class="row justify-content-between">
                     <div class="form-group col-12 col-md-4">
                         <label for="file1">
@@ -220,7 +220,10 @@
                                     </span>
                             @enderror
                     </div>
-                </div>
+                </div> -->
+
+                <preview-component value="{{ $chanpion->chanpion_img }}"></preview-component>
+
 
 
 <!-- チャンピオン　簡易ステータス -->

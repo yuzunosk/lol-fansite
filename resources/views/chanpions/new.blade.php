@@ -192,32 +192,7 @@
 <!-- チャンピオン コスト END-->
 
 <!-- チャンピオン img -->
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="form-group col">
-                        <label for="file">
-                        {{ __("chanpion_img") }}
-                        </label>
-                        <div class="chanpion_img_container p-3" style="position:relative;background: #dcdcdc;border: 1px solid #333;border-radius: 5px;">
-                        <span
-                        style="position: absolute;">
-                        drag&drop
-                        </span>
-                            <input name="chanpion_img"
-                            type = "file"
-                            id="file"
-                            class="form-control-file @error('chanpion_img') is-invalid @enderror"
-                            style="height:200px;opacity:0;"
-                            value="img">
-                            @error('chanpion_img')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+
             <preview-component></preview-component>
 
 <!-- チャンピオン　簡易ステータス -->
