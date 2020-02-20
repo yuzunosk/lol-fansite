@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ $chanpionData[0]->name }}：{{ __('TagBox Register') }}</div>
+                    <div class="card-header text-center">{{ $tagBoxDatas[1]->name }}：{{ __('TagBox Register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('tagbox.create') }}">
@@ -21,7 +21,7 @@
                                     id="name" 
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name',$chanpionData[0]->name) }}" 
+                                    value="{{ old('name',$tagBoxDatas[1]->name) }}" 
                                     autocomplete="name" readonly autofocus>
 
                                     @error('name')
@@ -47,7 +47,7 @@
                                     type="text"
                                     class="form-control @error('chanpion_id') is-invalid @enderror"
                                     name="chanpion_id"
-                                    value="{{ old('chanpion_id',$chanpionData[0]->id) }}"
+                                    value="{{ old('chanpion_id',$tagBoxDatas[1]->chanpion_id) }}"
                                     autofocus readonly
                                     >
 
@@ -74,9 +74,9 @@
                                         id = "tags{{$i}}"
                                         class = "form-control text-center @error('chanpion_tag_id_'.($i)) is-invalid @enderror">
                                                 <option value="" selected>なし</option>
-                                                     @foreach($tagDatas as $tagData)
-                                                            <option value="{{ $tagData->name }}" @if(old("tags", $chanpionData[0]->chanpion_tag_id_ .$i) == $tagData->name) selected @endif>
-                                                            {{ $tagData->name }}
+                                                     @foreach($tagBoxDatas[0] as $tagBoxData)
+                                                            <option value="{{ $tagBoxData->name }}" @if(old("tags", $tagBoxData->chanpion_tag_id_ .$i) == $tagBoxData->name) selected @endif>
+                                                            {{ $tagBoxData->name }}
                                                             </option>
                                                     @endforeach
                                     </select>
@@ -92,7 +92,6 @@
 @endfor
 <!-- タグボックス END -->
 
-<!-- スキル　アイコン END -->
                         <div class="container text-center mt-4">
                             <div class="form-group row">
                                 <div class="col">

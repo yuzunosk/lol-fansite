@@ -28,12 +28,15 @@
                                 <!-- <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a> -->
                                 <div class="card-footer">
                                     <div class="row">
-                                        <form @if (is_null(App\Chanpion::where('id', $chanpionData->id)->with('tagBoxs')->get('name')))
-                                        action="{{ route('tagbox.new',$chanpionData->id) }}"
-                                         @else
+                                        @foreach($tagBoxDatas as $tagBoxData)
+                                        <form 
+                                        @if($tagBoxData->chanpion_id == $chanpionData->id)
                                         action="{{ route('tagbox.edit',$chanpionData->id) }}"
+                                         @else
+                                        action="{{ route('tagbox.new',$chanpionData->id) }}"
                                         @endif
                                         method="get" class="col-md-3 p-0 m-0 border border-dark">
+                                        @endforeach
                                         @csrf
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-bookmark fa-2x fa-fw"></i>Tag

@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Skill extends Model
 {
@@ -15,6 +14,6 @@ class Skill extends Model
     ];
 
     public function chanpion(){
-        return $this->belongsTo('App\Chanpion');
+        return $this->belongsTo(Chanpion::class);
     }
 }

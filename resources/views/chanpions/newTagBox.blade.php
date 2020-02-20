@@ -22,7 +22,7 @@
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
                                     value="{{ old('name',$chanpionData->name) }}" 
-                                    autocomplete="name" readonly autofocus>
+                                    readonly autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">

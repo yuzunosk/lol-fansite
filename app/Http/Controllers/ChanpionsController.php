@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
+
 use App\User;
 use App\Chanpion;
 use App\Skill;
@@ -31,8 +33,11 @@ class ChanpionsController extends Controller
 // ---------------------------------
     public function indexChanpion(){
         $chanpionsData = Auth::user()->chanpions()->get();
+        $tagBoxDatas = TagBox::all();
 
-        return view('chanpions.index', compact('chanpionsData'));
+        Log::info('タグボックスデータ'.$tagBoxDatas);
+
+        return view('chanpions.index', compact(['chanpionsData','tagBoxDatas']));
     }
 
     public function newChanpion() {
@@ -254,15 +259,19 @@ class ChanpionsController extends Controller
         return view('chanpions.skillIndex', compact('skillDatas'));
     }
     public function listSkill($id){
-        $chanpion = Chanpion::find($id);
-        $skillDatas = Skill::all();
-        return view('chanpions.skillIndex', compact(['chanpion','skillDatas']));
+        if(!ctype_digit($id)){
+            return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
+    }
+        $skillDatas = Skill::with('chanpion')->get();
+        // $chanpion = Chanpion::find($id);
+        // Log::info('スキルデータログ：'.$skillDatas[0]->skill_type);
+        return view('chanpions.skillIndex', compact('skillDatas'));
     }
 
     public function newSkill() {
         //chanpionスキル登録画面を呼ぶ
         $chanpionDatas = Chanpion::all();
-        return view('chanpions.newSkill',compact('chanpionDatas'));
+        return view('chanpions.newSkill',compact(['chanpionDatas','skillDatas']));
     }
 
     public function createSkill(Request $request) {
@@ -270,7 +279,9 @@ class ChanpionsController extends Controller
         $request->validate([
             'name' => 'string|max:255',
             'na_name' => 'string|max:255',
-            'skill_type' => 'string',
+            'skill_type' => Rule::unique('chanpionSkills')->ignore($request->chanpion_id , 'chanpion_id')->where(function ($query) {
+                return $query->where('skill_type' , $request->skill_type);
+            }),
             'chanpion_id' => 'required|numeric',
             'text' => 'string|nullable|max:255',
             'skill_icon_1' => 'nullable|file|image|max:10240',
@@ -326,10 +337,12 @@ class ChanpionsController extends Controller
         if(!ctype_digit($id)){
             return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
-        $chanpion = Chanpion::all();
+        // Log::info($id);
         $skillData = Skill::find($id);
+        $chanpion = Chanpion::find($id2);
+        Log::info($skillData);
 
-        return view('chanpions.skillEdit', compact(['skillData','chanpion']));
+        return view('chanpions.skillEdit', compact(['skillData']));
     }
 
     public function updateSkill(Request $request ,$id) {
@@ -572,17 +585,15 @@ public function deleteTag($id) {
                 if(!ctype_digit($id)){
                     return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
                 }
-                Log::info('IDは、'.$id);
-                $chanpionData = Chanpion::where('id', $id)->with('tagBoxs')->get();
+                // Log::info('IDは、'.$id);
+                //後に使う予定
+                $chanpionData = Chanpion::find($id);
+                $tagBoxDatas  = TagBox::with('chanpion')->where('chanpion_id', $id)->get();
+
                 Log::info('チャンピオンのデータ:'.$chanpionData);
-                $tagDatas = Tag::all();
+                Log::info('タグボックスのデータ:'.$tagBoxDatas);
                 
-                $test = Chanpion::where('id', 1)->with('tagBoxs')->get();
-                Log::info($test);
-                if(is_null($test)){
-                    Log::info('空です');
-                }
-                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagDatas']));
+                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagBoxDatas']));
             }
 
             public function updateTagBox(Request $request , $id) {
@@ -620,7 +631,7 @@ public function deleteTag($id) {
                 $tagboxDatas = new TagBox;
 
                 $chanpion = Chanpion::find($request->chanpion_id);
-                $chanpion->tagBoxs()->save($tagboxDatas->fill($request->all()));
+                $chanpion->tagBox()->save($tagboxDatas->fill($request->all()));
 
 
                 return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));

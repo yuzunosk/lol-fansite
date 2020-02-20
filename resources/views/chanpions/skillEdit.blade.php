@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Skill Editer') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.update', $skillData->id) }}">
+                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.update', $skillData[0]->chanpion_id) }}">
                             @csrf
 
 <!-- 名前・英名 -->
@@ -20,7 +20,8 @@
                                     <input 
                                     id="name" 
                                     type="text" 
-                                    class="form-control @error('name') is-invalid @enderror" name="name" 
+                                    class="form-control @error('name') is-invalid @enderror
+                                    name="name" 
                                     value="{{ old('name', $skillData->name) }}" 
                                     autocomplete="name" autofocus>
 
@@ -97,7 +98,7 @@
                                     value="{{ old('chanpion_id', $chanpion->id) }}"
                                     >
                                     @foreach($chanpionDatas as $chanpionData)
-                                        <option value="{{ old(chanpion_id,$chanpion->name) }}" @if(old('chanpion_id') == $chanpionData->name) selected @endif>
+                                        <option value="{{ old(chanpion_id,$chanp->name) }}" @if(old('chanpion_id') == $chanpionData->name) selected @endif>
                                         {{ $chanpionData->name }}</option>
                                     @endforeach
                                     </select>
@@ -141,7 +142,7 @@
 <!-- スキルテキスト END -->
 
 <!-- スキル　アイコン -->
-<div class="container">
+                                            <!-- <div class="container">
                                             <div class="row justify-content-between">
                                                 <div class="form-group col-12 col-md-4">
                                                     <label for="file">
@@ -168,7 +169,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                    <skill-preview value="{{ $skillData }}"></skill-preview>
 
 
 <!-- 未実装 -->

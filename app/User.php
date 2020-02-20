@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
     public function chanpions()
     {
-        return $this->hasMany('App\Chanpion');
+        return $this->hasMany(Chanpion::class);
     }
 
 
