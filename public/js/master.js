@@ -50421,6 +50421,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('preview-component', __webpack_require__(/*! ./components/ImagePreview.vue */ "./resources/js/components/ImagePreview.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('skill-preview', __webpack_require__(/*! ./components/SKillPreview.vue */ "./resources/js/components/SKillPreview.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sortdata-component', __webpack_require__(/*! ./components/SortData.vue */ "./resources/js/components/SortData.vue")["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app2'
 });
@@ -50643,6 +50644,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SKillPreview_vue_vue_type_template_id_a98446fc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/SortData.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/SortData.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/lol_fansite_laravel/resources/js/components/SortData.vue'");
 
 /***/ }),
 

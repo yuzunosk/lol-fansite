@@ -34,13 +34,16 @@ class ChanpionsController extends Controller
     public function indexChanpion(){
         //ユーザー毎のデータ取得
         // $chanpionsData = Auth::user()->chanpions()->get();
+
+        //チャンピオン、タグ、ロール、タグボックスデータ取得
         $chanpionsData = Chanpion::paginate(8);
+        $tagDatas      = Tag::all();
+        $rollDatas     = Roll::all();
+        $tagBoxDatas   = TagBox::all();
 
-        $tagBoxDatas = TagBox::all();
+        // Log::info('タグボックスデータ'.$tagBoxDatas);
 
-        Log::info('タグボックスデータ'.$tagBoxDatas);
-
-        return view('chanpions.index', compact(['chanpionsData','tagBoxDatas']));
+        return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
     }
 
     public function newChanpion() {
@@ -71,7 +74,7 @@ class ChanpionsController extends Controller
             'st_toughness' => 'numeric|max:10|min:1',
             'st_mobility' => 'numeric|max:10|min:1',
             'st_difficulty' => 'numeric|max:10|min:1',
-            // 'user_id' => 'required',
+            'user_id' => 'required',
         ]
         ,[
             'name.required' => '名前は必須入力です',
@@ -134,6 +137,7 @@ class ChanpionsController extends Controller
             $chanpionData->st_mobility   = $request->st_mobility;
             $chanpionData->st_difficulty = $request->st_difficulty;
             $chanpionData->user_id       = $request->user_id;
+            $chanpionData->chanpion_tag  = $request->chanpion_tag;
 
             Auth::user()->chanpions()->save($chanpionData);
 

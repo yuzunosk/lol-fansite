@@ -19,8 +19,17 @@ class Chanpion extends Model
     {
         return $this->hasMany(Skill::class);
     }
+
     public function tagBoxs()
     {
         return $this->hasMany(TagBox::class);
+    }
+
+    /**
+     * Chanpionに紐付いたchanpionTagのリスト
+     */
+    public function chanpionTags()
+    {
+        return $this->belongsMany(Tag::class);
     }
 }

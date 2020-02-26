@@ -14,11 +14,10 @@ window.Vue = require('vue');
 
 Vue.component('preview-component', require('./components/ImagePreview.vue').default);
 Vue.component('skill-preview', require('./components/SKillPreview.vue').default);
+Vue.component('sortdata-component', require('./components/SortData.vue').default);
 
 
 const app = new Vue({
     el: '#app2',
 });
-
-
 

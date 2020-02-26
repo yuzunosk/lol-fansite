@@ -1,24 +1,24 @@
-    <div class="d-flex justify-content-between bg-light py-2 text-center mb-5" style="font-size: 18px;letter-spacing:.1rem;">
-    <span class="justify-content-start ml-5" style="letter-spacing:.1rem;">{{ $paginator->total() }}件のデータが見つかりました</span>
+    <div class="d-flex justify-content-between bg-light text-center mb-5" style="font-size: 18px;letter-spacing:.1rem;height:50px;line-height:50px;">
+    <span class="justify-content-start ml-2" style="letter-spacing:.1rem;">{{ $paginator->total() }}件のデータが見つかりました</span>
     
-    <div class="mr-5">
+    <div class="mr-2">
     <span>{{ $paginator->firstItem() }}-{{ $paginator->lastItem() }}件</span>/<span>{{ $paginator->total() }}件中</span>
     </div>
     </div>
 
 @if ($paginator->hasPages())
-    <ul class="pagination pagination-sm justify-content-center " role="navigation">
+    <ul class="pagination pagination-sm justify-content-end " role="navigation">
         {{-- First Page Link --}}
             <!-- 最初のページへのリンク -->
         <!-- <p class="btn btn-sm mr-1 border-dark text-dark" style="border-radius: 0;" disabled>Page{{ $paginator->firstItem() }} of {{ $paginator->lastItem() }}</p> -->
-        <li class="page-item {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-            <a class="page-link" href="{{ $paginator->url(1) }}">&laquo;</a>
+        <li class="page-item {{ $paginator->onFirstPage() ? 'd-none' : '' }}">
+            <a class="text-dark page-link" href="{{ $paginator->url(1) }}">&laquo; Prev</a>
         </li>
 
         {{-- Previous Page Link --}}
             <!-- 前のページへのリンク -->
-            <li class="page-item mx-1 {{ $paginator->onFirstPage() ? ' disabled' : '' }}">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() }}">前へ</a>
+            <li class="page-item mx-1 {{ $paginator->onFirstPage() ? 'd-none' : '' }}">
+                <a class="text-dark page-link" href="{{ $paginator->previousPageUrl() }}">&lt;</a>
             </li>
 
         {{-- Pagination Elemnts --}}
@@ -53,7 +53,7 @@
                     @if ($i == $paginator->currentPage())
                         <li class="page-item active mr-1"><span class="page-link">{{ $i }}</span></li>
                 @else
-                        <li class="page-item mr-1"><a class="page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a></li>
+                        <li class="page-item mr-1"><a class="text-dark page-link" href="{{ $paginator->url($i) }}">{{ $i }}</a></li>
 
                     @endif
                 @endfor
@@ -61,13 +61,13 @@
                 <!-- それぞれのページへのリンク -->
 
         {{-- Next Page Link --}}
-            <li class="page-item mr-1 {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() }}">次へ</a>
+            <li class="page-item mr-1 {{ $paginator->currentPage() == $paginator->lastPage() ? 'd-none' : '' }}">
+                <a class="text-dark page-link" href="{{ $paginator->nextPageUrl() }}">&gt;</a>
             </li>
 
         {{-- Last Page Link --}}
-            <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? ' disabled' : '' }}">
-                <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">&raquo;</a>
+            <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? 'd-none' : '' }}">
+                <a class="text-dark page-link" href="{{ $paginator->url($paginator->lastPage()) }}">Last &raquo;</a>
             </li>
     </ul>
 @endif

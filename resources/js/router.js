@@ -12,7 +12,8 @@ export default new Router({
     routes: [
         //ルーティング
         { path: "/home", component: Home },
-        { path: "/home/chanpion/:id", component: Chanpion }
+        { path: "/home/chanpion/:id", component: Chanpion },
+        // { path: '/article/create', component: require('./components/Articles/Create.vue') },
 
     ],
     scrollBehavior (to, from, savedPosition) {

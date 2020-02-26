@@ -57199,7 +57199,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   }, {
     path: "/home/chanpion/:id",
     component: _components_chanpionPage_Layout__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }],
+  } // { path: '/article/create', component: require('./components/Articles/Create.vue') },
+  ],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;

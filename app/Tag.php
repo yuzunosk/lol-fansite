@@ -10,4 +10,13 @@ class Tag extends Model
 
     protected $fillable = [
         'name','sub_name'
-    ];}
+    ];
+
+    /**
+     * chanpionTagsに紐づいたchanpionsのリスト
+     */
+    public function chanpions()
+    {
+        return $this->belongsMany(Chanpion::class);
+    }
+}

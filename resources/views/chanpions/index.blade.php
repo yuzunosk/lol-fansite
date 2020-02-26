@@ -5,7 +5,41 @@
         @section('sidebar')
         <div class="col-10">
 
-        {{ $chanpionsData->onEachSide(5)->links() }}
+        <div>
+                        <!-- <div class="dropdown"> -->
+                    <!-- <button class="btn border-0 dropdown-toggle pl-1 mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ __('Chanpion Sort') }}</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button type="botton" class="dropdown-item">新しく登録された順</button>
+                            <button type="botton" class="dropdown-item">古い順</button>
+                            <button type="botton" class="dropdown-item">攻撃力が高い順</button>
+                            <button type="botton" class="dropdown-item">魔力が高い順</button>
+                            <button type="botton" class="dropdown-item">耐久力が高い順</button>
+                            <button type="botton" class="dropdown-item">機動力が高い順</button>
+                            <button type="botton" class="dropdown-item">難易度の高い順</button>
+                            <button type="botton" class="dropdown-item">難易度の易しい順</button>
+                        </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn border-0 dropdown-toggle pl-1 mr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ __('Search Roll') }}</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+                            <!-- <a href="" class="dropdown-item">{{ $rollData->name }}</a> -->
+                        <!-- </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn border-0 dropdown-toggle pl-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{  __('Search Tag') }}
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+                          <!-- <a class="dropdown-item" href="#">{{ $tagData->sub_name }} / {{ $tagData->name }}</a> -->
+                         <!-- </div> -->
+                <!-- </div> -->
+        <sortdata-component rolls="{{ $rollDatas }}" tags="{{ $tagDatas }}"></sortdata-component>
+                {{ $chanpionsData->onEachSide(5)->links() }}
+        </div>
 
 
         <div class="row row-cols-1 row-cols-md-2">
@@ -23,7 +57,7 @@
                         style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;">
                         {{ $chanpionData -> name }}</h3>
                             <div class="card-text row ml-2" style="position: absolute;bottom:20%;font-size:.7rem;">
-                                <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Main Roll<span class="badge badge-dark ml-2">{{$chanpionData->main_roll_id }}</span></p>
+                                <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Main Roll<span class="badge badge-dark ml-2">{{ $chanpionData->main_roll_id }}</span></p>
                                 <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Sub Roll<span class="badge badge-dark  ml-2">{{ $chanpionData->sub_roll_id }}</span></p>
                             </div>
                         </div>

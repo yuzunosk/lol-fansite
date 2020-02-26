@@ -73,6 +73,10 @@ Route::get('/categorys/new', 'ArticlesController@newCategory')->name('categorys.
 Route::post('/categorys/new', 'ArticlesController@createCategory')->name('categorys.create');
 Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('categorys.delete');
 
+//Ajax
+Route::get('datatable', 'DataTableController@index');
+Route::get('datatable/ajax', 'DataTableController@ajax');
+
 
 
 //ホーム画面表示

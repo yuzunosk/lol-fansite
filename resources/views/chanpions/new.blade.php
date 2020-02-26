@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="letter-spacing: .05rem;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -185,7 +185,7 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                                @enderror
                             </div>
                     </div>
                 </div>
@@ -335,6 +335,38 @@
             </div>
 <!-- ステータス end -->
 
+<!-- タグ セレクトボックス -->
+        <div class="container mb-1 p-0">
+                    <div class="row form-group">
+                        <label class="col-md-6 col-7 col-form-label mb-1" for="chanpion_tag_select">Chanpion tag Category
+                            <span class="ml-3 text-danger badge badge-danger text-light">※複数選択可</span>
+                        </label>
+
+                        <div class="col-md-6 col-4">
+                            <select name="chanpion_tag" 
+                            class="form-control @error('chanpion_tag') is-invalid @enderror" 
+                            style="letter-spacing: .15rem;"
+                            id="chanpion_tag_select" multiple>
+
+                            <option value="999">なし</option>
+                            @foreach($tagDatas as $tagData)
+                                <option value = "{{ $tagData->id }}" >▶︎ {{ $tagData->sub_name }}/{{ $tagData->name }} </option>
+                            @endforeach
+                            </select>
+                        </div>
+
+                        @error('chanpion_tag')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+        </div>
+
+
+<!-- タグ セレクトボックス END -->
+
+
 <!-- 登録者 -->
                 <div class="container mb-1 p-0">
                     <div class="form-group row justify-content-start">
@@ -347,11 +379,10 @@
                         class="form-control @error('user_id') is-invalid @enderror"
                         readonly>
 
-                            @foreach($userDatas as $userData)
-                            <option value="{{ $userData->id }}" @if(old("user_id") == $userData->id) selected @endif>
-                            {{ $userData->name }}
+                            <option value="{{ Auth::user()->name }}">
+                            {{ Auth::user()->name }}
                             </option>
-                            @endforeach
+
                         </select>
                         @error('user_id')
                                     <span class="invalid-feedback" role="alert">
@@ -367,7 +398,7 @@
                     <div class="container text-center mt-4">
                         <div class="form-group row">
                             <div class="col">
-                                <button type="submit" class="btn btn-primary px-5">
+                                <button type="submit" class="btn btn-light border-info px-5">
                                     {{ __('Register') }}
                                 </button>
                             </div>
