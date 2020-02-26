@@ -56,6 +56,8 @@ Route::get('/tagbox/{id}/new', 'ChanpionsController@newTagBox')->name('tagbox.ne
 Route::post('/tagbox', 'ChanpionsController@createTagBox')->name('tagbox.create');
 Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('tagbox.create');
 Route::get('/tagbox/{id}/edit', 'ChanpionsController@editTagBox')->name('tagbox.edit');
+Route::post('/tagbox/{id}', 'ChanpionsController@updateTagBox')->name('tagbox.update');
+
 
 
 //コンテンツ追加ページ

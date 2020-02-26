@@ -7,16 +7,17 @@
             <div class="container">
             <div class="row">
                 <div class="card-deck col-12 border border-dark p-0 ">
-                <h3 class="col-12 text-center my-3">{{ $skillDatas[0]->chanpion->name }}</h3>
+                <h3 class="col-12 text-center my-3">{{ $skillDatas->name }}</h3>
+    @for($i=1; $i <= $skillDatas.length(); $i++)
 <!-- passive card -->
             @foreach($skillDatas as $skillData)
-                    @if($skillData->skill_type == 'passive')
+                    @if($skillData->skill_type == 'Passive')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
                         Passive
                         </h5>
                         <div class="card-body p-0" >
-                                <img src="@if($skillData->skill_type == 'passive' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
+                                <img src="@if($skillData->skill_type == 'Passive' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
                                 <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->

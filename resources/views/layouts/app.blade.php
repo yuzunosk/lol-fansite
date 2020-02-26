@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'LOL_Fan_Management') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/master.js') }}" defer></script>
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ __('LoL Fan Managiment') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -112,11 +112,11 @@
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        Chanpions
+                                        {{ __('Chanpions') }}
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="{{ route('chanpions.new') }}" class="dropdown-item">New Chanpion Registration</a>
-                                                <a href="{{ route('chanpions.create') }}" class="dropdown-item">Registration Chanpions List</a>
+                                                <a href="{{ route('chanpions.new') }}" class="dropdown-item">{{__('New Chanpion Registration')}}</a>
+                                                <a href="{{ route('chanpions.create') }}" class="dropdown-item">{{ __('Registration Chanpions List') }}</a>
                                             </div>
                                     </div>
 <!-- chanpion End -->
@@ -125,10 +125,10 @@
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        Chanpion Skills
+                                        {{__('Chanpion Skills') }}
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="{{ route('skills.new') }}" class="dropdown-item">New Skill Registration</a>
+                                                <a href="{{ route('skills.new') }}" class="dropdown-item">{{ __('New Skill Registration') }}</a>
                                             </div>
                                     </div>
 
@@ -139,11 +139,11 @@
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        Chanpion Rolls
+                                        {{ __('Chanpion Rolls') }}
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="{{ route('rolls.new') }}" class="dropdown-item">New Roll Registration</a>
-                                                <a href="{{ route('rolls.create') }}" class="dropdown-item">Registration Rolls List</a>
+                                                <a href="{{ route('rolls.new') }}" class="dropdown-item">{{ __('New Roll Registration') }}</a>
+                                                <a href="{{ route('rolls.create') }}" class="dropdown-item">{{ __('Registration Rolls List') }}</a>
                                             </div>
                                     </div>
 <!-- Roll END -->
@@ -154,11 +154,11 @@
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        Chanpion Tags
+                                        {{ __('Chanpion Tags') }}
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="{{ route('tags.new') }}" class="dropdown-item">New Tag Registration</a>
-                                                <a href="{{ route('tags.create') }}" class="dropdown-item">Registration Tags List</a>
+                                                <a href="{{ route('tags.new') }}" class="dropdown-item">{{ __('New Tag Registration') }}</a>
+                                                <a href="{{ route('tags.create') }}" class="dropdown-item">{{ __('Registration Tags List') }}</a>
                                             </div>
 <!-- Tag END -->
 

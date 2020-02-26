@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ $tagBoxDatas[1]->name }}：{{ __('TagBox Register') }}</div>
+                    <div class="card-header text-center">{{ $tagBoxDatas[0]->name }}：{{ __('TagBox Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tagbox.create') }}">
+                        <form method="POST" action="{{ route('tagbox.update', $tagBoxDatas[0]->chanpion_id) }}">
                             @csrf
 
 <!-- Name -->
@@ -21,7 +21,7 @@
                                     id="name" 
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name',$tagBoxDatas[1]->name) }}" 
+                                    value="{{ old('name',$tagBoxDatas[0]->name) }}" 
                                     autocomplete="name" readonly autofocus>
 
                                     @error('name')
@@ -47,7 +47,7 @@
                                     type="text"
                                     class="form-control @error('chanpion_id') is-invalid @enderror"
                                     name="chanpion_id"
-                                    value="{{ old('chanpion_id',$tagBoxDatas[1]->chanpion_id) }}"
+                                    value="{{ old('chanpion_id', $tagBoxDatas[0]->chanpion_id) }}"
                                     autofocus readonly
                                     >
 
@@ -71,14 +71,16 @@
                             </label>
                             <div class="col-md-4 col-5">
                                     <select name="chanpion_tag_id_{{$i}}"
-                                        id = "tags{{$i}}"
+                                        id = "select-tags"
                                         class = "form-control text-center @error('chanpion_tag_id_'.($i)) is-invalid @enderror">
                                                 <option value="" selected>なし</option>
-                                                     @foreach($tagBoxDatas[0] as $tagBoxData)
-                                                            <option value="{{ $tagBoxData->name }}" @if(old("tags", $tagBoxData->chanpion_tag_id_ .$i) == $tagBoxData->name) selected @endif>
-                                                            {{ $tagBoxData->name }}
+
+                                                    @foreach($tagDatas as $tagData)
+                                                            <option value="{{ $tagData->name }}" @if(old("chanpion_tag_id_" .$i, $tagBoxDatas[0]['chanpion_tag_id_' .$i]) == $tagData->name) selected @endif>
+                                                            {{ $tagData->name }}
                                                             </option>
                                                     @endforeach
+
                                     </select>
                                 @error('chanpion_tag_id_'.($i))
                                             <span class="invalid-feedback" role="alert">

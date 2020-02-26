@@ -32,7 +32,10 @@ class ChanpionsController extends Controller
 // チャンピオン系
 // ---------------------------------
     public function indexChanpion(){
-        $chanpionsData = Auth::user()->chanpions()->get();
+        //ユーザー毎のデータ取得
+        // $chanpionsData = Auth::user()->chanpions()->get();
+        $chanpionsData = Chanpion::paginate(8);
+
         $tagBoxDatas = TagBox::all();
 
         Log::info('タグボックスデータ'.$tagBoxDatas);
@@ -54,22 +57,21 @@ class ChanpionsController extends Controller
     public function createChanpion(Request $request) {
 
         $request->validate([
-            'name' => 'string|max:255',
-            'sub_name' => 'string|max:255',
-            'popular_name' => 'string|max:20',
-            'feature' => 'string|max:60',
+            'name' => 'required|string|max:255',
+            'sub_name' => 'required|string|max:255',
+            'popular_name' => 'nullable|string|max:20',
+            'feature' => 'nullable|string|max:60',
             'main_roll_id' => 'nullable|string',
             'sub_roll_id' => 'different:main_roll_id|nullable|',
             'be_cost' => 'nullable|numeric',
             'rp_cost' => 'nullable|numeric',
             'chanpion_img' => 'nullable|file|image|max:10240',
-            'st_attack' => 'required|numeric|max:10|min:1',
-            'st_magic' => 'required|numeric|max:10|min:1',
-            'st_toughness' => 'required|numeric|max:10|min:1',
-            'st_mobility' => 'required|numeric|max:10|min:1',
-            'st_difficulty' => 'required|numeric|max:10|min:1',
-            'user_id' => 'required',
-            'chanpion_tagId[]' => 'array|string'
+            'st_attack' => 'numeric|max:10|min:1',
+            'st_magic' => 'numeric|max:10|min:1',
+            'st_toughness' => 'numeric|max:10|min:1',
+            'st_mobility' => 'numeric|max:10|min:1',
+            'st_difficulty' => 'numeric|max:10|min:1',
+            // 'user_id' => 'required',
         ]
         ,[
             'name.required' => '名前は必須入力です',
@@ -262,16 +264,22 @@ class ChanpionsController extends Controller
         if(!ctype_digit($id)){
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
     }
-        $skillDatas = Skill::with('chanpion')->get();
-        // $chanpion = Chanpion::find($id);
-        // Log::info('スキルデータログ：'.$skillDatas[0]->skill_type);
-        return view('chanpions.skillIndex', compact('skillDatas'));
+// スキルデータとチャンピオンデータ取得
+        $skillDatas = Chanpion::find($id)->with('skills')->where('id',$id)->first();
+        Log::info('スキルデータログ：'.$skillDatas);
+//変数の中身チェック
+        if($skillDatas){
+            //空出なければスキルリストページへ
+            return view('chanpions.skillIndex', compact('skillDatas'));
+        }
+        //空であればchanpion.indexにリダイレクト
+        return redirect('/chanpions')->with('flash_message',__('Skill not registered yet.'));
     }
 
     public function newSkill() {
         //chanpionスキル登録画面を呼ぶ
         $chanpionDatas = Chanpion::all();
-        return view('chanpions.newSkill',compact(['chanpionDatas','skillDatas']));
+        return view('chanpions.newSkill',compact(['chanpionDatas']));
     }
 
     public function createSkill(Request $request) {
@@ -280,7 +288,7 @@ class ChanpionsController extends Controller
             'name' => 'string|max:255',
             'na_name' => 'string|max:255',
             'skill_type' => Rule::unique('chanpionSkills')->ignore($request->chanpion_id , 'chanpion_id')->where(function ($query) {
-                return $query->where('skill_type' , $request->skill_type);
+                return $query->where('skill_type' , 'skill_type');
             }),
             'chanpion_id' => 'required|numeric',
             'text' => 'string|nullable|max:255',
@@ -409,7 +417,7 @@ class ChanpionsController extends Controller
             return redirect('/skills')->with('flash_mesage', __('Invalid operation was performed.'));
         }
         Skill::find($id)->delete();
-        return redirect('/chanpions')->with('flash_message', __('Deleted.'));
+        return redirect('/skills/{id}')->with('flash_message', __('Deleted.'));
     }
 
 // ---------------------------------
@@ -589,15 +597,22 @@ public function deleteTag($id) {
                 //後に使う予定
                 $chanpionData = Chanpion::find($id);
                 $tagBoxDatas  = TagBox::with('chanpion')->where('chanpion_id', $id)->get();
+                $tagDatas  = Tag::all();
 
-                Log::info('チャンピオンのデータ:'.$chanpionData);
-                Log::info('タグボックスのデータ:'.$tagBoxDatas);
+                // Log::info('チャンピオンのデータ:'.$chanpionData);
+                // Log::info('タグボックスのデータ:' .$tagBoxDatas[1]->chanpion_tag_id_1);
                 
-                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagBoxDatas']));
+                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagBoxDatas','tagDatas']));
             }
 
             public function updateTagBox(Request $request , $id) {
-                // var_dump($request);
+
+                // Log::info('id:'.$id);
+                // GETパラメータが数字かどうかをチェックする
+                //事前にチェックする事で無駄なアクセスを減らせる
+                if(!ctype_digit($id)){
+                    return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
+                }
 
               $request->validate([
                 'name' => 'string|max:255|required',
@@ -628,10 +643,10 @@ public function deleteTag($id) {
                 'chanpion_tag_id_9.max' => '21文字以上の入力は出来ません',
                 'chanpion_tag_id_10.max' => '21文字以上の入力は出来ません',
             ]);
-                $tagboxDatas = new TagBox;
+                $tagboxDatas = TagBox::where('chanpion_id',$id)->first();
+                // Log::info('データ観察:'.$tagboxDatas);
 
-                $chanpion = Chanpion::find($request->chanpion_id);
-                $chanpion->tagBox()->save($tagboxDatas->fill($request->all()));
+                $tagboxDatas->fill($request->all())->save();
 
 
                 return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));

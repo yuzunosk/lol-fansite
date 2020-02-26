@@ -1,9 +1,12 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 
 @section('content')
         @section('sidebar')
         <div class="col-10">
+
+        {{ $chanpionsData->onEachSide(5)->links() }}
+
 
         <div class="row row-cols-1 row-cols-md-2">
                 @foreach($chanpionsData AS $chanpionData)
@@ -70,6 +73,8 @@
                 </div>
             @endforeach
             </div>
+
+
         </div>
             @parent
         @endsection

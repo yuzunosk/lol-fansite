@@ -1,5 +1,7 @@
 {
+    "LoL Fan Managiment": "LoL Fan 管理画面",
     "Register": "登録",
+    "Skill not registered yet.": "スキルはまだ登録されていません",
     "Chanpion Editer": "チャンピオンデータ　編集",
     "Skill Editer": "スキルデータ　編集",
     "Skill Register": "スキル　登録",
@@ -51,7 +53,20 @@
     "Article Edit": "記事編集",
     "E-Mail Address": "Eメールアドレス",
     "Password": "パスワード",
-    "Confirm Password": "パスワード再入力"
+    "Confirm Password": "パスワード再入力",
+    "Chanpions": "チャンピオン",
+    "New Chanpion Registration": "チャンピオン 新規登録",
+    "Registration Chanpions List": "登録チャンピオン 一覧",
+    "Chanpion Skills": "チャンピオン スキル",
+    "New Skill Registration": "スキル 新規登録",
+    "Chanpion Rolls": "チャンピオン ロール",
+    "New Roll Registration": "ロール 新規登録",
+    "Registration Rolls List": "登録ロール 一覧",
+    "Chanpion Tags": "チャンピオン タグ",
+    "New Tag Registration": "タグ 新規登録",
+    "Registration Tags List": "登録タグ 一覧",
+    "Prev": "前へ",
+    "Next": "次へ"
 
 
 
