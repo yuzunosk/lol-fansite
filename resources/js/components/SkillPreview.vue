@@ -39,6 +39,8 @@ export default {
      judgmentData_1() {
        // alert('読み込みました');
        let $value = this.value;
+       //disable eslint-next-line no-console
+       console.log({ $$value });
       //  alert('中身は、' + $value);
        if($value.skill_icon_1){
         //  alert('処理を実行します');
@@ -52,7 +54,9 @@ export default {
       judgmentData_2() {
        // alert('読み込みました');
        let $value = this.value;
-      //  alert('中身は、' + $value);
+       //disable eslint-next-line no-console
+       console.log({ $$value });
+       //  alert('中身は、' + $value);
        if($value.skill_icon_2){
         //  alert('処理を実行します');
          this.uploadedImage_2 = this.storage + $value;
@@ -99,7 +103,7 @@ export default {
     },
 
    },
-   beforeMount() {
+   beforeCreate() {
               this.judgmentData_1();
               this.judgmentData_2();
    }

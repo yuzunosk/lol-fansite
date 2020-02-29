@@ -176,6 +176,7 @@
                                                 <a href="{{ route('articles.create') }}" class="dropdown-item">Registration Articles List</a>
                                             </div>
 <!-- content end-->
+
                                 </div>
                             </div>
                         </div>
@@ -186,5 +187,7 @@
             </div> <!-- container -->
         </main>
     </div>
+
+
 </body>
 </html>

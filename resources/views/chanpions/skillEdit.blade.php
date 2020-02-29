@@ -8,7 +8,7 @@
                     <div class="card-header text-center">{{ __('Skill Editer') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.update', $skillData[0]->chanpion_id) }}">
+                        <form method="POST" enctype='multipart/form-data' action="{{ route('skills.update', $skillData->chanpion->id) }}">
                             @csrf
 
 <!-- 名前・英名 -->
@@ -20,9 +20,9 @@
                                     <input 
                                     id="name" 
                                     type="text" 
-                                    class="form-control @error('name') is-invalid @enderror
+                                    class="form-control @error('name') is-invalid @enderror"
                                     name="name" 
-                                    value="{{ old('name', $skillData->name) }}" 
+                                    value="{{ old('name', $skillData->name) }}"
                                     autocomplete="name" autofocus>
 
                                     @error('name')
@@ -94,13 +94,9 @@
                                     <select 
                                     id="chanpion_id" 
                                     class="form-control @error('chanpion_id') is-invalid @enderror"
-                                    name="chanpion_id" 
-                                    value="{{ old('chanpion_id', $chanpion->id) }}"
-                                    >
-                                    @foreach($chanpionDatas as $chanpionData)
-                                        <option value="{{ old(chanpion_id,$chanp->name) }}" @if(old('chanpion_id') == $chanpionData->name) selected @endif>
-                                        {{ $chanpionData->name }}</option>
-                                    @endforeach
+                                    name="chanpion_id">
+                                        <option value="{{ old('chanpion_id', $skillData->chanpion->id) }}" @if(old('chanpion_id') == $skillData->chanpion->id) selected @endif>
+                                        {{ $skillData->chanpion->name }}</option>
                                     </select>
 
                                     @error('chanpion_id')
@@ -179,8 +175,8 @@
                         <div class="container text-center mt-4">
                             <div class="form-group row">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-primary px-5">
-                                        {{ __('Register') }}
+                                    <button type="submit" class="btn border-dark px-5">
+                                        {{ __('Update') }}
                                     </button>
                                 </div>
                             </div>

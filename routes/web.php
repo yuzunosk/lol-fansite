@@ -25,6 +25,9 @@ Route::get('/chanpions', 'ChanpionsController@indexChanpion')->name('chanpions.c
 Route::get('/chanpions/{id}/edit', 'ChanpionsController@editChanpion')->name('chanpions.edit');
 Route::post('/chanpions/{id}', 'ChanpionsController@updateChanpion')->name('chanpions.update');
 Route::post('/chanpions/{id}/delete', 'ChanpionsController@deleteChanpion')->name('chanpions.delete');
+//チャンピオン管理画面ソート
+Route::get('/chanpions/{data}', 'ChanpionsController@sortChanpion')->name('chanpions.sort');
+
 
 // スキル追加ページ
 Route::get('/skills/new', 'ChanpionsController@newSkill')->name('skills.new');
@@ -74,13 +77,14 @@ Route::post('/categorys/new', 'ArticlesController@createCategory')->name('catego
 Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name('categorys.delete');
 
 //Ajax
-Route::get('datatable', 'DataTableController@index');
-Route::get('datatable/ajax', 'DataTableController@ajax');
+// Route::post('ajaxtest', 'DataSortController@test')->name('ajax.sort');
+Route::post('/ajaxtest', 'DataSortController@sort')->name('ajax.sort');
+
+
+//ソート・並び替え機能
 
 
 
-//ホーム画面表示
-Route::get('/home{any}', 'HomeController@showHome')->where('any', '.*')->name('Home.show');
 
 
 

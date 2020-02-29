@@ -46,6 +46,12 @@ class ChanpionsController extends Controller
         return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
     }
 
+    public function sortChanpion($chanpionsData , $tagDatas , $rollDatas , $tagBoxDatas ){
+        //ソート情報を引き継いで画面に表示する
+        return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
+    }
+
+
     public function newChanpion() {
         //chanpion登録画面を呼ぶ
         //ロールカテゴリーデータをDBから呼び出す
@@ -264,20 +270,29 @@ class ChanpionsController extends Controller
     public function indexSkill(){
         return view('chanpions.skillIndex', compact('skillDatas'));
     }
+
     public function listSkill($id){
+        //idの判定
         if(!ctype_digit($id)){
+            //idが異常値であればリダイレクト
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
     }
-// スキルデータとチャンピオンデータ取得
-        $skillDatas = Chanpion::find($id)->with('skills')->where('id',$id)->first();
+        // スキルデータとチャンピオンデータ取得
+        $skillDatas   = Skill::where('chanpion_id',$id)->get();
+        $chanpionData = Chanpion::find($id);
+        //変数の中身チェック
         Log::info('スキルデータログ：'.$skillDatas);
-//変数の中身チェック
-        if($skillDatas){
+        
+        //$skillDatasが空でないか判定
+            if(empty($skillDatas->first())){
+            //空であればchanpion.indexにリダイレクト
+            return redirect('/chanpions')->with('flash_message',__('Skill not registered yet.'));
+            }
+            //中身確認
+            // Log::info("スキルデータ:" .$skillDatas->skills->where('skill_type','Wスキル'));
             //空出なければスキルリストページへ
-            return view('chanpions.skillIndex', compact('skillDatas'));
-        }
-        //空であればchanpion.indexにリダイレクト
-        return redirect('/chanpions')->with('flash_message',__('Skill not registered yet.'));
+            return view('chanpions.skillIndex', compact(['skillDatas','chanpionData']));
+
     }
 
     public function newSkill() {
@@ -341,6 +356,7 @@ class ChanpionsController extends Controller
             $chanpion->skills()->save($skillDatas->fill($request->all()));
 
 
+
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
     }
@@ -350,11 +366,10 @@ class ChanpionsController extends Controller
             return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
         // Log::info($id);
-        $skillData = Skill::find($id);
-        $chanpion = Chanpion::find($id2);
+        $skillData = Skill::where('id',$id)->with('chanpion')->first();
         Log::info($skillData);
 
-        return view('chanpions.skillEdit', compact(['skillData']));
+        return view('chanpions.skillEdit', compact('skillData'));
     }
 
     public function updateSkill(Request $request ,$id) {
@@ -409,9 +424,14 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
         }
-        $chanpion = Chanpion::find($request->chanpion_id);
-        $chanpion->skills()->save($skillDatas->fill($request->all()));
+        // $chanpion->skills()->save($skillDatas->fill($request->all()));
+        // Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
+        // Skill::find($id)->chanpion()->save($skillDatas->fill($request->all()));
 
+
+        $skillDatas = Skill::where('chanpion_id',$id)->first();
+
+        $skillDatas->fill($request->all())->save();
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }

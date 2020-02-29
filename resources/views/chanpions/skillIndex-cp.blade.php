@@ -1,26 +1,26 @@
-@extends('layouts.app') <!-- ここでlayouts.app.blade.phpを呼び出す -->
-@section('content')  <!-- @yield('content') - ここから -->
+@extends('layouts.app')
 
-@section('sidebar') <!-- 親要素のsidebar ここから -->
 
-<div class="container">
+@section('content')
+    @section('sidebar')
+        <div class="col-10">
+            <div class="container">
             <div class="row">
                 <div class="card-deck col-12 border border-dark p-0 ">
-                <h3 class="col-12 text-center my-3">{{ $chanpionData->name }}</h3>
-
+                <h3 class="col-12 text-center my-3">{{ $skillDatas->name }}</h3>
+    @for($i=1; $i <= $skillDatas.length(); $i++)
 <!-- passive card -->
-@foreach($skillDatas as $skillData)
+            @foreach($skillDatas as $skillData)
                     @if($skillData->skill_type == 'Passive')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
-                        
                         Passive
                         </h5>
                         <div class="card-body p-0" >
-                                <img src="@if($skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
+                                <img src="@if($skillData->skill_type == 'Passive' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                                <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
-                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                                <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->
 
                                 <h5 class="card-title col-10">{{ $skillData->name }}</h5>
                                 <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
@@ -45,21 +45,15 @@
                                     </div>
                         </div>
                     </div>
-                    @break
-                @else
-                    @if($loop->last)
-                        <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'passive'])
+                    @else
+                        <!-- サブビュー受け渡し -->
+                        <!-- @include('form.noSkillData',['skill_type' => 'passive']) -->
                     @endif
-                @endif
-            @endforeach
+                @endforeach
 <!-- passive card END -->
 
-
-
-
 <!--  Qスキル card -->
-@foreach($skillDatas as $skillData)
+                @foreach($skillDatas as $skillData)
                     @if($skillData->skill_type == 'Qスキル')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
@@ -68,8 +62,8 @@
                         <div class="card-body p-0" >
                                 <img src="@if($skillData->skill_type == 'Qスキル' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                                <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
-                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                                <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->
 
                                 <h5 class="card-title col-10">{{ $skillData->name }}</h5>
                                 <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
@@ -94,19 +88,17 @@
                                     </div>
                         </div>
                     </div>
-                    @break
-                @else
-                    @if($loop->last)
-                        <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'Qスキル'])
+                    @else
+                        <!-- サイドビュー　受け渡し -->
+                        <!-- @include('form.noSkillData',['skill_type' => 'Qスキル']) -->
                     @endif
-                @endif
-            @endforeach
+                @endforeach
 <!--  Qスキル card END -->
 
 
+
 <!-- Wスキル card -->
-@foreach($skillDatas as $skillData)
+            @foreach($skillDatas as $skillData)
                 @if($skillData->skill_type == 'Wスキル')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
@@ -115,8 +107,8 @@
                         <div class="card-body p-0" >
                                 <img src="@if($skillData->skill_type == 'Wスキル' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                                <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
-                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                                <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->
 
                                 <h5 class="card-title col-10">{{ $skillData->name }}</h5>
                                 <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
@@ -141,21 +133,14 @@
                                     </div>
                         </div>
                     </div>
-                    @break
-                @else
-                    @if($loop->last)
-                        <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'Wスキル'])
+
+                    @else
+                        <!-- サイドビュー　受け渡し -->
+                        <!-- @include('form.noSkillData',['skill_type' => 'Wスキル']) -->
                     @endif
-                @endif
-            @endforeach
+                @endforeach
 <!-- Wスキル card END-->
-
-
-
-
-<!-- Eスキル card -->
-@foreach($skillDatas as $skillData)
+                @foreach($skillDatas as $skillData)
                     @if($skillData->skill_type == 'Eスキル')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
@@ -164,8 +149,8 @@
                         <div class="card-body p-0" >
                                 <img src="@if($skillData->skill_type == 'Eスキル' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                                <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
-                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                                <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->
 
                                 <h5 class="card-title col-10">{{ $skillData->name }}</h5>
                                 <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
@@ -190,20 +175,15 @@
                                     </div>
                         </div>
                     </div>
-                    @break
-                @else
-                    @if($loop->last)
-                        <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'Eスキル'])
+                    @else
+                        <!-- サイドビュー 受け渡し -->
+                        <!-- @include('form.noSkillData',['skill_type' => 'Eスキル']) -->
                     @endif
-                @endif
-            @endforeach
+                @endforeach
 <!-- Eスキル card END -->
 
-
-
 <!-- Ultimaiteスキル card -->
-@foreach($skillDatas as $skillData)
+                @foreach($skillDatas as $skillData)
                     @if($skillData->skill_type == 'Ultimate')
                     <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
                         <h5 class="card-header">
@@ -212,8 +192,8 @@
                         <div class="card-body p-0" >
                                 <img src="@if($skillData->skill_type == 'Ultimate' || $skillData->skill_icon_1 != null){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                                <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
-                                class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                                <!-- <img src="@if($skillData->skill_icon_2){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" 
+                                class="card-image-top" style="height:100px;object-fit:cover; display:none;"> -->
 
                                 <h5 class="card-title col-10">{{ $skillData->name }}</h5>
                                 <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
@@ -238,21 +218,17 @@
                                     </div>
                         </div>
                     </div>
-                    @break
-                @else
-                    @if($loop->last)
-                        <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'Ultimate'])
+                    @else
+                        <!-- サイドビュー 受け渡し -->
+                        <!-- @include('form.noSkillData',['skill_type' => 'Ultimate']) -->
                     @endif
-                @endif
-            @endforeach
+                @endforeach
 <!-- Ultimateスキル card END-->
 
-                </div>
-            </div> <!--div=row -->
-</div> <!-- div=container -->
-
-
-@parent<!-- 親要素のsidebar ここから -->
-
-@endsection   <!-- @yield('content') - ここまで -->
+            </div>
+            </div>
+        </div>
+        </div>
+        @parent
+        @endsection
+@endsection

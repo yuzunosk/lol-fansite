@@ -2022,7 +2022,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     judgmentData_1: function judgmentData_1() {
       // alert('読み込みました');
-      var $value = this.value; //  alert('中身は、' + $value);
+      var $value = this.value; //disable eslint-next-line no-console
+
+      console.log({
+        $$value: $$value
+      }); //  alert('中身は、' + $value);
 
       if ($value.skill_icon_1) {
         //  alert('処理を実行します');
@@ -2035,7 +2039,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     judgmentData_2: function judgmentData_2() {
       // alert('読み込みました');
-      var $value = this.value; //  alert('中身は、' + $value);
+      var $value = this.value; //disable eslint-next-line no-console
+
+      console.log({
+        $$value: $$value
+      }); //  alert('中身は、' + $value);
 
       if ($value.skill_icon_2) {
         //  alert('処理を実行します');
@@ -2090,7 +2098,7 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     }
   },
-  beforeMount: function beforeMount() {
+  beforeCreate: function beforeCreate() {
     this.judgmentData_1();
     this.judgmentData_2();
   }
@@ -50421,7 +50429,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('preview-component', __webpack_require__(/*! ./components/ImagePreview.vue */ "./resources/js/components/ImagePreview.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('skill-preview', __webpack_require__(/*! ./components/SKillPreview.vue */ "./resources/js/components/SKillPreview.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sortdata-component', __webpack_require__(/*! ./components/SortData.vue */ "./resources/js/components/SortData.vue")["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app2'
 });
@@ -50647,25 +50654,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/SortData.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/components/SortData.vue ***!
-  \**********************************************/
-/*! exports provided: default */
+/***/ "./resources/js/mainJquery.js":
+/*!************************************!*\
+  !*** ./resources/js/mainJquery.js ***!
+  \************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Applications/MAMP/htdocs/lol_fansite_laravel/resources/js/components/SortData.vue'");
+$(function () {
+  $('#stop').on('click', function (e) {
+    // alert('クリックしました。');
+    e.preventDefault();
+    var sort = $('#js-sort-data').val();
+    var roll = $('#js-roll-data').val();
+    var tag = $('#js-tag-data').val();
+    console.log({
+      sort: sort,
+      roll: roll,
+      tag: tag
+    });
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        sort: $('#js-sort-data').val(),
+        roll: $('#js-roll-data').val(),
+        tag: $('#js-tag-data').val()
+      },
+      //アクセスするときに必要なデータを記載
+      url: '/ajaxtest/',
+      //アクセスするURL
+      type: 'POST',
+      //cacheを使うか使わないかを設定
+      dataType: 'json' //data type script・xmlDocument・jsonなど
+
+    }).done(function (data) {
+      //通信成功時の処理
+      //成功したとき実行したいスクリプトを記載
+      console.log('success');
+      console.log({
+        data: data
+      });
+      $('#js-sort-chanpionsData').$.type(data).text();
+    }).fail(function (data) {
+      //通信失敗時の処理
+      //失敗したときに実行したいスクリプトを記載
+      console.log('通信に失敗しました');
+    }).always(function (data) {
+      //通信完了時の処理
+      //結果に関わらず実行したいスクリプトを記載
+      console.log('Ajaxを読み込みました');
+    });
+  });
+});
 
 /***/ }),
 
 /***/ 1:
-/*!************************************!*\
-  !*** multi ./resources/js/app2.js ***!
-  \************************************/
+/*!*****************************************************************!*\
+  !*** multi ./resources/js/app2.js ./resources/js/mainJquery.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/lol_fansite_laravel/resources/js/app2.js */"./resources/js/app2.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/lol_fansite_laravel/resources/js/app2.js */"./resources/js/app2.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/lol_fansite_laravel/resources/js/mainJquery.js */"./resources/js/mainJquery.js");
 
 
 /***/ })

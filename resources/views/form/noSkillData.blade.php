@@ -3,11 +3,10 @@
                         {{ $skill_type }}
                         </h5>
                         <div class="card-body p-0" >
-                                <img src="asset('/storage/img/etc/img_no.png')" class="card-img" style="height:100px;object-fit:cover;">
-
-                                <h5 class="card-title col-10">No-Name</h5>
-                                <h5 class="card-title col-10">No-Name</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / No-Data</small></p>
+                                <!-- <img src="asset('/public/img_mini_no.png')" class="card-img" style="height:100px;object-fit:cover;"> -->
+                                <h5 class="card-title col-10">No-DATA</h5>
+                                <h5 class="card-title col-10">No-DATA</h5>
+                                <p class="card-text col-12"><small class="text-muted">Update / No-DATA</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">
