@@ -6,7 +6,7 @@
                 <ul>
                     <li v-for="(status,index) in statusDatas" :key="index">
                         <p>{{ status.name }}</p>
-                        <span :style="status.color" @click="cleateStatusBox">{{ status.value }}</span>
+                        <span :style="status.color">{{ st_bar }}</span>
                     </li>
                 </ul>
             </div>
@@ -19,6 +19,9 @@ export default {
     props: ["data"],
     data() {
         return {
+            st_bar: '■',
+
+
             statusDatas: [
                 {name: "Attack"    , value: this.data.st_attack , color: "color:red" },
                 {name: "Magic"     , value: this.data.st_magic , color: "color:purple" },
@@ -29,6 +32,12 @@ export default {
         }
     },
     methods: {
+        visual_bar()
+        {
+            for($i=1; $i = this.statusDatas; $i++ ){
+                this.st_bar;
+            }
+        }
     },
 }
 </script>

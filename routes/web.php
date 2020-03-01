@@ -81,8 +81,14 @@ Route::get('/categorys/{id}/delete', 'ArticlesController@deleteCategory')->name(
 Route::post('/ajaxtest', 'DataSortController@sort')->name('ajax.sort');
 
 
-//ソート・並び替え機能
 
+
+
+
+
+
+//home画面表示
+Route::get('/home{any}', 'HomeController@showHome')->where('any', '.*')->name('Home.show');
 
 
 

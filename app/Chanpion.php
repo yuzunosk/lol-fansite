@@ -32,4 +32,16 @@ class Chanpion extends Model
     {
         return $this->belongsMany(Tag::class);
     }
+
+    public function chanpionRelatedData(){
+        return $this->hasOneThrough(
+            'App\TagBox',
+            'App\Skill',
+            'chanpion_id', // skillテーブルの外部キー
+            'chanpion_id', // tagboxテーブルの外部キー
+            'id', // suppliersテーブルのローカルキー
+            'id' // usersテーブルのローカルキー
+        );
+ 
+    }
 }

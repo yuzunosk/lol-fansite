@@ -2853,6 +2853,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["data"],
   data: function data() {
     return {
+      st_bar: '■',
       statusDatas: [{
         name: "Attack",
         value: this.data.st_attack,
@@ -2876,7 +2877,13 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  methods: {}
+  methods: {
+    visual_bar: function visual_bar() {
+      for ($i = 1; $i = this.statusDatas; $i++) {
+        this.st_bar;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -40787,11 +40794,7 @@ var render = function() {
             return _c("li", { key: index }, [
               _c("p", [_vm._v(_vm._s(status.name))]),
               _vm._v(" "),
-              _c(
-                "span",
-                { style: status.color, on: { click: _vm.cleateStatusBox } },
-                [_vm._v(_vm._s(status.value))]
-              )
+              _c("span", { style: status.color }, [_vm._v(_vm._s(_vm.st_bar))])
             ])
           }),
           0
