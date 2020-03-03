@@ -45,3 +45,4 @@ class Chanpion extends Model
  
     }
 }
+

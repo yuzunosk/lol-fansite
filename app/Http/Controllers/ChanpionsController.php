@@ -34,23 +34,15 @@ class ChanpionsController extends Controller
     public function indexChanpion(){
         //ユーザー毎のデータ取得
         // $chanpionsData = Auth::user()->chanpions()->get();
-
-        //チャンピオン、タグ、ロール、タグボックスデータ取得
         $chanpionsData = Chanpion::paginate(8);
         $tagDatas      = Tag::all();
         $rollDatas     = Roll::all();
         $tagBoxDatas   = TagBox::all();
 
-        // Log::info('タグボックスデータ'.$tagBoxDatas);
+        Log::info('タグボックスデータ'.$tagBoxDatas);
 
         return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
     }
-
-    public function sortChanpion($chanpionsData , $tagDatas , $rollDatas , $tagBoxDatas ){
-        //ソート情報を引き継いで画面に表示する
-        return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
-    }
-
 
     public function newChanpion() {
         //chanpion登録画面を呼ぶ
@@ -80,7 +72,7 @@ class ChanpionsController extends Controller
             'st_toughness' => 'numeric|max:10|min:1',
             'st_mobility' => 'numeric|max:10|min:1',
             'st_difficulty' => 'numeric|max:10|min:1',
-            'user_id' => 'required',
+            // 'user_id' => 'required',
         ]
         ,[
             'name.required' => '名前は必須入力です',
@@ -226,14 +218,6 @@ class ChanpionsController extends Controller
         ]);
 
     $chanpionData = Chanpion::find($id);
-    // $chanpionData->name = $request->name;
-    // $chanpionData->sub_name = $request->sub_name;
-    // $chanpionData->popular_name = $request->popular_name;
-    // $chanpionData->feature = $request->feature;
-    // $chanpionData->main_roll_id = $request->main_roll_id;
-    // $chanpionData->sub_roll_id = $request->sub_roll_id;
-    // $chanpionData->be_cost = $request->be_cost;
-    // $chanpionData->rp_cost = $request->rp_cost;
 
     if($request->file('chanpion_img')){
         $file = $request->file('chanpion_img');
@@ -267,35 +251,37 @@ class ChanpionsController extends Controller
 // スキル系
 // ---------------------------------
 
-    public function indexSkill(){
+    public function indexSkill()
+    {
         return view('chanpions.skillIndex', compact('skillDatas'));
     }
 
+
     public function listSkill($id){
-        //idの判定
         if(!ctype_digit($id)){
-            //idが異常値であればリダイレクト
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
-    }
+        }
         // スキルデータとチャンピオンデータ取得
-        $skillDatas   = Skill::where('chanpion_id',$id)->get();
-        $chanpionData = Chanpion::find($id);
-        //変数の中身チェック
-        Log::info('スキルデータログ：'.$skillDatas);
-        
-        //$skillDatasが空でないか判定
-            if(empty($skillDatas->first())){
-            //空であればchanpion.indexにリダイレクト
-            return redirect('/chanpions')->with('flash_message',__('Skill not registered yet.'));
-            }
-            //中身確認
-            // Log::info("スキルデータ:" .$skillDatas->skills->where('skill_type','Wスキル'));
-            //空出なければスキルリストページへ
-            return view('chanpions.skillIndex', compact(['skillDatas','chanpionData']));
+        $skillDatas = Chanpion::find($id)->with('skills')->where('id',$id)->first();
+        Log::info('スキルデータログ：'.$skillDatas->skills);
+        foreach($skillDatas->skills as $skillData){
+            Log::info('スキルデータ単体：'.$skillData->skill_type);
 
+        }
+
+
+
+        //変数の中身チェック
+        if($skillDatas){
+        //空出なければスキルリストページへ
+            return view('chanpions.skillIndex', compact('skillDatas'));
+        }
+        //空であればchanpion.indexにリダイレクト
+        return redirect('/chanpions')->with('flash_message',__('Skill not registered yet.'));
     }
 
-    public function newSkill() {
+    public function newSkill()
+    {
         //chanpionスキル登録画面を呼ぶ
         $chanpionDatas = Chanpion::all();
         return view('chanpions.newSkill',compact(['chanpionDatas']));
@@ -304,58 +290,53 @@ class ChanpionsController extends Controller
     public function createSkill(Request $request) {
 
         $request->validate([
-            'name' => 'string|max:255',
-            'na_name' => 'string|max:255',
-            'skill_type' => Rule::unique('chanpionSkills')->ignore($request->chanpion_id , 'chanpion_id')->where(function ($query) {
+            'name'            => 'string|max:255',
+            'na_name'         => 'string|max:255',
+            'skill_type'      => Rule::unique('chanpionSkills')->ignore($request->chanpion_id , 'chanpion_id')->where(function ($query) {
                 return $query->where('skill_type' , 'skill_type');
             }),
-            'chanpion_id' => 'required|numeric',
-            'text' => 'string|nullable|max:255',
-            'skill_icon_1' => 'nullable|file|image|max:10240',
-            // 'skill_icon_2' => 'nullable|file|image|max:10240',
+            'chanpion_id'     => 'required|numeric',
+            'text'            => 'string|nullable|max:255',
+            'skill_icon_1'    => 'nullable|file|image|max:10240',
+            'skill_icon_2'    => 'nullable|file|image|max:10240',
         ]
         ,[
-            'name.required' => '名前は必須入力です',
-            'name.string' => '文字列で入力してください',
-            'name.max' => '名前は255文字以内で入力して下さい',
+            'name.required'   => '名前は必須入力です',
+            'name.string'     => '文字列で入力してください',
+            'name.max'        => '名前は255文字以内で入力して下さい',
             'na_name.required' => '英名は必須入力です',
-            'na_name.max' => '英名は255文字以内で入力して下さい',
-            'na_name.string' => '文字列で入力して下さい',
-            'skill_type.string' => '文字列で入力して下さい',
-            'text.string' => '文字列で入力して下さい',
-            'text.max' => 'テキストは255文字以内で入力して下さい',
-            'text.nullable' => 'テキストの入力をお忘れではないですか？',
-            'skill_icon_1.file' => 'アップロードできませんでした',
-            'skill_icon_1.image' => 'アップロードできない形式です',
+            'na_name.max'      => '英名は255文字以内で入力して下さい',
+            'na_name.string'   => '文字列で入力して下さい',
+            'skill_type.string'   => '文字列で入力して下さい',
+            'text.string'         => '文字列で入力して下さい',
+            'text.max'            => 'テキストは255文字以内で入力して下さい',
+            'text.nullable'       => 'テキストの入力をお忘れではないですか？',
+            'skill_icon_1.file'   => 'アップロードできませんでした',
+            'skill_icon_1.image'  => 'アップロードできない形式です',
             'skill_icon_1.nullable' => '画像は後にいれることが出来ます',
-            'skill_icon_1.max' => 'データが大きすぎます',
-            'skill_icon_2.file' => 'アップロードできませんでした',
-            'skill_icon_2.image' => 'アップロードできない形式です',
+            'skill_icon_1.max'      => 'データが大きすぎます',
+            'skill_icon_2.file'     => 'アップロードできませんでした',
+            'skill_icon_2.image'    => 'アップロードできない形式です',
             'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
-            'skill_icon_1.max' => 'データが大きすぎます',
-
+            'skill_icon_1.max'      => 'データが大きすぎます',
         ]);
             $skillDatas = new Skill;
-            // $skillDatas->name = $request->name;
-            // $skillDatas->na_name = $request->na_name;
-            // $skillDatas->skill_type = $request->skill_type;
-            // $skillDatas->chanpion_id = $request->chanpion_id;
-            // $skillDatas->text = $request->text;
 
+            //ファイル・リサイズ
             if($request->file('skill_icon_1')){
+                Log::info('ファイル名前:'.$request->file('skill_icon_1'));
                 $file = $request->file('skill_icon_1');
                 $filename = $file->getClientOriginalName();
                 $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
             }
             if($request->file('skill_icon_2')){
+                Log::info('ファイル名前:'.$request->file('skill_icon_2'));
                 $file = $request->file('skill_icon_2');
                 $filename = $file->getClientOriginalName();
                 $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
             }
             $chanpion = Chanpion::find($request->chanpion_id);
             $chanpion->skills()->save($skillDatas->fill($request->all()));
-
-
 
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));
@@ -366,10 +347,13 @@ class ChanpionsController extends Controller
             return redirect('/skills')->with('flash_message',__('Invalid operation was performed.'));
         }
         // Log::info($id);
-        $skillData = Skill::where('id',$id)->with('chanpion')->first();
-        Log::info($skillData);
+        $skillData = Skill::find($id);
+        // $chanpionData = Chanpion::find($id);
+        Log::info('スキルデータ:'.$skillData);
+        // Log::info('チャンピオンデータ:'.$chanpionData);
 
-        return view('chanpions.skillEdit', compact('skillData'));
+
+        return view('chanpions.skillEdit', compact(['skillData']));
     }
 
     public function updateSkill(Request $request ,$id) {
@@ -424,14 +408,9 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
         }
-        // $chanpion->skills()->save($skillDatas->fill($request->all()));
-        // Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
-        // Skill::find($id)->chanpion()->save($skillDatas->fill($request->all()));
+        $chanpion = Chanpion::find($request->chanpion_id);
+        $chanpion->skills()->save($skillDatas->fill($request->all()));
 
-
-        $skillDatas = Skill::where('chanpion_id',$id)->first();
-
-        $skillDatas->fill($request->all())->save();
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }
