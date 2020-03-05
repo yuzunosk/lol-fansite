@@ -1,12 +1,12 @@
 <template>
     <div>
-        <router-view :chanpionDatas="chanpiondatas"></router-view>
+       <router-view :chanpionDatas="chanpiondatas" :skillDatas="skilldatas" :tagDatas="tagdatas"></router-view>
     </div>
 </template>
 
 <script>
     export default {
-        props: ["chanpiondatas"],
+        props: ["chanpiondatas","tagdatas","skilldatas"],
         mounted() {
             console.log('Component mounted.')
         }

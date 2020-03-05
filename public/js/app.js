@@ -2081,6 +2081,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2089,7 +2090,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chanpionDatas"],
+  props: ["chanpionDatas", "skillDatas", "tagDatas"],
   data: function data() {
     return {
       number: 14,
@@ -2228,7 +2229,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["id", "data"],
+  props: ["id", "data", "skilldata"],
   data: function data() {
     return {
       cardRoll: {
@@ -2296,7 +2297,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chanpiondatas"],
+  props: ["chanpiondatas", "tagdatas", "skilldatas"],
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -2692,6 +2693,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
@@ -2753,10 +2759,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
     return {
+      storage: "/storage/",
       tab_bottom: {
         border_bottom: true,
         tab_botton: true
@@ -2781,22 +2790,22 @@ __webpack_require__.r(__webpack_exports__);
     skillIcon1: function skillIcon1() {
       //eslint-disable-next-line no-console
       // console.log(this.skills[this.nowNum].icon2);
-      return this.data.skills[this.nowNum].icon;
+      return this.data[this.nowNum].skill_icon_1;
     },
     skillIcon2: function skillIcon2() {
-      return this.data.skills[this.nowNum].icon2;
+      return this.data[this.nowNum].skill_icon_2;
     },
     skillName1: function skillName1() {
-      return this.data.skills[this.nowNum].name[0];
+      return this.data[this.nowNum].name;
     },
     skillName2: function skillName2() {
-      return this.data.skills[this.nowNum].name[1];
+      return this.data[this.nowNum].na_name;
     },
     skillText: function skillText() {
-      return this.data.skills[this.nowNum].text;
+      return this.data[this.nowNum].text;
     },
     skillType: function skillType() {
-      return this.data.skills[this.nowNum].type;
+      return this.data[this.nowNum].skill_type;
     },
     tagStyle: function tagStyle() {
       return this.banerColor[this.nowNum].bgColor;
@@ -2804,21 +2813,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleBotton: function toggleBotton(event) {
-      //eslint-disable-next-line no-console
-      // console.log(event.currentTarget.attributes[1].value);
-      this.nowNum = event.currentTarget.attributes[1].value; //eslint-disable-next-line no-console
-      // console.log('現在のnumは、' + this.nowNum + 'です');
-
+      this.nowNum = event.currentTarget.attributes[1].value;
       return;
     },
     toggleIconShow: function toggleIconShow() {
-      if (this.data.skills[this.nowNum].icon2 === undefined) {
+      if (this.data[this.nowNum].skill_icon_2 === undefined) {
         this.secondIconShow = true;
         return;
       } else {
         this.secondIconShow = false;
       }
     }
+  },
+  beforeMount: function beforeMount() {// es-lint-disable-next-line no-console
+    // console.log('データの中身');
+    // es-lint-disable-next-line no-console
+    // console.log( this.data[0].chanpion_id);
   }
 });
 
@@ -2849,40 +2859,107 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
     return {
-      st_bar: '■',
-      statusDatas: [{
+      st_att: '',
+      st_mag: '',
+      st_tou: '',
+      st_mob: '',
+      st_dif: '',
+      insertBar: '<span>a</span>',
+      attackData: {
         name: "Attack",
         value: this.data.st_attack,
         color: "color:red"
-      }, {
+      },
+      magicData: {
         name: "Magic",
         value: this.data.st_magic,
         color: "color:purple"
-      }, {
+      },
+      toughnessData: {
         name: "Toughness",
         value: this.data.st_toughness,
         color: "color:green"
-      }, {
+      },
+      mobilityData: {
         name: "Mobility",
         value: this.data.st_mobility,
         color: "color:skyblue"
-      }, {
+      },
+      difficultyData: {
         name: "Difficulty",
         value: this.data.st_difficulty,
         color: "color:#cddc39"
-      }]
+      }
     };
   },
   methods: {
-    visual_bar: function visual_bar() {
-      for ($i = 1; $i = this.statusDatas; $i++) {
-        this.st_bar;
+    makeAtt: function makeAtt() {
+      // alert('読み込みました');
+      for (var $i = 0; $i < this.attackData.value; $i++) {
+        this.st_att = this.st_att + '■';
+      }
+    },
+    makeMag: function makeMag() {
+      // alert('読み込みました');
+      for (var $i = 0; $i < this.magicData.value; $i++) {
+        this.st_mag = this.st_mag + '■';
+      }
+    },
+    makeTou: function makeTou() {
+      // alert('読み込みました');
+      for (var $i = 0; $i < this.toughnessData.value; $i++) {
+        this.st_tou = this.st_tou + '■';
+      }
+    },
+    makeMob: function makeMob() {
+      // alert('読み込みました');
+      for (var $i = 0; $i < this.mobilityData.value; $i++) {
+        this.st_mob = this.st_mob + '■';
+      }
+    },
+    makeDif: function makeDif() {
+      // alert('読み込みました');
+      for (var $i = 0; $i < this.difficultyData.value; $i++) {
+        this.st_dif = this.st_dif + '■';
       }
     }
+  },
+  beforeMount: function beforeMount() {
+    this.makeAtt();
+    this.makeMag();
+    this.makeTou();
+    this.makeMob();
+    this.makeDif(); // disable-next-line no-console
+    // console.log('beforeMount read')
   }
 });
 
@@ -2937,6 +3014,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import {chanpionDatas} from "../.././chanpionDatas"
 
 
@@ -2945,7 +3023,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      key: 0
+      key: 0,
+      currentChampionId: "",
+      currentSkillData: {}
     };
   },
   components: {
@@ -2954,11 +3034,45 @@ __webpack_require__.r(__webpack_exports__);
     ChanpionStatus: _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ChanpionPageTag: _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  methods: {
+    roopSkillData: function roopSkillData() {
+      //skillDatasに対してループ処理実行
+      //eslint-disable-next-line no-console
+      // console.log('読み込みました');
+      for (var i = 0; i < this.$attrs.skillDatas.length; i++) {
+        //オブジェクトskillDatasの配列の数だけループを行う
+        //eslint-disable-next-line no-console
+        console.log('lengthは：' + this.$attrs.skillDatas.length); //変数へと収納
+
+        var championId = this.currentChampionId;
+
+        if (this.$attrs.skillDatas[i].chanpion_id == championId) {
+          //もし、skillDatas[i]とchanpionIdが同じならば処理を行う
+          this.currentSkillData[i] = this.$attrs.skillDatas[i]; //変数に入れ中身の確認
+
+          var res = this.currentSkillData; // eslint-disable-next-line no-console
+
+          console.log({
+            res: res
+          });
+        }
+      }
+
+      return;
+    },
+    computed: {}
+  },
   created: function created() {
     this.key = Number(this.$route.params.id); //eslint-disable-next-line no-console
     // console.log('keyは、' + this.key + 'です');
 
+    this.currentChampionId = this.$attrs.chanpionDatas[this.key].id;
     return;
+  },
+  beforeMount: function beforeMount() {
+    //eslint-disable-next-line no-console
+    console.log('currentChanpionIdは:' + this.currentChampionId);
+    return this.roopSkillData();
   }
 });
 
@@ -7661,7 +7775,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    left: 5%;\n    text-align: center;\n    width: 400px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 5rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 5.5rem;\n    height: 28px;\n    line-height: 28px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -61%;\n    width: 60%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    position: absolute;\n    bottom: 8%;\n    left: 6%;\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    left: 5%;\n    text-align: center;\n    width: 400px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 5rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 100%;\n    height: 39px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -30%;\n    width: 45%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
 
 // exports
 
@@ -7680,7 +7794,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    font-size: 16px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    display: -webkit-box;\n    display: flex;\n    overflow: hidden;\n    position: relative;\n}\n.table_body_left[data-v-00d17c7c] {\n    flex-basis: 35%;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 30px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 4px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    text-align: left;\n    padding: 30px;\n    box-sizing: border-box;\n    flex-basis: 70%;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    font-size: 16px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    display: -webkit-box;\n    display: flex;\n    overflow: hidden;\n    position: relative;\n}\n.table_body_left[data-v-00d17c7c] {\n    flex-basis: 35%;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 30px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 4px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    text-align: left;\n    padding: 30px;\n    box-sizing: border-box;\n    flex-basis: 70%;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -7718,7 +7832,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.main_text[data-v-4ce65285]{\n    margin: 0;\n    width: 100%;\n    font-size: 1.5rem;\n    color: #333;\n    padding: 10px;\n    text-align: center;\n    background: #e6e6e6;\n}\n.chanpion_stetus_data[data-v-4ce65285]{\n    display: -webkit-box;\n    display: flex;\n    width: 1280px;\n    height: 500px;\n    margin: 50px auto;\n}\n", ""]);
+exports.push([module.i, "\n.main_text[data-v-4ce65285]{\n    margin: 0;\n    width: 100%;\n    font-size: 1.5rem;\n    color: #333;\n    padding: 10px;\n    text-align: center;\n    background: #e6e6e6;\n}\n.chanpion_stetus_data[data-v-4ce65285]{\n    display: -webkit-box;\n    display: flex;\n    width: 1280px;\n    height: 500px;\n    margin: 35px auto;\n}\n", ""]);
 
 // exports
 
@@ -39597,7 +39711,11 @@ var render = function() {
           _vm._l(_vm.chanpionDatas, function(chanpionData, index) {
             return _c("ChanpionData", {
               key: index,
-              attrs: { id: index, data: _vm.chanpionDatas[index] }
+              attrs: {
+                id: index,
+                data: _vm.chanpionDatas[index],
+                skilldata: _vm.skillDatas
+              }
             })
           }),
           1
@@ -40134,7 +40252,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("router-view", { attrs: { chanpionDatas: _vm.chanpiondatas } })],
+    [
+      _c("router-view", {
+        attrs: {
+          chanpionDatas: _vm.chanpiondatas,
+          skillDatas: _vm.skilldatas,
+          tagDatas: _vm.tagdatas
+        }
+      })
+    ],
     1
   )
 }
@@ -40534,11 +40660,11 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "tag_form" },
-      _vm._l(_vm.data.tagLists, function(list, index) {
+      _vm._l(_vm.data, function(tagdata, index) {
         return _c("li", { key: index }, [
           _c("div", { staticClass: "tag_body" }, [
-            _c("span", [_vm._v(_vm._s(list.subname))]),
-            _c("p", [_vm._v(_vm._s(list.name))])
+            _c("span", [_vm._v(_vm._s(tagdata.sub_name))]),
+            _c("p", [_vm._v(_vm._s(tagdata.name))])
           ])
         ])
       }),
@@ -40600,7 +40726,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "chanpion_top_state_container" }, [
         _c("div", { staticClass: "chanpion_head_name" }, [
-          _c("h1", { staticClass: "name" }, [_vm._v(_vm._s(_vm.data.name))]),
+          _c("h2", { staticClass: "name" }, [_vm._v(_vm._s(_vm.data.name))]),
           _c("span", { staticClass: "sub_name" }, [
             _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
           ]),
@@ -40619,7 +40745,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "chanpion_head_cost" }, [
-          _c("span", { staticClass: "cost" }, [
+          _c("span", { staticClass: "cost cost-l" }, [
             _c("img", {
               staticClass: "head_cost_img",
               attrs: {
@@ -40628,10 +40754,12 @@ var render = function() {
                 width: "40px"
               }
             }),
-            _vm._v(_vm._s(_vm.data.be_cost))
+            _vm._v(
+              "\n            " + _vm._s(_vm.data.be_cost) + "\n            "
+            )
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "cost left_space" }, [
+          _c("span", { staticClass: "cost cost-r left_space" }, [
             _c("img", {
               staticClass: "head_cost_img",
               attrs: {
@@ -40640,7 +40768,9 @@ var render = function() {
                 width: "38px"
               }
             }),
-            _vm._v(_vm._s(_vm.data.rp_cost))
+            _vm._v(
+              "\n            " + _vm._s(_vm.data.rp_cost) + "\n            "
+            )
           ])
         ]),
         _vm._v(" "),
@@ -40733,12 +40863,18 @@ var render = function() {
                   ? _c("div", { key: "twoSklill" }, [
                       _c("img", {
                         staticClass: "skill_icon",
-                        attrs: { src: _vm.skillIcon1, alt: "", width: "150px" }
+                        attrs: {
+                          src: _vm.storage + _vm.skillIcon1,
+                          width: "150px"
+                        }
                       }),
                       _vm._v(" "),
                       _c("img", {
                         staticClass: "skill_icon",
-                        attrs: { src: _vm.skillIcon2, alt: "", width: "150px" }
+                        attrs: {
+                          src: _vm.storage + _vm.skillIcon2,
+                          width: "150px"
+                        }
                       })
                     ])
                   : _vm._e()
@@ -40788,17 +40924,52 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "status_container" }, [
       _c("div", { staticClass: "status_keybox" }, [
-        _c(
-          "ul",
-          _vm._l(_vm.statusDatas, function(status, index) {
-            return _c("li", { key: index }, [
-              _c("p", [_vm._v(_vm._s(status.name))]),
-              _vm._v(" "),
-              _c("span", { style: status.color }, [_vm._v(_vm._s(_vm.st_bar))])
-            ])
-          }),
-          0
-        )
+        _c("ul", [
+          _c("li", [
+            _c("p", [_vm._v(_vm._s(_vm.attackData.name))]),
+            _vm._v(" "),
+            _c("span", {
+              style: _vm.attackData.color,
+              domProps: { innerHTML: _vm._s(_vm.st_att) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("p", [_vm._v(_vm._s(_vm.magicData.name))]),
+            _vm._v(" "),
+            _c("span", {
+              style: _vm.magicData.color,
+              domProps: { innerHTML: _vm._s(_vm.st_mag) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("p", [_vm._v(_vm._s(_vm.toughnessData.name))]),
+            _vm._v(" "),
+            _c("span", {
+              style: _vm.toughnessData.color,
+              domProps: { innerHTML: _vm._s(_vm.st_tou) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("p", [_vm._v(_vm._s(_vm.mobilityData.name))]),
+            _vm._v(" "),
+            _c("span", {
+              style: _vm.mobilityData.color,
+              domProps: { innerHTML: _vm._s(_vm.st_mob) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("p", [_vm._v(_vm._s(_vm.difficultyData.name))]),
+            _vm._v(" "),
+            _c("span", {
+              style: _vm.difficultyData.color,
+              domProps: { innerHTML: _vm._s(_vm.st_dif) }
+            })
+          ])
+        ])
       ])
     ])
   ])
@@ -40829,7 +41000,7 @@ var render = function() {
     "div",
     [
       _c("ChanpionPageTop", {
-        key: _vm.$attrs.chanpionDatas[_vm.key].id,
+        key: _vm.currentChampionId,
         attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
       }),
       _vm._v(" "),
@@ -40842,16 +41013,21 @@ var render = function() {
         { staticClass: "chanpion_stetus_data" },
         [
           _c("ChanpionStatus", {
-            key: _vm.$attrs.chanpionDatas[_vm.key].id,
+            key: _vm.currentChampionId,
             attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
+          }),
+          _vm._v(" "),
+          _c("ChanpionSkill", {
+            key: _vm.currentChampionId,
+            attrs: { data: _vm.currentSkillData }
           })
         ],
         1
       ),
       _vm._v(" "),
       _c("ChanpionPageTag", {
-        key: _vm.$attrs.chanpionDatas[_vm.key].id,
-        attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
+        key: _vm.currentChampionId,
+        attrs: { data: _vm.$attrs.tagDatas }
       })
     ],
     1
@@ -55920,14 +56096,15 @@ module.exports = function(module) {
 /*!*******************************!*\
   !*** ./resources/js/Home.vue ***!
   \*******************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_35a92206_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=35a92206&scoped=true& */ "./resources/js/Home.vue?vue&type=template&id=35a92206&scoped=true&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Home_vue_vue_type_style_index_0_id_35a92206_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css& */ "./resources/js/Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Home_vue_vue_type_style_index_0_id_35a92206_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css& */ "./resources/js/Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -55959,7 +56136,7 @@ component.options.__file = "resources/js/Home.vue"
 /*!********************************************************!*\
   !*** ./resources/js/Home.vue?vue&type=script&lang=js& ***!
   \********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57004,14 +57181,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************!*\
   !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue ***!
   \*****************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&");
 /* harmony import */ var _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -57043,7 +57221,7 @@ component.options.__file = "resources/js/components/chanpionPage/ChanpionStatus.
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

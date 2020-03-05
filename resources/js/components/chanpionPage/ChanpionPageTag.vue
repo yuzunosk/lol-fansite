@@ -4,9 +4,9 @@
         <h3><img src="/storage/img/logo/perm_data_setting-24px.svg" alt="" width="25px;">メカニクス</h3>
         </div>
         <ul class="tag_form">
-            <li v-for="(list , index) in data.tagLists" :key="index">
+            <li v-for="(tagdata , index) in data" :key="index">
                 <div class="tag_body">
-                    <span>{{ list.subname }}</span><p>{{ list.name }}</p>
+                    <span>{{ tagdata.sub_name }}</span><p>{{ tagdata.name }}</p>
                 </div>
             </li>
         </ul>

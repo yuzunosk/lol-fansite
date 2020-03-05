@@ -9,7 +9,7 @@
             <div class="chanpion_top_state_container">
 
             <div class="chanpion_head_name">
-                <h1 class="name">{{ data.name }}</h1><span class="sub_name">-{{data.sub_name}}-</span>
+                <h2 class="name">{{ data.name }}</h2><span class="sub_name">-{{data.sub_name}}-</span>
                 <hr style="margin: 0;">
                 <h2>{{ data.popular_name }}</h2>
                 <div class="chanpion_head_roll">
@@ -18,9 +18,14 @@
                 </div>
             </div>
             <div class="chanpion_head_cost">
-
-                <span class="cost"><img class="head_cost_img" src="/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png" width="40px">{{ data.be_cost }}</span>
-                <span class="cost left_space"><img class="head_cost_img" src="/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png" width="38px">{{  data.rp_cost }}</span>
+                <span class="cost cost-l">
+                    <img class="head_cost_img" src="/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png" width="40px">
+                {{ data.be_cost }}
+                </span>
+                <span class="cost cost-r left_space">
+                    <img class="head_cost_img" src="/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png" width="38px">
+                {{ data.rp_cost }}
+                </span>
             </div>
 
             <div class="chanpion_head_date">
@@ -142,9 +147,8 @@ export default {
     border: 1.5px solid #f6f5f4;
     position: relative;
     margin-left: 50px;
-    width: 5.5rem;
-    height: 28px;
-    line-height: 28px;
+    width: 100%;
+    height: 39px;
     }
 
 
@@ -155,8 +159,8 @@ export default {
     color: #333;
     position: absolute;
     top: -2px;
-    left: -61%;
-    width: 60%;
+    left: -30%;
+    width: 45%;
     height: 39px;
     line-height: 39px;
     border: 1px solid #f6f5f4;
@@ -180,9 +184,6 @@ export default {
 
 
 .chanpion_head_cost{
-    position: absolute;
-    bottom: 8%;
-    left: 6%;
     color: #f6f5f4;
     font-size: 1.2rem;
     display: flex;
@@ -196,8 +197,20 @@ export default {
     top: 25%;
     }
 
-
 .left_space{
     margin-left: 15px;
 }
+
+.cost-l {
+position: absolute;
+bottom: 5%;
+left: 9%;
+}
+
+.cost-r {
+position: absolute;
+bottom: 5%;
+left: 23%;
+}
+
 </style>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Chanpion;
+use App\Tag;
+use App\Skill;
+use Illuminate\Support\Facades\Log;
+
 
 use Illuminate\Http\Request;
 
@@ -26,6 +30,12 @@ class HomeController extends Controller
 
      public function showHome() {
         $chanpions = Chanpion::all();
-        return view('home', compact('chanpions'));
+
+        $skills    = Skill::with('chanpion')->get();
+        // Log::info('ホームへのスキルデータ取得：'.$skills);
+        $tags      = Tag::all();
+        return view('home', compact(['chanpions','skills','tags']));
+
+      //   return view('home', compact('chanpions'));
      }
 }

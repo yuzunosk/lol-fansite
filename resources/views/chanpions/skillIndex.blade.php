@@ -49,7 +49,7 @@
                 @else
                     @if($loop->last)
                         <!-- 最後のループ -->
-                        @include('form.noSkillData',['skill_type' => 'passive'])
+                        @include('form.noSkillData',['skill_type' => 'Passive'])
                     @endif
                 @endif
             @endforeach

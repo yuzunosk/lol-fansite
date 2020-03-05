@@ -30,7 +30,7 @@ Route::get('/chanpions/{data}', 'ChanpionsController@sortChanpion')->name('chanp
 
 
 // スキル追加ページ
-Route::get('/skills/new', 'ChanpionsController@newSkill')->name('skills.new');
+Route::get('/skills/new/', 'ChanpionsController@newSkill')->name('skills.new');
 Route::post('/skills', 'ChanpionsController@createSkill')->name('skills.create');
 Route::get('/chanpions','ChanpionsController@indexChanpion')->name('skills.create');
 Route::get('/skills/{id}','ChanpionsController@listSkill')->name('skills.index');

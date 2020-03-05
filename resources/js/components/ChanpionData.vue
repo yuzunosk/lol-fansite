@@ -12,8 +12,7 @@
 
 <script>
 export default {
-
-    props: ["id","data"],
+    props: ["id","data","skilldata"],
     data() {
         return {
         cardRoll: {

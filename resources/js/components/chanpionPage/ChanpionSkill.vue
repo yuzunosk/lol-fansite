@@ -1,6 +1,8 @@
 <template>
     <div class="chanpion_skill_container">
         <div class="chanpion_skill_table">
+            <!-- この下からループ処理をする -->
+
             <div class="skill_table_tab">
                 <ul>
                         <li v-for="(botton , index) in bottons" :key="index">
@@ -19,8 +21,8 @@
                                 <img class="skill_icon" :src="skillIcon1" alt="" width="150px">
                             </div>
                             <div v-if="!secondIconShow" key="twoSklill">
-                                <img class="skill_icon" :src="skillIcon1" alt="" width="150px">
-                                <img class="skill_icon" :src="skillIcon2" alt="" width="150px">
+                                <img class="skill_icon" :src="storage + skillIcon1" width="150px">
+                                <img class="skill_icon" :src="storage + skillIcon2" width="150px">
                             </div>
                         </transition>
 
@@ -43,6 +45,7 @@ export default {
     props: ["data"],
     data: function() {
         return {
+            storage: "/storage/",
             tab_bottom: {
                     border_bottom: true,
                     tab_botton: true,
@@ -63,38 +66,32 @@ export default {
             skillIcon1() {
                 //eslint-disable-next-line no-console
                 // console.log(this.skills[this.nowNum].icon2);
-                return this.data.skills[this.nowNum].icon;
+            return this.data[this.nowNum].skill_icon_1;
             },
             skillIcon2() {
-                    return  this.data.skills[this.nowNum].icon2;
+            return  this.data[this.nowNum].skill_icon_2;
             },
             skillName1() {
-                return this.data.skills[this.nowNum].name[0];
+            return this.data[this.nowNum].name;
             },
             skillName2() {
-                return this.data.skills[this.nowNum].name[1];
+            return this.data[this.nowNum].na_name;
             },
             skillText() {
-                return this.data.skills[this.nowNum].text;
-            },
+            return this.data[this.nowNum].text;            },
             skillType() {
-                return this.data.skills[this.nowNum].type;
-            },
+            return this.data[this.nowNum].skill_type;            },
             tagStyle() {
                 return this.banerColor[this.nowNum].bgColor;
             }
     },
     methods: {
         toggleBotton(event) {
-            //eslint-disable-next-line no-console
-            // console.log(event.currentTarget.attributes[1].value);
             this.nowNum = event.currentTarget.attributes[1].value;
-            //eslint-disable-next-line no-console
-            // console.log('現在のnumは、' + this.nowNum + 'です');
             return
         },
         toggleIconShow() {
-            if(this.data.skills[this.nowNum].icon2 === undefined){
+            if(this.data[this.nowNum].skill_icon_2 === undefined){
                 this.secondIconShow = true;
             return
             }else{
@@ -102,6 +99,12 @@ export default {
             }
         },
     },
+    beforeMount() {
+        // es-lint-disable-next-line no-console
+        // console.log('データの中身');
+        // es-lint-disable-next-line no-console
+        // console.log( this.data[0].chanpion_id);
+    }
 }
 </script>
 
@@ -140,12 +143,21 @@ letter-spacing: 1.1px;
     border-right: 2px solid #333;
 
 }
+
 .tab_botton{
     width: 100%;
     height: 100%;
     margin: 0;
     font-size: 16px;
 }
+
+.tab_botton:hover{
+    cursor: pointer;
+    color: #f6f5f4;
+    background-color: #333;
+    transition: all.3s;
+}
+
 .boder_bottom{
     border-bottom: none;
 }

@@ -3,7 +3,7 @@
     <div>
         
         <ChanpionPageTop
-           :key="$attrs.chanpionDatas[key].id"
+           :key="currentChampionId"
            :data="$attrs.chanpionDatas[key]"
         >
             <!-- チャンピオンTOP image -->
@@ -12,23 +12,24 @@
         <p class="main_text">{{ $attrs.chanpionDatas[key].feature }}</p>
 
         <div class="chanpion_stetus_data">
+            <!-- チャンピオン簡易ステータスコンポーネント -->
             <ChanpionStatus
-           :key="$attrs.chanpionDatas[key].id"
-           :data="$attrs.chanpionDatas[key]"
-            >
-                <!-- チャンピオン簡易ステータスコンポーネント -->
+                :key="currentChampionId"
+                :data="$attrs.chanpionDatas[key]">
             </ChanpionStatus>
 
-            <!-- <ChanpionSkill
-           :key="$attrs.chanpionDatas[key].id"
-           :data="$attrs.chanpionDatas[key]">
-                 <!-- チャンピオンスキルコンポーネント -->
-            <!-- </ChanpionSkill> -->
+            <!-- チャンピオンスキルコンポーネント -->
+            <ChanpionSkill
+                :key="currentChampionId"
+                :data="currentSkillData"
+                >
+            </ChanpionSkill>
+
         </div>
         <!-- チャンピオンについての感想やステーステータス、スキン情報など -->
         <ChanpionPageTag
-           :key="$attrs.chanpionDatas[key].id"
-           :data="$attrs.chanpionDatas[key]"
+           :key="currentChampionId"
+           :data="$attrs.tagDatas"
         >
         </ChanpionPageTag>
     </div>
@@ -45,6 +46,8 @@ export default {
     data() {
         return {
             key: 0,
+            currentChampionId: "",
+            currentSkillData: {},
         }
     },
     components: {
@@ -53,12 +56,43 @@ export default {
         ChanpionStatus,
         ChanpionPageTag
     },
+    methods: {
+        roopSkillData(){
+        //skillDatasに対してループ処理実行
+        //eslint-disable-next-line no-console
+        // console.log('読み込みました');
+        for (let i=0 ; i < this.$attrs.skillDatas.length; i++) {
+        //オブジェクトskillDatasの配列の数だけループを行う
+        //eslint-disable-next-line no-console
+        console.log('lengthは：' + this.$attrs.skillDatas.length);
+        //変数へと収納
+        let championId = this.currentChampionId;
+
+                if(this.$attrs.skillDatas[i].chanpion_id == championId){
+                    //もし、skillDatas[i]とchanpionIdが同じならば処理を行う
+                     this.currentSkillData[i] = this.$attrs.skillDatas[i];
+                     //変数に入れ中身の確認
+                     let res = this.currentSkillData;
+                     // eslint-disable-next-line no-console
+                     console.log({ res });
+                }
+        }
+            return
+    },
+    computed: {
+        }
+    },
         created () {
             this.key = Number(this.$route.params.id);
             //eslint-disable-next-line no-console
             // console.log('keyは、' + this.key + 'です');
-            
+            this.currentChampionId = this.$attrs.chanpionDatas[this.key].id;
             return
+        },
+        beforeMount(){
+            //eslint-disable-next-line no-console
+            console.log('currentChanpionIdは:' + this.currentChampionId);
+            return this.roopSkillData();
         },
 }
 
@@ -79,6 +113,6 @@ export default {
     display: flex;
     width: 1280px;
     height: 500px;
-    margin: 50px auto;
+    margin: 35px auto;
 }
 </style>
