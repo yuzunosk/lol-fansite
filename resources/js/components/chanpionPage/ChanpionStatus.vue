@@ -116,6 +116,7 @@ export default {
 .status_container{
     display: flex;
     justify-content: space-between;
+    letter-spacing: 1px;
 }
 .status_wrapper h3{
     font-size: 24px;

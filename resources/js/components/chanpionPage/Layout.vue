@@ -21,6 +21,7 @@
             <!-- チャンピオンスキルコンポーネント -->
             <ChanpionSkill
                 :key="currentChampionId"
+                :id="currentChampionId"
                 :data="currentSkillData"
                 >
             </ChanpionSkill>
@@ -58,29 +59,28 @@ export default {
     },
     methods: {
         roopSkillData(){
+        let num = 0;
         //skillDatasに対してループ処理実行
         //eslint-disable-next-line no-console
         // console.log('読み込みました');
         for (let i=0 ; i < this.$attrs.skillDatas.length; i++) {
         //オブジェクトskillDatasの配列の数だけループを行う
         //eslint-disable-next-line no-console
-        console.log('lengthは：' + this.$attrs.skillDatas.length);
+        // console.log('lengthは：' + this.$attrs.skillDatas.length);
         //変数へと収納
         let championId = this.currentChampionId;
 
                 if(this.$attrs.skillDatas[i].chanpion_id == championId){
                     //もし、skillDatas[i]とchanpionIdが同じならば処理を行う
-                     this.currentSkillData[i] = this.$attrs.skillDatas[i];
+                     this.currentSkillData[num] = this.$attrs.skillDatas[i];
                      //変数に入れ中身の確認
-                     let res = this.currentSkillData;
-                     // eslint-disable-next-line no-console
-                     console.log({ res });
+                    // eslint-disable-next-line no-console
+                    console.log(this.currentSkillData);
+                    num++;
                 }
         }
-            return
+        return
     },
-    computed: {
-        }
     },
         created () {
             this.key = Number(this.$route.params.id);
@@ -91,8 +91,10 @@ export default {
         },
         beforeMount(){
             //eslint-disable-next-line no-console
-            console.log('currentChanpionIdは:' + this.currentChampionId);
-            return this.roopSkillData();
+            // console.log('currentChanpionIdは:' + this.currentChampionId);
+            this.roopSkillData();
+            return 
+
         },
 }
 

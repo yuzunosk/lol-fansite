@@ -10,31 +10,177 @@
                         </li>
                 </ul>
             </div>
-            <div class="table_body">
-                <div class="table_body_left">
-                    <p class="skill_type_baner" :style="tagStyle">{{ skillType }}</p>
-                    <div>
-                        <transition name="fade"
-                        mode="out-in"
-                        >
-                            <div v-if="secondIconShow" key="oneSkill">
-                                <img class="skill_icon" :src="skillIcon1" alt="" width="150px">
-                            </div>
-                            <div v-if="!secondIconShow" key="twoSklill">
-                                <img class="skill_icon" :src="storage + skillIcon1" width="150px">
-                                <img class="skill_icon" :src="storage + skillIcon2" width="150px">
-                            </div>
-                        </transition>
 
-                        <p>{{ skillName1 }}</p>
-                        <p>{{ skillName2 }}</p>
+            <div class="table_body">
+
+<!-- Passive  -->
+            <transition name="change" mode="out-in">
+                <div v-if="cheack_P" class="passive">
+                    <div class="table_body_left">
+                        <p class="skill_type_baner" :style="banerColor[0].style">{{ bottons[0] }}</p>
+                        <div>
+                            <transition name="fade"mode="out-in">
+                                <div v-if="secondIconShow" key="oneSkill">
+                                    <img class="skill_icon" :src="storage + p_skillIcon1" alt="" style="width: 150px;">
+                                </div>
+                                <div v-if="!secondIconShow" key="twoSkill">
+                                    <img class="skill_icon" :src="storage + p_skillIcon1" width="150px">
+                                    <img class="skill_icon" :src="storage + p_skillIcon2" width="150px">
+                                </div>
+                            </transition>
+                            <div class="name_container">
+                                <p>{{ p_skillName }}</p>
+                                <p>{{ p_skillNa_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teble_body_right">
+                        <h2>スキル解説</h2>
+                        <p>{{ p_skillTaxt }}</p>
                     </div>
                 </div>
-                <div class="teble_body_right">
-                    <h2>スキル解説</h2>
-                    <p>{{ skillText }}</p>
+            </transition>
+<!-- Passive END -->
+
+
+<!-- Q skill  -->
+            <transition name="change" mode="out-in">
+                <div v-if="cheack_Q" class="passive">
+                    <div class="table_body_left">
+                        <p class="skill_type_baner" :style="banerColor[1].style">{{ bottons[1] }}</p>
+                        <div>
+                            <transition name="fade"
+                            mode="out-in"
+                            >
+                                <div v-if="secondIconShow" key="oneSkill">
+                                    <img class="skill_icon" :src="storage + q_skillIcon1" alt="" style="width: 150px;">
+                                </div>
+                                <div v-if="!secondIconShow" key="twoSklill">
+                                    <img class="skill_icon" :src="storage + q_skillIcon1" width="150px">
+                                    <img class="skill_icon" :src="storage + q_skillIcon2" width="150px">
+                                </div>
+                            </transition>
+
+                            <div class="name_container">
+                                <p>{{ q_skillName }}</p>
+                                <p>{{ q_skillNa_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teble_body_right">
+                        <h2>スキル解説</h2>
+                        <p>{{ q_skillTaxt }}</p>
+                    </div>
                 </div>
+            </transition>
+<!-- Q skill END -->
+
+
+<!-- W skill  -->
+            <transition name="change" mode="out-in">
+                <div v-if="cheack_W" class="passive">
+                    <div class="table_body_left">
+                        <p class="skill_type_baner" :style="banerColor[2].style">{{ bottons[2] }}</p>
+                        <div>
+                            <transition name="fade"
+                            mode="out-in"
+                            >
+                                <div v-if="secondIconShow" key="oneSkill">
+                                    <img class="skill_icon" :src="storage + w_skillIcon1" alt="" style="width: 150px;">
+                                </div>
+                                <div v-if="!secondIconShow" key="twoSklill">
+                                    <img class="skill_icon" :src="storage + w_skillIcon1" width="150px">
+                                    <img class="skill_icon" :src="storage + w_skillIcon2" width="150px">
+                                </div>
+                            </transition>
+
+
+                            <div class="name_container">
+                                <p>{{ w_skillName }}</p>
+                                <p>{{ w_skillNa_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teble_body_right">
+                        <h2>スキル解説</h2>
+                        <p>{{ w_skillTaxt }}</p>
+                    </div>
+                </div>
+            </transition>
+<!-- W skill END -->
+
+
+<!-- E skill  -->
+            <transition name="change" mode="out-in">
+                <div v-if="cheack_E" class="passive">
+                    <div class="table_body_left">
+                        <p class="skill_type_baner" :style="banerColor[3].style">{{ bottons[3] }}</p>
+                        <div>
+                            <transition name="fade"
+                            mode="out-in"
+                            >
+                                <div v-if="secondIconShow" key="oneSkill">
+                                    <img class="skill_icon" :src="storage + e_skillIcon1" alt="" style="width: 150px;">
+                                </div>
+                                <div v-if="!secondIconShow" key="twoSklill">
+                                    <img class="skill_icon" :src="storage + e_skillIcon1" width="150px">
+                                    <img class="skill_icon" :src="storage + e_skillIcon2" width="150px">
+                                </div>
+                            </transition>
+                            <div class="name_container">
+                                <p>{{ e_skillName }}</p>
+                                <p>{{ e_skillNa_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teble_body_right">
+                        <h2>スキル解説</h2>
+                        <p>{{ e_skillTaxt }}</p>
+                    </div>
+                </div>
+            </transition>
+
+<!-- E skill END -->
+
+<!-- U skill  -->
+            <transition name="change" mode="out-in">
+                <div v-if="cheack_U" class="passive">
+                    <div class="table_body_left">
+                        <p class="skill_type_baner" :style="banerColor[4].style">{{ bottons[4] }}</p>
+                        <div>
+                            <transition name="fade"
+                            mode="out-in"
+                            >
+                                <div v-if="secondIconShow" key="oneSkill">
+                                    <img class="skill_icon" :src="storage + u_skillIcon1" alt="" style="width: 150px;">
+                                </div>
+                                <div v-if="!secondIconShow" key="twoSklill">
+                                    <img class="skill_icon" :src="storage + u_skillIcon1" width="150px">
+                                    <img class="skill_icon" :src="storage + u_skillIcon2" width="150px">
+                                </div>
+                            </transition>
+                            <div class="name_container">
+                                <p>{{ u_skillName }}</p>
+                                <p>{{ u_skillNa_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teble_body_right">
+                        <h2>スキル解説</h2>
+                        <p>{{ u_skillTaxt }}</p>
+                    </div>
+                </div>
+            </transition>
+
+<!-- U skill END -->
+
             </div>
+
 
         </div>
     </div>
@@ -42,68 +188,177 @@
 
 <script>
 export default {
-    props: ["data"],
+    props: ["id","data"],
     data: function() {
         return {
             storage: "/storage/",
+            cheack_P: true,
+            cheack_Q: false,
+            cheack_W: false,
+            cheack_E: false,
+            cheack_U: false,
             tab_bottom: {
                     border_bottom: true,
                     tab_botton: true,
             },
             secondIconShow: true,
             nowNum: 0,
-            bottons: ['P' , 'Q' , 'W' , 'E' , 'R'],
+            bottons: ['Passive' , 'Qスキル' , 'Wスキル' , 'Eスキル' , 'Ultimate'],
             banerColor:[
-                {bgColor: "background-color:#5e5ee4;color:#f6f5f4" },
-                {bgColor: "background-color:yellow"},
-                {bgColor: "background-color:yellow"},
-                {bgColor: "background-color:yellow"},
-                {bgColor: "background-color:#de3333;color:#f6f5f4"}
+                {style: "background-color:#5e5ee4;color:#f6f5f4" },
+                {style: "background-color:yellow"},
+                {style: "background-color:yellow"},
+                {style: "background-color:yellow"},
+                {style: "background-color:#de3333;color:#f6f5f4"}
             ],
+            p_skillName: "default",
+            p_skillNa_name: "default",
+            p_skillIcon1: "img/etc/noimage.png",
+            p_skillIcon2: null,
+            p_skillTaxt: "none",
+
+            q_skillName: "default",
+            q_skillNa_name: "default",
+            q_skillIcon1: "img/etc/noimage.png",
+            q_skillIcon2: null,
+            q_skillTaxt: "none",
+
+            w_skillName: "default",
+            w_skillNa_name: "default",
+            w_skillIcon1: "img/etc/noimage.png",
+            w_skillIcon2: null,
+            w_skillTaxt: "none",
+
+            e_skillName: "default",
+            e_skillNa_name: "default",
+            e_skillIcon1: "img/etc/noimage.png",
+            e_skillIcon2: "img/etc/noimage.png",
+            e_skillTaxt: "none",
+
+            u_skillName: "default",
+            u_skillNa_name: "default",
+            u_skillIcon1: "img/etc/noimage.png",
+            u_skillIcon2: null,
+            u_skillTaxt: "none",
         }
     },
     computed: {
-            skillIcon1() {
-                //eslint-disable-next-line no-console
-                // console.log(this.skills[this.nowNum].icon2);
-            return this.data[this.nowNum].skill_icon_1;
-            },
-            skillIcon2() {
-            return  this.data[this.nowNum].skill_icon_2;
-            },
-            skillName1() {
-            return this.data[this.nowNum].name;
-            },
-            skillName2() {
-            return this.data[this.nowNum].na_name;
-            },
-            skillText() {
-            return this.data[this.nowNum].text;            },
-            skillType() {
-            return this.data[this.nowNum].skill_type;            },
-            tagStyle() {
-                return this.banerColor[this.nowNum].bgColor;
+            toggleCheack(){
+                if(this.nowNum == 0)
+                {
+                    this.cheack_P = true;
+                    this.cheack_Q = false;
+                    this.cheack_W = false;
+                    this.cheack_E = false;
+                    this.cheack_U = false;
+                }
+                else if(this.nowNum == 1)
+                {
+                    this.cheack_P = false;
+                    this.cheack_Q = true;
+                    this.cheack_W = false;
+                    this.cheack_E = false;
+                    this.cheack_U = false;
+                }
+                else if(this.nowNum == 2)
+                {
+                    this.cheack_P = false;
+                    this.cheack_Q = false;
+                    this.cheack_W = true;
+                    this.cheack_E = false;
+                    this.cheack_U = false;
+                }
+                else if(this.nowNum == 3)
+                {
+                    this.cheack_P = false;
+                    this.cheack_Q = false;
+                    this.cheack_W = false;
+                    this.cheack_E = true;
+                    this.cheack_U = false;
+                }
+                else
+                {
+                    this.cheack_P = false;
+                    this.cheack_Q = false;
+                    this.cheack_W = false;
+                    this.cheack_E = false;
+                    this.cheack_U = true;
+                }
             }
     },
     methods: {
-        toggleBotton(event) {
-            this.nowNum = event.currentTarget.attributes[1].value;
-            return
-        },
-        toggleIconShow() {
-            if(this.data[this.nowNum].skill_icon_2 === undefined){
-                this.secondIconShow = true;
-            return
-            }else{
-                this.secondIconShow = false;
-            }
-        },
-    },
+            toggleBotton(event) {
+                this.nowNum = event.currentTarget.attributes[1].value;
+                // this.clickBotton = 
+                //eslint-disable-next-line
+                // console.log(event.currentTarget.attributes);
+                this.toggleCheack();
+                return
+            },
+            toggleIconShow() {
+                if(this.data[i].skill_icon_2 === null){
+                        this.secondIconShow = true;
+                return
+                }
+                else
+                {
+                    this.secondIconShow = false;
+                }
+            },
+            passiveSkill() {
+                let id = this.id;
+                // eslint-disable-next-line no-console
+                console.log('読み込みました:' + this.data[id]);
+                    for(let i=0; i < 5 ; i++)
+                    {
+                        // eslint-disable-next-line no-console
+                        console.log('ループ開始:'+ i + '週目');
+                        if(this.data[i].skill_type == 'Passive')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Passive in');
+                            this.p_skillName = this.data[i].name;
+                            this.p_skillNa_name = this.data[i].na_name;
+                            this.p_skillTaxt = this.data[i].text;
+                            this.p_skillIcon1 = this.data[i].skill_icon_1;
+                            this.p_skillIcon2 = this.data[i].skill_icon_2;
+                        }
+                        else if(this.data[i].skill_type == 'Qスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Qskill in');
+                            this.q_skillName = this.data[i].name;
+                            this.q_skillNa_name = this.data[i].na_name;
+                            this.q_skillTaxt = this.data[i].text;
+                        }
+                        else if(this.data[i].skill_type == 'Wスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Wskill in');
+                            this.w_skillName = this.data[i].name;
+                            this.w_skillNa_name = this.data[i].na_name;
+                        }
+                        else if(this.data[i].skill_type == 'Eスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Eskill in');
+                            this.e_skillName = this.data[i].name;
+                            this.e_skillNa_name = this.data[i].na_name;
+                        }else{
+                            // eslint-disable-next-line no-console
+                            console.log('Ultimate in');
+                            this.u_skillName = this.data[i].name;
+                            this.u_skillNa_name = this.data[i].na_name;
+                        }
+                    }
+                },
+            },
     beforeMount() {
         // es-lint-disable-next-line no-console
         // console.log('データの中身');
         // es-lint-disable-next-line no-console
         // console.log( this.data[0].chanpion_id);
+        this.passiveSkill();
     }
 }
 </script>
@@ -148,7 +403,8 @@ letter-spacing: 1.1px;
     width: 100%;
     height: 100%;
     margin: 0;
-    font-size: 16px;
+    padding: 0 .5rem;
+    font-size: 12px;
 }
 
 .tab_botton:hover{
@@ -163,19 +419,27 @@ letter-spacing: 1.1px;
 }
 
 .table_body {
+    position: relative;
+    width: 100%;
+}
+.passive{
     border: 2px solid #333;
     border-radius: 5px 0 5px 5px;
+    width: 100%;
     display: flex;
+    height: 350px;
+    position: absolute;
+    top: 0;
+    left: 0;
     overflow: hidden;
-    position: relative;
 }
 
 .table_body_left {
-    flex-basis: 35%;
+    flex: 2;
     background: #f6f5f4;
     /* margin: 0 auto; */
     text-align: center;
-    padding: 30px;
+    padding: 50px;
 }
 .table_body_left > p{
     font-size: 22px;
@@ -188,14 +452,14 @@ letter-spacing: 1.1px;
 }
 .skill_icon{
     border-radius: 10%;
-    border: 4px solid #33333324;
+    border: 3px solid #33333324;
     box-sizing: border-box;
 }
 .teble_body_right {
+    flex: 5;
     text-align: left;
-    padding: 30px;
+    padding: 50px;
     box-sizing: border-box;
-    flex-basis: 70%;
 }
 
 .teble_body_right > h2 {
@@ -208,6 +472,10 @@ letter-spacing: 1.1px;
 
 .icon_container{
     display: flex;
+}
+
+.name_container{
+    margin-top: 30px;
 }
 
 .skill_type_baner {
@@ -232,6 +500,16 @@ letter-spacing: 1.1px;
     opacity: 0;
     transform: scale(1.2);
 }
+
+.change-enter-active , .change-leave-active{
+    transition: all 1.5s ease;
+}
+
+.change-enter , .change-leave-to{ 
+    opacity: 0;
+}
+
+
 
 /* アニメーション END */
 

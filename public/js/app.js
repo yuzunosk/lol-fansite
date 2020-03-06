@@ -2761,74 +2761,307 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["data"],
+  props: ["id", "data"],
   data: function data() {
     return {
       storage: "/storage/",
+      cheack_P: true,
+      cheack_Q: false,
+      cheack_W: false,
+      cheack_E: false,
+      cheack_U: false,
       tab_bottom: {
         border_bottom: true,
         tab_botton: true
       },
       secondIconShow: true,
       nowNum: 0,
-      bottons: ['P', 'Q', 'W', 'E', 'R'],
+      bottons: ['Passive', 'Qスキル', 'Wスキル', 'Eスキル', 'Ultimate'],
       banerColor: [{
-        bgColor: "background-color:#5e5ee4;color:#f6f5f4"
+        style: "background-color:#5e5ee4;color:#f6f5f4"
       }, {
-        bgColor: "background-color:yellow"
+        style: "background-color:yellow"
       }, {
-        bgColor: "background-color:yellow"
+        style: "background-color:yellow"
       }, {
-        bgColor: "background-color:yellow"
+        style: "background-color:yellow"
       }, {
-        bgColor: "background-color:#de3333;color:#f6f5f4"
-      }]
+        style: "background-color:#de3333;color:#f6f5f4"
+      }],
+      p_skillName: "default",
+      p_skillNa_name: "default",
+      p_skillIcon1: "img/etc/noimage.png",
+      p_skillIcon2: null,
+      p_skillTaxt: "none",
+      q_skillName: "default",
+      q_skillNa_name: "default",
+      q_skillIcon1: "img/etc/noimage.png",
+      q_skillIcon2: null,
+      q_skillTaxt: "none",
+      w_skillName: "default",
+      w_skillNa_name: "default",
+      w_skillIcon1: "img/etc/noimage.png",
+      w_skillIcon2: null,
+      w_skillTaxt: "none",
+      e_skillName: "default",
+      e_skillNa_name: "default",
+      e_skillIcon1: "img/etc/noimage.png",
+      e_skillIcon2: "img/etc/noimage.png",
+      e_skillTaxt: "none",
+      u_skillName: "default",
+      u_skillNa_name: "default",
+      u_skillIcon1: "img/etc/noimage.png",
+      u_skillIcon2: null,
+      u_skillTaxt: "none"
     };
   },
   computed: {
-    skillIcon1: function skillIcon1() {
-      //eslint-disable-next-line no-console
-      // console.log(this.skills[this.nowNum].icon2);
-      return this.data[this.nowNum].skill_icon_1;
-    },
-    skillIcon2: function skillIcon2() {
-      return this.data[this.nowNum].skill_icon_2;
-    },
-    skillName1: function skillName1() {
-      return this.data[this.nowNum].name;
-    },
-    skillName2: function skillName2() {
-      return this.data[this.nowNum].na_name;
-    },
-    skillText: function skillText() {
-      return this.data[this.nowNum].text;
-    },
-    skillType: function skillType() {
-      return this.data[this.nowNum].skill_type;
-    },
-    tagStyle: function tagStyle() {
-      return this.banerColor[this.nowNum].bgColor;
+    toggleCheack: function toggleCheack() {
+      if (this.nowNum == 0) {
+        this.cheack_P = true;
+        this.cheack_Q = false;
+        this.cheack_W = false;
+        this.cheack_E = false;
+        this.cheack_U = false;
+      } else if (this.nowNum == 1) {
+        this.cheack_P = false;
+        this.cheack_Q = true;
+        this.cheack_W = false;
+        this.cheack_E = false;
+        this.cheack_U = false;
+      } else if (this.nowNum == 2) {
+        this.cheack_P = false;
+        this.cheack_Q = false;
+        this.cheack_W = true;
+        this.cheack_E = false;
+        this.cheack_U = false;
+      } else if (this.nowNum == 3) {
+        this.cheack_P = false;
+        this.cheack_Q = false;
+        this.cheack_W = false;
+        this.cheack_E = true;
+        this.cheack_U = false;
+      } else {
+        this.cheack_P = false;
+        this.cheack_Q = false;
+        this.cheack_W = false;
+        this.cheack_E = false;
+        this.cheack_U = true;
+      }
     }
   },
   methods: {
     toggleBotton: function toggleBotton(event) {
-      this.nowNum = event.currentTarget.attributes[1].value;
+      this.nowNum = event.currentTarget.attributes[1].value; // this.clickBotton = 
+      //eslint-disable-next-line
+      // console.log(event.currentTarget.attributes);
+
+      this.toggleCheack();
       return;
     },
     toggleIconShow: function toggleIconShow() {
-      if (this.data[this.nowNum].skill_icon_2 === undefined) {
+      if (this.data[i].skill_icon_2 === null) {
         this.secondIconShow = true;
         return;
       } else {
         this.secondIconShow = false;
       }
+    },
+    passiveSkill: function passiveSkill() {
+      var id = this.id; // eslint-disable-next-line no-console
+
+      console.log('読み込みました:' + this.data[id]);
+
+      for (var _i = 0; _i < 5; _i++) {
+        // eslint-disable-next-line no-console
+        console.log('ループ開始:' + _i + '週目');
+
+        if (this.data[_i].skill_type == 'Passive') {
+          // eslint-disable-next-line no-console
+          console.log('Passive in');
+          this.p_skillName = this.data[_i].name;
+          this.p_skillNa_name = this.data[_i].na_name;
+          this.p_skillTaxt = this.data[_i].text;
+          this.p_skillIcon1 = this.data[_i].skill_icon_1;
+          this.p_skillIcon2 = this.data[_i].skill_icon_2;
+        } else if (this.data[_i].skill_type == 'Qスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Qskill in');
+          this.q_skillName = this.data[_i].name;
+          this.q_skillNa_name = this.data[_i].na_name;
+          this.q_skillTaxt = this.data[_i].text;
+        } else if (this.data[_i].skill_type == 'Wスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Wskill in');
+          this.w_skillName = this.data[_i].name;
+          this.w_skillNa_name = this.data[_i].na_name;
+        } else if (this.data[_i].skill_type == 'Eスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Eskill in');
+          this.e_skillName = this.data[_i].name;
+          this.e_skillNa_name = this.data[_i].na_name;
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ultimate in');
+          this.u_skillName = this.data[_i].name;
+          this.u_skillNa_name = this.data[_i].na_name;
+        }
+      }
     }
   },
-  beforeMount: function beforeMount() {// es-lint-disable-next-line no-console
+  beforeMount: function beforeMount() {
+    // es-lint-disable-next-line no-console
     // console.log('データの中身');
     // es-lint-disable-next-line no-console
     // console.log( this.data[0].chanpion_id);
+    this.passiveSkill();
   }
 });
 
@@ -3015,6 +3248,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import {chanpionDatas} from "../.././chanpionDatas"
 
 
@@ -3036,31 +3270,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     roopSkillData: function roopSkillData() {
-      //skillDatasに対してループ処理実行
+      var num = 0; //skillDatasに対してループ処理実行
       //eslint-disable-next-line no-console
       // console.log('読み込みました');
+
       for (var i = 0; i < this.$attrs.skillDatas.length; i++) {
         //オブジェクトskillDatasの配列の数だけループを行う
         //eslint-disable-next-line no-console
-        console.log('lengthは：' + this.$attrs.skillDatas.length); //変数へと収納
-
+        // console.log('lengthは：' + this.$attrs.skillDatas.length);
+        //変数へと収納
         var championId = this.currentChampionId;
 
         if (this.$attrs.skillDatas[i].chanpion_id == championId) {
           //もし、skillDatas[i]とchanpionIdが同じならば処理を行う
-          this.currentSkillData[i] = this.$attrs.skillDatas[i]; //変数に入れ中身の確認
+          this.currentSkillData[num] = this.$attrs.skillDatas[i]; //変数に入れ中身の確認
+          // eslint-disable-next-line no-console
 
-          var res = this.currentSkillData; // eslint-disable-next-line no-console
-
-          console.log({
-            res: res
-          });
+          console.log(this.currentSkillData);
+          num++;
         }
       }
 
       return;
-    },
-    computed: {}
+    }
   },
   created: function created() {
     this.key = Number(this.$route.params.id); //eslint-disable-next-line no-console
@@ -3071,8 +3303,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeMount: function beforeMount() {
     //eslint-disable-next-line no-console
-    console.log('currentChanpionIdは:' + this.currentChampionId);
-    return this.roopSkillData();
+    // console.log('currentChanpionIdは:' + this.currentChampionId);
+    this.roopSkillData();
+    return;
   }
 });
 
@@ -7794,7 +8027,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    font-size: 16px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    display: -webkit-box;\n    display: flex;\n    overflow: hidden;\n    position: relative;\n}\n.table_body_left[data-v-00d17c7c] {\n    flex-basis: 35%;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 30px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 4px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    text-align: left;\n    padding: 30px;\n    box-sizing: border-box;\n    flex-basis: 70%;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 5;\n            flex: 5;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1.5s ease;\n    transition: all 1.5s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -7813,7 +8046,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.status_wrapper[data-v-6a14a852]{\n    margin: 18px 0;\n}\n.status_wrapper p[data-v-6a14a852]{\n    margin: 0;\n}\n.status_container[data-v-6a14a852]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.status_wrapper h3[data-v-6a14a852]{\n    font-size: 24px;\n    padding: 8px 30px;\n    background: #333;\n    border-radius: 5%;\n    text-align: center;\n    color: #f6f5f4;\n    margin-bottom: 20px;\n}\n.status_wrapper p[data-v-6a14a852]{\n    font-size: 14px;\n    margin: 5px 0;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.status_wrapper[data-v-6a14a852]{\n    margin: 18px 0;\n}\n.status_wrapper p[data-v-6a14a852]{\n    margin: 0;\n}\n.status_container[data-v-6a14a852]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n    letter-spacing: 1px;\n}\n.status_wrapper h3[data-v-6a14a852]{\n    font-size: 24px;\n    padding: 8px 30px;\n    background: #333;\n    border-radius: 5%;\n    text-align: center;\n    color: #f6f5f4;\n    margin-bottom: 20px;\n}\n.status_wrapper p[data-v-6a14a852]{\n    font-size: 14px;\n    margin: 5px 0;\n}\n\n\n", ""]);
 
 // exports
 
@@ -40840,60 +41073,382 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "table_body" }, [
-        _c("div", { staticClass: "table_body_left" }, [
-          _c("p", { staticClass: "skill_type_baner", style: _vm.tagStyle }, [
-            _vm._v(_vm._s(_vm.skillType))
+      _c(
+        "div",
+        { staticClass: "table_body" },
+        [
+          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+            _vm.cheack_P
+              ? _c("div", { staticClass: "passive" }, [
+                  _c("div", { staticClass: "table_body_left" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "skill_type_baner",
+                        style: _vm.banerColor[0].style
+                      },
+                      [_vm._v(_vm._s(_vm.bottons[0]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade", mode: "out-in" } },
+                          [
+                            _vm.secondIconShow
+                              ? _c("div", { key: "oneSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    staticStyle: { width: "150px" },
+                                    attrs: {
+                                      src: _vm.storage + _vm.p_skillIcon1,
+                                      alt: ""
+                                    }
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.secondIconShow
+                              ? _c("div", { key: "twoSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.p_skillIcon1,
+                                      width: "150px"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.p_skillIcon2,
+                                      width: "150px"
+                                    }
+                                  })
+                                ])
+                              : _vm._e()
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "name_container" }, [
+                          _c("p", [_vm._v(_vm._s(_vm.p_skillName))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.p_skillNa_name))])
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "teble_body_right" }, [
+                    _c("h2", [_vm._v("スキル解説")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.p_skillTaxt))])
+                  ])
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
-                _vm.secondIconShow
-                  ? _c("div", { key: "oneSkill" }, [
-                      _c("img", {
-                        staticClass: "skill_icon",
-                        attrs: { src: _vm.skillIcon1, alt: "", width: "150px" }
-                      })
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                !_vm.secondIconShow
-                  ? _c("div", { key: "twoSklill" }, [
-                      _c("img", {
-                        staticClass: "skill_icon",
-                        attrs: {
-                          src: _vm.storage + _vm.skillIcon1,
-                          width: "150px"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticClass: "skill_icon",
-                        attrs: {
-                          src: _vm.storage + _vm.skillIcon2,
-                          width: "150px"
-                        }
-                      })
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.skillName1))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.skillName2))])
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "teble_body_right" }, [
-          _c("h2", [_vm._v("スキル解説")]),
+          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+            _vm.cheack_Q
+              ? _c("div", { staticClass: "passive" }, [
+                  _c("div", { staticClass: "table_body_left" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "skill_type_baner",
+                        style: _vm.banerColor[1].style
+                      },
+                      [_vm._v(_vm._s(_vm.bottons[1]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade", mode: "out-in" } },
+                          [
+                            _vm.secondIconShow
+                              ? _c("div", { key: "oneSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    staticStyle: { width: "150px" },
+                                    attrs: {
+                                      src: _vm.storage + _vm.q_skillIcon1,
+                                      alt: ""
+                                    }
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.secondIconShow
+                              ? _c("div", { key: "twoSklill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.q_skillIcon1,
+                                      width: "150px"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.q_skillIcon2,
+                                      width: "150px"
+                                    }
+                                  })
+                                ])
+                              : _vm._e()
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "name_container" }, [
+                          _c("p", [_vm._v(_vm._s(_vm.q_skillName))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.q_skillNa_name))])
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "teble_body_right" }, [
+                    _c("h2", [_vm._v("スキル解説")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.q_skillTaxt))])
+                  ])
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.skillText))])
-        ])
-      ])
+          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+            _vm.cheack_W
+              ? _c("div", { staticClass: "passive" }, [
+                  _c("div", { staticClass: "table_body_left" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "skill_type_baner",
+                        style: _vm.banerColor[2].style
+                      },
+                      [_vm._v(_vm._s(_vm.bottons[2]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade", mode: "out-in" } },
+                          [
+                            _vm.secondIconShow
+                              ? _c("div", { key: "oneSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    staticStyle: { width: "150px" },
+                                    attrs: {
+                                      src: _vm.storage + _vm.w_skillIcon1,
+                                      alt: ""
+                                    }
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.secondIconShow
+                              ? _c("div", { key: "twoSklill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.w_skillIcon1,
+                                      width: "150px"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.w_skillIcon2,
+                                      width: "150px"
+                                    }
+                                  })
+                                ])
+                              : _vm._e()
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "name_container" }, [
+                          _c("p", [_vm._v(_vm._s(_vm.w_skillName))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.w_skillNa_name))])
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "teble_body_right" }, [
+                    _c("h2", [_vm._v("スキル解説")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.w_skillTaxt))])
+                  ])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+            _vm.cheack_E
+              ? _c("div", { staticClass: "passive" }, [
+                  _c("div", { staticClass: "table_body_left" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "skill_type_baner",
+                        style: _vm.banerColor[3].style
+                      },
+                      [_vm._v(_vm._s(_vm.bottons[3]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade", mode: "out-in" } },
+                          [
+                            _vm.secondIconShow
+                              ? _c("div", { key: "oneSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    staticStyle: { width: "150px" },
+                                    attrs: {
+                                      src: _vm.storage + _vm.e_skillIcon1,
+                                      alt: ""
+                                    }
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.secondIconShow
+                              ? _c("div", { key: "twoSklill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.e_skillIcon1,
+                                      width: "150px"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.e_skillIcon2,
+                                      width: "150px"
+                                    }
+                                  })
+                                ])
+                              : _vm._e()
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "name_container" }, [
+                          _c("p", [_vm._v(_vm._s(_vm.e_skillName))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.e_skillNa_name))])
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "teble_body_right" }, [
+                    _c("h2", [_vm._v("スキル解説")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.e_skillTaxt))])
+                  ])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+            _vm.cheack_U
+              ? _c("div", { staticClass: "passive" }, [
+                  _c("div", { staticClass: "table_body_left" }, [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "skill_type_baner",
+                        style: _vm.banerColor[4].style
+                      },
+                      [_vm._v(_vm._s(_vm.bottons[4]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "transition",
+                          { attrs: { name: "fade", mode: "out-in" } },
+                          [
+                            _vm.secondIconShow
+                              ? _c("div", { key: "oneSkill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    staticStyle: { width: "150px" },
+                                    attrs: {
+                                      src: _vm.storage + _vm.u_skillIcon1,
+                                      alt: ""
+                                    }
+                                  })
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            !_vm.secondIconShow
+                              ? _c("div", { key: "twoSklill" }, [
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.u_skillIcon1,
+                                      width: "150px"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("img", {
+                                    staticClass: "skill_icon",
+                                    attrs: {
+                                      src: _vm.storage + _vm.u_skillIcon2,
+                                      width: "150px"
+                                    }
+                                  })
+                                ])
+                              : _vm._e()
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "name_container" }, [
+                          _c("p", [_vm._v(_vm._s(_vm.u_skillName))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(_vm.u_skillNa_name))])
+                        ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "teble_body_right" }, [
+                    _c("h2", [_vm._v("スキル解説")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.u_skillTaxt))])
+                  ])
+                ])
+              : _vm._e()
+          ])
+        ],
+        1
+      )
     ])
   ])
 }
@@ -41019,7 +41574,7 @@ var render = function() {
           _vm._v(" "),
           _c("ChanpionSkill", {
             key: _vm.currentChampionId,
-            attrs: { data: _vm.currentSkillData }
+            attrs: { id: _vm.currentChampionId, data: _vm.currentSkillData }
           })
         ],
         1
