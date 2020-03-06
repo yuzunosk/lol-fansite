@@ -16,10 +16,10 @@
 <!-- Passive  -->
             <transition name="change" mode="out-in">
                 <div v-if="cheack_P" class="passive">
-                    <div class="table_body_left">
+                    <div :class="table_body_left">
                         <p class="skill_type_baner" :style="banerColor[0].style">{{ bottons[0] }}</p>
                         <div>
-                            <transition name="fade"mode="out-in">
+                            <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
                                     <img class="skill_icon" :src="storage + p_skillIcon1" alt="" style="width: 150px;">
                                 </div>
@@ -47,16 +47,14 @@
 <!-- Q skill  -->
             <transition name="change" mode="out-in">
                 <div v-if="cheack_Q" class="passive">
-                    <div class="table_body_left">
+                    <div :class="table_body_left">
                         <p class="skill_type_baner" :style="banerColor[1].style">{{ bottons[1] }}</p>
                         <div>
-                            <transition name="fade"
-                            mode="out-in"
-                            >
+                            <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
                                     <img class="skill_icon" :src="storage + q_skillIcon1" alt="" style="width: 150px;">
                                 </div>
-                                <div v-if="!secondIconShow" key="twoSklill">
+                                <div v-if="!secondIconShow" key="twoSkill">
                                     <img class="skill_icon" :src="storage + q_skillIcon1" width="150px">
                                     <img class="skill_icon" :src="storage + q_skillIcon2" width="150px">
                                 </div>
@@ -81,16 +79,14 @@
 <!-- W skill  -->
             <transition name="change" mode="out-in">
                 <div v-if="cheack_W" class="passive">
-                    <div class="table_body_left">
+                    <div :class="table_body_left">
                         <p class="skill_type_baner" :style="banerColor[2].style">{{ bottons[2] }}</p>
                         <div>
-                            <transition name="fade"
-                            mode="out-in"
-                            >
+                            <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
                                     <img class="skill_icon" :src="storage + w_skillIcon1" alt="" style="width: 150px;">
                                 </div>
-                                <div v-if="!secondIconShow" key="twoSklill">
+                                <div v-if="!secondIconShow" key="twoSkill">
                                     <img class="skill_icon" :src="storage + w_skillIcon1" width="150px">
                                     <img class="skill_icon" :src="storage + w_skillIcon2" width="150px">
                                 </div>
@@ -116,16 +112,14 @@
 <!-- E skill  -->
             <transition name="change" mode="out-in">
                 <div v-if="cheack_E" class="passive">
-                    <div class="table_body_left">
+                    <div :class="table_body_left">
                         <p class="skill_type_baner" :style="banerColor[3].style">{{ bottons[3] }}</p>
                         <div>
-                            <transition name="fade"
-                            mode="out-in"
-                            >
+                            <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
                                     <img class="skill_icon" :src="storage + e_skillIcon1" alt="" style="width: 150px;">
                                 </div>
-                                <div v-if="!secondIconShow" key="twoSklill">
+                                <div v-if="!secondIconShow" key="twoSkill">
                                     <img class="skill_icon" :src="storage + e_skillIcon1" width="150px">
                                     <img class="skill_icon" :src="storage + e_skillIcon2" width="150px">
                                 </div>
@@ -149,16 +143,14 @@
 <!-- U skill  -->
             <transition name="change" mode="out-in">
                 <div v-if="cheack_U" class="passive">
-                    <div class="table_body_left">
+                    <div :class="table_body_left">
                         <p class="skill_type_baner" :style="banerColor[4].style">{{ bottons[4] }}</p>
                         <div>
-                            <transition name="fade"
-                            mode="out-in"
-                            >
+                            <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
                                     <img class="skill_icon" :src="storage + u_skillIcon1" alt="" style="width: 150px;">
                                 </div>
-                                <div v-if="!secondIconShow" key="twoSklill">
+                                <div v-if="!secondIconShow" key="twoSkill">
                                     <img class="skill_icon" :src="storage + u_skillIcon1" width="150px">
                                     <img class="skill_icon" :src="storage + u_skillIcon2" width="150px">
                                 </div>
@@ -201,6 +193,13 @@ export default {
                     border_bottom: true,
                     tab_botton: true,
             },
+            table_body_left: {
+                    table_body_left: true,
+                    p_0: false,
+                    pt_50: false,
+                    flex_2: true,
+                    flex_4: false,
+            },
             secondIconShow: true,
             nowNum: 0,
             bottons: ['Passive' , 'Qスキル' , 'Wスキル' , 'Eスキル' , 'Ultimate'],
@@ -242,8 +241,97 @@ export default {
             u_skillTaxt: "none",
         }
     },
-    computed: {
-            toggleCheack(){
+    methods: {
+            toggleBotton(event) {
+                this.nowNum = event.currentTarget.attributes[1].value;
+                // this.clickBotton = 
+                //eslint-disable-next-line
+                // console.log(event.currentTarget.attributes);
+                this.toggleCheack();
+                return
+            },
+            toggleIconShow() {
+                // alert('読み込みました');
+                const list = [this.p_skillIcon2 , this.q_skillIcon2 , this.w_skillIcon2 , this.e_skillIcon2 , this.u_skillIcon2];
+                let val = list[this.nowNum];
+                //eslint-disable-next-line no-console
+                console.log({ val });
+                if(val){
+                    this.secondIconShow = false;
+                    this.table_body_left.p_0 = true;
+                    this.table_body_left.pt_50 = true;
+                    this.table_body_left.flex_4 = true;
+                    this.table_body_left.flex_2 = false;
+                return
+                }
+                else
+                {
+                    this.secondIconShow = true;
+                    this.table_body_left.p_0 = false;
+                    this.table_body_left.pt_50 = false;
+                    this.table_body_left.flex_4 = false;
+                    this.table_body_left.flex_2 = true;
+                }
+            },
+            passiveSkill() {
+                let id = this.id;
+                // eslint-disable-next-line no-console
+                console.log('読み込みました:' + this.data[id]);
+                    for(let i=0; i < 5 ; i++)
+                    {
+                        // eslint-disable-next-line no-console
+                        console.log('ループ開始:'+ i + '週目');
+                        if(this.data[i].skill_type == 'Passive')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Passive in');
+                            this.p_skillName = this.data[i].name;
+                            this.p_skillNa_name = this.data[i].na_name;
+                            this.p_skillTaxt = this.data[i].text;
+                            this.p_skillIcon1 = this.data[i].skill_icon_1;
+                            this.p_skillIcon2 = this.data[i].skill_icon_2;
+                        }
+                        else if(this.data[i].skill_type == 'Qスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Qskill in');
+                            this.q_skillName = this.data[i].name;
+                            this.q_skillNa_name = this.data[i].na_name;
+                            this.q_skillTaxt = this.data[i].text;
+                            this.q_skillIcon1 = this.data[i].skill_icon_1;
+                            this.q_skillIcon2 = this.data[i].skill_icon_2;
+                        }
+                        else if(this.data[i].skill_type == 'Wスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Wskill in');
+                            this.w_skillName = this.data[i].name;
+                            this.w_skillNa_name = this.data[i].na_name;
+                            this.w_skillTaxt = this.data[i].text;
+                            this.w_skillIcon1 = this.data[i].skill_icon_1;
+                            this.w_skillIcon2 = this.data[i].skill_icon_2;
+                        }
+                        else if(this.data[i].skill_type == 'Eスキル')
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Eskill in');
+                            this.e_skillName = this.data[i].name;
+                            this.e_skillNa_name = this.data[i].na_name;
+                            this.e_skillTaxt = this.data[i].text;
+                            this.e_skillIcon1 = this.data[i].skill_icon_1;
+                            this.e_skillIcon2 = this.data[i].skill_icon_2;
+                        }else{
+                            // eslint-disable-next-line no-console
+                            console.log('Ultimate in');
+                            this.u_skillName = this.data[i].name;
+                            this.u_skillNa_name = this.data[i].na_name;
+                            this.u_skillTaxt = this.data[i].text;
+                            this.u_skillIcon1 = this.data[i].skill_icon_1;
+                            this.u_skillIcon2 = this.data[i].skill_icon_2;
+                        }
+                    }
+                },
+                toggleCheack(){
                 if(this.nowNum == 0)
                 {
                     this.cheack_P = true;
@@ -284,74 +372,7 @@ export default {
                     this.cheack_E = false;
                     this.cheack_U = true;
                 }
-            }
-    },
-    methods: {
-            toggleBotton(event) {
-                this.nowNum = event.currentTarget.attributes[1].value;
-                // this.clickBotton = 
-                //eslint-disable-next-line
-                // console.log(event.currentTarget.attributes);
-                this.toggleCheack();
-                return
             },
-            toggleIconShow() {
-                if(this.data[i].skill_icon_2 === null){
-                        this.secondIconShow = true;
-                return
-                }
-                else
-                {
-                    this.secondIconShow = false;
-                }
-            },
-            passiveSkill() {
-                let id = this.id;
-                // eslint-disable-next-line no-console
-                console.log('読み込みました:' + this.data[id]);
-                    for(let i=0; i < 5 ; i++)
-                    {
-                        // eslint-disable-next-line no-console
-                        console.log('ループ開始:'+ i + '週目');
-                        if(this.data[i].skill_type == 'Passive')
-                        {
-                            // eslint-disable-next-line no-console
-                            console.log('Passive in');
-                            this.p_skillName = this.data[i].name;
-                            this.p_skillNa_name = this.data[i].na_name;
-                            this.p_skillTaxt = this.data[i].text;
-                            this.p_skillIcon1 = this.data[i].skill_icon_1;
-                            this.p_skillIcon2 = this.data[i].skill_icon_2;
-                        }
-                        else if(this.data[i].skill_type == 'Qスキル')
-                        {
-                            // eslint-disable-next-line no-console
-                            console.log('Qskill in');
-                            this.q_skillName = this.data[i].name;
-                            this.q_skillNa_name = this.data[i].na_name;
-                            this.q_skillTaxt = this.data[i].text;
-                        }
-                        else if(this.data[i].skill_type == 'Wスキル')
-                        {
-                            // eslint-disable-next-line no-console
-                            console.log('Wskill in');
-                            this.w_skillName = this.data[i].name;
-                            this.w_skillNa_name = this.data[i].na_name;
-                        }
-                        else if(this.data[i].skill_type == 'Eスキル')
-                        {
-                            // eslint-disable-next-line no-console
-                            console.log('Eskill in');
-                            this.e_skillName = this.data[i].name;
-                            this.e_skillNa_name = this.data[i].na_name;
-                        }else{
-                            // eslint-disable-next-line no-console
-                            console.log('Ultimate in');
-                            this.u_skillName = this.data[i].name;
-                            this.u_skillNa_name = this.data[i].na_name;
-                        }
-                    }
-                },
             },
     beforeMount() {
         // es-lint-disable-next-line no-console
@@ -435,9 +456,7 @@ letter-spacing: 1.1px;
 }
 
 .table_body_left {
-    flex: 2;
     background: #f6f5f4;
-    /* margin: 0 auto; */
     text-align: center;
     padding: 50px;
 }
@@ -456,7 +475,7 @@ letter-spacing: 1.1px;
     box-sizing: border-box;
 }
 .teble_body_right {
-    flex: 5;
+    flex: 6;
     text-align: left;
     padding: 50px;
     box-sizing: border-box;
@@ -492,6 +511,21 @@ letter-spacing: 1.1px;
     z-index: 2;
 }
 
+.p_0{
+    padding: 0;
+}
+.pt_50{
+    padding-top: 50px;
+}
+
+.flex_2 {
+    flex: 2;
+}
+
+.flex_4{
+    flex: 4;
+}
+
 /* アニメーション */
 .fade-enter-active , .fade-leave-active{
     transition: all .5s;
@@ -502,7 +536,7 @@ letter-spacing: 1.1px;
 }
 
 .change-enter-active , .change-leave-active{
-    transition: all 1.5s ease;
+    transition: all 1s ease;
 }
 
 .change-enter , .change-leave-to{ 

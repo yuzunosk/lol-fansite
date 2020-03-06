@@ -22,9 +22,9 @@
                                 <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <h5 class="card-title col-10">{{ $skillData->name }}</h5>
-                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12" style="font-size: 9px;"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">
@@ -71,9 +71,9 @@
                                 <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <h5 class="card-title col-10">{{ $skillData->name }}</h5>
-                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12" style="font-size: 9px;"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">
@@ -118,9 +118,9 @@
                                 <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <h5 class="card-title col-10">{{ $skillData->name }}</h5>
-                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12" style="font-size: 9px;"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">
@@ -167,9 +167,9 @@
                                 <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <h5 class="card-title col-10">{{ $skillData->name }}</h5>
-                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12" style="font-size: 9px;"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">
@@ -215,9 +215,9 @@
                                 <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2"
                                 class="card-image-top" style="height:100px;object-fit:cover; display:none;">
 
-                                <h5 class="card-title col-10">{{ $skillData->name }}</h5>
-                                <h5 class="card-title col-10">{{ $skillData->na_name }}</h5>
-                                <p class="card-text col-12"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
+                                <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
+                                <p class="card-text col-12" style="font-size: 9px;"><small class="text-muted">Update / {{ $skillData->updated_at }}</small></p>
                         </div>
                         <div class="card-footer">
                                     <div class="row">

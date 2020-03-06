@@ -56,6 +56,7 @@ class ChanpionsController extends Controller
     }
 
     public function createChanpion(Request $request) {
+        // dd($request->file('chanpion_img'));
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -116,7 +117,11 @@ class ChanpionsController extends Controller
                 Log::info('ファイル名前'.$request->file('chanpion_img'));
                 // dd($request->file('chanpion_img'));
                 $file = $request->file('chanpion_img');
+                Log::info('ファイルデータ:'.$file);
+
                 $filename = $file->getClientOriginalName();
+                Log::info('ファイルデータnext:'.$filename);
+
                 $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
             }
 
@@ -286,6 +291,8 @@ class ChanpionsController extends Controller
     }
 
     public function createSkill(Request $request) {
+        // dd($request->file('skill_icon_1'));
+        // dd($request->file('skill_icon_2'));
 
         $request->validate([
             'name'            => 'string|max:255',
@@ -316,25 +323,39 @@ class ChanpionsController extends Controller
             'skill_icon_2.file'     => 'アップロードできませんでした',
             'skill_icon_2.image'    => 'アップロードできない形式です',
             'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
-            'skill_icon_1.max'      => 'データが大きすぎます',
+            'skill_icon_2.max'      => 'データが大きすぎます',
         ]);
             $skillDatas = new Skill;
 
             //ファイル・リサイズ
             if($request->file('skill_icon_1')){
                 Log::info('ファイル名前:'.$request->file('skill_icon_1'));
-                $file = $request->file('skill_icon_1');
-                $filename = $file->getClientOriginalName();
-                $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename);
+                $file_1 = $request->file('skill_icon_1');
+                Log::info('ファイルデータ:'.$file_1);
+
+                $filename_1 = $file_1->getClientOriginalName();
+                Log::info('ファイルデータnext:'.$filename_1);
+
+                $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('img/skill' , $filename_1);
             }
             if($request->file('skill_icon_2')){
                 Log::info('ファイル名前:'.$request->file('skill_icon_2'));
-                $file = $request->file('skill_icon_2');
-                $filename = $file->getClientOriginalName();
-                $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
+                $file_2 = $request->file('skill_icon_2');
+                $filename_2 = $file_2->getClientOriginalName();
+                $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename_2);
             }
-            $chanpion = Chanpion::find($request->chanpion_id);
-            $chanpion->skills()->save($skillDatas->fill($request->all()));
+
+            //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
+            $skillDatas->name         = $request->name;
+            $skillDatas->na_name      = $request->na_name;
+            $skillDatas->skill_type   = $request->skill_type;
+            $skillDatas->chanpion_id  = $request->chanpion_id;
+            $skillDatas->text         = $request->text;
+
+            // $skill = Skill::with('chanpion')->;
+            // $chanpion->skills()->save($skillDatas->fill($request->all()));
+            $skillDatas->save();
+
 
             //リダイレクトする、その時にフラッシュメッセージをいれる
             return redirect('/chanpions')->with('flash_message',__('Registered.'));

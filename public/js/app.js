@@ -2899,14 +2899,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "data"],
   data: function data() {
@@ -2920,6 +2912,13 @@ __webpack_require__.r(__webpack_exports__);
       tab_bottom: {
         border_bottom: true,
         tab_botton: true
+      },
+      table_body_left: {
+        table_body_left: true,
+        p_0: false,
+        pt_50: false,
+        flex_2: true,
+        flex_4: false
       },
       secondIconShow: true,
       nowNum: 0,
@@ -2962,7 +2961,91 @@ __webpack_require__.r(__webpack_exports__);
       u_skillTaxt: "none"
     };
   },
-  computed: {
+  methods: {
+    toggleBotton: function toggleBotton(event) {
+      this.nowNum = event.currentTarget.attributes[1].value; // this.clickBotton = 
+      //eslint-disable-next-line
+      // console.log(event.currentTarget.attributes);
+
+      this.toggleCheack();
+      return;
+    },
+    toggleIconShow: function toggleIconShow() {
+      // alert('読み込みました');
+      var list = [this.p_skillIcon2, this.q_skillIcon2, this.w_skillIcon2, this.e_skillIcon2, this.u_skillIcon2];
+      var val = list[this.nowNum]; //eslint-disable-next-line no-console
+
+      console.log({
+        val: val
+      });
+
+      if (val) {
+        this.secondIconShow = false;
+        this.table_body_left.p_0 = true;
+        this.table_body_left.pt_50 = true;
+        this.table_body_left.flex_4 = true;
+        this.table_body_left.flex_2 = false;
+        return;
+      } else {
+        this.secondIconShow = true;
+        this.table_body_left.p_0 = false;
+        this.table_body_left.pt_50 = false;
+        this.table_body_left.flex_4 = false;
+        this.table_body_left.flex_2 = true;
+      }
+    },
+    passiveSkill: function passiveSkill() {
+      var id = this.id; // eslint-disable-next-line no-console
+
+      console.log('読み込みました:' + this.data[id]);
+
+      for (var i = 0; i < 5; i++) {
+        // eslint-disable-next-line no-console
+        console.log('ループ開始:' + i + '週目');
+
+        if (this.data[i].skill_type == 'Passive') {
+          // eslint-disable-next-line no-console
+          console.log('Passive in');
+          this.p_skillName = this.data[i].name;
+          this.p_skillNa_name = this.data[i].na_name;
+          this.p_skillTaxt = this.data[i].text;
+          this.p_skillIcon1 = this.data[i].skill_icon_1;
+          this.p_skillIcon2 = this.data[i].skill_icon_2;
+        } else if (this.data[i].skill_type == 'Qスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Qskill in');
+          this.q_skillName = this.data[i].name;
+          this.q_skillNa_name = this.data[i].na_name;
+          this.q_skillTaxt = this.data[i].text;
+          this.q_skillIcon1 = this.data[i].skill_icon_1;
+          this.q_skillIcon2 = this.data[i].skill_icon_2;
+        } else if (this.data[i].skill_type == 'Wスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Wskill in');
+          this.w_skillName = this.data[i].name;
+          this.w_skillNa_name = this.data[i].na_name;
+          this.w_skillTaxt = this.data[i].text;
+          this.w_skillIcon1 = this.data[i].skill_icon_1;
+          this.w_skillIcon2 = this.data[i].skill_icon_2;
+        } else if (this.data[i].skill_type == 'Eスキル') {
+          // eslint-disable-next-line no-console
+          console.log('Eskill in');
+          this.e_skillName = this.data[i].name;
+          this.e_skillNa_name = this.data[i].na_name;
+          this.e_skillTaxt = this.data[i].text;
+          this.e_skillIcon1 = this.data[i].skill_icon_1;
+          this.e_skillIcon2 = this.data[i].skill_icon_2;
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ultimate in');
+          this.u_skillName = this.data[i].name;
+          this.u_skillNa_name = this.data[i].na_name;
+          this.u_skillTaxt = this.data[i].text;
+          this.u_skillIcon1 = this.data[i].skill_icon_1;
+          this.u_skillIcon2 = this.data[i].skill_icon_2;
+        }
+      }
+    },
     toggleCheack: function toggleCheack() {
       if (this.nowNum == 0) {
         this.cheack_P = true;
@@ -2994,65 +3077,6 @@ __webpack_require__.r(__webpack_exports__);
         this.cheack_W = false;
         this.cheack_E = false;
         this.cheack_U = true;
-      }
-    }
-  },
-  methods: {
-    toggleBotton: function toggleBotton(event) {
-      this.nowNum = event.currentTarget.attributes[1].value; // this.clickBotton = 
-      //eslint-disable-next-line
-      // console.log(event.currentTarget.attributes);
-
-      this.toggleCheack();
-      return;
-    },
-    toggleIconShow: function toggleIconShow() {
-      if (this.data[i].skill_icon_2 === null) {
-        this.secondIconShow = true;
-        return;
-      } else {
-        this.secondIconShow = false;
-      }
-    },
-    passiveSkill: function passiveSkill() {
-      var id = this.id; // eslint-disable-next-line no-console
-
-      console.log('読み込みました:' + this.data[id]);
-
-      for (var _i = 0; _i < 5; _i++) {
-        // eslint-disable-next-line no-console
-        console.log('ループ開始:' + _i + '週目');
-
-        if (this.data[_i].skill_type == 'Passive') {
-          // eslint-disable-next-line no-console
-          console.log('Passive in');
-          this.p_skillName = this.data[_i].name;
-          this.p_skillNa_name = this.data[_i].na_name;
-          this.p_skillTaxt = this.data[_i].text;
-          this.p_skillIcon1 = this.data[_i].skill_icon_1;
-          this.p_skillIcon2 = this.data[_i].skill_icon_2;
-        } else if (this.data[_i].skill_type == 'Qスキル') {
-          // eslint-disable-next-line no-console
-          console.log('Qskill in');
-          this.q_skillName = this.data[_i].name;
-          this.q_skillNa_name = this.data[_i].na_name;
-          this.q_skillTaxt = this.data[_i].text;
-        } else if (this.data[_i].skill_type == 'Wスキル') {
-          // eslint-disable-next-line no-console
-          console.log('Wskill in');
-          this.w_skillName = this.data[_i].name;
-          this.w_skillNa_name = this.data[_i].na_name;
-        } else if (this.data[_i].skill_type == 'Eスキル') {
-          // eslint-disable-next-line no-console
-          console.log('Eskill in');
-          this.e_skillName = this.data[_i].name;
-          this.e_skillNa_name = this.data[_i].na_name;
-        } else {
-          // eslint-disable-next-line no-console
-          console.log('Ultimate in');
-          this.u_skillName = this.data[_i].name;
-          this.u_skillNa_name = this.data[_i].na_name;
-        }
       }
     }
   },
@@ -8027,7 +8051,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n    background: #f6f5f4;\n    /* margin: 0 auto; */\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 5;\n            flex: 5;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1.5s ease;\n    transition: all 1.5s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    background: #f6f5f4;\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 6;\n            flex: 6;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_50[data-v-00d17c7c]{\n    padding-top: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    -webkit-box-flex: 4;\n            flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1s ease;\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -41080,7 +41104,7 @@ var render = function() {
           _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
             _vm.cheack_P
               ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { staticClass: "table_body_left" }, [
+                  _c("div", { class: _vm.table_body_left }, [
                     _c(
                       "p",
                       {
@@ -41154,7 +41178,7 @@ var render = function() {
           _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
             _vm.cheack_Q
               ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { staticClass: "table_body_left" }, [
+                  _c("div", { class: _vm.table_body_left }, [
                     _c(
                       "p",
                       {
@@ -41185,7 +41209,7 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             !_vm.secondIconShow
-                              ? _c("div", { key: "twoSklill" }, [
+                              ? _c("div", { key: "twoSkill" }, [
                                   _c("img", {
                                     staticClass: "skill_icon",
                                     attrs: {
@@ -41228,7 +41252,7 @@ var render = function() {
           _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
             _vm.cheack_W
               ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { staticClass: "table_body_left" }, [
+                  _c("div", { class: _vm.table_body_left }, [
                     _c(
                       "p",
                       {
@@ -41259,7 +41283,7 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             !_vm.secondIconShow
-                              ? _c("div", { key: "twoSklill" }, [
+                              ? _c("div", { key: "twoSkill" }, [
                                   _c("img", {
                                     staticClass: "skill_icon",
                                     attrs: {
@@ -41302,7 +41326,7 @@ var render = function() {
           _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
             _vm.cheack_E
               ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { staticClass: "table_body_left" }, [
+                  _c("div", { class: _vm.table_body_left }, [
                     _c(
                       "p",
                       {
@@ -41333,7 +41357,7 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             !_vm.secondIconShow
-                              ? _c("div", { key: "twoSklill" }, [
+                              ? _c("div", { key: "twoSkill" }, [
                                   _c("img", {
                                     staticClass: "skill_icon",
                                     attrs: {
@@ -41376,7 +41400,7 @@ var render = function() {
           _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
             _vm.cheack_U
               ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { staticClass: "table_body_left" }, [
+                  _c("div", { class: _vm.table_body_left }, [
                     _c(
                       "p",
                       {
@@ -41407,7 +41431,7 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             !_vm.secondIconShow
-                              ? _c("div", { key: "twoSklill" }, [
+                              ? _c("div", { key: "twoSkill" }, [
                                   _c("img", {
                                     staticClass: "skill_icon",
                                     attrs: {

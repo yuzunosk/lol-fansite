@@ -11,6 +11,7 @@
              @change="onFileChange_1"  accept="image/*" />
           </div>
         </div>
+        
 <!-- スキルアイコン2 -->
             <div class="imgContent">
           <div class="imagePreview_2">
