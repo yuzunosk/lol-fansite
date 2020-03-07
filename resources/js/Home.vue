@@ -54,6 +54,8 @@
           :id="index"
           :data="chanpionDatas[index]"
           :skilldata="skillDatas"
+          :tagdata="tagDatas"
+          :tags="tags"
           >
           </ChanpionData>
         </div>
@@ -175,7 +177,7 @@ import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-  props: ["chanpionDatas","skillDatas","tagDatas"],
+  props: ["chanpionDatas","skillDatas","tagDatas","tags"],
   data(){
     return {
       number: 14,

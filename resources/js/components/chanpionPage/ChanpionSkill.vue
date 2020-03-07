@@ -231,7 +231,7 @@ export default {
             e_skillName: "default",
             e_skillNa_name: "default",
             e_skillIcon1: "img/etc/noimage.png",
-            e_skillIcon2: "img/etc/noimage.png",
+            e_skillIcon2: null,
             e_skillTaxt: "none",
 
             u_skillName: "default",
@@ -255,7 +255,7 @@ export default {
                 const list = [this.p_skillIcon2 , this.q_skillIcon2 , this.w_skillIcon2 , this.e_skillIcon2 , this.u_skillIcon2];
                 let val = list[this.nowNum];
                 //eslint-disable-next-line no-console
-                console.log({ val });
+                // console.log({ val });
                 if(val){
                     this.secondIconShow = false;
                     this.table_body_left.p_0 = true;
@@ -276,15 +276,15 @@ export default {
             passiveSkill() {
                 let id = this.id;
                 // eslint-disable-next-line no-console
-                console.log('読み込みました:' + this.data[id]);
+                // console.log('読み込みました:' + this.data[id]);
                     for(let i=0; i < 5 ; i++)
                     {
                         // eslint-disable-next-line no-console
-                        console.log('ループ開始:'+ i + '週目');
+                        // console.log('ループ開始:'+ i + '週目');
                         if(this.data[i].skill_type == 'Passive')
                         {
                             // eslint-disable-next-line no-console
-                            console.log('Passive in');
+                            // console.log('Passive in');
                             this.p_skillName = this.data[i].name;
                             this.p_skillNa_name = this.data[i].na_name;
                             this.p_skillTaxt = this.data[i].text;
@@ -294,7 +294,7 @@ export default {
                         else if(this.data[i].skill_type == 'Qスキル')
                         {
                             // eslint-disable-next-line no-console
-                            console.log('Qskill in');
+                            // console.log('Qskill in');
                             this.q_skillName = this.data[i].name;
                             this.q_skillNa_name = this.data[i].na_name;
                             this.q_skillTaxt = this.data[i].text;
@@ -304,7 +304,7 @@ export default {
                         else if(this.data[i].skill_type == 'Wスキル')
                         {
                             // eslint-disable-next-line no-console
-                            console.log('Wskill in');
+                            // console.log('Wskill in');
                             this.w_skillName = this.data[i].name;
                             this.w_skillNa_name = this.data[i].na_name;
                             this.w_skillTaxt = this.data[i].text;
@@ -314,7 +314,7 @@ export default {
                         else if(this.data[i].skill_type == 'Eスキル')
                         {
                             // eslint-disable-next-line no-console
-                            console.log('Eskill in');
+                            // console.log('Eskill in');
                             this.e_skillName = this.data[i].name;
                             this.e_skillNa_name = this.data[i].na_name;
                             this.e_skillTaxt = this.data[i].text;
@@ -322,7 +322,7 @@ export default {
                             this.e_skillIcon2 = this.data[i].skill_icon_2;
                         }else{
                             // eslint-disable-next-line no-console
-                            console.log('Ultimate in');
+                            // console.log('Ultimate in');
                             this.u_skillName = this.data[i].name;
                             this.u_skillNa_name = this.data[i].na_name;
                             this.u_skillTaxt = this.data[i].text;
@@ -501,6 +501,9 @@ letter-spacing: 1.1px;
     position: absolute;
     top: 5%;
     left: -5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 2px;
     background: #39ff0a;
     width: 200px;

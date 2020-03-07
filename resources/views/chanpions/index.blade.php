@@ -5,7 +5,7 @@
         @section('sidebar')
         <div class="col-10">
 
-        <div class="main_nav_Container" style="position: relative;">
+        <div class="main_nav_Container" style="position: relative;margin-bottom: 20px;">
             
             <form action="{{ route('ajax.sort') }}" method="POST">
                 @csrf
@@ -74,15 +74,9 @@
                                 <!-- <a href="#" class="btn btn-primary">{{ __('Go Linked')}}</a> -->
                                 <div class="card-footer">
                                     <div class="row">
-                                        @foreach($tagBoxDatas as $tagBoxData)
                                         <form 
-                                        @if($tagBoxData->chanpion_id == $chanpionData->id)
-                                        action="{{ route('tagbox.edit',$chanpionData->id) }}"
-                                         @else
-                                        action="{{ route('tagbox.new',$chanpionData->id) }}"
-                                        @endif
-                                        method="get" class="col-md-3 p-0 m-0 border border-dark">
-                                        @endforeach
+                                            action="{{ route('tagbox.edit',$chanpionData->id) }}"
+                                            method="get" class="col-md-3 p-0 m-0 border border-dark">
                                         @csrf
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="fas fa-bookmark fa-2x fa-fw"></i>Tag

@@ -10,8 +10,8 @@
 
             <div class="chanpion_head_name">
                 <h2 class="name">{{ data.name }}</h2><span class="sub_name">-{{data.sub_name}}-</span>
-                <hr style="margin: 0;">
-                <h2>{{ data.popular_name }}</h2>
+                <hr class="m-1" style="background-color:#f6f5f4;">
+                <h2 class="mini_name mb-3">{{ data.popular_name == null ? "no-data" : data.popular_name }}</h2>
                 <div class="chanpion_head_roll">
                     <p>{{ data.main_roll_id }}</p>
                     <p class="left_space">{{ data.sub_roll_id }}</p>
@@ -116,19 +116,20 @@ export default {
 .chanpion_head_name{
     position: absolute;
     top: 20%;
-    left: 5%;
     text-align: center;
-    width: 400px;
+    width: 500px;
 }
-
 .chanpion_head_name .name{
-    font-size: 5rem;
+    font-size: 3rem;
 }
 .chanpion_head_name .sub_name{
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 .sub_name {
     display: block;
+}
+.mini_name{
+    font-size: 2rem;
 }
 .chanpion_head_name > h2,span,p{
     color: #f6f5f4;

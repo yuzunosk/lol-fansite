@@ -336,15 +336,16 @@
 <!-- ステータス end -->
 
 <!-- タグ セレクトボックス -->
-        <div class="container mb-1 p-0">
+        <!-- <div class="container mb-1 p-0">
                     <div class="row form-group">
                         <label class="col-md-6 col-7 col-form-label mb-1" for="chanpion_tag_select">Chanpion tag Category
                             <span class="ml-3 text-danger badge badge-danger text-light">※複数選択可</span>
                         </label>
 
                         <div class="col-md-6 col-4">
-                            <select name="chanpion_tag" 
-                            class="form-control @error('chanpion_tag') is-invalid @enderror" 
+                         複数チェック項目なので、name　属性をオブジェクトにする
+                            <!-- <select name="chanpion_tag[]" 
+                            class="form-control @error('chanpion_tag[]') is-invalid @enderror" 
                             style="letter-spacing: .15rem;"
                             id="chanpion_tag_select" multiple>
 
@@ -355,13 +356,13 @@
                             </select>
                         </div>
 
-                        @error('chanpion_tag')
+                        @error('chanpion_tag[]')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
                     </div>
-        </div>
+        </div> -->
 
 
 <!-- タグ セレクトボックス END -->

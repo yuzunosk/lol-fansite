@@ -70,4 +70,8 @@
                 <a class="text-dark page-link" href="{{ $paginator->url($paginator->lastPage()) }}">Last &raquo;</a>
             </li>
     </ul>
+    @else
+    <div class="text-right">
+        <span class="bg-primary p-2 text-white">only page</span>
+    </div>
 @endif

@@ -30,7 +30,8 @@
         <!-- チャンピオンについての感想やステーステータス、スキン情報など -->
         <ChanpionPageTag
            :key="currentChampionId"
-           :data="$attrs.tagDatas"
+           :data="currentTagData"
+           :tags="$attrs.tags"
         >
         </ChanpionPageTag>
     </div>
@@ -49,6 +50,8 @@ export default {
             key: 0,
             currentChampionId: "",
             currentSkillData: {},
+            currentTagData: {},
+            removeTagData: [],
         }
     },
     components: {
@@ -75,12 +78,45 @@ export default {
                      this.currentSkillData[num] = this.$attrs.skillDatas[i];
                      //変数に入れ中身の確認
                     // eslint-disable-next-line no-console
-                    console.log(this.currentSkillData);
+                    // console.log(this.currentSkillData);
                     num++;
                 }
-        }
+            }
         return
-    },
+        },
+        roopTagData(){
+        let num = 0;
+        //skillDatasに対してループ処理実行
+        for (let i=0 ; i < this.$attrs.tagDatas.length; i++) {
+        //変数へと収納
+        let championId = this.currentChampionId;
+
+                if(this.$attrs.tagDatas[i].chanpion_id == championId){
+                    //もし、tagDatas[i]とchanpionIdが同じならば処理を行う
+                     this.currentTagData[num] = this.$attrs.tagDatas[i];
+                     //変数に入れ中身の確認
+                    // eslint-disable-next-line no-console
+                    // console.log(this.currentTagData);
+                    num++;
+                }
+            }
+        return
+        },
+        roopNullRemove(){
+            // alert('読み込みました');
+            let num = 0;
+            const id = 'chanpion_tag_id_';
+            for (let i=0 ; i < 10 ; i++) {
+                // alert('ループ開始');
+                if(this.currentTagData[0][id] + i !== null){
+
+                    this.removeTagData.push(this.currentTagData[0][id] + i);
+                    // eslint-disable-next-line no-console
+                    console.log(this.removeTagData);
+                    num++;
+                }
+            }
+        },
     },
         created () {
             this.key = Number(this.$route.params.id);
@@ -93,6 +129,8 @@ export default {
             //eslint-disable-next-line no-console
             // console.log('currentChanpionIdは:' + this.currentChampionId);
             this.roopSkillData();
+            this.roopTagData();
+            this.roopNullRemove();
             return 
 
         },

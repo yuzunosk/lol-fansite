@@ -4,10 +4,12 @@
         <h3><img src="/storage/img/logo/perm_data_setting-24px.svg" alt="" width="25px;">メカニクス</h3>
         </div>
         <ul class="tag_form">
-            <li v-for="(tagdata , index) in data" :key="index">
-                <div class="tag_body">
-                    <span>{{ tagdata.sub_name }}</span><p>{{ tagdata.name }}</p>
-                </div>
+            <li v-for="(tagdata , index) in tags" :key="index">
+                <a href="" class="tag_btn">
+                    <div class="tag_body">
+                        <span>{{ tagdata.sub_name }}</span><p>{{ tagdata.name }}</p>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -15,10 +17,9 @@
 
 <script>
 export default {
-    props: ["data"],
+    props: ["data","tags"],
     data() {
         return {
-
         }
     }
 }
@@ -50,7 +51,14 @@ export default {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin-left: 10px;
-    margin-bottom: 10px;    }
+    margin-bottom: 10px;
+    }
+    .tag_body:hover{
+        background: #333;
+        /* opacity: .9; */
+        color: #f6f5f4;
+        transition: all .4s;
+    }
 
     .tag_body p{
         margin: 0;
@@ -59,5 +67,9 @@ export default {
     }
     .tag_body span{
         font-size: 10px;
+    }
+    .tag_btn{
+        text-decoration: none;
+        color: #333;
     }
 </style>

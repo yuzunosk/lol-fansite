@@ -19,6 +19,11 @@
                                         @elseif($skill_type == 'Wスキル') Wスキル
                                         @elseif($skill_type == 'Eスキル') Eスキル
                                         @else  Ultimate  @endif">
+
+                                        <!-- <input type="text" style="opacity: 0;"
+                                        name="chanpion"
+                                        value=""
+                                        > -->
                                         <button class="btn-sm active border-dark text-dark bg-white" style="cursor:pointer;">
                                         <i class="far fa-file fa-lg fa-fw"></i>New
                                         </button>

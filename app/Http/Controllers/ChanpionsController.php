@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+
 
 use App\User;
 use App\Chanpion;
@@ -13,7 +15,6 @@ use App\Skill;
 use App\Roll;
 use App\Tag;
 use App\TagBox;
-
 
 // use Illuminate\Auth\Events\Registered;
 
@@ -27,14 +28,13 @@ class ChanpionsController extends Controller
         return view('chanpions.mypage',compact('myChanpionData'));
     }
 
-
 // ---------------------------------
 // チャンピオン系
 // ---------------------------------
     public function indexChanpion(){
         //ユーザー毎のデータ取得
         // $chanpionsData = Auth::user()->chanpions()->get();
-        $chanpionsData = Chanpion::paginate(8);
+        $chanpionsData = DB::table('chanpions')->orderBy('id', 'desc')->paginate(8);
         $tagDatas      = Tag::all();
         $rollDatas     = Roll::all();
         $tagBoxDatas   = TagBox::all();
@@ -229,15 +229,25 @@ class ChanpionsController extends Controller
         $filename = $file->getClientOriginalName();
         $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion' , $filename);
     }
-    // $chanpionData->st_attack = $request->st_attack;
-    // $chanpionData->st_magic = $request->st_magic;
-    // $chanpionData->st_toughness = $request->st_toughness;
-    // $chanpionData->st_mobility = $request->st_mobility;
-    // $chanpionData->st_difficulty = $request->st_difficulty;
-    // $chanpionData->user_id = $request->user_id;
-    // $chanpionData->chanpion_tag = $request->chanpion_tag;
-    // $chanpionData->save();
-    Auth::user()->chanpions()->save($chanpionData->fill($request->all()));
+            //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
+            $chanpionData->name          = $request->name;
+            $chanpionData->sub_name      = $request->sub_name;
+            $chanpionData->popular_name  = $request->popular_name;
+            $chanpionData->feature       = $request->feature;
+            $chanpionData->main_roll_id  = $request->main_roll_id;
+            $chanpionData->sub_roll_id   = $request->sub_roll_id;
+            $chanpionData->be_cost       = $request->be_cost;
+            $chanpionData->rp_cost       = $request->rp_cost;
+            $chanpionData->st_attack     = $request->st_attack;
+            $chanpionData->st_magic      = $request->st_magic;
+            $chanpionData->st_toughness  = $request->st_toughness;
+            $chanpionData->st_mobility   = $request->st_mobility;
+            $chanpionData->st_difficulty = $request->st_difficulty;
+            $chanpionData->user_id       = $request->user_id;
+            $chanpionData->chanpion_tag  = $request->chanpion_tag;
+
+            Auth::user()->chanpions()->save($chanpionData);
+
 
 
     return redirect('/chanpions')->with('flash_message', __('Updated.'));
@@ -267,15 +277,17 @@ class ChanpionsController extends Controller
                 return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
             }
         // スキルデータとチャンピオンデータ取得
-        $skillDatas = Chanpion::find($id)->with('skills')->where('id',$id)->first();
-        Log::info('スキルデータログ：'.$skillDatas->skills);
-            foreach($skillDatas->skills as $skillData)
-            {
-                Log::info('スキルデータ単体：'.$skillData->skill_type);
-            }
+            $skillDatas = Chanpion::find($id)->with('skills')->where('id',$id)->first();
+            Log::info('スキルデータログ：'.$skillDatas);
+            $data = "";
+                foreach($skillDatas->skills as $skillData)
+                    {
+                        Log::info('スキルデータ単体：'.$skillData->skill_type);
+                        $data = $skillData;
+                    }
         //変数の中身チェック
-            if($skillDatas){
-            //空出なければスキルリストページへ
+            if($data){
+            //空でなければスキルリストページへ
                 return view('chanpions.skillIndex', compact('skillDatas'));
             }
     //空であればchanpion.indexにリダイレクト
@@ -287,6 +299,7 @@ class ChanpionsController extends Controller
         //chanpionスキル登録画面を呼ぶ
         $chanpionDatas = Chanpion::all();
         $typeData = $request->skill_type;
+        // $chanpData = $request->chanpion;
         return view('chanpions.newSkill',compact(['chanpionDatas','typeData']));
     }
 
@@ -352,8 +365,6 @@ class ChanpionsController extends Controller
             $skillDatas->chanpion_id  = $request->chanpion_id;
             $skillDatas->text         = $request->text;
 
-            // $skill = Skill::with('chanpion')->;
-            // $chanpion->skills()->save($skillDatas->fill($request->all()));
             $skillDatas->save();
 
 
@@ -408,7 +419,6 @@ class ChanpionsController extends Controller
             'skill_icon_2.image' => 'アップロードできない形式です',
             'skill_icon_2.nullable' => '画像は後にいれることが出来ます',
             'skill_icon_1.max' => 'データが大きすぎます',
-
         ]);
 
         $skillDatas = new Skill;
@@ -424,10 +434,18 @@ class ChanpionsController extends Controller
             $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('img/skill' , $filename);
         }
 
-        $skillDatas = Skill::where('chanpion_id',$id)->first();
-        Log::info('データ観察:'.$skillDatas);
+        // $skillDatas = Skill::where('chanpion_id',$id)->first();
+        // Log::info('データ観察:'.$skillDatas);
+        // $skillDatas->fill($request->all())->save();
 
-        $skillDatas->fill($request->all())->save();
+        //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
+        $skillDatas->name         = $request->name;
+        $skillDatas->na_name      = $request->na_name;
+        $skillDatas->skill_type   = $request->skill_type;
+        $skillDatas->chanpion_id  = $request->chanpion_id;
+        $skillDatas->text         = $request->text;
+
+        $skillDatas->save();
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }
@@ -603,26 +621,36 @@ public function deleteTag($id) {
                 $tagboxDatas = new TagBox;
 
                 $chanpion = Chanpion::find($request->chanpion_id);
-                $chanpion->tagBoxs()->save($tagboxDatas->fill($request->all()));
+                $chanpion->tagBox()->save($tagboxDatas->fill($request->all()));
 
                 return redirect('/chanpions')->with('flash_message', __('New TagBox Registered.'));
             }
+
+
             public function editTagBox($id){
                 // GETパラメータが数字かどうかをチェックする
                 //事前にチェックする事で無駄なアクセスを減らせる
                 if(!ctype_digit($id)){
                     return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
                 }
-                // Log::info('IDは、'.$id);
-                //後に使う予定
+                //タグボックスデータを検索する
+                $data = TagBox::with('chanpion')->where('chanpion_id',$id)->count();
+                Log::info('tagBoxDataは、'.$data);
+                //$tagBoxDataに中身が入っているかどうか
+                    if($data == 0){
+                        //空ならば、チャンピオンindexに遷移する
+                        Log::info('→ newルート');
+                        $chanpionData = Chanpion::find($id);
+                        $tagDatas  = Tag::all();
+                        return view('chanpions.newTagBox', compact(['chanpionData','tagDatas']));
+                    }
+                Log::info('→ editルート');
                 $chanpionData = Chanpion::find($id);
-                $tagBoxDatas  = TagBox::with('chanpion')->where('chanpion_id', $id)->get();
+                $tagBoxData = TagBox::with('chanpion')->where('chanpion_id',$id)->first();
+                Log::info('取得したタグボックスデータ'.$tagBoxData);
                 $tagDatas  = Tag::all();
-
-                // Log::info('チャンピオンのデータ:'.$chanpionData);
-                // Log::info('タグボックスのデータ:' .$tagBoxDatas[1]->chanpion_tag_id_1);
                 
-                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagBoxDatas','tagDatas']));
+                return view('chanpions.tagBoxEdit', compact(['chanpionData','tagBoxData','tagDatas']));
             }
 
             public function updateTagBox(Request $request , $id) {

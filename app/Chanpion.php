@@ -20,9 +20,9 @@ class Chanpion extends Model
         return $this->hasMany(Skill::class);
     }
 
-    public function tagBoxs()
+    public function tagBox()
     {
-        return $this->hasMany(TagBox::class);
+        return $this->hasOne(TagBox::class);
     }
 
     /**

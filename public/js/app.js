@@ -2082,6 +2082,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2090,7 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chanpionDatas", "skillDatas", "tagDatas"],
+  props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
   data: function data() {
     return {
       number: 14,
@@ -2297,7 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chanpiondatas", "tagdatas", "skilldatas"],
+  props: ["chanpiondatas", "tagdatas", "skilldatas", "tags"],
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -2636,8 +2638,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["data"],
+  props: ["data", "tags"],
   data: function data() {
     return {};
   }
@@ -2952,7 +2956,7 @@ __webpack_require__.r(__webpack_exports__);
       e_skillName: "default",
       e_skillNa_name: "default",
       e_skillIcon1: "img/etc/noimage.png",
-      e_skillIcon2: "img/etc/noimage.png",
+      e_skillIcon2: null,
       e_skillTaxt: "none",
       u_skillName: "default",
       u_skillNa_name: "default",
@@ -2974,10 +2978,7 @@ __webpack_require__.r(__webpack_exports__);
       // alert('読み込みました');
       var list = [this.p_skillIcon2, this.q_skillIcon2, this.w_skillIcon2, this.e_skillIcon2, this.u_skillIcon2];
       var val = list[this.nowNum]; //eslint-disable-next-line no-console
-
-      console.log({
-        val: val
-      });
+      // console.log({ val });
 
       if (val) {
         this.secondIconShow = false;
@@ -2996,16 +2997,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     passiveSkill: function passiveSkill() {
       var id = this.id; // eslint-disable-next-line no-console
-
-      console.log('読み込みました:' + this.data[id]);
+      // console.log('読み込みました:' + this.data[id]);
 
       for (var i = 0; i < 5; i++) {
         // eslint-disable-next-line no-console
-        console.log('ループ開始:' + i + '週目');
-
+        // console.log('ループ開始:'+ i + '週目');
         if (this.data[i].skill_type == 'Passive') {
           // eslint-disable-next-line no-console
-          console.log('Passive in');
+          // console.log('Passive in');
           this.p_skillName = this.data[i].name;
           this.p_skillNa_name = this.data[i].na_name;
           this.p_skillTaxt = this.data[i].text;
@@ -3013,7 +3012,7 @@ __webpack_require__.r(__webpack_exports__);
           this.p_skillIcon2 = this.data[i].skill_icon_2;
         } else if (this.data[i].skill_type == 'Qスキル') {
           // eslint-disable-next-line no-console
-          console.log('Qskill in');
+          // console.log('Qskill in');
           this.q_skillName = this.data[i].name;
           this.q_skillNa_name = this.data[i].na_name;
           this.q_skillTaxt = this.data[i].text;
@@ -3021,7 +3020,7 @@ __webpack_require__.r(__webpack_exports__);
           this.q_skillIcon2 = this.data[i].skill_icon_2;
         } else if (this.data[i].skill_type == 'Wスキル') {
           // eslint-disable-next-line no-console
-          console.log('Wskill in');
+          // console.log('Wskill in');
           this.w_skillName = this.data[i].name;
           this.w_skillNa_name = this.data[i].na_name;
           this.w_skillTaxt = this.data[i].text;
@@ -3029,7 +3028,7 @@ __webpack_require__.r(__webpack_exports__);
           this.w_skillIcon2 = this.data[i].skill_icon_2;
         } else if (this.data[i].skill_type == 'Eスキル') {
           // eslint-disable-next-line no-console
-          console.log('Eskill in');
+          // console.log('Eskill in');
           this.e_skillName = this.data[i].name;
           this.e_skillNa_name = this.data[i].na_name;
           this.e_skillTaxt = this.data[i].text;
@@ -3037,7 +3036,7 @@ __webpack_require__.r(__webpack_exports__);
           this.e_skillIcon2 = this.data[i].skill_icon_2;
         } else {
           // eslint-disable-next-line no-console
-          console.log('Ultimate in');
+          // console.log('Ultimate in');
           this.u_skillName = this.data[i].name;
           this.u_skillNa_name = this.data[i].na_name;
           this.u_skillTaxt = this.data[i].text;
@@ -3273,6 +3272,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import {chanpionDatas} from "../.././chanpionDatas"
 
 
@@ -3283,7 +3283,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       key: 0,
       currentChampionId: "",
-      currentSkillData: {}
+      currentSkillData: {},
+      currentTagData: {},
+      removeTagData: []
     };
   },
   components: {
@@ -3309,13 +3311,47 @@ __webpack_require__.r(__webpack_exports__);
           //もし、skillDatas[i]とchanpionIdが同じならば処理を行う
           this.currentSkillData[num] = this.$attrs.skillDatas[i]; //変数に入れ中身の確認
           // eslint-disable-next-line no-console
+          // console.log(this.currentSkillData);
 
-          console.log(this.currentSkillData);
           num++;
         }
       }
 
       return;
+    },
+    roopTagData: function roopTagData() {
+      var num = 0; //skillDatasに対してループ処理実行
+
+      for (var i = 0; i < this.$attrs.tagDatas.length; i++) {
+        //変数へと収納
+        var championId = this.currentChampionId;
+
+        if (this.$attrs.tagDatas[i].chanpion_id == championId) {
+          //もし、tagDatas[i]とchanpionIdが同じならば処理を行う
+          this.currentTagData[num] = this.$attrs.tagDatas[i]; //変数に入れ中身の確認
+          // eslint-disable-next-line no-console
+          // console.log(this.currentTagData);
+
+          num++;
+        }
+      }
+
+      return;
+    },
+    roopNullRemove: function roopNullRemove() {
+      // alert('読み込みました');
+      var num = 0;
+      var id = 'chanpion_tag_id_';
+
+      for (var i = 0; i < 10; i++) {
+        // alert('ループ開始');
+        if (this.currentTagData[0][id] + i !== null) {
+          this.removeTagData.push(this.currentTagData[0][id] + i); // eslint-disable-next-line no-console
+
+          console.log(this.removeTagData);
+          num++;
+        }
+      }
     }
   },
   created: function created() {
@@ -3329,6 +3365,8 @@ __webpack_require__.r(__webpack_exports__);
     //eslint-disable-next-line no-console
     // console.log('currentChanpionIdは:' + this.currentChampionId);
     this.roopSkillData();
+    this.roopTagData();
+    this.roopNullRemove();
     return;
   }
 });
@@ -8013,7 +8051,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    -webkit-transition: all .4s;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
 
 // exports
 
@@ -8032,7 +8070,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    left: 5%;\n    text-align: center;\n    width: 400px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 5rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 100%;\n    height: 39px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -30%;\n    width: 45%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
+exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    text-align: center;\n    width: 500px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 3rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1.5rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.mini_name[data-v-42079f31]{\n    font-size: 2rem;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 100%;\n    height: 39px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -30%;\n    width: 45%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
 
 // exports
 
@@ -8051,7 +8089,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    background: #f6f5f4;\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 6;\n            flex: 6;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_50[data-v-00d17c7c]{\n    padding-top: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    -webkit-box-flex: 4;\n            flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1s ease;\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    background: #f6f5f4;\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 6;\n            flex: 6;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n            justify-content: center;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_50[data-v-00d17c7c]{\n    padding-top: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    -webkit-box-flex: 4;\n            flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1s ease;\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -39971,7 +40009,9 @@ var render = function() {
               attrs: {
                 id: index,
                 data: _vm.chanpionDatas[index],
-                skilldata: _vm.skillDatas
+                skilldata: _vm.skillDatas,
+                tagdata: _vm.tagDatas,
+                tags: _vm.tags
               }
             })
           }),
@@ -40514,7 +40554,8 @@ var render = function() {
         attrs: {
           chanpionDatas: _vm.chanpiondatas,
           skillDatas: _vm.skilldatas,
-          tagDatas: _vm.tagdatas
+          tagDatas: _vm.tagdatas,
+          tags: _vm.tags
         }
       })
     ],
@@ -40917,11 +40958,13 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "tag_form" },
-      _vm._l(_vm.data, function(tagdata, index) {
+      _vm._l(_vm.tags, function(tagdata, index) {
         return _c("li", { key: index }, [
-          _c("div", { staticClass: "tag_body" }, [
-            _c("span", [_vm._v(_vm._s(tagdata.sub_name))]),
-            _c("p", [_vm._v(_vm._s(tagdata.name))])
+          _c("a", { staticClass: "tag_btn", attrs: { href: "" } }, [
+            _c("div", { staticClass: "tag_body" }, [
+              _c("span", [_vm._v(_vm._s(tagdata.sub_name))]),
+              _c("p", [_vm._v(_vm._s(tagdata.name))])
+            ])
           ])
         ])
       }),
@@ -40988,9 +41031,20 @@ var render = function() {
             _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
           ]),
           _vm._v(" "),
-          _c("hr", { staticStyle: { margin: "0" } }),
+          _c("hr", {
+            staticClass: "m-1",
+            staticStyle: { "background-color": "#f6f5f4" }
+          }),
           _vm._v(" "),
-          _c("h2", [_vm._v(_vm._s(_vm.data.popular_name))]),
+          _c("h2", { staticClass: "mini_name mb-3" }, [
+            _vm._v(
+              _vm._s(
+                _vm.data.popular_name == null
+                  ? "no-data"
+                  : _vm.data.popular_name
+              )
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "chanpion_head_roll" }, [
             _c("p", [_vm._v(_vm._s(_vm.data.main_roll_id))]),
@@ -41606,7 +41660,7 @@ var render = function() {
       _vm._v(" "),
       _c("ChanpionPageTag", {
         key: _vm.currentChampionId,
-        attrs: { data: _vm.$attrs.tagDatas }
+        attrs: { data: _vm.currentTagData, tags: _vm.$attrs.tags }
       })
     ],
     1
@@ -56675,15 +56729,14 @@ module.exports = function(module) {
 /*!*******************************!*\
   !*** ./resources/js/Home.vue ***!
   \*******************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_35a92206_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=35a92206&scoped=true& */ "./resources/js/Home.vue?vue&type=template&id=35a92206&scoped=true&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/Home.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _Home_vue_vue_type_style_index_0_id_35a92206_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css& */ "./resources/js/Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Home_vue_vue_type_style_index_0_id_35a92206_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css& */ "./resources/js/Home.vue?vue&type=style&index=0&id=35a92206&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -56715,7 +56768,7 @@ component.options.__file = "resources/js/Home.vue"
 /*!********************************************************!*\
   !*** ./resources/js/Home.vue?vue&type=script&lang=js& ***!
   \********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57760,15 +57813,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************!*\
   !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue ***!
   \*****************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&");
 /* harmony import */ var _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -57800,7 +57852,7 @@ component.options.__file = "resources/js/components/chanpionPage/ChanpionStatus.
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

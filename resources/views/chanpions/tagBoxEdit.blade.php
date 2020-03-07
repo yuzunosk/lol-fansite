@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ $tagBoxDatas[0]->name }}：{{ __('TagBox Register') }}</div>
+                    <div class="card-header text-center">{{ $tagBoxData->name }}：{{ __('TagBox Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tagbox.update', $tagBoxDatas[0]->chanpion_id) }}">
+                        <form method="POST" action="{{ route('tagbox.update', $tagBoxData->chanpion_id) }}">
                             @csrf
 
 <!-- Name -->
@@ -21,7 +21,7 @@
                                     id="name" 
                                     type="text" 
                                     class="form-control @error('name') is-invalid @enderror" name="name" 
-                                    value="{{ old('name',$tagBoxDatas[0]->name) }}" 
+                                    value="{{ old('name', $tagBoxData->name) }}" 
                                     autocomplete="name" readonly autofocus>
 
                                     @error('name')
@@ -47,7 +47,7 @@
                                     type="text"
                                     class="form-control @error('chanpion_id') is-invalid @enderror"
                                     name="chanpion_id"
-                                    value="{{ old('chanpion_id', $tagBoxDatas[0]->chanpion_id) }}"
+                                    value="{{ old('chanpion_id', $tagBoxData->chanpion_id) }}"
                                     autofocus readonly
                                     >
 
@@ -76,7 +76,7 @@
                                                 <option value="" selected>なし</option>
 
                                                     @foreach($tagDatas as $tagData)
-                                                            <option value="{{ $tagData->name }}" @if(old("chanpion_tag_id_" .$i, $tagBoxDatas[0]['chanpion_tag_id_' .$i]) == $tagData->name) selected @endif>
+                                                            <option value="{{ $tagData->name }}" @if(old("chanpion_tag_id_" .$i, $tagBoxData['chanpion_tag_id_' .$i]) == $tagData->name) selected @endif>
                                                             {{ $tagData->name }}
                                                             </option>
                                                     @endforeach
