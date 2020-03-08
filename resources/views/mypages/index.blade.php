@@ -63,7 +63,7 @@
                       style="position:relative;height:300px;object-fit:cover">
                       <div class="card-img-overlay p-0">
                         <p class="card-title font-weight-boldre" 
-                        style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;font-size:1.3rem;">
+                        style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;font-size: 1.3rem;">
                         {{ $chanpionData -> name }}</p>
                             <div class="card-text row ml-2" style="position: absolute;bottom:20%;font-size:.7rem;">
                                 <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Main Roll<span class="badge badge-dark ml-2">{{ $chanpionData->main_roll_id }}</span></p>

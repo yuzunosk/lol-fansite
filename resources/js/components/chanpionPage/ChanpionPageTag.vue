@@ -3,13 +3,18 @@
         <div class="tag_title">
         <h3><img src="/storage/img/logo/perm_data_setting-24px.svg" alt="" width="25px;">メカニクス</h3>
         </div>
-        <ul class="tag_form">
-            <li v-for="(tagdata , index) in tags" :key="index">
-                <a href="" class="tag_btn">
-                    <div class="tag_body">
-                        <span>{{ tagdata.sub_name }}</span><p>{{ tagdata.name }}</p>
-                    </div>
-                </a>
+        <ul>
+            <li  class="tag_form" v-for="(tagdata , index) in data" :key="index">
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_1 !== null">#{{ tagdata.chanpion_tag_id_1 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_2 !== null">#{{ tagdata.chanpion_tag_id_2 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_3 !== null">#{{ tagdata.chanpion_tag_id_3 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_4 !== null">#{{ tagdata.chanpion_tag_id_4 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_5 !== null">#{{ tagdata.chanpion_tag_id_5 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_6 !== null">#{{ tagdata.chanpion_tag_id_6 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_7 !== null">#{{ tagdata.chanpion_tag_id_7 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_8 !== null">#{{ tagdata.chanpion_tag_id_8 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_9 !== null">#{{ tagdata.chanpion_tag_id_9 }}</span>
+                        <span class="tag_body" v-if="tagdata.chanpion_tag_id_10 !== null">#{{ tagdata.chanpion_tag_id_10 }}</span>
             </li>
         </ul>
     </div>
@@ -20,6 +25,7 @@ export default {
     props: ["data","tags"],
     data() {
         return {
+
         }
     }
 }
@@ -37,6 +43,7 @@ export default {
     }
     .tag_form{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     }
 

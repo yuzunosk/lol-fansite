@@ -25,7 +25,7 @@
     <div id="app2">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/chanpions') }}">
                     {{ __('LoL Fan Managiment') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -53,7 +53,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ $user->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -90,18 +90,20 @@
                         <div class="container-fluied text-center">
                             <div class="row justify-content-end">
                                 <div class="col list-group list-group-flush">
-                                    <p class="list-group-item list-group-item-dark">my menu</p>
+                                    <p class="list-group-item list-group-item-dark">Top Menu</p>
 <!-- menu profile-->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button 
                                         type="button" class="btn btn-white dropdown-toggle p-3" 
                                         data-toggle="dropdown" aria-haspopup="true" 
                                         aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        profile
+                                        {{ __('My page') }}
                                         </button>
                                             <div class="dropdown-menu">
-                                                <a href="#" class="dropdown-item">E-mail</a>
-                                                <a href="#" class="dropdown-item">Password</a>
+                                                <a href="{{ route('mypage.index') }}" class="dropdown-item">{{ __('My Chanpions List') }}</a>
+                                                <a href="{{ route('mypage.profile') }}" class="dropdown-item">{{ __('Profile') }}</a>
+                                                <a href="#" class="dropdown-item">{{ __('E-mail') }}</a>
+                                                <a href="#" class="dropdown-item">{{ __('Password') }}</a>
                                             </div>
                                     </div>
 <!-- menu profile end-->

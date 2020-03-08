@@ -6,12 +6,12 @@
 
 import Vue from 'vue'
 import Router from './router'
-
+import Paginate from 'vuejs-paginate'
 
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+Vue.component('paginate', Paginate)
 
 
 

@@ -48,18 +48,27 @@
     <div class="chanpion_data_container">
       <h2 class="sub_title center">- Chanpions - </h2>
         <div class="chanpion_card_holder">
-          <ChanpionData
-          v-for="(chanpionData, index) of chanpionDatas"
-          :key="index"
-          :id="index"
-          :data="chanpionDatas[index]"
-          :skilldata="skillDatas"
-          :tagdata="tagDatas"
-          :tags="tags"
-          >
-          </ChanpionData>
+              <ChanpionData
+                v-for="(chanpionData, index) in getItems"
+                :key="index"
+                :id="index"
+                :data="chanpionDatas[index]"
+                :skilldata="skillDatas"
+                :tagdata="tagDatas"
+                :tags="tags">
+              </ChanpionData>
         </div>
-    </div>
+              <paginate
+                :page-count="getPageCount"
+                :page-range="3"
+                :margin-pages="2"
+                :click-handler="clickCallback"
+                :prev-text="'＜'"
+                :next-text="'＞'"
+                :container-class="'pagination'"
+                :page-class="'page-item'">
+              </paginate>
+        </div>
 
 
 <!-- footer -->
@@ -180,6 +189,9 @@ export default {
   props: ["chanpionDatas","skillDatas","tagDatas","tags"],
   data(){
     return {
+     items: this.chanpionDatas,
+     parPage: 12,
+     currentPage: 1,
       number: 14,
       test: 'いいね',
       currentComponent: true,
@@ -190,7 +202,8 @@ export default {
       links: [
         "リンク１","リンク２","リンク３"
         ],
-
+      // chanpCards: [],
+      paginate: ['chanpionsDatas'],
       linkDatas: [
         {id: 0 ,linkTitle:"役割について", linkItems: ['- TOP','- JG','- MID','- BOTTOM','- SUPPORT']},
         {id: 1 ,linkTitle:"オブジェクトについて", linkItems: ['- タワー','- インヒビター','- ネクサス','- ドラゴン','- バロン']},
@@ -251,11 +264,21 @@ export default {
     console.log('まだ作ってないよ');
     return
   },
-  handleScroll() {
+    clickCallback: function (pageNum) {
+       this.currentPage = Number(pageNum);
+    },
 
-    return
-  }
-  }
+  },
+     computed: {
+     getItems: function() {
+      let current = this.currentPage * this.parPage;
+      let start = current - this.parPage;
+      return this.chanpionDatas.slice(start, current);
+     },
+     getPageCount: function() {
+      return Math.ceil(this.chanpionDatas.length / this.parPage);
+     }
+   },
 };
 </script>
 
@@ -388,6 +411,7 @@ export default {
     .chanpion_card_holder{
     display: flex;
     justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
     width: 1280px;
     margin: 0 auto;

@@ -2084,6 +2084,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2095,12 +2104,17 @@ __webpack_require__.r(__webpack_exports__);
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
   data: function data() {
     return {
+      items: this.chanpionDatas,
+      parPage: 12,
+      currentPage: 1,
       number: 14,
       test: 'いいね',
       currentComponent: true,
       formShow: false,
       locations: ["東京", "大阪", "神奈川"],
       links: ["リンク１", "リンク２", "リンク３"],
+      // chanpCards: [],
+      paginate: ['chanpionsDatas'],
       linkDatas: [{
         id: 0,
         linkTitle: "役割について",
@@ -2201,8 +2215,18 @@ __webpack_require__.r(__webpack_exports__);
       console.log('まだ作ってないよ');
       return;
     },
-    handleScroll: function handleScroll() {
-      return;
+    clickCallback: function clickCallback(pageNum) {
+      this.currentPage = Number(pageNum);
+    }
+  },
+  computed: {
+    getItems: function getItems() {
+      var current = this.currentPage * this.parPage;
+      var start = current - this.parPage;
+      return this.chanpionDatas.slice(start, current);
+    },
+    getPageCount: function getPageCount() {
+      return Math.ceil(this.chanpionDatas.length / this.parPage);
     }
   }
 });
@@ -2640,6 +2664,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data", "tags"],
   data: function data() {
@@ -2658,7 +2687,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -7917,7 +7945,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n", ""]);
+exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n", ""]);
 
 // exports
 
@@ -8051,7 +8079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    -webkit-transition: all .4s;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
+exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\n-webkit-box-orient: horizontal;\n-webkit-box-direction: normal;\n        flex-direction: row;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    -webkit-transition: all .4s;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
 
 // exports
 
@@ -8070,7 +8098,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    margin-left: 40%;\n    height: 340px;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.top_picture[data-v-42079f31]::after{\n    content: \"\";\n    background-color: black;\n    margin-left: 40%;\n    width: 100%;\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n.chanpion_head_name[data-v-42079f31]{\n    position: absolute;\n    top: 20%;\n    text-align: center;\n    width: 500px;\n}\n.chanpion_head_name .name[data-v-42079f31]{\n    font-size: 3rem;\n}\n.chanpion_head_name .sub_name[data-v-42079f31]{\n    font-size: 1.5rem;\n}\n.sub_name[data-v-42079f31] {\n    display: block;\n}\n.mini_name[data-v-42079f31]{\n    font-size: 2rem;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    display: -webkit-box;\n    display: flex;\n    justify-content: space-around;\n    padding: 8px;\n    font-size: 1.1rem;\n    text-align: center;\n}\n.chanpion_head_roll > p[data-v-42079f31]{\n    background: #49575a;\n    padding: 5px 10px;\n    border: 1.5px solid #f6f5f4;\n    position: relative;\n    margin-left: 50px;\n    width: 100%;\n    height: 39px;\n}\n.chanpion_head_roll p[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    position: absolute;\n    top: -2px;\n    left: -30%;\n    width: 45%;\n    height: 39px;\n    line-height: 39px;\n    border: 1px solid #f6f5f4;\n    font-weight: bold;\n}\n.chanpion_head_roll p[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.chanpion_head_cost cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
+exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    height: 350px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n    width: 100%;\n    height: 100%;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    height: auto;\n    -webkit-box-flex: 6;\n            flex: 6;\n    -webkit-box-ordinal-group: 2;\n            order: 1;\n    flex-wrap: wrap;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    height: auto;\n    -webkit-box-flex: 4;\n            flex: 4;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-flow: column wrap;\n    margin-top: 4rem;\n}\n.state_text[data-v-42079f31]{\n    align-self: center;\n    text-align: center;\n    width: 100%;\n    color: #f6f5f4;\n    margin-bottom: 8px;\n}\n.name[data-v-42079f31]{\n    font-size: 2.8rem;\n}\n.sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.mini_name[data-v-42079f31]{\n    font-size: 2rem;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    max-width: 90%;\n    display: -webkit-box;\n    display: flex;\n    padding: 8px;\n}\n.roll_text[data-v-42079f31]{\n    background: #49575a;\n    border: 1.5px solid #f6f5f4;\n    padding-left: 15%;\n    height: 40px;\n    line-height: 40px;\n    -webkit-box-flex: 1;\n            flex: 1;\n    position: relative;\n}\n.roll_text[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    font-weight: bold;\n    height: -webkit-fill-available;\n    position: absolute;\n    left: 0;\n    width: 80px;\n}\n.roll_text[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.pic_date[data-v-42079f31]{\n    -webkit-box-flex: 1;\n            flex: 1;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-flex: 1;\n            flex: 1;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
 
 // exports
 
@@ -39995,29 +40023,47 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "chanpion_data_container" }, [
-        _c("h2", { staticClass: "sub_title center" }, [
-          _vm._v("- Chanpions - ")
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "chanpion_card_holder" },
-          _vm._l(_vm.chanpionDatas, function(chanpionData, index) {
-            return _c("ChanpionData", {
-              key: index,
-              attrs: {
-                id: index,
-                data: _vm.chanpionDatas[index],
-                skilldata: _vm.skillDatas,
-                tagdata: _vm.tagDatas,
-                tags: _vm.tags
-              }
-            })
-          }),
-          1
-        )
-      ]),
+      _c(
+        "div",
+        { staticClass: "chanpion_data_container" },
+        [
+          _c("h2", { staticClass: "sub_title center" }, [
+            _vm._v("- Chanpions - ")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "chanpion_card_holder" },
+            _vm._l(_vm.getItems, function(chanpionData, index) {
+              return _c("ChanpionData", {
+                key: index,
+                attrs: {
+                  id: index,
+                  data: _vm.chanpionDatas[index],
+                  skilldata: _vm.skillDatas,
+                  tagdata: _vm.tagDatas,
+                  tags: _vm.tags
+                }
+              })
+            }),
+            1
+          ),
+          _vm._v(" "),
+          _c("paginate", {
+            attrs: {
+              "page-count": _vm.getPageCount,
+              "page-range": 3,
+              "margin-pages": 2,
+              "click-handler": _vm.clickCallback,
+              "prev-text": "＜",
+              "next-text": "＞",
+              "container-class": "pagination",
+              "page-class": "page-item"
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "footer_container" }, [
         _c(
@@ -40957,15 +41003,67 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
-      { staticClass: "tag_form" },
-      _vm._l(_vm.tags, function(tagdata, index) {
-        return _c("li", { key: index }, [
-          _c("a", { staticClass: "tag_btn", attrs: { href: "" } }, [
-            _c("div", { staticClass: "tag_body" }, [
-              _c("span", [_vm._v(_vm._s(tagdata.sub_name))]),
-              _c("p", [_vm._v(_vm._s(tagdata.name))])
-            ])
-          ])
+      _vm._l(_vm.data, function(tagdata, index) {
+        return _c("li", { key: index, staticClass: "tag_form" }, [
+          tagdata.chanpion_tag_id_1 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_1))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_2 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_2))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_3 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_3))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_4 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_4))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_5 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_5))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_6 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_6))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_7 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_7))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_8 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_8))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_9 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_9))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          tagdata.chanpion_tag_id_10 !== null
+            ? _c("span", { staticClass: "tag_body" }, [
+                _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_10))
+              ])
+            : _vm._e()
         ])
       }),
       0
@@ -41015,74 +41113,14 @@ var render = function() {
   return _c("div", { staticClass: "chanpion_page_container" }, [
     _c("div", { staticClass: "chanpion_top" }, [
       _c("div", { staticClass: "top_picture", style: _vm.topImage }, [
-        _c("img", {
-          attrs: {
-            src: _vm.storage + _vm.data.chanpion_img,
-            alt: "",
-            width: "50%"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "chanpion_top_state_container" }, [
-        _c("div", { staticClass: "chanpion_head_name" }, [
-          _c("h2", { staticClass: "name" }, [_vm._v(_vm._s(_vm.data.name))]),
-          _c("span", { staticClass: "sub_name" }, [
-            _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
-          ]),
-          _vm._v(" "),
-          _c("hr", {
-            staticClass: "m-1",
-            staticStyle: { "background-color": "#f6f5f4" }
-          }),
-          _vm._v(" "),
-          _c("h2", { staticClass: "mini_name mb-3" }, [
-            _vm._v(
-              _vm._s(
-                _vm.data.popular_name == null
-                  ? "no-data"
-                  : _vm.data.popular_name
-              )
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "chanpion_head_roll" }, [
-            _c("p", [_vm._v(_vm._s(_vm.data.main_roll_id))]),
-            _vm._v(" "),
-            _c("p", { staticClass: "left_space" }, [
-              _vm._v(_vm._s(_vm.data.sub_roll_id))
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chanpion_head_cost" }, [
-          _c("span", { staticClass: "cost cost-l" }, [
-            _c("img", {
-              staticClass: "head_cost_img",
-              attrs: {
-                src:
-                  "/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png",
-                width: "40px"
-              }
-            }),
-            _vm._v(
-              "\n            " + _vm._s(_vm.data.be_cost) + "\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "cost cost-r left_space" }, [
-            _c("img", {
-              staticClass: "head_cost_img",
-              attrs: {
-                src:
-                  "/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png",
-                width: "38px"
-              }
-            }),
-            _vm._v(
-              "\n            " + _vm._s(_vm.data.rp_cost) + "\n            "
-            )
-          ])
+        _c("div", { staticClass: "pic_date" }, [
+          _c("img", {
+            attrs: {
+              src: _vm.storage + _vm.data.chanpion_img,
+              alt: "",
+              width: "50%"
+            }
+          })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "chanpion_head_date" }, [
@@ -41096,6 +41134,73 @@ var render = function() {
             _vm._v("更新日"),
             _c("span", [_vm._v("/")]),
             _vm._v(_vm._s(_vm.data.updated_at))
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "chanpion_top_state_container" }, [
+        _c("h2", { staticClass: "name state_text" }, [
+          _vm._v(_vm._s(_vm.data.name))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "sub_name state_text" }, [
+          _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
+        ]),
+        _vm._v(" "),
+        _c("hr", {
+          staticClass: "m-1",
+          staticStyle: { "background-color": "#f6f5f4" }
+        }),
+        _vm._v(" "),
+        _c("h2", { staticClass: "mini_name mb-3 state_text" }, [
+          _vm._v(
+            _vm._s(
+              _vm.data.popular_name == null ? "no-data" : _vm.data.popular_name
+            )
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "chanpion_head_roll state_text" }, [
+          _c("p", { staticClass: "roll_text" }, [
+            _vm._v(_vm._s(_vm.data.main_roll_id))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "roll_text left_space" }, [
+            _vm._v(_vm._s(_vm.data.sub_roll_id))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "chanpion_head_cost state_text" }, [
+          _c("p", { staticClass: "cost cost-l" }, [
+            _c("img", {
+              staticClass: "head_cost_img",
+              attrs: {
+                src:
+                  "/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png",
+                width: "40px"
+              }
+            }),
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.data.be_cost) +
+                "\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "cost cost-r left_space" }, [
+            _c("img", {
+              staticClass: "head_cost_img",
+              attrs: {
+                src:
+                  "/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png",
+                width: "38px"
+              }
+            }),
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.data.rp_cost) +
+                "\n                    "
+            )
           ])
         ])
       ])
@@ -56661,6 +56766,17 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/vuejs-paginate/dist/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/vuejs-paginate/dist/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():undefined}(this,function(){return function(e){function t(s){if(n[s])return n[s].exports;var a=n[s]={exports:{},id:s,loaded:!1};return e[s].call(a.exports,a,a.exports,t),a.loaded=!0,a.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function s(e){return e&&e.__esModule?e:{default:e}}var a=n(1),i=s(a);e.exports=i.default},function(e,t,n){n(2);var s=n(6)(n(7),n(8),"data-v-82963a40",null);e.exports=s.exports},function(e,t,n){var s=n(3);"string"==typeof s&&(s=[[e.id,s,""]]);n(5)(s,{});s.locals&&(e.exports=s.locals)},function(e,t,n){t=e.exports=n(4)(),t.push([e.id,"a[data-v-82963a40]{cursor:pointer}",""])},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var n=this[t];n[2]?e.push("@media "+n[2]+"{"+n[1]+"}"):e.push(n[1])}return e.join("")},e.i=function(t,n){"string"==typeof t&&(t=[[null,t,""]]);for(var s={},a=0;a<this.length;a++){var i=this[a][0];"number"==typeof i&&(s[i]=!0)}for(a=0;a<t.length;a++){var r=t[a];"number"==typeof r[0]&&s[r[0]]||(n&&!r[2]?r[2]=n:n&&(r[2]="("+r[2]+") and ("+n+")"),e.push(r))}},e}},function(e,t,n){function s(e,t){for(var n=0;n<e.length;n++){var s=e[n],a=c[s.id];if(a){a.refs++;for(var i=0;i<a.parts.length;i++)a.parts[i](s.parts[i]);for(;i<s.parts.length;i++)a.parts.push(l(s.parts[i],t))}else{for(var r=[],i=0;i<s.parts.length;i++)r.push(l(s.parts[i],t));c[s.id]={id:s.id,refs:1,parts:r}}}}function a(e){for(var t=[],n={},s=0;s<e.length;s++){var a=e[s],i=a[0],r=a[1],o=a[2],l=a[3],u={css:r,media:o,sourceMap:l};n[i]?n[i].parts.push(u):t.push(n[i]={id:i,parts:[u]})}return t}function i(e,t){var n=g(),s=C[C.length-1];if("top"===e.insertAt)s?s.nextSibling?n.insertBefore(t,s.nextSibling):n.appendChild(t):n.insertBefore(t,n.firstChild),C.push(t);else{if("bottom"!==e.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");n.appendChild(t)}}function r(e){e.parentNode.removeChild(e);var t=C.indexOf(e);t>=0&&C.splice(t,1)}function o(e){var t=document.createElement("style");return t.type="text/css",i(e,t),t}function l(e,t){var n,s,a;if(t.singleton){var i=v++;n=h||(h=o(t)),s=u.bind(null,n,i,!1),a=u.bind(null,n,i,!0)}else n=o(t),s=d.bind(null,n),a=function(){r(n)};return s(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;s(e=t)}else a()}}function u(e,t,n,s){var a=n?"":s.css;if(e.styleSheet)e.styleSheet.cssText=b(t,a);else{var i=document.createTextNode(a),r=e.childNodes;r[t]&&e.removeChild(r[t]),r.length?e.insertBefore(i,r[t]):e.appendChild(i)}}function d(e,t){var n=t.css,s=t.media,a=t.sourceMap;if(s&&e.setAttribute("media",s),a&&(n+="\n/*# sourceURL="+a.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+" */"),e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}var c={},p=function(e){var t;return function(){return"undefined"==typeof t&&(t=e.apply(this,arguments)),t}},f=p(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),g=p(function(){return document.head||document.getElementsByTagName("head")[0]}),h=null,v=0,C=[];e.exports=function(e,t){t=t||{},"undefined"==typeof t.singleton&&(t.singleton=f()),"undefined"==typeof t.insertAt&&(t.insertAt="bottom");var n=a(e);return s(n,t),function(e){for(var i=[],r=0;r<n.length;r++){var o=n[r],l=c[o.id];l.refs--,i.push(l)}if(e){var u=a(e);s(u,t)}for(var r=0;r<i.length;r++){var l=i[r];if(0===l.refs){for(var d=0;d<l.parts.length;d++)l.parts[d]();delete c[l.id]}}}};var b=function(){var e=[];return function(t,n){return e[t]=n,e.filter(Boolean).join("\n")}}()},function(e,t){e.exports=function(e,t,n,s){var a,i=e=e||{},r=typeof e.default;"object"!==r&&"function"!==r||(a=e,i=e.default);var o="function"==typeof i?i.options:i;if(t&&(o.render=t.render,o.staticRenderFns=t.staticRenderFns),n&&(o._scopeId=n),s){var l=o.computed||(o.computed={});Object.keys(s).forEach(function(e){var t=s[e];l[e]=function(){return t}})}return{esModule:a,exports:i,options:o}}},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={props:{value:{type:Number},pageCount:{type:Number,required:!0},forcePage:{type:Number},clickHandler:{type:Function,default:function(){}},pageRange:{type:Number,default:3},marginPages:{type:Number,default:1},prevText:{type:String,default:"Prev"},nextText:{type:String,default:"Next"},breakViewText:{type:String,default:"…"},containerClass:{type:String},pageClass:{type:String},pageLinkClass:{type:String},prevClass:{type:String},prevLinkClass:{type:String},nextClass:{type:String},nextLinkClass:{type:String},breakViewClass:{type:String},breakViewLinkClass:{type:String},activeClass:{type:String,default:"active"},disabledClass:{type:String,default:"disabled"},noLiSurround:{type:Boolean,default:!1},firstLastButton:{type:Boolean,default:!1},firstButtonText:{type:String,default:"First"},lastButtonText:{type:String,default:"Last"},hidePrevNext:{type:Boolean,default:!1}},beforeUpdate:function(){void 0!==this.forcePage&&this.forcePage!==this.selected&&(this.selected=this.forcePage)},computed:{selected:{get:function(){return this.value||this.innerValue},set:function(e){this.innerValue=e}},pages:function(){var e=this,t={};if(this.pageCount<=this.pageRange)for(var n=0;n<this.pageCount;n++){var s={index:n,content:n+1,selected:n===this.selected-1};t[n]=s}else{for(var a=Math.floor(this.pageRange/2),i=function(n){var s={index:n,content:n+1,selected:n===e.selected-1};t[n]=s},r=function(e){var n={disabled:!0,breakView:!0};t[e]=n},o=0;o<this.marginPages;o++)i(o);var l=0;this.selected-a>0&&(l=this.selected-1-a);var u=l+this.pageRange-1;u>=this.pageCount&&(u=this.pageCount-1,l=u-this.pageRange+1);for(var d=l;d<=u&&d<=this.pageCount-1;d++)i(d);l>this.marginPages&&r(l-1),u+1<this.pageCount-this.marginPages&&r(u+1);for(var c=this.pageCount-1;c>=this.pageCount-this.marginPages;c--)i(c)}return t}},data:function(){return{innerValue:1}},methods:{handlePageSelected:function(e){this.selected!==e&&(this.innerValue=e,this.$emit("input",e),this.clickHandler(e))},prevPage:function(){this.selected<=1||this.handlePageSelected(this.selected-1)},nextPage:function(){this.selected>=this.pageCount||this.handlePageSelected(this.selected+1)},firstPageSelected:function(){return 1===this.selected},lastPageSelected:function(){return this.selected===this.pageCount||0===this.pageCount},selectFirstPage:function(){this.selected<=1||this.handlePageSelected(1)},selectLastPage:function(){this.selected>=this.pageCount||this.handlePageSelected(this.pageCount)}}}},function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return e.noLiSurround?n("div",{class:e.containerClass},[e.firstLastButton?n("a",{class:[e.pageLinkClass,e.firstPageSelected()?e.disabledClass:""],attrs:{tabindex:"0"},domProps:{innerHTML:e._s(e.firstButtonText)},on:{click:function(t){e.selectFirstPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.selectFirstPage():null}}}):e._e(),e._v(" "),e.firstPageSelected()&&e.hidePrevNext?e._e():n("a",{class:[e.prevLinkClass,e.firstPageSelected()?e.disabledClass:""],attrs:{tabindex:"0"},domProps:{innerHTML:e._s(e.prevText)},on:{click:function(t){e.prevPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.prevPage():null}}}),e._v(" "),e._l(e.pages,function(t){return[t.breakView?n("a",{class:[e.pageLinkClass,e.breakViewLinkClass,t.disabled?e.disabledClass:""],attrs:{tabindex:"0"}},[e._t("breakViewContent",[e._v(e._s(e.breakViewText))])],2):t.disabled?n("a",{class:[e.pageLinkClass,t.selected?e.activeClass:"",e.disabledClass],attrs:{tabindex:"0"}},[e._v(e._s(t.content))]):n("a",{class:[e.pageLinkClass,t.selected?e.activeClass:""],attrs:{tabindex:"0"},on:{click:function(n){e.handlePageSelected(t.index+1)},keyup:function(n){return"button"in n||!e._k(n.keyCode,"enter",13)?void e.handlePageSelected(t.index+1):null}}},[e._v(e._s(t.content))])]}),e._v(" "),e.lastPageSelected()&&e.hidePrevNext?e._e():n("a",{class:[e.nextLinkClass,e.lastPageSelected()?e.disabledClass:""],attrs:{tabindex:"0"},domProps:{innerHTML:e._s(e.nextText)},on:{click:function(t){e.nextPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.nextPage():null}}}),e._v(" "),e.firstLastButton?n("a",{class:[e.pageLinkClass,e.lastPageSelected()?e.disabledClass:""],attrs:{tabindex:"0"},domProps:{innerHTML:e._s(e.lastButtonText)},on:{click:function(t){e.selectLastPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.selectLastPage():null}}}):e._e()],2):n("ul",{class:e.containerClass},[e.firstLastButton?n("li",{class:[e.pageClass,e.firstPageSelected()?e.disabledClass:""]},[n("a",{class:e.pageLinkClass,attrs:{tabindex:e.firstPageSelected()?-1:0},domProps:{innerHTML:e._s(e.firstButtonText)},on:{click:function(t){e.selectFirstPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.selectFirstPage():null}}})]):e._e(),e._v(" "),e.firstPageSelected()&&e.hidePrevNext?e._e():n("li",{class:[e.prevClass,e.firstPageSelected()?e.disabledClass:""]},[n("a",{class:e.prevLinkClass,attrs:{tabindex:e.firstPageSelected()?-1:0},domProps:{innerHTML:e._s(e.prevText)},on:{click:function(t){e.prevPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.prevPage():null}}})]),e._v(" "),e._l(e.pages,function(t){return n("li",{class:[e.pageClass,t.selected?e.activeClass:"",t.disabled?e.disabledClass:"",t.breakView?e.breakViewClass:""]},[t.breakView?n("a",{class:[e.pageLinkClass,e.breakViewLinkClass],attrs:{tabindex:"0"}},[e._t("breakViewContent",[e._v(e._s(e.breakViewText))])],2):t.disabled?n("a",{class:e.pageLinkClass,attrs:{tabindex:"0"}},[e._v(e._s(t.content))]):n("a",{class:e.pageLinkClass,attrs:{tabindex:"0"},on:{click:function(n){e.handlePageSelected(t.index+1)},keyup:function(n){return"button"in n||!e._k(n.keyCode,"enter",13)?void e.handlePageSelected(t.index+1):null}}},[e._v(e._s(t.content))])])}),e._v(" "),e.lastPageSelected()&&e.hidePrevNext?e._e():n("li",{class:[e.nextClass,e.lastPageSelected()?e.disabledClass:""]},[n("a",{class:e.nextLinkClass,attrs:{tabindex:e.lastPageSelected()?-1:0},domProps:{innerHTML:e._s(e.nextText)},on:{click:function(t){e.nextPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.nextPage():null}}})]),e._v(" "),e.firstLastButton?n("li",{class:[e.pageClass,e.lastPageSelected()?e.disabledClass:""]},[n("a",{class:e.pageLinkClass,attrs:{tabindex:e.lastPageSelected()?-1:0},domProps:{innerHTML:e._s(e.lastButtonText)},on:{click:function(t){e.selectLastPage()},keyup:function(t){return"button"in t||!e._k(t.keyCode,"enter",13)?void e.selectLastPage():null}}})]):e._e()],2)},staticRenderFns:[]}}])});
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -56824,6 +56940,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuejs-paginate */ "./node_modules/vuejs-paginate/dist/index.js");
+/* harmony import */ var vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuejs_paginate__WEBPACK_IMPORTED_MODULE_2__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -56832,9 +56950,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('paginate', vuejs_paginate__WEBPACK_IMPORTED_MODULE_2___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app1',

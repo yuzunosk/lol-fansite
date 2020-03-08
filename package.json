@@ -26,6 +26,8 @@
         "babel-eslint": "^10.0.3"
     },
     "dependencies": {
-        "vue-img-preview": "^1.1.1"
+        "vue-img-preview": "^1.1.1",
+        "vue-paginate": "^3.6.0",
+        "vuejs-paginate": "^2.1.0"
     }
 }

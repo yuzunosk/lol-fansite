@@ -1,13 +1,13 @@
 <template>
-    <div class="chanpion_card">
-        <div class="thmbnail">
-            <router-link :to="routerLink">
-                <img class="chanpion_img" :src="storage + data.chanpion_img" alt="">
-            </router-link>
-                <p :class="cardRoll">{{ data.roll }}</p>
-                <p :class="cardName">{{ data.name }}</p>
-        </div>
-    </div>
+            <div class="chanpion_card">
+                <div class="thmbnail">
+                    <router-link :to="routerLink">
+                        <img class="chanpion_img" :src="storage + data.chanpion_img" alt="">
+                    </router-link>
+                        <p :class="cardRoll">{{ data.roll }}</p>
+                        <p :class="cardName">{{ data.name }}</p>
+                </div>
+            </div>
 </template>
 
 <script>
