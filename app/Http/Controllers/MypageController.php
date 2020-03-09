@@ -10,6 +10,8 @@ use App\Tag;
 use App\Roll;
 use App\TagBox;
 use App\Chanpion;
+use App\Mail\Test;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Foundation\Console\Presets\React;
 
@@ -52,6 +54,10 @@ class MypageController extends Controller
         Log::info($user);
         //ユーザー情報の更新
         $user->fill($request->all())->save();
+
+        //変更連絡Email送信テスト
+        Mail::to($user)->send(new Test('登録内容を変更しました'));
+
         return redirect('/chanpions')->with('flash_message', __('UserData Updated.'));
     }
 }

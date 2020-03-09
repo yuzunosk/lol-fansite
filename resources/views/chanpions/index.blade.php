@@ -7,20 +7,20 @@
 
         <div class="main_nav_Container" style="position: relative;margin-bottom: 20px;">
             
-            <form action="{{ route('ajax.sort') }}" method="POST">
+            <form action="{{ route('chanpions.sort') }}" method="GET">
                 @csrf
                 <div class="container row col-6 p-0" style="position: absolute;bottom:0; display:flex;align-items:end;font-size:9px;">
                     <div class="col-2 px-1">
                                     <select name="sort" id="js-sort-data" class="js-sort-data btn border-info py-1 px-2 rounded-0" style="max-width:100%;font-size:12px;">
                                         <option class="dropdown-item" value="" readonly>{{ __('Chanpion Sort') }}</option>
-                                        <option class="dropdown-item" value="1" @if(old('sort') == "1") disabled @endif>新しく登録された順</option>
-                                        <option class="dropdown-item" value="2" @if (old('sort') == "2") disabled @endif>古い順</option>
-                                        <option class="dropdown-item" value="3" @if (old('sort') == "3") disabled @endif>攻撃力が高い順</option>
-                                        <option class="dropdown-item" value="4" @if (old('sort') == "4") disabled @endif>魔力が高い順</option>
-                                        <option class="dropdown-item" value="5" @if (old('sort') == "5") disabled @endif>耐久力が高い順</option>
-                                        <option class="dropdown-item" value="6" @if (old('sort') == "6") disabled @endif>機動力が高い順</option>
-                                        <option class="dropdown-item" value="7" @if (old('sort') == "7") disabled @endif>難易度の高い順</option>
-                                        <option class="dropdown-item" value="8" @if (old('sort') == "8") disabled @endif>難易度の易しい順</option>
+                                        <option class="dropdown-item" value="1" @if(old('sort', $sort) == "1") selected @endif>新しく登録された順</option>
+                                        <option class="dropdown-item" value="2" @if (old('sort', $sort) == "2") selected @endif>古い順</option>
+                                        <option class="dropdown-item" value="3" @if (old('sort', $sort) == "3") selected @endif>攻撃力が高い順</option>
+                                        <option class="dropdown-item" value="4" @if (old('sort', $sort) == "4") selected @endif>魔力が高い順</option>
+                                        <option class="dropdown-item" value="5" @if (old('sort', $sort) == "5") selected @endif>耐久力が高い順</option>
+                                        <option class="dropdown-item" value="6" @if (old('sort', $sort) == "6") selected @endif>機動力が高い順</option>
+                                        <option class="dropdown-item" value="7" @if (old('sort', $sort) == "7") selected @endif>難易度の高い順</option>
+                                        <option class="dropdown-item" value="8" @if (old('sort', $sort) == "8") selected @endif>難易度の易しい順</option>
                                     </select>
                         </div>
                         
@@ -28,7 +28,7 @@
                             <select name="tag"  id="js-roll-data" class="btn py-1 px-2 border-info rounded-0" style="max-width: 100%;font-size:12px;">
                                 <option class="dropdown-item" value="" id="0" readonly>{{__('Search Tag')}}</option>
                                 @foreach($tagDatas as $tagData)
-                                <option class="dropdown-item text-truncate" value="{{ $tagData->name }}" @if(old('tag') == $tagData->name) disabled @endif>
+                                <option class="dropdown-item text-truncate" value="{{ $tagData->name }}" @if(old('tag', $tag) == $tagData->name) selected @endif>
                                 {{ $tagData->name }}</option>
                                 @endforeach
                             </select>
@@ -38,7 +38,7 @@
                                 <select name="roll" id="js-tag-data" class="btn border-info py-1 px-2 rounded-0 text-truncate" style="max-width: 100%;font-size:12px;">
                                     <option class="dropdown-item text-truncate" value="" id="0" readonly>{{__('Search Roll')}}</option>
                                     @foreach($rollDatas as $rollData)
-                                        <option class="dropdown-item" value="{{ $rollData->name }}" @if(old('roll') == $rollData->name) disabled @endif>
+                                        <option class="dropdown-item" value="{{ $rollData->name }}" @if(old('roll', $roll) == $rollData->name) selected @endif>
                                             {{ $rollData->name }}</option>
                                     @endforeach
                                 </select>

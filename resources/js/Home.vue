@@ -1,8 +1,14 @@
 <template>
-<div>
+  <div>
+<!-- Loading -->
+      <Loading v-show="loading"></Loading>
+
+        <transition name="fade" mode="out-in">
+          <div v-show="!loading">
+
 <!-- header -->
-  <div class="header-content">
-      <LikeHeader></LikeHeader>
+    <div class="header-content">
+        <LikeHeader></LikeHeader>
 <!-- header_navigation -->
     <div class="header-link-item">
         <HeaderLink
@@ -59,12 +65,13 @@
               </ChanpionData>
         </div>
               <paginate
+                v-model="page"
                 :page-count="getPageCount"
                 :page-range="3"
                 :margin-pages="2"
                 :click-handler="clickCallback"
-                :prev-text="'＜'"
-                :next-text="'＞'"
+                :prev-text="'Prev'"
+                :next-text="'Next'"
                 :container-class="'pagination'"
                 :page-class="'page-item'">
               </paginate>
@@ -72,17 +79,17 @@
 
 
 <!-- footer -->
-<div class="footer_container">
-  <div class="footer_body_container">
-    <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
-    <Footer
-      v-for="footerData in footerDatas"
-      :key="footerData.id"
-      :data="footerData"
-    >
-    </Footer>
-  </div>
-</div>
+        <div class="footer_container">
+          <div class="footer_body_container">
+            <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
+            <Footer
+              v-for="footerData in footerDatas"
+              :key="footerData.id"
+              :data="footerData"
+            >
+            </Footer>
+          </div>
+        </div>
 
 
 <div v-if="formShow" style="padding: 10rem;font-size:1.1rem;">
@@ -171,7 +178,9 @@ type="radio"
 </select>
 <p>{{ eventData.location }}</p>
 
+   </div>
   </div>
+    </transition>
 
 </div>
 </template>
@@ -184,14 +193,18 @@ import HeroSlider from "./components/HeroSlider.vue";
 import News from "./components/News.vue";
 import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
+import Loading from "./components/ management/showLoading";
 
 export default {
   props: ["chanpionDatas","skillDatas","tagDatas","tags"],
+  name: 'App',
   data(){
     return {
      items: this.chanpionDatas,
+     page: "",
      parPage: 12,
      currentPage: 1,
+     loading: true,
       number: 14,
       test: 'いいね',
       currentComponent: true,
@@ -246,9 +259,13 @@ export default {
     News,
     EventTitle,
     Footer,
+    Loading,
   },
     mounted() {
     window.addEventListener('scroll', this.handleScroll);
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     },
     destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -429,6 +446,15 @@ export default {
     width: 200px;
     margin-left: 50px;
     margin-bottom: 30px;
+    }
+
+    /* アニメーション */
+    .fade-enter-active , .fade-leave-active{
+        transition: all .8s;
+    }
+    .fade-enter , .fade-leave-to{
+        opacity: 0;
+        background: #fff;
     }
 
 </style>

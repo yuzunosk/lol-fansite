@@ -103,7 +103,7 @@
                                                 <a href="{{ route('mypage.index') }}" class="dropdown-item">{{ __('My Chanpions List') }}</a>
                                                 <a href="{{ route('mypage.profile') }}" class="dropdown-item">{{ __('Profile') }}</a>
                                                 <a href="#" class="dropdown-item">{{ __('E-mail') }}</a>
-                                                <a href="#" class="dropdown-item">{{ __('Password') }}</a>
+                                                <a href="{{ route('mypage.passreset') }}" class="dropdown-item">{{ __('Password') }}</a>
                                             </div>
                                     </div>
 <!-- menu profile end-->

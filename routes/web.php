@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +13,9 @@
 //マイページ
 
 use Illuminate\Routing\RouteGroup;
-
+//メール認証
+// Route::middleware('verified')->group(function () {
+//ログイン認証
 Route::group(['middleware' => 'auth'], function () {
     //マイページ
     Route::get('/mypage','MypageController@indexMypage')->name('mypage.index');
@@ -29,8 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/chanpions/{id}/edit', 'ChanpionsController@editChanpion')->name('chanpions.edit');
     Route::post('/chanpions/{id}', 'ChanpionsController@updateChanpion')->name('chanpions.update');
     Route::post('/chanpions/{id}/delete', 'ChanpionsController@deleteChanpion')->name('chanpions.delete');
-    //チャンピオン管理画面ソート
-    Route::get('/chanpions/{data}', 'ChanpionsController@sortChanpion')->name('chanpions.sort');
+    //チャンピオン管理画面ソート機能
+    Route::get('/chanpions/sort', 'DataSortController@sort')->name('chanpions.sort');
 
     // スキル追加ページ
     Route::get('/skills/new/', 'ChanpionsController@newSkill')->name('skills.new');
@@ -80,14 +81,20 @@ Route::group(['middleware' => 'auth'], function () {
     
     //Ajax
     // Route::post('ajaxtest', 'DataSortController@test')->name('ajax.sort');
-    Route::post('/ajaxtest', 'DataSortController@sort')->name('ajax.sort');
+    Route::post('/sort', 'DataSortController@sort')->name('ajax.sort');
 
 });
+
+// });
 
 //ログアウト
 Route::post('/logout', 'LoginController@loggedOut');
 //E-mailアドレス変更
 // Route::GET('/email/verify', 'ForgotPasswordController@show')->name('e-mail.change');
+//パスワードリセット
+Route::get('/passreset', 'PassResetControler@showView')->name('mypage.passreset');
+
+
 
 
 
@@ -99,6 +106,8 @@ Route::get('/home{any}', 'HomeController@showHome')->where('any', '.*')->name('H
 
 
 
-//ログイン関連
+//通常ログイン関連
 Auth::routes();
+//Email認証
+// Auth::routes(['verify' => true]);
 
