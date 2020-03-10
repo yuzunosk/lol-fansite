@@ -2103,6 +2103,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2113,14 +2115,60 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
-  name: 'App',
   data: function data() {
     return {
-      items: this.chanpionDatas,
-      page: "",
-      parPage: 12,
+      perPage: 8,
       currentPage: 1,
+      totalPage: 5,
       loading: true,
+      count: this.chanpionDatas.length,
+      //アイテム総数
+      //ページング
+      prev_A: {
+        paginate_btn: true,
+        active: false,
+        ml_0: true
+      },
+      prev_B: {
+        paginate_btn: true,
+        active: false
+      },
+      prev_C: {
+        paginate_btn: true,
+        active: false
+      },
+      prev_D: {
+        paginate_btn: true,
+        active: false
+      },
+      prev_E: {
+        paginate_btn: true,
+        active: false
+      },
+      now: {
+        paginate_btn: true,
+        active: true
+      },
+      next_A: {
+        paginate_btn: true,
+        active: false
+      },
+      next_B: {
+        paginate_btn: true,
+        active: false
+      },
+      next_C: {
+        paginate_btn: true,
+        active: false
+      },
+      next_D: {
+        paginate_btn: true,
+        active: false
+      },
+      //ページング number
+      minPage: '<<',
+      maxPage: '>>',
+      //ページング用 end
       number: 14,
       test: 'いいね',
       currentComponent: true,
@@ -2213,14 +2261,6 @@ __webpack_require__.r(__webpack_exports__);
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Loading: _components_management_showLoading__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    window.addEventListener('scroll', this.handleScroll);
-    setTimeout(function () {
-      _this.loading = false;
-    }, 1000);
-  },
   destroyed: function destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
   },
@@ -2235,19 +2275,70 @@ __webpack_require__.r(__webpack_exports__);
       console.log('まだ作ってないよ');
       return;
     },
-    clickCallback: function clickCallback(pageNum) {
-      this.currentPage = Number(pageNum);
+    clickCallback: function clickCallback(event) {
+      //es-lint-disable-next-line no-console
+      // console.log(event.currentTarget.attributes[1].value);
+      this.currentPage = Number(event.currentTarget.attributes[1].value);
+    },
+    totalPageCount: function totalPageCount() {
+      //総ページ数
+      return this.totalPage = Math.ceil(this.chanpionDatas.length / this.perPage);
     }
   },
   computed: {
+    //  getItems() {
+    //    //開始位置をstartで、終了位置をcurrent
+    //   let current = this.currentPage * this.parPage;//現在のページが1で１ページ辺りの表示数parPageをかける
+    //   let start = current - this.parPage;
+    //   return this.chanpionDatas.slice(start, current);
+    //  },
+    // filterItems() {
+    // return this.chanpionDatas.filter(
+    //   (chanpionData, i =>
+    //     i >= (this.currentPage - 1) * this.perPage &&
+    //     i < this.currentPage * this.perPage)
+    // )
+    // },
     getItems: function getItems() {
-      var current = this.currentPage * this.parPage;
-      var start = current - this.parPage;
-      return this.chanpionDatas.slice(start, current);
+      return this.chanpionDatas.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
     },
-    getPageCount: function getPageCount() {
-      return Math.ceil(this.chanpionDatas.length / this.parPage);
+    prev4: function prev4() {
+      return this.currentPage - 4;
+    },
+    prev3: function prev3() {
+      return this.currentPage - 3;
+    },
+    prev2: function prev2() {
+      return this.currentPage - 2;
+    },
+    prev1: function prev1() {
+      return this.currentPage - 1;
+    },
+    nowPage: function nowPage() {
+      return this.currentPage;
+    },
+    next1: function next1() {
+      return this.currentPage + 1;
+    },
+    next2: function next2() {
+      return this.currentPage + 2;
+    },
+    next3: function next3() {
+      return this.currentPage + 3;
+    },
+    next4: function next4() {
+      return this.currentPage + 4;
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    window.addEventListener('scroll', this.handleScroll);
+    setTimeout(function () {
+      _this.loading = false;
+    }, 1000); // this.totalPageCount();
+
+    this.getItems();
   }
 });
 
@@ -2330,6 +2421,15 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     routerLink: function routerLink() {
       return "/home/chanpion/" + this.id;
+    },
+    changeImg: function changeImg() {
+      return this.storage + this.data.chanpion_img;
+    },
+    changeRoll: function changeRoll() {
+      return this.data.roll;
+    },
+    changeName: function changeName() {
+      return this.data.name;
     }
   }
 });
@@ -8003,7 +8103,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        -webkit-transition: all .8s;\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: center;\n              justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    -webkit-transition: all .2s;\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        -webkit-transition: all .8s;\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -40160,54 +40260,195 @@ var render = function() {
               2
             ),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "chanpion_data_container" },
-              [
-                _c("h2", { staticClass: "sub_title center" }, [
-                  _vm._v("- Chanpions - ")
+            _c("div", { staticClass: "chanpion_data_container" }, [
+              _c("h2", { staticClass: "sub_title center" }, [
+                _vm._v("- Chanpions - ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "chanpion_card_holder" },
+                _vm._l(_vm.getItems, function(chanpionData, i) {
+                  return _c("ChanpionData", {
+                    key: i,
+                    attrs: {
+                      id: i,
+                      data: _vm.chanpionDatas[i],
+                      skilldata: _vm.skillDatas,
+                      tagdata: _vm.tagDatas,
+                      tags: _vm.tags
+                    }
+                  })
+                }),
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "paginate_container" }, [
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.prev_A,
+                      attrs: { num: "1" },
+                      on: { click: _vm.clickCallback }
+                    },
+                    [_vm._v(_vm._s(_vm.minPage))]
+                  )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "chanpion_card_holder" },
-                  _vm._l(_vm.getItems, function(chanpionData, index) {
-                    return _c("ChanpionData", {
-                      key: index,
-                      attrs: {
-                        id: index,
-                        data: _vm.chanpionDatas[index],
-                        skilldata: _vm.skillDatas,
-                        tagdata: _vm.tagDatas,
-                        tags: _vm.tags
-                      }
-                    })
-                  }),
-                  1
-                ),
+                (_vm.currentPage == _vm.totalPage
+                ? true
+                : false)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_E,
+                          attrs: { num: _vm.prev4 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev4))]
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("paginate", {
-                  attrs: {
-                    "page-count": _vm.getPageCount,
-                    "page-range": 3,
-                    "margin-pages": 2,
-                    "click-handler": _vm.clickCallback,
-                    "prev-text": "Prev",
-                    "next-text": "Next",
-                    "container-class": "pagination",
-                    "page-class": "page-item"
-                  },
-                  model: {
-                    value: _vm.page,
-                    callback: function($$v) {
-                      _vm.page = $$v
+                (_vm.currentPage >= _vm.totalPage - 1
+                ? true
+                : false)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_D,
+                          attrs: { num: _vm.prev3 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev3))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage <= 2
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_B,
+                          attrs: { num: _vm.prev2 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev2))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage == 1
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_C,
+                          attrs: { num: _vm.prev1 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev1))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.now,
+                      attrs: { num: _vm.nowPage },
+                      on: { click: _vm.clickCallback }
                     },
-                    expression: "page"
-                  }
-                })
-              ],
-              1
-            ),
+                    [_vm._v(_vm._s(_vm.nowPage))]
+                  )
+                ]),
+                _vm._v(" "),
+                (_vm.currentPage == _vm.totalPage
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_A,
+                          attrs: { num: _vm.next1 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next1))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage >= _vm.totalPage - 1
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_B,
+                          attrs: { num: _vm.next2 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next2))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage == 1
+                ? true
+                : false)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_C,
+                          attrs: { num: _vm.next3 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next3))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage <= 2
+                ? true
+                : false)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_D,
+                          attrs: { num: _vm.next4 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next4))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.next_C,
+                      attrs: { num: _vm.totalPage },
+                      on: { click: _vm.clickCallback }
+                    },
+                    [_vm._v(_vm._s(_vm.maxPage))]
+                  )
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "footer_container" }, [
               _c(
@@ -40729,13 +40970,13 @@ var render = function() {
         _c("router-link", { attrs: { to: _vm.routerLink } }, [
           _c("img", {
             staticClass: "chanpion_img",
-            attrs: { src: _vm.storage + _vm.data.chanpion_img, alt: "" }
+            attrs: { src: _vm.changeImg, alt: "" }
           })
         ]),
         _vm._v(" "),
-        _c("p", { class: _vm.cardRoll }, [_vm._v(_vm._s(_vm.data.roll))]),
+        _c("p", { class: _vm.cardRoll }, [_vm._v(_vm._s(_vm.changeRoll))]),
         _vm._v(" "),
-        _c("p", { class: _vm.cardName }, [_vm._v(_vm._s(_vm.data.name))])
+        _c("p", { class: _vm.cardName }, [_vm._v(_vm._s(_vm.changeName))])
       ],
       1
     )

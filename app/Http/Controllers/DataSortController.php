@@ -28,7 +28,7 @@ class DataSortController extends Controller
         // Log::info('データ：'.$tagDatas);
         $rollDatas     = Roll::all();
         // Log::info('データ：'.$rollDatas);
-        $tagBoxDatas   = TagBox::all();
+        $tagBoxDatas   = TagBox::with('chanpion');
         // Log::info('データ：'.$tagBoxDatas);
 
 
@@ -42,7 +42,9 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //tagを条件に加える
-                    $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('id','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                         if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -52,7 +54,7 @@ class DataSortController extends Controller
                 }elseif($roll || empty($tag)){
                     // Log::info('ルートroll');
                     //rollがありtagが空の場合
-                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orderBy('id','desc')->paginate(8);
+                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                     if($chanpionsData->isEmpty()){
                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -60,7 +62,7 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //rollがありtagもある場合
-                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('id','desc')->paginate(8);
+                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orW('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orW('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orW('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                     if($chanpionsData->isEmpty()){
                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -77,7 +79,9 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //tagを条件に加える
-                    $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('id','asc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                         if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -94,7 +98,7 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //rollがありtagもある場合
-                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('id','asc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                     if($chanpionsData->isEmpty()){
                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -111,7 +115,9 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //tagを条件に加える
-                    $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_attack','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                         if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -128,7 +134,7 @@ class DataSortController extends Controller
                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                 }else{
                     //rollがありtagもある場合
-                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_attack','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                     if($chanpionsData->isEmpty()){
                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -145,7 +151,9 @@ class DataSortController extends Controller
                         return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                     }else{
                         //tagを条件に加える
-                        $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_magic','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                         //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                             if($chanpionsData->isEmpty()){
                                 return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -162,7 +170,7 @@ class DataSortController extends Controller
                         return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                     }else{
                         //rollがありtagもある場合
-                        $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_magic','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                         //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                         if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -179,7 +187,9 @@ class DataSortController extends Controller
                                 return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                             }else{
                                 //tagを条件に加える
-                                $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_toughness','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                                 //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                     if($chanpionsData->isEmpty()){
                                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -196,7 +206,7 @@ class DataSortController extends Controller
                                 return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                             }else{
                                 //rollがありtagもある場合
-                                $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_toughness','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                                 //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                 if($chanpionsData->isEmpty()){
                                     return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -213,7 +223,9 @@ class DataSortController extends Controller
                             return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                         }else{
                             //tagを条件に加える
-                            $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_mobility','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                             //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                             if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -231,7 +243,7 @@ class DataSortController extends Controller
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }else{
                                 //rollがありtagもある場合
-                                $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_mobility','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                                 //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                     if($chanpionsData->isEmpty()){
                                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -248,7 +260,9 @@ class DataSortController extends Controller
                             return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                         }else{
                             //tagを条件に加える
-                            $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_difficulty','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                             //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                             if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -266,7 +280,7 @@ class DataSortController extends Controller
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }else{
                                 //rollがありtagもある場合
-                                $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_difficulty','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                                 //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                     if($chanpionsData->isEmpty()){
                                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -283,7 +297,9 @@ class DataSortController extends Controller
                             return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                         }else{
                             //tagを条件に加える
-                            $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('st_difficulty','asc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                             //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                             if($chanpionsData->isEmpty()){
                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -301,7 +317,7 @@ class DataSortController extends Controller
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }else{
                                 //rollがありtagもある場合
-                                $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('st_difficulty','asc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
                                 //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                     if($chanpionsData->isEmpty()){
                                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
@@ -317,14 +333,17 @@ class DataSortController extends Controller
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }else{
                                     //tagを条件に加える
-                                    $chanpionsData = DB::table('chanpions')->where('chanpion_tag', $tag)->orderBy('id','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1',$tag)
+                                    ->orWhere('chanpion_tag_id_2',$tag)->orWhere('chanpion_tag_id_3',$tag)->orWhere('chanpion_tag_id_4',$tag)->orWhere('chanpion_tag_id_5',$tag)->orWhere('chanpion_tag_id_6',$tag)->orWhere('chanpion_tag_id_7',$tag)->orWhere('chanpion_tag_id_8',$tag)->orWhere('chanpion_tag_id_9',$tag)->orWhere('chanpion_tag_id_10',$tag)
+                                    ->orderBy('id','desc')->paginate(8);
                                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                         if($chanpionsData->isEmpty()){
                                             return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
                                         }
+                                    Log::info($chanpionsData);
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }
-                                }elseif($roll || empty($tag)){
+                                }elseif($roll && empty($tag)){
                                     Log::info('ルートroll');
                                     //rollがありtagが空の場合
                                     $chanpionsData = DB::table('chanpions')->orderBy('id','desc')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->paginate(8);
@@ -336,8 +355,10 @@ class DataSortController extends Controller
                                     }
                                     return view('chanpions.index', compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','tag','roll']));
                                 }else{
+                                    Log::info('ルートroll&tag');
                                     //rollがありtagもある場合
-                                    $chanpionsData = DB::table('chanpions')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->where('chanpion_tag', $tag)->orderBy('id','desc')->paginate(8);
+                                    $chanpionsData = TagBox::with('chanpion')->where('main_roll_id', $roll)->orWhere('sub_roll_id', $roll)->orWhere('chanpion_tag_id_1', $tag)->orWhere('chanpion_tag_id_2', $tag)->orWhere('chanpion_tag_id_3', $tag)->orWhere('chanpion_tag_id_4', $tag)->orWhere('chanpion_tag_id_5', $tag)->orWhere('chanpion_tag_id_6', $tag)->orWhere('chanpion_tag_id_7', $tag)->orWhere('chanpion_tag_id_8', $tag)->orWhere('chanpion_tag_id_9', $tag)->orWhere('chanpion_tag_id_10', $tag)->orderBy('id','desc')->paginate(8);
+                                    Log::info($chanpionsData);
                                     //$chanpionsDataが０の場合はエラーメッセージを出して元の画面に戻す
                                     if($chanpionsData->isEmpty()){
                                         return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));

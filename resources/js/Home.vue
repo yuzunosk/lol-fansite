@@ -55,26 +55,28 @@
       <h2 class="sub_title center">- Chanpions - </h2>
         <div class="chanpion_card_holder">
               <ChanpionData
-                v-for="(chanpionData, index) in getItems"
-                :key="index"
-                :id="index"
-                :data="chanpionDatas[index]"
+                v-for="(chanpionData, i) in getItems"
+                :key="i"
+                :id="i"
+                :data="chanpionDatas[i]"
                 :skilldata="skillDatas"
                 :tagdata="tagDatas"
                 :tags="tags">
               </ChanpionData>
         </div>
-              <paginate
-                v-model="page"
-                :page-count="getPageCount"
-                :page-range="3"
-                :margin-pages="2"
-                :click-handler="clickCallback"
-                :prev-text="'Prev'"
-                :next-text="'Next'"
-                :container-class="'pagination'"
-                :page-class="'page-item'">
-              </paginate>
+            <div class="paginate_container">
+                  <li ><button :class="prev_A" @click="clickCallback" num="1">{{ minPage }}</button></li>
+                  <li v-if="(currentPage == totalPage) ? true : false"><button :class="prev_E" @click="clickCallback" :num="prev4">{{ prev4 }}</button></li>
+                  <li v-if="(currentPage >= totalPage -1) ? true : false"><button :class="prev_D" @click="clickCallback" :num="prev3">{{ prev3 }}</button></li>
+                  <li v-if="(currentPage <= 2) ? false : true"><button :class="prev_B" @click="clickCallback" :num="prev2">{{ prev2 }}</button></li>
+                  <li v-if="(currentPage == 1) ? false : true"><button :class="prev_C" @click="clickCallback" :num="prev1">{{ prev1 }}</button></li>
+                  <li ><button :class="now" @click="clickCallback" :num="nowPage">{{ nowPage }}</button></li>
+                  <li v-if="(currentPage == totalPage) ? false : true"><button :class="next_A" @click="clickCallback" :num="next1">{{ next1 }}</button></li>
+                  <li v-if="(currentPage >= totalPage -1) ? false : true"><button :class="next_B" @click="clickCallback" :num="next2">{{ next2 }}</button></li>
+                  <li v-if="(currentPage == 1 ) ? true : false"><button :class="next_C" @click="clickCallback" :num="next3">{{ next3 }}</button></li>
+                  <li v-if="(currentPage <= 2) ? true : false"><button :class="next_D" @click="clickCallback" :num="next4">{{ next4 }}</button></li>
+                  <li ><button :class="next_C" @click="clickCallback" :num="totalPage">{{ maxPage }}</button></li>
+            </div>
         </div>
 
 
@@ -197,14 +199,59 @@ import Loading from "./components/ management/showLoading";
 
 export default {
   props: ["chanpionDatas","skillDatas","tagDatas","tags"],
-  name: 'App',
   data(){
     return {
-     items: this.chanpionDatas,
-     page: "",
-     parPage: 12,
+     perPage: 8,
      currentPage: 1,
+     totalPage: 5,
      loading: true,
+     count: this.chanpionDatas.length, //アイテム総数
+     //ページング
+     prev_A: {
+       paginate_btn: true,
+       active: false,
+       ml_0: true,
+     },
+     prev_B: {
+       paginate_btn: true,
+       active: false,
+     },
+     prev_C: {
+       paginate_btn: true,
+       active: false,
+     },
+      prev_D: {
+       paginate_btn: true,
+       active: false,
+     },
+     prev_E: {
+       paginate_btn: true,
+       active: false,
+     },
+     now:{
+       paginate_btn: true,
+       active: true,
+     },
+     next_A: {
+       paginate_btn: true,
+       active: false,
+     },
+     next_B: {
+       paginate_btn: true,
+       active: false,
+     },
+     next_C: {
+       paginate_btn: true,
+       active: false,
+     },
+    next_D: {
+       paginate_btn: true,
+       active: false,
+     },
+     //ページング number
+     minPage: '<<',
+     maxPage: '>>',
+     //ページング用 end
       number: 14,
       test: 'いいね',
       currentComponent: true,
@@ -261,12 +308,6 @@ export default {
     Footer,
     Loading,
   },
-    mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
-    },
     destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
     },
@@ -276,26 +317,75 @@ export default {
       // eslint-disable-next-line no-console
       console.log('おはよう');
     },
-  clickUpdateNews(){
+    clickUpdateNews(){
     //eslint-disable-next-line no-console
     console.log('まだ作ってないよ');
     return
   },
-    clickCallback: function (pageNum) {
-       this.currentPage = Number(pageNum);
+    clickCallback(event) {
+      //es-lint-disable-next-line no-console
+      // console.log(event.currentTarget.attributes[1].value);
+       this.currentPage = Number(event.currentTarget.attributes[1].value);
+    },
+    totalPageCount() {
+      //総ページ数
+     return this.totalPage = Math.ceil(this.chanpionDatas.length / this.perPage);
     },
 
   },
-     computed: {
-     getItems: function() {
-      let current = this.currentPage * this.parPage;
-      let start = current - this.parPage;
-      return this.chanpionDatas.slice(start, current);
+  computed: {
+    //  getItems() {
+    //    //開始位置をstartで、終了位置をcurrent
+    //   let current = this.currentPage * this.parPage;//現在のページが1で１ページ辺りの表示数parPageをかける
+    //   let start = current - this.parPage;
+    //   return this.chanpionDatas.slice(start, current);
+    //  },
+    // filterItems() {
+    // return this.chanpionDatas.filter(
+    //   (chanpionData, i =>
+    //     i >= (this.currentPage - 1) * this.perPage &&
+    //     i < this.currentPage * this.perPage)
+    // )
+    // },
+    getItems() {
+    return this.chanpionDatas.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
+    },
+    prev4() {
+       return this.currentPage - 4;
      },
-     getPageCount: function() {
-      return Math.ceil(this.chanpionDatas.length / this.parPage);
-     }
+    prev3() {
+       return this.currentPage - 3;
+     },
+    prev2() {
+       return this.currentPage - 2;
+     },
+    prev1() {
+       return this.currentPage - 1;
+     },
+    nowPage() {
+       return this.currentPage;
+     },
+    next1() {
+       return this.currentPage + 1;
+     },
+    next2() {
+       return this.currentPage + 2;
+     },
+    next3() {
+       return this.currentPage + 3;
+     },
+    next4() {
+       return this.currentPage + 4;
+     },
    },
+    mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
+      // this.totalPageCount();
+      this.getItems();
+    },
 };
 </script>
 
@@ -433,6 +523,43 @@ export default {
     width: 1280px;
     margin: 0 auto;
     }
+
+    /* ページネートCSS */
+    .paginate_container{
+      display: flex;
+      justify-content: center;
+      margin-left: 3px;
+    }
+    .paginate_btn{
+    background: #858883;
+    text-align: center;
+    padding: 3px;
+    width: 30px;
+    height: 35px;
+    margin-left: 13px;
+    box-sizing: border-box;
+    color: #f6f5f4;
+    font-size: 12px;
+    font-weight: 300;
+    }
+    .ml_0{
+      margin-left: 0;
+    }
+    .paginate_btn:hover{
+    transition: all .2s;
+    background: #aeadb5;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    transform: scale(1.2);
+    }
+    .active{
+    opacity: .5;
+    }
+
+    /* ページネートCSS END */
+
+
     .footer_container{
     background: #131313;
     padding: 100px 0;

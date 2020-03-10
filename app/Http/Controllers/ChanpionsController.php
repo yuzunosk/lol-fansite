@@ -45,7 +45,7 @@ class ChanpionsController extends Controller
         $tagBoxDatas   = TagBox::all();
         $sort          = $request->sort;
         $roll          = $request->roll;
-        $tag          = $request->tag;
+        $tag           = $request->tag;
 
         Log::info('タグボックスデータ'.$tagBoxDatas);
 

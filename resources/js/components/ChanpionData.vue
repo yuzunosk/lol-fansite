@@ -2,10 +2,10 @@
             <div class="chanpion_card">
                 <div class="thmbnail">
                     <router-link :to="routerLink">
-                        <img class="chanpion_img" :src="storage + data.chanpion_img" alt="">
+                        <img class="chanpion_img" :src="changeImg" alt="">
                     </router-link>
-                        <p :class="cardRoll">{{ data.roll }}</p>
-                        <p :class="cardName">{{ data.name }}</p>
+                        <p :class="cardRoll">{{ changeRoll }}</p>
+                        <p :class="cardName">{{ changeName }}</p>
                 </div>
             </div>
 </template>
@@ -29,7 +29,16 @@ export default {
         computed: {
           routerLink() {
               return "/home/chanpion/" + this.id;
-          }
+          },
+          changeImg() {
+            return this.storage + this.data.chanpion_img
+          },
+          changeRoll() {
+             return this.data.roll
+          },
+          changeName() {
+             return this.data.name
+          },
       },
 
 }
