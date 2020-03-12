@@ -21,12 +21,12 @@ export default {
     /* display: flex; */
 }
 h1{
-    padding-left: 15px;
+    /* padding-left: 15px;
     margin: 0;
     font-size: 35px;
     display: inline-block;
     letter-spacing: .8px;
-    color: #f4f3f2;
+    color: #f4f3f2; */
 }
 .logo{
     width: 150px;

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<div class="col-12 col-md-9 col-lg-10">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="col-lg-8 col-md-10">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Roll Editer') }}</div>
 
@@ -14,9 +14,9 @@
 <!-- 名前・英名 -->
 <div class="container mt-4">
                             <div class="form-group row">
-                                <label for="name" class="col col-form-label mb-3">{{ __('name') }}</label>
+                                <label for="name" class="col-4 col-form-label mb-3">{{ __('roll name') }}</label>
 
-                                <div class="col">
+                                <div class="col-8 col-lg-6">
                                     <input 
                                     id="name" 
                                     type="text" 

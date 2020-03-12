@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="col-12 col-md-9 col-lg-10">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-md-10">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Skill Register') }}</div>
 
@@ -14,12 +14,12 @@
 <!-- 名前・英名 -->
                         <div class="container mt-4">
                             <div class="form-group row">
-                                <label for="name" class="col-md-3 col-8 col-form-label mb-3">
+                                <label for="name" class=" col-8 col-lg-2 col-form-label">
                                 {{ __('name') }}
-                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                <span class="badge badge-danger py-1 ml-1">必須</span>
                                 </label>
 
-                                <div class="col-md-3 col-4">
+                                <div class="col-12 col-lg-4 mb-3">
                                     <input 
                                     id="name" 
                                     type="text" 
@@ -34,12 +34,12 @@
                                     @enderror
                                 </div>
 
-                                <label for="na_name" class="col-md-3 col-8 col-form-label">
+                                <label for="na_name" class="col-8 col-lg-2 col-form-label">
                                 {{ __('na_name') }}
-                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                <span class="badge badge-danger py-1 ml-1">必須</span>
                                 </label>
 
-                                <div class="col-md-3 col-4">
+                                <div class="col-12 col-lg-4 mb-3">
                                     <input 
                                     id="na_name" 
                                     type="text" 
@@ -60,12 +60,12 @@
 <!-- スキルタイプ -->
                         <div class="container mb-4">
                             <div class="form-group row">
-                                <label for="skill_type" class="col-md-8 col-9 col-form-label">
+                                <label for="skill_type" class="col-8 col-lg-8 col-form-label">
                                 {{ __('skill_type') }}
                                 <span class="badge badge-danger py-1 ml-2">必須</span>
                                 </label>
 
-                                <div class="col-md-4 col-3">
+                                <div class="col-12 col-lg-4">
                                     <select 
                                     id="skill_type" 
                                     class="form-control @error('skill_type') is-invalid @enderror" 
@@ -92,12 +92,12 @@
 <!-- 使用者 -->
                         <div class="container mb-4">
                             <div class="form-group row">
-                                <label for="chanpion_id" class="col-md-8 col-8 col-form-label">
+                                <label for="chanpion_id" class="col-12 col-lg-8 col-form-label">
                                 {{ __('use_chanpion') }}
                                 <span class="badge badge-danger py-1 ml-2">必須</span>
                                 </label>
 
-                                <div class="col-md-4 col-4">
+                                <div class="col-12 col-lg-4 mb-3">
                                     <select 
                                     id="chanpion_id" 
                                     class="form-control @error('chanpion_id') is-invalid @enderror" 
@@ -125,10 +125,11 @@
                             <div class="form-group row">
                                 <label for="text" class="col-md-3 col-form-label">{{ __('text') }}</label>
 
-                                <div class="col-md-9">
+                                <div class="col-md-9 mb-3">
                                     <textarea 
                                     id="text" 
-                                    class="form-control @error('text') is-invalid @enderror" name="text" 
+                                    class="form-control col-12 
+                                    @error('text') is-invalid @enderror" name="text" 
                                     value="{{ old('text') }}" 
                                     cols="100"
                                     rows="5"

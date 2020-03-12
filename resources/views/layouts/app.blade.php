@@ -86,7 +86,7 @@
                 <div class="row">
                     @yield('content')
                     @section('sidebar')
-                    <div class="col-2">
+                    <div class="col-lg-2 col-md-3 d-none d-md-block">
                         <div class="container-fluied text-center">
                             <div class="row justify-content-end">
                                 <div class="col list-group list-group-flush">

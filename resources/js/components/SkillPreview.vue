@@ -1,10 +1,10 @@
 <template>
 <div class="container">
   <h5 class="col-12">スキル画像をアップロード</h5>
-  <div class="skill_icon_container">
+  <div class="skill_icon_container row col-12">
 
 <!-- スキルアイコン１ -->
-    <div class="imgContent">
+    <div class="imgContent col-12 mb-3">
           <div class="imagePreview_1">
           <img :src="uploadedImage_1" class="imgFile">
              <input type="file" class="file_input_1" name="skill_icon_1"
@@ -13,7 +13,7 @@
         </div>
         
 <!-- スキルアイコン2 -->
-            <div class="imgContent">
+            <div class="imgContent col-12 mb-3">
           <div class="imagePreview_2">
           <img :src="uploadedImage_2" class="imgFile">
              <input type="file" class="file_input_2" name="skill_icon_2"

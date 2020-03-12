@@ -50,7 +50,7 @@ export default {
     transition: .3s;
 }
 .news_body:hover{
-    background: black;
+    background: #333;
     transition: .3s;
 
 }

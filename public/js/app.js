@@ -2022,89 +2022,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2888,6 +2805,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
@@ -3082,13 +3002,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "data"],
   data: function data() {
@@ -3104,9 +3017,9 @@ __webpack_require__.r(__webpack_exports__);
         tab_botton: true
       },
       table_body_left: {
-        table_body_left: true,
+        js_l_main_archive__left: true,
         p_0: false,
-        pt_50: false,
+        p_30: false,
         flex_2: true,
         flex_4: false
       },
@@ -3169,14 +3082,14 @@ __webpack_require__.r(__webpack_exports__);
       if (val) {
         this.secondIconShow = false;
         this.table_body_left.p_0 = true;
-        this.table_body_left.pt_50 = true;
+        this.table_body_left.p_30 = true;
         this.table_body_left.flex_4 = true;
         this.table_body_left.flex_2 = false;
         return;
       } else {
         this.secondIconShow = true;
         this.table_body_left.p_0 = false;
-        this.table_body_left.pt_50 = false;
+        this.table_body_left.p_30 = false;
         this.table_body_left.flex_4 = false;
         this.table_body_left.flex_2 = true;
       }
@@ -3420,6 +3333,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionSkill_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionSkill.vue */ "./resources/js/components/chanpionPage/ChanpionSkill.vue");
 /* harmony import */ var _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue */ "./resources/js/components/chanpionPage/ChanpionStatus.vue");
 /* harmony import */ var _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChanpionPageTag */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8103,7 +8030,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-content[data-v-35a92206]{\n    width: 100%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n    justify-content: space-between;\n    height: 100px;\n    position: relative;\n    box-sizing: border-box;\n    -webkit-box-align: center;\n    align-items: center;\n}\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: end;\n              justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-align: center;\n              align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container[data-v-35a92206]{\n      /* display: flex;\n      justify-content: space-between; */\n      width: 980px;\n      margin: 0 auto;\n      margin-bottom: 100px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: justify;\n              justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      -webkit-transition: .3s;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      -webkit-transition: .3s;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      -webkit-transition: .3s;\n      transition: .3s;\n}\n.chanpion_data_container[data-v-35a92206]{\n    background: #e6e6e6;\n    padding-bottom: 100px;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: -webkit-box;\n      display: flex;\n      -webkit-box-pack: center;\n              justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    -webkit-transition: all .2s;\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_container[data-v-35a92206]{\n    background: #131313;\n    padding: 100px 0;\n    margin: 0 auto;\n}\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        -webkit-transition: all .8s;\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: flex;\n      justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: flex;\n      align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n\n    /* .news_container{ */\n      /* display: flex;\n      justify-content: space-between; */\n      /* margin: 0 auto;\n      margin-bottom: 100px; */\n    /* } */\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: flex;\n      justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      transition: .3s;\n}\n    /* .chanpion_data_container{\n    background: #e6e6e6;\n    padding-bottom: 100px; */\n    /* } */\n.chanpion_card_holder[data-v-35a92206]{\n    display: flex;\n    justify-content: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: flex;\n      justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -8122,7 +8049,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.fullview {\n  width: 100%;\n  height: 100%;\n  background: #fefefe;\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.loading-spacer {\n  height: 50%;\n}\n\n\n/* アニメーション */\n.fade-enter-active , .fade-leave-active{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter , .fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fullview {\n  width: 100%;\n  height: 100%;\n  background: #fefefe;\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.loading-spacer {\n  height: 50%;\n}\n\n\n/* アニメーション */\n.fade-enter-active , .fade-leave-active{\n    transition: all .5s;\n}\n.fade-enter , .fade-leave-to{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -8142,7 +8069,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=IBM
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.chanpion_card[data-v-901f16c2]{\n    padding: 20px;\n    box-sizing: border-box;\n    width: 100%;\n    height: auto;\n    flex-basis: 280px;\n    overflow: hidden;\n    text-align: center;\n    position: relative;\n}\n.thmbnail[data-v-901f16c2]{\n    overflow: hidden;\n}\n.chanpion_img[data-v-901f16c2]{\n    max-width: 280px;\n    height: 330px;\n    position: relative;\n}\n.chanpion_img[data-v-901f16c2]:hover{\n    -webkit-transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);\n            transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.card_message[data-v-901f16c2]{\n    font-size: 20px;\n    font-weight: bold;\n    color: #f6f5f4;\n    font-family: 'IBM Plex Serif', serif;\n    text-shadow: 0px 0px 5px #000;\n    position: relative;\n}\n.topMs[data-v-901f16c2]{\n    margin: 0;\n    position: absolute;\n    top: 25px;\n    right: 30px;\n    letter-spacing: 1px;\n}\n.bottomMs[data-v-901f16c2]{\n    font-family: 'Sawarabi Mincho', sans-serif;\n    position: absolute;\n    bottom: 10px;\n    left: 35px;\n}\n", ""]);
+exports.push([module.i, "\n.chanpion_card[data-v-901f16c2]{\n    padding: 20px;\n    box-sizing: border-box;\n    width: 100%;\n    height: auto;\n    flex-basis: 280px;\n    overflow: hidden;\n    text-align: center;\n    position: relative;\n}\n.thmbnail[data-v-901f16c2]{\n    overflow: hidden;\n}\n.chanpion_img[data-v-901f16c2]{\n    max-width: 280px;\n    height: 330px;\n    position: relative;\n}\n.chanpion_img[data-v-901f16c2]:hover{\n    transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);\n    transition: .3s;\n}\n.card_message[data-v-901f16c2]{\n    font-size: 20px;\n    font-weight: bold;\n    color: #f6f5f4;\n    font-family: 'IBM Plex Serif', serif;\n    text-shadow: 0px 0px 5px #000;\n    position: relative;\n}\n.topMs[data-v-901f16c2]{\n    margin: 0;\n    position: absolute;\n    top: 25px;\n    right: 30px;\n    letter-spacing: 1px;\n}\n.bottomMs[data-v-901f16c2]{\n    font-family: 'Sawarabi Mincho', sans-serif;\n    position: absolute;\n    bottom: 10px;\n    left: 35px;\n}\n", ""]);
 
 // exports
 
@@ -8161,7 +8088,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer_body[data-v-61a7c374]{\n    width: 1280px;\n}\n.footer_link_waraper[data-v-61a7c374]{\ndisplay: -webkit-box;\ndisplay: flex;\nwidth: 100%;\nmargin-bottom: 25px;\n}\n.footer_link_waraper div[data-v-61a7c374] {\n    display: -webkit-box;\n    display: flex;\n    flex-basis: 80%;\n}\n.footer_body li a[data-v-61a7c374]{\n    color:#f6f5f4;\n    text-decoration:none;\n    list-style: none;\n    font-size: 12px;\n    padding-right: 20px;\n}\n.footer_title[data-v-61a7c374]{\n    flex-basis: 150px;\n}\n.footer_link_waraper ul[data-v-61a7c374] {\n    padding: 0;\n}\n.footer_link_waraper span[data-v-61a7c374]{\n    margin: 0 10px;\n    color: #f6f5f4;\n}\n\n", ""]);
+exports.push([module.i, "\n.footer_body[data-v-61a7c374]{\n    width: 1280px;\n}\n.footer_link_waraper[data-v-61a7c374]{\ndisplay: flex;\nwidth: 100%;\nmargin-bottom: 25px;\n}\n.footer_link_waraper div[data-v-61a7c374] {\n    display: flex;\n    flex-basis: 80%;\n}\n.footer_body li a[data-v-61a7c374]{\n    color:#f6f5f4;\n    text-decoration:none;\n    list-style: none;\n    font-size: 12px;\n    padding-right: 20px;\n}\n.footer_title[data-v-61a7c374]{\n    flex-basis: 150px;\n}\n.footer_link_waraper ul[data-v-61a7c374] {\n    padding: 0;\n}\n.footer_link_waraper span[data-v-61a7c374]{\n    margin: 0 10px;\n    color: #f6f5f4;\n}\n\n", ""]);
 
 // exports
 
@@ -8180,7 +8107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.header-nuv{\n    /* padding: 0 10px; */\n    flex-basis: 25%;\n}\n.list_warapper {\n    padding: 0;\n    margin: 0;\n    height: 100px;\n}\nli {\n  list-style:none;\n}\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  -webkit-transition: .5s;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.sublistItem{\n    font-size: 12px;\n    box-sizing: border-box;\n    -webkit-transition: .5s;\n    transition: .5s;\n    height: 30px;\n    padding: 8px 20px;\n    flex-basis: 25%;\n}\n.nav_itemBord{\n    background: #fff;\n    width: 100%;\n    height: 150px;\n    box-sizing: border-box;\n    margin: 0 auto;\n    padding-left: 200px;\n    position: absolute;\n    top: 85px;\n    left: 0;\n    z-index: 5;\n}\n.nav_itemBord > ul{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  height: 100px;\n  max-width: 100%;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.header-nuv{\n    /* padding: 0 10px; */\n    flex-basis: 25%;\n}\n.list_warapper {\n    padding: 0;\n    margin: 0;\n    height: 100px;\n}\nli {\n  list-style:none;\n}\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    transition: 2s;\n}\n.sublistItem{\n    font-size: 12px;\n    box-sizing: border-box;\n    transition: .5s;\n    height: 30px;\n    padding: 8px 20px;\n    flex-basis: 25%;\n}\n.nav_itemBord{\n    background: #fff;\n    width: 100%;\n    height: 150px;\n    box-sizing: border-box;\n    margin: 0 auto;\n    padding-left: 200px;\n    position: absolute;\n    top: 85px;\n    left: 0;\n    z-index: 5;\n}\n.nav_itemBord > ul{\n  display: flex;\n  flex-wrap: wrap;\n  height: 100px;\n  max-width: 100%;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -8199,7 +8126,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.slider_container[data-v-1c7348a6]{\n  padding: 0;\n  overflow: hidden;\n  margin: 0;\n  position: relative;\n  -webkit-transition: .5s;\n  transition: .5s;\n  margin-bottom:50px;\n}\n.slider_item[data-v-1c7348a6]{\n  overflow: hidden;\n  width: 1280px;\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav[data-v-1c7348a6]{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav[data-v-1c7348a6]:active{\n  opacity: 1;\n  -webkit-transition: .1s;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg[data-v-1c7348a6]{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message[data-v-1c7348a6]{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    text-shadow: 2px 2px 6px #232222;\n}\n.top[data-v-1c7348a6]{\n    position: absolute;\n    top: 10px;\n    right: 50px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom[data-v-1c7348a6]{\n  position: absolute;\n  bottom: 70px;\n  left: 50px;\n  z-index: 2;\n}\n.mainMessage[data-v-1c7348a6]{\n  font-size: 45px;\n}\n.subMessage[data-v-1c7348a6]{\n  font-size: 24px;\n}\n.pointer[data-v-1c7348a6]{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.slider_container[data-v-1c7348a6]{\n  padding: 0;\n  overflow: hidden;\n  margin: 0;\n  position: relative;\n  transition: .5s;\n  margin-bottom:50px;\n}\n.slider_item[data-v-1c7348a6]{\n  overflow: hidden;\n  width: 1280px;\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav[data-v-1c7348a6]{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav[data-v-1c7348a6]:active{\n  opacity: 1;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg[data-v-1c7348a6]{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message[data-v-1c7348a6]{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    text-shadow: 2px 2px 6px #232222;\n}\n.top[data-v-1c7348a6]{\n    position: absolute;\n    top: 10px;\n    right: 50px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom[data-v-1c7348a6]{\n  position: absolute;\n  bottom: 70px;\n  left: 50px;\n  z-index: 2;\n}\n.mainMessage[data-v-1c7348a6]{\n  font-size: 45px;\n}\n.subMessage[data-v-1c7348a6]{\n  font-size: 24px;\n}\n.pointer[data-v-1c7348a6]{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -8218,7 +8145,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.logo_container[data-v-e9c888a2]{\n    /* display: flex; */\n}\nh1[data-v-e9c888a2]{\n    padding-left: 15px;\n    margin: 0;\n    font-size: 35px;\n    display: inline-block;\n    letter-spacing: .8px;\n    color: #f4f3f2;\n}\n.logo[data-v-e9c888a2]{\n    width: 150px;\n    height: 60px;\n    margin-left: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.logo_container[data-v-e9c888a2]{\n    /* display: flex; */\n}\nh1[data-v-e9c888a2]{\n    /* padding-left: 15px;\n    margin: 0;\n    font-size: 35px;\n    display: inline-block;\n    letter-spacing: .8px;\n    color: #f4f3f2; */\n}\n.logo[data-v-e9c888a2]{\n    width: 150px;\n    height: 60px;\n    margin-left: 100px;\n}\n", ""]);
 
 // exports
 
@@ -8237,7 +8164,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.news_body[data-v-12793f84]{\n    letter-spacing: 2px;\n    position: relative;\n    overflow: hidden;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_body[data-v-12793f84]:hover{\n    background: black;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_body_contents[data-v-12793f84]{\n    color:#333;\n    display: block;\n}\n.over_move[data-v-12793f84]{\n    color: #f6f5f4;\n    margin-left: 20px;\n}\n.news_body > ul[data-v-12793f84] {\n    margin: 0;\n    padding: 0;\n}\n.news_body > ul > li[data-v-12793f84] {\n    border-top: 1px dashed #333;\n    font-size: 12px;\n    height: 40px;\n    line-height: 40px;\n}\n.news_body > ul > li > a[data-v-12793f84] {\n    text-decoration:none;\n    -webkit-transition: .3s;\n    transition: .3s;\n}\n.news_update[data-v-12793f84]{\n    margin-right: 30px;\n}\n.news_index[data-v-12793f84]{\n    margin-right: 70px;\n}\n\n", ""]);
+exports.push([module.i, "\n.news_body[data-v-12793f84]{\n    letter-spacing: 2px;\n    position: relative;\n    overflow: hidden;\n    transition: .3s;\n}\n.news_body[data-v-12793f84]:hover{\n    background: #333;\n    transition: .3s;\n}\n.news_body_contents[data-v-12793f84]{\n    color:#333;\n    display: block;\n}\n.over_move[data-v-12793f84]{\n    color: #f6f5f4;\n    margin-left: 20px;\n}\n.news_body > ul[data-v-12793f84] {\n    margin: 0;\n    padding: 0;\n}\n.news_body > ul > li[data-v-12793f84] {\n    border-top: 1px dashed #333;\n    font-size: 12px;\n    height: 40px;\n    line-height: 40px;\n}\n.news_body > ul > li > a[data-v-12793f84] {\n    text-decoration:none;\n    transition: .3s;\n}\n.news_update[data-v-12793f84]{\n    margin-right: 30px;\n}\n.news_index[data-v-12793f84]{\n    margin-right: 70px;\n}\n\n", ""]);
 
 // exports
 
@@ -8256,26 +8183,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_tag_container[data-v-29a4f2f6] {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n}\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: -webkit-box;\ndisplay: flex;\n-webkit-box-orient: horizontal;\n-webkit-box-direction: normal;\n        flex-direction: row;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: -webkit-gradient(linear, left top, left bottom, from(white), to(#f6f5f4));\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    -webkit-transition: all .4s;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.chanpion_page_container[data-v-42079f31]{\n    width: 1280px;\n    height: 350px;\n    margin: 0 auto;\n}\n.chanpion_top[data-v-42079f31]{\n    background-color: black;\n    overflow: hidden;\n    position: relative;\n    letter-spacing: 1.1px;\n    width: 100%;\n    height: 100%;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n            flex-direction: row;\n    flex-wrap: wrap;\n}\n.chanpion_top[data-v-42079f31]::before {\n    content: \"\\30FB  Chanpion Guide\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    color: #333;\n    font-size: 1rem;\n    font-weight: bold;\n    background: #FFEB3B;\n    text-align: center;\n    padding: 8px 10px 8px 5px;\n    /* border: 1px solid; */\n    z-index: 2;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n.top_picture[data-v-42079f31]{\n    height: auto;\n    -webkit-box-flex: 6;\n            flex: 6;\n    -webkit-box-ordinal-group: 2;\n            order: 1;\n    flex-wrap: wrap;\n}\n.top_picture_blur[data-v-42079f31]{\n    height: 340px;\n    margin-bottom: -340px;\n    background-size: 100%;\n    background-repeat: repeat-y;\n    background-position: left top;\n    z-index: -1;\n    background-image: -webkit-gradient(linear, left top, right top, from(#0d0d0d), color-stop(45%, #0a0a0a), color-stop(65%, rgba(13,13,13,0)), color-stop(82%, rgba(13,13,13,0)), color-stop(93%, #0d0d0d));\n    background-image: linear-gradient(90deg, #0d0d0d 0%, #0a0a0a 45%, rgba(13,13,13,0) 65%, rgba(13,13,13,0) 82%, #0d0d0d 93%);\n}\n.chanpion_top_state_container[data-v-42079f31]{\n    height: auto;\n    -webkit-box-flex: 4;\n            flex: 4;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-flow: column wrap;\n    margin-top: 4rem;\n}\n.state_text[data-v-42079f31]{\n    align-self: center;\n    text-align: center;\n    width: 100%;\n    color: #f6f5f4;\n    margin-bottom: 8px;\n}\n.name[data-v-42079f31]{\n    font-size: 2.8rem;\n}\n.sub_name[data-v-42079f31]{\n    font-size: 1rem;\n}\n.mini_name[data-v-42079f31]{\n    font-size: 2rem;\n}\n.chanpion_head_name > h2[data-v-42079f31],span[data-v-42079f31],p[data-v-42079f31]{\n    color: #f6f5f4;\n    margin: 0;\n}\n.chanpion_head_roll[data-v-42079f31]{\n    max-width: 90%;\n    display: -webkit-box;\n    display: flex;\n    padding: 8px;\n}\n.roll_text[data-v-42079f31]{\n    background: #49575a;\n    border: 1.5px solid #f6f5f4;\n    padding-left: 15%;\n    height: 40px;\n    line-height: 40px;\n    -webkit-box-flex: 1;\n            flex: 1;\n    position: relative;\n}\n.roll_text[data-v-42079f31]::before{\n    content: \"MAIN\";\n    text-align: center;\n    background: #f6f5f4;\n    color: #333;\n    font-weight: bold;\n    height: -webkit-fill-available;\n    position: absolute;\n    left: 0;\n    width: 80px;\n}\n.roll_text[data-v-42079f31]:last-child::before{\n    content: \"SUB\";\n    background: #f6f5f4;\n    color: #333;\n}\n.pic_date[data-v-42079f31]{\n    -webkit-box-flex: 1;\n            flex: 1;\n}\n.chanpion_head_date[data-v-42079f31] {\n    position: absolute;\n    bottom: 10%;\n    right: 2%;\n    font-size: 14px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-flex: 1;\n            flex: 1;\n}\n.chanpion_head_cost[data-v-42079f31]{\n    color: #f6f5f4;\n    font-size: 1.2rem;\n    display: -webkit-box;\n    display: flex;\n}\n.cost[data-v-42079f31]{\n    padding: 8px;\n}\n.head_cost_img[data-v-42079f31]{\n    position: relative;\n    top: 25%;\n}\n.left_space[data-v-42079f31]{\n    margin-left: 15px;\n}\n.cost-l[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 9%;\n}\n.cost-r[data-v-42079f31] {\nposition: absolute;\nbottom: 5%;\nleft: 23%;\n}\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .chanpion_tag_container {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n} */\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: flex;\nflex-direction: row;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
 
 // exports
 
@@ -8294,45 +8202,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.chanpion_skill_table[data-v-00d17c7c] {\nmargin: 50px 0 50px auto;\nwidth: 980px;\nletter-spacing: 1.1px;\n}\n.skill_table_tab > ul[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n    width: 40%;\n    height: 40px;\n    line-height: 40px;\n    margin: 0 0 0 auto;\n    padding: 0;\n}\n.skill_table_tab > ul > li[data-v-00d17c7c] {\n    flex-basis: 20%;\n    flex-basis: 20%;\n    text-align: center;\n    border-top: 2px solid #333;\n    border-left: 2px solid #333;\n    /* border-bottom: 2px solid #333; */\n    border-radius: 5px 5px 0 0;\n    background-color: #fff;\n\n    /* border-right: 2px solid #333; */\n}\n.skill_table_tab > ul > li[data-v-00d17c7c]:last-child{\n    border-right: 2px solid #333;\n}\n.tab_botton[data-v-00d17c7c]{\n    width: 100%;\n    height: 100%;\n    margin: 0;\n    padding: 0 .5rem;\n    font-size: 12px;\n}\n.tab_botton[data-v-00d17c7c]:hover{\n    cursor: pointer;\n    color: #f6f5f4;\n    background-color: #333;\n    -webkit-transition: all.3s;\n    transition: all.3s;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.passive[data-v-00d17c7c]{\n    border: 2px solid #333;\n    border-radius: 5px 0 5px 5px;\n    width: 100%;\n    display: -webkit-box;\n    display: flex;\n    height: 350px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n}\n.table_body_left[data-v-00d17c7c] {\n    background: #f6f5f4;\n    text-align: center;\n    padding: 50px;\n}\n.table_body_left > p[data-v-00d17c7c]{\n    font-size: 22px;\n    margin-top: 10px;\n    margin: 0;\n    margin-top: 10px;\n}\n.table_body_left p[data-v-00d17c7c]:last-child{\n    font-size: 14px;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.teble_body_right[data-v-00d17c7c] {\n    -webkit-box-flex: 6;\n            flex: 6;\n    text-align: left;\n    padding: 50px;\n    box-sizing: border-box;\n}\n.teble_body_right > h2[data-v-00d17c7c] {\n    margin: 0;\n    margin-bottom: 10px;\n}\n.teble_body_right > p[data-v-00d17c7c]{\n    margin: 0;\n}\n.icon_container[data-v-00d17c7c]{\n    display: -webkit-box;\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.skill_type_baner[data-v-00d17c7c] {\n    position: absolute;\n    top: 5%;\n    left: -5%;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n            justify-content: center;\n    padding: 2px;\n    background: #39ff0a;\n    width: 200px;\n    height: 30px;\n    line-height: 30px;\n    font-size: 16px;\n    -webkit-transform: rotate(-37deg);\n            transform: rotate(-37deg);\n    z-index: 2;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_50[data-v-00d17c7c]{\n    padding-top: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    -webkit-box-flex: 4;\n            flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1s ease;\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{ \n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.status_wrapper[data-v-6a14a852]{\n    margin: 18px 0;\n}\n.status_wrapper p[data-v-6a14a852]{\n    margin: 0;\n}\n.status_container[data-v-6a14a852]{\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n    letter-spacing: 1px;\n}\n.status_wrapper h3[data-v-6a14a852]{\n    font-size: 24px;\n    padding: 8px 30px;\n    background: #333;\n    border-radius: 5%;\n    text-align: center;\n    color: #f6f5f4;\n    margin-bottom: 20px;\n}\n.status_wrapper p[data-v-6a14a852]{\n    font-size: 14px;\n    margin: 5px 0;\n}\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.main_text[data-v-4ce65285]{\n    margin: 0;\n    width: 100%;\n    font-size: 1.5rem;\n    color: #333;\n    padding: 10px;\n    text-align: center;\n    background: #e6e6e6;\n}\n.chanpion_stetus_data[data-v-4ce65285]{\n    display: -webkit-box;\n    display: flex;\n    width: 1280px;\n    height: 500px;\n    margin: 35px auto;\n}\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.icon_container[data-v-00d17c7c]{\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.p_30[data-v-00d17c7c]{\n    padding: 30px;\n}\n.flex_2[data-v-00d17c7c] {\n    flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    transition: all 1s ease;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -39445,36 +39315,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
@@ -39484,66 +39324,6 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -40194,7 +39974,7 @@ var render = function() {
           [
             _c(
               "div",
-              { staticClass: "header-content" },
+              { staticClass: "l-header" },
               [
                 _c("LikeHeader"),
                 _vm._v(" "),
@@ -40224,233 +40004,240 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _c("HeroSlider"),
-            _vm._v(" "),
             _c(
               "div",
-              { staticClass: "news_container" },
+              { attrs: { id: "l-main" } },
               [
-                _c("div", { staticClass: "news_header" }, [
-                  _c("h2", { staticClass: "sub_title news_title" }, [
-                    _vm._v("更新情報"),
-                    _c("span", { staticClass: "sub_title_item" }, [
-                      _vm._v("NEWS")
-                    ])
+                _c("HeroSlider"),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "l-main-container-news" },
+                  [
+                    _c("div", { staticClass: "news_header" }, [
+                      _c("h2", { staticClass: "sub_title news_title" }, [
+                        _vm._v("更新情報"),
+                        _c("span", { staticClass: "sub_title_item" }, [
+                          _vm._v("NEWS")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "news_List_button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.clickUpdateNews }
+                        },
+                        [_c("span", [_vm._v("一覧を見る")])]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.newsDatas, function(newsData) {
+                      return _c("News", {
+                        key: newsData.id,
+                        staticClass: "test",
+                        attrs: { data: newsData }
+                      })
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "l-main-container-products" }, [
+                  _c("h2", { staticClass: "sub_title center" }, [
+                    _vm._v("- Chanpions - ")
                   ]),
                   _vm._v(" "),
                   _c(
-                    "button",
-                    {
-                      staticClass: "news_List_button",
-                      attrs: { type: "button" },
-                      on: { click: _vm.clickUpdateNews }
-                    },
-                    [_c("span", [_vm._v("一覧を見る")])]
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.newsDatas, function(newsData) {
-                  return _c("News", {
-                    key: newsData.id,
-                    staticClass: "test",
-                    attrs: { data: newsData }
-                  })
-                })
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "chanpion_data_container" }, [
-              _c("h2", { staticClass: "sub_title center" }, [
-                _vm._v("- Chanpions - ")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "chanpion_card_holder" },
-                _vm._l(_vm.getItems, function(chanpionData, i) {
-                  return _c("ChanpionData", {
-                    key: i,
-                    attrs: {
-                      id: i,
-                      data: _vm.chanpionDatas[i],
-                      skilldata: _vm.skillDatas,
-                      tagdata: _vm.tagDatas,
-                      tags: _vm.tags
-                    }
-                  })
-                }),
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "paginate_container" }, [
-                _c("li", [
-                  _c(
-                    "button",
-                    {
-                      class: _vm.prev_A,
-                      attrs: { num: "1" },
-                      on: { click: _vm.clickCallback }
-                    },
-                    [_vm._v(_vm._s(_vm.minPage))]
-                  )
-                ]),
-                _vm._v(" "),
-                (_vm.currentPage == _vm.totalPage
-                ? true
-                : false)
-                  ? _c("li", [
+                    "div",
+                    { staticClass: "chanpion_card_holder" },
+                    _vm._l(_vm.getItems, function(chanpionData, i) {
+                      return _c("ChanpionData", {
+                        key: i,
+                        attrs: {
+                          id: i,
+                          data: _vm.chanpionDatas[i],
+                          skilldata: _vm.skillDatas,
+                          tagdata: _vm.tagDatas,
+                          tags: _vm.tags
+                        }
+                      })
+                    }),
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "paginate_container" }, [
+                    _c("li", [
                       _c(
                         "button",
                         {
-                          class: _vm.prev_E,
-                          attrs: { num: _vm.prev4 },
+                          class: _vm.prev_A,
+                          attrs: { num: "1" },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.prev4))]
+                        [_vm._v(_vm._s(_vm.minPage))]
                       )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage >= _vm.totalPage - 1
-                ? true
-                : false)
-                  ? _c("li", [
+                    ]),
+                    _vm._v(" "),
+                    (_vm.currentPage == _vm.totalPage
+                    ? true
+                    : false)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.prev_E,
+                              attrs: { num: _vm.prev4 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.prev4))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage >= _vm.totalPage - 1
+                    ? true
+                    : false)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.prev_D,
+                              attrs: { num: _vm.prev3 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.prev3))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage <= 2
+                    ? false
+                    : true)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.prev_B,
+                              attrs: { num: _vm.prev2 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.prev2))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage == 1
+                    ? false
+                    : true)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.prev_C,
+                              attrs: { num: _vm.prev1 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.prev1))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("li", [
                       _c(
                         "button",
                         {
-                          class: _vm.prev_D,
-                          attrs: { num: _vm.prev3 },
+                          class: _vm.now,
+                          attrs: { num: _vm.nowPage },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.prev3))]
+                        [_vm._v(_vm._s(_vm.nowPage))]
                       )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage <= 2
-                ? false
-                : true)
-                  ? _c("li", [
-                      _c(
-                        "button",
-                        {
-                          class: _vm.prev_B,
-                          attrs: { num: _vm.prev2 },
-                          on: { click: _vm.clickCallback }
-                        },
-                        [_vm._v(_vm._s(_vm.prev2))]
-                      )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage == 1
-                ? false
-                : true)
-                  ? _c("li", [
-                      _c(
-                        "button",
-                        {
-                          class: _vm.prev_C,
-                          attrs: { num: _vm.prev1 },
-                          on: { click: _vm.clickCallback }
-                        },
-                        [_vm._v(_vm._s(_vm.prev1))]
-                      )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "button",
-                    {
-                      class: _vm.now,
-                      attrs: { num: _vm.nowPage },
-                      on: { click: _vm.clickCallback }
-                    },
-                    [_vm._v(_vm._s(_vm.nowPage))]
-                  )
-                ]),
-                _vm._v(" "),
-                (_vm.currentPage == _vm.totalPage
-                ? false
-                : true)
-                  ? _c("li", [
-                      _c(
-                        "button",
-                        {
-                          class: _vm.next_A,
-                          attrs: { num: _vm.next1 },
-                          on: { click: _vm.clickCallback }
-                        },
-                        [_vm._v(_vm._s(_vm.next1))]
-                      )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage >= _vm.totalPage - 1
-                ? false
-                : true)
-                  ? _c("li", [
-                      _c(
-                        "button",
-                        {
-                          class: _vm.next_B,
-                          attrs: { num: _vm.next2 },
-                          on: { click: _vm.clickCallback }
-                        },
-                        [_vm._v(_vm._s(_vm.next2))]
-                      )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage == 1
-                ? true
-                : false)
-                  ? _c("li", [
+                    ]),
+                    _vm._v(" "),
+                    (_vm.currentPage == _vm.totalPage
+                    ? false
+                    : true)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.next_A,
+                              attrs: { num: _vm.next1 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.next1))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage >= _vm.totalPage - 1
+                    ? false
+                    : true)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.next_B,
+                              attrs: { num: _vm.next2 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.next2))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage == 1
+                    ? true
+                    : false)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.next_C,
+                              attrs: { num: _vm.next3 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.next3))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    (_vm.currentPage <= 2
+                    ? true
+                    : false)
+                      ? _c("li", [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.next_D,
+                              attrs: { num: _vm.next4 },
+                              on: { click: _vm.clickCallback }
+                            },
+                            [_vm._v(_vm._s(_vm.next4))]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("li", [
                       _c(
                         "button",
                         {
                           class: _vm.next_C,
-                          attrs: { num: _vm.next3 },
+                          attrs: { num: _vm.totalPage },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.next3))]
+                        [_vm._v(_vm._s(_vm.maxPage))]
                       )
                     ])
-                  : _vm._e(),
-                _vm._v(" "),
-                (_vm.currentPage <= 2
-                ? true
-                : false)
-                  ? _c("li", [
-                      _c(
-                        "button",
-                        {
-                          class: _vm.next_D,
-                          attrs: { num: _vm.next4 },
-                          on: { click: _vm.clickCallback }
-                        },
-                        [_vm._v(_vm._s(_vm.next4))]
-                      )
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "button",
-                    {
-                      class: _vm.next_C,
-                      attrs: { num: _vm.totalPage },
-                      on: { click: _vm.clickCallback }
-                    },
-                    [_vm._v(_vm._s(_vm.maxPage))]
-                  )
+                  ])
                 ])
-              ])
-            ]),
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "footer_container" }, [
+            _c("div", { staticClass: "l-footer" }, [
               _c(
                 "div",
                 { staticClass: "footer_body_container" },
@@ -40471,415 +40258,8 @@ var render = function() {
                 ],
                 2
               )
-            ]),
-            _vm._v(" "),
-            _vm.formShow
-              ? _c(
-                  "div",
-                  { staticStyle: { padding: "10rem", "font-size": "1.1rem" } },
-                  [
-                    _c("h2", [_vm._v("イベントフォーム")]),
-                    _vm._v(" "),
-                    _c("EventTitle", {
-                      model: {
-                        value: _vm.eventData.title,
-                        callback: function($$v) {
-                          _vm.$set(_vm.eventData, "title", $$v)
-                        },
-                        expression: "eventData.title"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "maxNumber" } }, [
-                      _vm._v("最大人数")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model.number",
-                          value: _vm.eventData.maxNumber,
-                          expression: "eventData.maxNumber",
-                          modifiers: { number: true }
-                        }
-                      ],
-                      attrs: { id: "maxNumber", type: "number" },
-                      domProps: { value: _vm.eventData.maxNumber },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.eventData,
-                            "maxNumber",
-                            _vm._n($event.target.value)
-                          )
-                        },
-                        blur: function($event) {
-                          return _vm.$forceUpdate()
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(typeof _vm.eventData.maxNumber))]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "host" } }, [_vm._v("主催者")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model.trim",
-                          value: _vm.eventData.host,
-                          expression: "eventData.host",
-                          modifiers: { trim: true }
-                        }
-                      ],
-                      attrs: { id: "host", type: "text" },
-                      domProps: { value: _vm.eventData.host },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.eventData,
-                            "host",
-                            $event.target.value.trim()
-                          )
-                        },
-                        blur: function($event) {
-                          return _vm.$forceUpdate()
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("pre", [_vm._v(_vm._s(_vm.eventData.host))]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "detail" } }, [
-                      _vm._v("イベントの内容")
-                    ]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.detail,
-                          expression: "eventData.detail"
-                        }
-                      ],
-                      attrs: { id: "detail", cols: "50", rows: "5" },
-                      domProps: { value: _vm.eventData.detail },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.eventData, "detail", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("p", { staticStyle: { "white-space": "pre" } }, [
-                      _vm._v("  " + _vm._s(_vm.eventData.detail))
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.isPrivate,
-                          expression: "eventData.isPrivate"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "isPrivate" },
-                      domProps: {
-                        checked: Array.isArray(_vm.eventData.isPrivate)
-                          ? _vm._i(_vm.eventData.isPrivate, null) > -1
-                          : _vm.eventData.isPrivate
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.eventData.isPrivate,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "isPrivate",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "isPrivate",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.eventData, "isPrivate", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "isPrivate" } }, [
-                      _vm._v("非公開")
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.eventData.isPrivate))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("参加条件")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.target,
-                          expression: "eventData.target"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "10", value: "10代" },
-                      domProps: {
-                        checked: Array.isArray(_vm.eventData.target)
-                          ? _vm._i(_vm.eventData.target, "10代") > -1
-                          : _vm.eventData.target
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.eventData.target,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = "10代",
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.eventData, "target", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "10" } }, [_vm._v("10代")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.target,
-                          expression: "eventData.target"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "20", value: "20代" },
-                      domProps: {
-                        checked: Array.isArray(_vm.eventData.target)
-                          ? _vm._i(_vm.eventData.target, "20代") > -1
-                          : _vm.eventData.target
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.eventData.target,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = "20代",
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.eventData, "target", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "20" } }, [_vm._v("20代")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.target,
-                          expression: "eventData.target"
-                        }
-                      ],
-                      attrs: { type: "checkbox", id: "30", value: "30代" },
-                      domProps: {
-                        checked: Array.isArray(_vm.eventData.target)
-                          ? _vm._i(_vm.eventData.target, "30代") > -1
-                          : _vm.eventData.target
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.eventData.target,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = "30代",
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.eventData,
-                                  "target",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.eventData, "target", $$c)
-                          }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "30" } }, [_vm._v("30代")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.eventData.target))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("参加費")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.price,
-                          expression: "eventData.price"
-                        }
-                      ],
-                      attrs: { type: "radio", id: "free", value: "無料" },
-                      domProps: {
-                        checked: _vm._q(_vm.eventData.price, "無料")
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.$set(_vm.eventData, "price", "無料")
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "free" } }, [_vm._v("無料")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.eventData.price,
-                          expression: "eventData.price"
-                        }
-                      ],
-                      attrs: { type: "radio", id: "paid", value: "有料" },
-                      domProps: {
-                        checked: _vm._q(_vm.eventData.price, "有料")
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.$set(_vm.eventData, "price", "有料")
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "paid" } }, [_vm._v("有料")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.eventData.price))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("開催場所")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.eventData.location,
-                            expression: "eventData.location"
-                          }
-                        ],
-                        attrs: { multiple: "" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.eventData,
-                              "location",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          }
-                        }
-                      },
-                      _vm._l(_vm.locations, function(location) {
-                        return _c("option", { key: location }, [
-                          _vm._v(_vm._s(location))
-                        ])
-                      }),
-                      0
-                    ),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.eventData.location))])
-                  ],
-                  1
-                )
-              : _vm._e()
-          ],
-          1
+            ])
+          ]
         )
       ])
     ],
@@ -41447,7 +40827,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "chanpion_tag_container" }, [
+  return _c("div", { staticClass: "l-main-container l-tagGoup" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -41559,100 +40939,125 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "chanpion_page_container" }, [
-    _c("div", { staticClass: "chanpion_top" }, [
-      _c("div", { staticClass: "top_picture", style: _vm.topImage }, [
-        _c("div", { staticClass: "pic_date" }, [
-          _c("img", {
-            attrs: {
-              src: _vm.storage + _vm.data.chanpion_img,
-              alt: "",
-              width: "50%"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chanpion_head_date" }, [
-          _c("p", [
-            _vm._v("実装日"),
-            _c("span", [_vm._v("/")]),
-            _vm._v(_vm._s(_vm.data.created_at))
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v("更新日"),
-            _c("span", [_vm._v("/")]),
-            _vm._v(_vm._s(_vm.data.updated_at))
-          ])
-        ])
+  return _c("div", { staticClass: "l-main-container l-hero c-hero-section" }, [
+    _c("div", { staticClass: "l-hero-imgArea", style: _vm.topImage }, [
+      _c("div", { staticClass: "pic_date" }, [
+        _c("img", {
+          attrs: {
+            src: _vm.storage + _vm.data.chanpion_img,
+            alt: "",
+            width: "50%"
+          }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "chanpion_top_state_container" }, [
-        _c("h2", { staticClass: "name state_text" }, [
-          _vm._v(_vm._s(_vm.data.name))
+      _c("div", { staticClass: "p-hero__data" }, [
+        _c("p", [
+          _vm._v("実装日"),
+          _c("span", [_vm._v("/")]),
+          _vm._v(_vm._s(_vm.data.created_at))
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "sub_name state_text" }, [
-          _vm._v("-" + _vm._s(_vm.data.sub_name) + "-")
-        ]),
-        _vm._v(" "),
-        _c("hr", {
-          staticClass: "m-1",
-          staticStyle: { "background-color": "#f6f5f4" }
-        }),
-        _vm._v(" "),
-        _c("h2", { staticClass: "mini_name mb-3 state_text" }, [
+        _c("p", [
+          _vm._v("更新日"),
+          _c("span", [_vm._v("/")]),
+          _vm._v(_vm._s(_vm.data.updated_at))
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "l-hero-listArea c-hero-listArea" }, [
+      _c(
+        "h2",
+        { staticClass: "c-hero-listArea__header c-hero-listArea__text" },
+        [_vm._v("\n                        " + _vm._s(_vm.data.name))]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        { staticClass: "c-hero-listArea__subTitle c-hero-listArea__text" },
+        [
           _vm._v(
+            "\n                        -" + _vm._s(_vm.data.sub_name) + "-"
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticClass: "c-hero-listArea__hr" }),
+      _vm._v(" "),
+      _c("h2", { staticClass: "c-hero-listArea__lead c-hero-listArea__text" }, [
+        _vm._v(
+          "\n                        " +
             _vm._s(
               _vm.data.popular_name == null ? "no-data" : _vm.data.popular_name
             )
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "c-hero-listArea-unit c-hero-listArea__text" }, [
+        _c("p", { staticClass: "c-hero-listArea-unit__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.data.main_roll_id))
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass:
+              "c-hero-listArea-unit__item c-hero-listArea-unit__item--right"
+          },
+          [_vm._v("\n                        " + _vm._s(_vm.data.sub_roll_id))]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "c-hero-listArea-costList c-hero-listArea__text" },
+        [
+          _c(
+            "p",
+            {
+              staticClass:
+                "c-hero-listArea-costList c-hero-listArea-costList__item"
+            },
+            [
+              _c("img", {
+                staticClass: "c-hero-listArea-costList__img",
+                attrs: {
+                  src:
+                    "/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png"
+                }
+              }),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.data.be_cost) +
+                  "\n                    "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass:
+                "c-hero-listArea-costList c-hero-listArea-costList__item c-hero-listArea-costList__right"
+            },
+            [
+              _c("img", {
+                staticClass: "c-hero-listArea-costList__img",
+                attrs: {
+                  src:
+                    "/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png"
+                }
+              }),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.data.rp_cost) +
+                  "\n                    "
+              )
+            ]
           )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chanpion_head_roll state_text" }, [
-          _c("p", { staticClass: "roll_text" }, [
-            _vm._v(_vm._s(_vm.data.main_roll_id))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "roll_text left_space" }, [
-            _vm._v(_vm._s(_vm.data.sub_roll_id))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chanpion_head_cost state_text" }, [
-          _c("p", { staticClass: "cost cost-l" }, [
-            _c("img", {
-              staticClass: "head_cost_img",
-              attrs: {
-                src:
-                  "/storage/img/logo/Pt1am6v9j2KZ87FNIOjjscNMSBbfuOf7yq5RQWpG.png",
-                width: "40px"
-              }
-            }),
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.data.be_cost) +
-                "\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "cost cost-r left_space" }, [
-            _c("img", {
-              staticClass: "head_cost_img",
-              attrs: {
-                src:
-                  "/storage/img/logo/riot-games_owler_20180821_223624_original-500x500.png",
-                width: "38px"
-              }
-            }),
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.data.rp_cost) +
-                "\n                    "
-            )
-          ])
-        ])
-      ])
+        ]
+      )
     ])
   ])
 }
@@ -41678,411 +41083,390 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "chanpion_skill_container" }, [
-    _c("div", { staticClass: "chanpion_skill_table" }, [
-      _c("div", { staticClass: "skill_table_tab" }, [
-        _c(
-          "ul",
-          _vm._l(_vm.bottons, function(botton, index) {
-            return _c("li", { key: index }, [
-              _c(
-                "p",
-                {
-                  staticClass: "tab_botton",
-                  attrs: { num: index },
-                  on: {
-                    click: function($event) {
-                      _vm.toggleBotton($event)
-                      _vm.toggleIconShow($event)
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(botton))]
-              )
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "l-information-right" },
+    [
       _c(
         "div",
-        { staticClass: "table_body" },
-        [
-          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
-            _vm.cheack_P
-              ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { class: _vm.table_body_left }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "skill_type_baner",
-                        style: _vm.banerColor[0].style
-                      },
-                      [_vm._v(_vm._s(_vm.bottons[0]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade", mode: "out-in" } },
-                          [
-                            _vm.secondIconShow
-                              ? _c("div", { key: "oneSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    staticStyle: { width: "150px" },
-                                    attrs: {
-                                      src: _vm.storage + _vm.p_skillIcon1,
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.secondIconShow
-                              ? _c("div", { key: "twoSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.p_skillIcon1,
-                                      width: "150px"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.p_skillIcon2,
-                                      width: "150px"
-                                    }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name_container" }, [
-                          _c("p", [_vm._v(_vm._s(_vm.p_skillName))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.p_skillNa_name))])
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "teble_body_right" }, [
-                    _c("h2", [_vm._v("スキル解説")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.p_skillTaxt))])
-                  ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
-            _vm.cheack_Q
-              ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { class: _vm.table_body_left }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "skill_type_baner",
-                        style: _vm.banerColor[1].style
-                      },
-                      [_vm._v(_vm._s(_vm.bottons[1]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade", mode: "out-in" } },
-                          [
-                            _vm.secondIconShow
-                              ? _c("div", { key: "oneSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    staticStyle: { width: "150px" },
-                                    attrs: {
-                                      src: _vm.storage + _vm.q_skillIcon1,
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.secondIconShow
-                              ? _c("div", { key: "twoSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.q_skillIcon1,
-                                      width: "150px"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.q_skillIcon2,
-                                      width: "150px"
-                                    }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name_container" }, [
-                          _c("p", [_vm._v(_vm._s(_vm.q_skillName))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.q_skillNa_name))])
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "teble_body_right" }, [
-                    _c("h2", [_vm._v("スキル解説")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.q_skillTaxt))])
-                  ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
-            _vm.cheack_W
-              ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { class: _vm.table_body_left }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "skill_type_baner",
-                        style: _vm.banerColor[2].style
-                      },
-                      [_vm._v(_vm._s(_vm.bottons[2]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade", mode: "out-in" } },
-                          [
-                            _vm.secondIconShow
-                              ? _c("div", { key: "oneSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    staticStyle: { width: "150px" },
-                                    attrs: {
-                                      src: _vm.storage + _vm.w_skillIcon1,
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.secondIconShow
-                              ? _c("div", { key: "twoSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.w_skillIcon1,
-                                      width: "150px"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.w_skillIcon2,
-                                      width: "150px"
-                                    }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name_container" }, [
-                          _c("p", [_vm._v(_vm._s(_vm.w_skillName))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.w_skillNa_name))])
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "teble_body_right" }, [
-                    _c("h2", [_vm._v("スキル解説")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.w_skillTaxt))])
-                  ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
-            _vm.cheack_E
-              ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { class: _vm.table_body_left }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "skill_type_baner",
-                        style: _vm.banerColor[3].style
-                      },
-                      [_vm._v(_vm._s(_vm.bottons[3]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade", mode: "out-in" } },
-                          [
-                            _vm.secondIconShow
-                              ? _c("div", { key: "oneSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    staticStyle: { width: "150px" },
-                                    attrs: {
-                                      src: _vm.storage + _vm.e_skillIcon1,
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.secondIconShow
-                              ? _c("div", { key: "twoSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.e_skillIcon1,
-                                      width: "150px"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.e_skillIcon2,
-                                      width: "150px"
-                                    }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name_container" }, [
-                          _c("p", [_vm._v(_vm._s(_vm.e_skillName))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.e_skillNa_name))])
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "teble_body_right" }, [
-                    _c("h2", [_vm._v("スキル解説")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.e_skillTaxt))])
-                  ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
-            _vm.cheack_U
-              ? _c("div", { staticClass: "passive" }, [
-                  _c("div", { class: _vm.table_body_left }, [
-                    _c(
-                      "p",
-                      {
-                        staticClass: "skill_type_baner",
-                        style: _vm.banerColor[4].style
-                      },
-                      [_vm._v(_vm._s(_vm.bottons[4]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade", mode: "out-in" } },
-                          [
-                            _vm.secondIconShow
-                              ? _c("div", { key: "oneSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    staticStyle: { width: "150px" },
-                                    attrs: {
-                                      src: _vm.storage + _vm.u_skillIcon1,
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !_vm.secondIconShow
-                              ? _c("div", { key: "twoSkill" }, [
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.u_skillIcon1,
-                                      width: "150px"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("img", {
-                                    staticClass: "skill_icon",
-                                    attrs: {
-                                      src: _vm.storage + _vm.u_skillIcon2,
-                                      width: "150px"
-                                    }
-                                  })
-                                ])
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "name_container" }, [
-                          _c("p", [_vm._v(_vm._s(_vm.u_skillName))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(_vm.u_skillNa_name))])
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "teble_body_right" }, [
-                    _c("h2", [_vm._v("スキル解説")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.u_skillTaxt))])
-                  ])
-                ])
-              : _vm._e()
+        { staticClass: "p-information__tabHeader" },
+        _vm._l(_vm.bottons, function(botton, index) {
+          return _c("li", { key: index }, [
+            _c(
+              "p",
+              {
+                staticClass: "p-information__tabHeader__tab-btn tab_botton",
+                attrs: { num: index },
+                on: {
+                  click: function($event) {
+                    _vm.toggleBotton($event)
+                    _vm.toggleIconShow($event)
+                  }
+                }
+              },
+              [_vm._v(_vm._s(botton))]
+            )
           ])
-        ],
-        1
-      )
-    ])
-  ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "change" } }, [
+        _vm.cheack_P
+          ? _c("div", { staticClass: "l-main-archive" }, [
+              _c("div", { class: _vm.table_body_left }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "c-main-archive__banner",
+                    style: _vm.banerColor[0].style
+                  },
+                  [_vm._v(_vm._s(_vm.bottons[0]))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.secondIconShow
+                        ? _c("div", { key: "oneSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: {
+                                src: _vm.storage + _vm.p_skillIcon1,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.secondIconShow
+                        ? _c("div", { key: "twoSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.p_skillIcon1 }
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.p_skillIcon2 }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name_container" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.p_skillName))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.p_skillNa_name))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-main-archive__right" }, [
+                _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                  _vm._v("スキル解説")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "p-main-archive__right__text" }, [
+                  _vm._v(_vm._s(_vm.p_skillTaxt))
+                ])
+              ])
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "change" } }, [
+        _vm.cheack_Q
+          ? _c("div", { staticClass: "l-main-archive" }, [
+              _c("div", { class: _vm.table_body_left }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "c-main-archive__banner",
+                    style: _vm.banerColor[1].style
+                  },
+                  [_vm._v(_vm._s(_vm.bottons[1]))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.secondIconShow
+                        ? _c("div", { key: "oneSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: {
+                                src: _vm.storage + _vm.q_skillIcon1,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.secondIconShow
+                        ? _c("div", { key: "twoSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              attrs: {
+                                src: _vm.storage + _vm.q_skillIcon1,
+                                width: "100px"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              attrs: {
+                                src: _vm.storage + _vm.q_skillIcon2,
+                                width: "100px"
+                              }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name_container" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.q_skillName))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.q_skillNa_name))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-main-archive__right" }, [
+                _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                  _vm._v("スキル解説")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "p-main-archive__right__text" }, [
+                  _vm._v(_vm._s(_vm.q_skillTaxt))
+                ])
+              ])
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "change" } }, [
+        _vm.cheack_W
+          ? _c("div", { staticClass: "l-main-archive" }, [
+              _c("div", { class: _vm.table_body_left }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "c-main-archive__banner",
+                    style: _vm.banerColor[2].style
+                  },
+                  [_vm._v(_vm._s(_vm.bottons[2]))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.secondIconShow
+                        ? _c("div", { key: "oneSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: {
+                                src: _vm.storage + _vm.w_skillIcon1,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.secondIconShow
+                        ? _c("div", { key: "twoSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.w_skillIcon1 }
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.w_skillIcon2 }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name_container" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.w_skillName))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.w_skillNa_name))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-main-archive__right" }, [
+                _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                  _vm._v("スキル解説")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "p-main-archive__right__text" }, [
+                  _vm._v(_vm._s(_vm.w_skillTaxt))
+                ])
+              ])
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "change" } }, [
+        _vm.cheack_E
+          ? _c("div", { staticClass: "l-main-archive" }, [
+              _c("div", { class: _vm.table_body_left }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "c-main-archive__banner",
+                    style: _vm.banerColor[3].style
+                  },
+                  [_vm._v(_vm._s(_vm.bottons[3]))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.secondIconShow
+                        ? _c("div", { key: "oneSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: {
+                                src: _vm.storage + _vm.e_skillIcon1,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.secondIconShow
+                        ? _c("div", { key: "twoSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.e_skillIcon1 }
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.e_skillIcon2 }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name_container" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.e_skillName))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.e_skillNa_name))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-main-archive__right" }, [
+                _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                  _vm._v("スキル解説")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "p-main-archive__right__text" }, [
+                  _vm._v(_vm._s(_vm.e_skillTaxt))
+                ])
+              ])
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "change" } }, [
+        _vm.cheack_U
+          ? _c("div", { staticClass: "l-main-archive" }, [
+              _c("div", { class: _vm.table_body_left }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "c-main-archive__banner",
+                    style: _vm.banerColor[4].style
+                  },
+                  [_vm._v(_vm._s(_vm.bottons[4]))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _vm.secondIconShow
+                        ? _c("div", { key: "oneSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: {
+                                src: _vm.storage + _vm.u_skillIcon1,
+                                alt: ""
+                              }
+                            })
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.secondIconShow
+                        ? _c("div", { key: "twoSkill" }, [
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.u_skillIcon1 }
+                            }),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "skill_icon",
+                              staticStyle: { width: "150px" },
+                              attrs: { src: _vm.storage + _vm.u_skillIcon2 }
+                            })
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "name_container" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.u_skillName))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.u_skillNa_name))])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-main-archive__right" }, [
+                _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                  _vm._v("スキル解説")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "p-main-archive__right__text" }, [
+                  _vm._v(_vm._s(_vm.u_skillTaxt))
+                ])
+              ])
+            ])
+          : _vm._e()
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42106,57 +41490,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "status_wrapper" }, [
-    _c("h3", [_vm._v("プレイ感")]),
+  return _c("div", { staticClass: "l-information-left" }, [
+    _c("h3", { staticClass: "p-information__header" }, [_vm._v("プレイ感")]),
     _vm._v(" "),
-    _c("div", { staticClass: "status_container" }, [
-      _c("div", { staticClass: "status_keybox" }, [
-        _c("ul", [
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(_vm.attackData.name))]),
-            _vm._v(" "),
-            _c("span", {
-              style: _vm.attackData.color,
-              domProps: { innerHTML: _vm._s(_vm.st_att) }
-            })
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(_vm.magicData.name))]),
-            _vm._v(" "),
-            _c("span", {
-              style: _vm.magicData.color,
-              domProps: { innerHTML: _vm._s(_vm.st_mag) }
-            })
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(_vm.toughnessData.name))]),
-            _vm._v(" "),
-            _c("span", {
-              style: _vm.toughnessData.color,
-              domProps: { innerHTML: _vm._s(_vm.st_tou) }
-            })
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(_vm.mobilityData.name))]),
-            _vm._v(" "),
-            _c("span", {
-              style: _vm.mobilityData.color,
-              domProps: { innerHTML: _vm._s(_vm.st_mob) }
-            })
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("p", [_vm._v(_vm._s(_vm.difficultyData.name))]),
-            _vm._v(" "),
-            _c("span", {
-              style: _vm.difficultyData.color,
-              domProps: { innerHTML: _vm._s(_vm.st_dif) }
-            })
-          ])
-        ])
+    _c("div", { staticClass: "p-information__section" }, [
+      _c("li", [
+        _c("p", { staticClass: "p-information__section__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.attackData.name))
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "p-information__section--square",
+          style: _vm.attackData.color,
+          domProps: { innerHTML: _vm._s(_vm.st_att) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("p", { staticClass: "p-information__section__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.magicData.name))
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "p-information__section--square",
+          style: _vm.magicData.color,
+          domProps: { innerHTML: _vm._s(_vm.st_mag) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("p", { staticClass: "p-information__section__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.toughnessData.name))
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "p-information__section--square",
+          style: _vm.toughnessData.color,
+          domProps: { innerHTML: _vm._s(_vm.st_tou) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("p", { staticClass: "p-information__section__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.mobilityData.name))
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "p-information__section--square",
+          style: _vm.mobilityData.color,
+          domProps: { innerHTML: _vm._s(_vm.st_mob) }
+        })
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("p", { staticClass: "p-information__section__item" }, [
+          _vm._v("\n                        " + _vm._s(_vm.difficultyData.name))
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "p-information__section--square",
+          style: _vm.difficultyData.color,
+          domProps: { innerHTML: _vm._s(_vm.st_dif) }
+        })
       ])
     ])
   ])
@@ -42185,19 +41580,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "l-main" },
     [
       _c("ChanpionPageTop", {
         key: _vm.currentChampionId,
         attrs: { data: _vm.$attrs.chanpionDatas[_vm.key] }
       }),
       _vm._v(" "),
-      _c("p", { staticClass: "main_text" }, [
+      _c("p", { staticClass: "p-hero__featureText" }, [
         _vm._v(_vm._s(_vm.$attrs.chanpionDatas[_vm.key].feature))
       ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "chanpion_stetus_data" },
+        { staticClass: "l-main-container l-information" },
         [
           _c("ChanpionStatus", {
             key: _vm.currentChampionId,
@@ -42215,12 +41611,42 @@ var render = function() {
       _c("ChanpionPageTag", {
         key: _vm.currentChampionId,
         attrs: { data: _vm.currentTagData, tags: _vm.$attrs.tags }
-      })
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "l-footer" }, [
+        _c(
+          "div",
+          { staticClass: "footer_body_container" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.footerDatas, function(footerData) {
+              return _c("Footer", {
+                key: footerData.id,
+                attrs: { data: footerData }
+              })
+            })
+          ],
+          2
+        )
+      ])
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c("img", {
+        staticClass: "footer_logo",
+        attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -61265,9 +60691,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=template&id=42079f31&scoped=true&");
 /* harmony import */ var _ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -61275,7 +60699,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ChanpionPageTop_vue_vue_type_template_id_42079f31_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -61304,22 +60728,6 @@ component.options.__file = "resources/js/components/chanpionPage/ChanpionPageTop
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&":
-/*!***************************************************************************************************************************!*\
-  !*** ./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTop.vue?vue&type=style&index=0&id=42079f31&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTop_vue_vue_type_style_index_0_id_42079f31_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -61439,9 +60847,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=template&id=6a14a852&scoped=true&");
 /* harmony import */ var _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -61449,7 +60855,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ChanpionStatus_vue_vue_type_template_id_6a14a852_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -61478,22 +60884,6 @@ component.options.__file = "resources/js/components/chanpionPage/ChanpionStatus.
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&":
-/*!**************************************************************************************************************************!*\
-  !*** ./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionStatus.vue?vue&type=style&index=0&id=6a14a852&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionStatus_vue_vue_type_style_index_0_id_6a14a852_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -61526,9 +60916,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_vue_vue_type_template_id_4ce65285_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Layout.vue?vue&type=template&id=4ce65285&scoped=true& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=template&id=4ce65285&scoped=true&");
 /* harmony import */ var _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -61536,7 +60924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Layout_vue_vue_type_template_id_4ce65285_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Layout_vue_vue_type_template_id_4ce65285_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -61565,22 +60953,6 @@ component.options.__file = "resources/js/components/chanpionPage/Layout.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& ***!
-  \******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/Layout.vue?vue&type=style&index=0&id=4ce65285&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Layout_vue_vue_type_style_index_0_id_4ce65285_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

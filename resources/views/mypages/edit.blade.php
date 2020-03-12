@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container col-12 col-md-9">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-12 col-md-10 col-lg-6">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Profile Editer') }}</div>
 
@@ -12,11 +12,11 @@
                             @csrf
 
 <!-- 名前・英名 -->
-                        <div class="container mt-4">
+                        <div class="container my-5">
                             <div class="form-group row">
-                                <label for="name" class="col col-form-label mb-3">{{ __('user_name') }}</label>
+                                <label for="name" class="col-sm-12 col-lg-4 col-form-label mb-3 text-center">{{ __('user_name') }}</label>
 
-                                <div class="col">
+                                <div class="col-sm-10 col-lg-6" style="margin: 0 auto">
                                     <input 
                                     id="name" 
                                     type="text" 
@@ -35,7 +35,7 @@
                         </div>
 <!-- 名前・英名 END -->
 
-                        <div class="container text-center mt-4">
+                        <div class="container text-center my-4">
                             <div class="form-group row">
                                 <div class="col">
                                     <button type="submit" class="btn btn-primary px-5">

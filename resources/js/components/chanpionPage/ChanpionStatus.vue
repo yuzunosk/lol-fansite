@@ -1,40 +1,40 @@
 <template>
-    <div class="status_wrapper">
-        <h3>プレイ感</h3>
-        <div class="status_container">
-            <div class="status_keybox">
-                <ul>
+    <div class="l-information-left">
+        <h3 class="p-information__header">プレイ感</h3>
+        <div class="p-information__section">
                     <!-- attack -->
                     <li>
-                        <p>{{ attackData.name }}</p>
-                        <span :style="attackData.color" v-html="st_att"></span>
+                        <p class="p-information__section__item">
+                            {{ attackData.name }}</p>
+                        <span class="p-information__section--square" :style="attackData.color" v-html="st_att"></span>
                     </li>
                     <!-- magic -->
                     <li>
-                        <p>{{ magicData.name }}</p>
-                        <span :style="magicData.color" v-html="st_mag"></span>
+                        <p class="p-information__section__item">
+                            {{ magicData.name }}</p>
+                        <span class="p-information__section--square" :style="magicData.color" v-html="st_mag"></span>
                     </li>
                     
                     <!-- toughness -->
                     <li>
-                        <p>{{ toughnessData.name }}</p>
-                        <span :style="toughnessData.color" v-html="st_tou"></span>
+                        <p class="p-information__section__item">
+                            {{ toughnessData.name }}</p>
+                        <span class="p-information__section--square" :style="toughnessData.color" v-html="st_tou"></span>
                     </li>
 
                     <!-- mobility -->
                     <li>
-                        <p>{{ mobilityData.name }}</p>
-                        <span :style="mobilityData.color" v-html="st_mob"></span>
+                        <p class="p-information__section__item">
+                            {{ mobilityData.name }}</p>
+                        <span class="p-information__section--square" :style="mobilityData.color" v-html="st_mob"></span>
                     </li>
 
                     <!-- difficulty -->
                     <li>
-                        <p>{{ difficultyData.name }}</p>
-                        <span :style="difficultyData.color" v-html="st_dif"></span>
+                        <p class="p-information__section__item">
+                            {{ difficultyData.name }}</p>
+                        <span class="p-information__section--square" :style="difficultyData.color" v-html="st_dif"></span>
                     </li>
-
-                </ul>
-            </div>
         </div>
     </div>
 </template>
@@ -107,30 +107,6 @@ export default {
 </script>
 
 <style scoped>
-.status_wrapper{
-    margin: 18px 0;
-}
-.status_wrapper p{
-    margin: 0;
-}
-.status_container{
-    display: flex;
-    justify-content: space-between;
-    letter-spacing: 1px;
-}
-.status_wrapper h3{
-    font-size: 24px;
-    padding: 8px 30px;
-    background: #333;
-    border-radius: 5%;
-    text-align: center;
-    color: #f6f5f4;
-    margin-bottom: 20px;
-}
-.status_wrapper p{
-    font-size: 14px;
-    margin: 5px 0;
-}
 
 
 </style>

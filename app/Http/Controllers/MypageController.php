@@ -17,16 +17,19 @@ use Illuminate\Foundation\Console\Presets\React;
 
 class MypageController extends Controller
 {
-    public function indexMypage(){
+    public function indexMypage(Request $request){
         //今ログインしているユーザーの登録情報を取得する
         $chanpionsData = Auth::user()->chanpions()->orderBy('id', 'desc')->paginate(8);
         $tagDatas      = Tag::all();
         $rollDatas     = Roll::all();
         $tagBoxDatas   = TagBox::all();
+        $sort          = $request->sort;
+        $roll          = $request->roll;
+        $tag           = $request->tag;
 
         Log::info('タグボックスデータ'.$tagBoxDatas);
 
-        return view('mypages.index' , compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas']));
+        return view('mypages.index' , compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','roll','tag']));
     }
 
     public function showProfile(){

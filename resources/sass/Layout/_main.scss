@@ -1,0 +1,85 @@
+// ==============================
+// main
+// ==============================
+.l-main{
+    width: 100%;
+    // max-width :1280px;
+    height: auto;
+    &-container {
+        width: $content-width;
+   }
+}
+
+// ==============================
+// Layout
+// ==============================
+.l-news {
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.l-products {
+    background: #e6e6e6;
+    padding-bottom: 100px; //conponent側で調整していく
+}
+// -------------------------------
+// chanpion page
+// -------------------------------
+.l-hero {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 30rem; //縦の高さもレスポンシブにする必要がある
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 85%;
+      &-imgArea{
+      flex: 6;
+      order: 1;
+      height: 100%;
+      }
+      &-listArea{
+      flex: 4;
+      }
+}
+
+.l-information{
+    display: flex;
+    height: auto;
+    margin: $space__3l auto 0;
+    width: 85%;
+    &-left{
+      flex: 1;
+      height: 100%;
+    }
+    &-right{
+      flex: 4;
+      height: 100%;
+
+    }
+}
+.l-main-archive{
+    @include absPosition($top: 0,$left: 0);
+    border: 2px solid $base-color__default;
+    border-radius: 5px 0 5px 5px;
+    display: flex;
+    margin-bottom: $space__3l;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.l-tagGroup{
+    height: 300px;
+    margin: 0 auto;
+    width: 85%;
+}
+
+.js_l_main_archive__left{
+    background: $base-color__primary;
+    padding: $space__xxl;
+    text-align: center;
+}

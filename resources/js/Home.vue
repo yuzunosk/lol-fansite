@@ -7,7 +7,7 @@
           <div v-show="!loading">
 
 <!-- header -->
-    <div class="header-content">
+    <div class="l-header">
         <LikeHeader></LikeHeader>
 <!-- header_navigation -->
     <div class="header-link-item">
@@ -36,9 +36,10 @@
   </div>
 <!-- header end -->
 
+<div id="l-main">
     <HeroSlider></HeroSlider>
 
-    <div class="news_container">
+    <div class="l-main-container-news">
       <div class="news_header">
         <h2 class="sub_title news_title">更新情報<span class="sub_title_item">NEWS</span></h2>
         <button @click="clickUpdateNews" class="news_List_button" type="button"><span>一覧を見る</span></button>
@@ -51,7 +52,7 @@
       </News>
     </div>
 
-    <div class="chanpion_data_container">
+    <div class="l-main-container-products">
       <h2 class="sub_title center">- Chanpions - </h2>
         <div class="chanpion_card_holder">
               <ChanpionData
@@ -79,9 +80,10 @@
             </div>
         </div>
 
+    </div>
 
 <!-- footer -->
-        <div class="footer_container">
+        <div class="l-footer">
           <div class="footer_body_container">
             <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
             <Footer
@@ -92,97 +94,12 @@
             </Footer>
           </div>
         </div>
+<!-- footer END -->
 
 
-<div v-if="formShow" style="padding: 10rem;font-size:1.1rem;">
-  <h2>イベントフォーム</h2>
-<EventTitle v-model="eventData.title"></EventTitle>
-
-    <label for="maxNumber">最大人数</label>
-  <input
-  id="maxNumber"
-  type="number"
-  v-model.number="eventData.maxNumber"
-  >
-  <p>{{ typeof eventData.maxNumber }}</p>
-
-      <label for="host">主催者</label>
-  <input
-  id="host"
-  type="text"
-  v-model.trim="eventData.host"
-  >
-  <pre>{{ eventData.host }}</pre>
-  <label for="detail">イベントの内容</label>
-<textarea id="detail" cols="50" rows="5" v-model="eventData.detail">
-</textarea>
-<p style="white-space:pre">  {{ eventData.detail }}</p>
-
-<!-- 単体チェックボックス -->
-<input 
-type="checkbox"
-id="isPrivate"
-v-model="eventData.isPrivate"
->
-<label for="isPrivate">非公開</label>
-<p>{{ eventData.isPrivate }}</p>
-
-<!-- 複数チェックボックス -->
-<p>参加条件</p>
-<input 
-type="checkbox" 
-id="10" 
-value="10代"
-v-model="eventData.target"
->
-<label for="10">10代</label>
-
-<input 
-type="checkbox" 
-id="20" 
-value="20代"
-v-model="eventData.target"
->
-<label for="20">20代</label>
-
-<input 
-type="checkbox" 
-id="30" 
-value="30代"
-v-model="eventData.target"
->
-<label for="30">30代</label>
-<p>{{ eventData.target }}</p>
-<p>参加費</p>
-<input 
-type="radio"
- id="free"
-  value="無料"
-  v-model="eventData.price"
-  >
-<label for="free">無料</label>
-<!-- ラジオボタン -->
-<input
-type="radio"
- id="paid"
-  value="有料"
-  v-model="eventData.price"
-  >
-<label for="paid">有料</label>
-<p>{{ eventData.price }}</p>
-
-<!-- セレクトボックス -->
-<p>開催場所</p>
-<select v-model="eventData.location" multiple>
-  <option v-for="location in locations"
-  :key="location"
-  >{{ location }}</option>
-</select>
-<p>{{ eventData.location }}</p>
-
-   </div>
   </div>
-    </transition>
+
+</transition>
 
 </div>
 </template>
@@ -394,23 +311,6 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 /* @import ResetCss from ".././public/reset"; */
 
-    .header-content{
-    width: 100%;
-    margin: 0 auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    height: 100px;
-    position: relative;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    }
 
     .header-link-item{
       width: 600px;
@@ -442,13 +342,13 @@ export default {
       padding-bottom: 30px;
     }
 
-    .news_container{
+    /* .news_container{ */
       /* display: flex;
       justify-content: space-between; */
-      width: 980px;
-      margin: 0 auto;
-      margin-bottom: 100px;
-    }
+      /* margin: 0 auto;
+      margin-bottom: 100px; */
+    /* } */
+
     .news_container .test:last-child {
     border-bottom: 1px dashed #333;
 }
@@ -510,11 +410,10 @@ export default {
       color: #fff;
       transition: .3s;
     }
-    .chanpion_data_container{
+    /* .chanpion_data_container{
     background: #e6e6e6;
-    padding-bottom: 100px;
-
-    }
+    padding-bottom: 100px; */
+    /* } */
     .chanpion_card_holder{
     display: flex;
     justify-content: center;
@@ -559,12 +458,6 @@ export default {
 
     /* ページネートCSS END */
 
-
-    .footer_container{
-    background: #131313;
-    padding: 100px 0;
-    margin: 0 auto;
-    }
     .footer_body_container{
       width: 1280px;
       margin: 0 auto;

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="letter-spacing: .05rem;">
+<div class="col-sm-12 col-md-9 col-lg-10" style="letter-spacing: .05rem;">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8 col-md-12">
             <div class="card">
                 <div class="card-header text-center">{{ __('ChanpionRegister') }}</div>
 
@@ -14,12 +14,12 @@
                     <div class="container mb-1 p-0">
                         <div class="form-group row">
 
-                                <label for="name" class="col-md-2 col-4 col-form-label mb-1">
+                                <label for="name" class="col-4 col-lg-2  col-form-label mb-3">
                                 {{ __('name') }}
-                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                <span class="badge badge-danger py-1 ml-1">必須</span>
                                 </label>
 
-                                <div class="col-md-4 col-8">
+                                <div class="col-8 col-lg-4 mb-3">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                     @error('name')
@@ -29,12 +29,12 @@
                                     @enderror
                                 </div>
 
-                                <label for="sub_name" class="col-md-2 col-4 col-form-label mb-1">
+                                <label for="sub_name" class="col-4 col-lg-2 col-form-label mb-1">
                                 {{ __('sub_name') }}
-                                <span class="badge badge-danger py-1 ml-2">必須</span>
+                                <span class="badge badge-danger py-1 ml-1">必須</span>
                                 </label>
 
-                                <div class="col-md-4 col-8">
+                                <div class="col-8 col-lg-4 ">
                                     <input id="sub_name" type="text" class="form-control @error('sub_name') is-invalid @enderror" name="sub_name" value="{{ old('sub_name') }}" autocomplete="sub_name" autofocus>
 
                                     @error('sub_name')

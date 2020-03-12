@@ -1,0 +1,86 @@
+// ==========================================================
+// Project
+// ==========================================================
+// -------------------------
+//chanpion data
+// -------------------------
+.p-hero__data{
+    color: $font-color__secondary;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: $font-size__s;
+    @include absPosition($right: 2% , $bottom: 10%);
+  }
+
+.p-hero__featureText{
+    background: $sub-color;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: $font-size__l;
+    justify-content: center;
+    margin: 0;
+    padding: $space__m;
+    text-align: center;
+    width: 100%;
+}
+
+// -------------------------
+//  information
+// -------------------------
+.p-information__header{
+    background: $base-color__default;
+    border-radius: 3%;
+    color: $font-color__secondary;
+    font-size: $font-size__xl;
+    margin: 50px 0 30px 0;
+    text-align: center;
+    width: 60%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.p-information__tabHeader{
+    width: 980px;
+    display: flex;
+    justify-content: flex-end;
+
+    &__tab-btn{
+        width: 100px;
+        text-align: center;
+        height: 45px;
+        line-height: 45px;
+        margin: 0;
+        font-size: $font-size__s;
+        border-top: 2px solid $base-color__default;
+        border-radius: 10% 10% 0 0;
+        border-bottom: none;
+        border-right: 1px solid $base-color__default;
+        border-left: 1px solid $base-color__default;
+          &:hover{
+            cursor: pointer;
+            color: $base-color__primary;
+            background-color: $base-color__default;
+            transition: all .3s;
+          }
+    }
+}
+
+.p-main-archive{
+    &__right{
+        box-sizing: border-box;
+        flex: 6;
+        text-align: left;
+        padding: $space__xxl;
+          &__title{
+            margin: 0;
+            margin-bottom: $space__s;
+          }
+          &__text{
+            font-size: $font-size__l;
+            margin: 0;
+          }
+    }
+}
+
+

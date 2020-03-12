@@ -1,5 +1,5 @@
 <template>
-    <div class="chanpion_tag_container">
+    <div class="l-main-container l-tagGoup">
         <div class="tag_title">
         <h3><img src="/storage/img/logo/perm_data_setting-24px.svg" alt="" width="25px;">メカニクス</h3>
         </div>
@@ -32,11 +32,11 @@ export default {
 </script>
 
 <style scoped>
-    .chanpion_tag_container {
+    /* .chanpion_tag_container {
         width: 1280px;
         height: 300px;
         margin: 0 auto;
-    }
+    } */
     .tag_title img{
     vertical-align: text-top;
     margin-right: 10px;

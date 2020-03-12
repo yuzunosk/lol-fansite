@@ -1,0 +1,23 @@
+// ==================================
+// header
+// ==================================
+.l-header{
+    align-items: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    color: $font-color__default;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    height: 10rem;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    margin: 0 auto;
+    position: relative;
+    transition: .3s;
+    width: 100%;
+    z-index: 2;
+    }

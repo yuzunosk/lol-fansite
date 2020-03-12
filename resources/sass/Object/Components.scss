@@ -1,0 +1,135 @@
+// ==========================================================
+// Component
+// ==========================================================
+.c-hero-listArea{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: flex-start;
+    margin-top: $space__3l;
+
+      &__text{
+      align-self: center;
+      color: $font-color__secondary;
+        @include notlast{
+            margin-bottom: $space__m;
+        }
+      }
+      &__header{
+        font-size: $font-size__xxl;
+      }
+      &__subTitle{
+        font-size: $font-size__s;
+      }
+      &__hr{
+        margin: 10px auto;
+        width: 85%;
+        background-color: $base-color__primary;
+      }
+      &__lead{
+          font-size: $font-size__xl;
+          margin-bottom: $space__l;
+      }
+      &-unit{
+          display: flex;
+          width: 70%;
+        //   margin-bottom: 0;
+         &__item{
+            background: lighten($base-color__secondary ,15%);
+            border: 1.5px solid $base-color__primary;
+            flex: 1;
+            height: $space__3l;
+            line-height: $space__3l;
+            padding-left: 25%;
+            position: relative;
+
+            &--right{
+                margin-left: $space__xl;
+            }
+            &::before{
+                content: "MAIN";
+                text-align: center;
+                background: $base-color__primary;
+                font-weight: bold;
+                height: -webkit-fill-available;
+                @include absPosition($left:0);
+                color: $font-color__default;
+                width: 35%;
+            }
+            @include last{
+                &::before{
+                    content: "SUB";
+                    background: $base-color__primary;
+                }
+
+            }
+         }
+      }
+      &-costList{
+        align-items: center;
+        color: $font-color__secondary;
+        display: flex;
+        font-size: $font-size__default;
+        justify-content: center;
+        width: 50%;
+        &__item{
+            // padding: $space__m;
+        }
+        &__right{
+            margin-left: $space__xl;
+        }
+        &__img{
+            // vertical-align: center;
+            width: 30%;
+        }
+      }
+}
+
+// ------------------------------------------------
+// information
+// ------------------------------------------------
+.p-information__section{
+  display: flex;
+  font-size: $font-size__default;
+  flex-direction: column;
+    &__item{
+      font-size: $font-size__default;
+      margin-bottom: 0;
+    }
+    &--square{
+        border-radius: 2%;
+        font-size: $font-size__l;
+    }
+
+}
+
+// ------------------------------------------------
+// buner
+// ------------------------------------------------
+.c-hero-section{
+    &::before{
+        content: "・Chanpion Guide";
+        @include absPosition($top: 0,$left: 0);
+        color:$font-size__default;
+        background: $banner-color;
+        float: center;
+        font-size: $font-size__default;
+        font-weight: bold;
+        padding: 8px 10px 8px 5px;
+        text-align: center;
+        transform: rotate(-10deg);
+      }
+}
+
+.c-main-archive__banner {
+    @include absPosition($top: 7%,$left: -5%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #39ff0a;
+    width: 200px;
+    height: 30px;
+    font-size: $font-size__l;
+    transform: rotate(-37deg);
+    z-index: 2;
+}

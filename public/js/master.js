@@ -6650,7 +6650,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.imgContent[data-v-45534950] {\n   width: 90%;\n    max-width: 700px;\n    margin:auto;\n     margin-bottom:40px;\n}\n.imagePreview[data-v-45534950] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n     margin-bottom:30px;\n     position: relative;\n}\n.imgFile[data-v-45534950]{\n   width: 100%;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input[data-v-45534950] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input[data-v-45534950]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.fileUpload[data-v-45534950] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.imgContent[data-v-45534950] {\n   width: 90%;\n    max-width: 700px;\n    margin:auto;\n     margin-bottom:40px;\n}\n.imagePreview[data-v-45534950] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n     margin-bottom:30px;\n     position: relative;\n}\n.imgFile[data-v-45534950]{\n   width: 100%;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input[data-v-45534950] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input[data-v-45534950]:hover{\n   border: 2px dotted #333;\n   transition: border .5s;\n}\n.fileUpload[data-v-45534950] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
 
 // exports
 
@@ -6669,7 +6669,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.skill_icon_container[data-v-a98446fc]{\n  display: -webkit-box;\n  display: flex;\n  position: relative;\n}\n.imgContent[data-v-a98446fc] {\n    max-width: 300px;\n    margin:auto;\n    margin-bottom:40px;\n}\n.imagePreview_1[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imagePreview_2[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imgFile[data-v-a98446fc]{\n   width: 300px;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input_1[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    left: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_2[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    right: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_1[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.file_input_2[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.fileUpload[data-v-a98446fc] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.skill_icon_container[data-v-a98446fc]{\n  display: flex;\n  position: relative;\n}\n.imgContent[data-v-a98446fc] {\n    max-width: 300px;\n    margin:auto;\n    margin-bottom:40px;\n}\n.imagePreview_1[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imagePreview_2[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imgFile[data-v-a98446fc]{\n   width: 300px;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input_1[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    left: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_2[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    right: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_1[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   transition: border .5s;\n}\n.file_input_2[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   transition: border .5s;\n}\n.fileUpload[data-v-a98446fc] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
 
 // exports
 
@@ -38210,8 +38210,8 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h5", { staticClass: "col-12" }, [_vm._v("スキル画像をアップロード")]),
     _vm._v(" "),
-    _c("div", { staticClass: "skill_icon_container" }, [
-      _c("div", { staticClass: "imgContent" }, [
+    _c("div", { staticClass: "skill_icon_container row col-12" }, [
+      _c("div", { staticClass: "imgContent col-12 mb-3" }, [
         _c("div", { staticClass: "imagePreview_1" }, [
           _c("img", {
             staticClass: "imgFile",
@@ -38226,7 +38226,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "imgContent" }, [
+      _c("div", { staticClass: "imgContent col-12 mb-3" }, [
         _c("div", { staticClass: "imagePreview_2" }, [
           _c("img", {
             staticClass: "imgFile",

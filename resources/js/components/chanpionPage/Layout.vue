@@ -1,6 +1,6 @@
 <template>
 <!-- チャンピオンページのレイアウト -->
-    <div>
+    <div class="l-main">
         
         <ChanpionPageTop
            :key="currentChampionId"
@@ -9,9 +9,9 @@
             <!-- チャンピオンTOP image -->
             <!-- <p>チャンピオン画像など</p> -->
         </ChanpionPageTop>
-        <p class="main_text">{{ $attrs.chanpionDatas[key].feature }}</p>
+          <p class="p-hero__featureText">{{ $attrs.chanpionDatas[key].feature }}</p>
 
-        <div class="chanpion_stetus_data">
+        <div class="l-main-container l-information">
             <!-- チャンピオン簡易ステータスコンポーネント -->
             <ChanpionStatus
                 :key="currentChampionId"
@@ -34,6 +34,20 @@
            :tags="$attrs.tags"
         >
         </ChanpionPageTag>
+
+        <!-- footer -->
+        <div class="l-footer">
+          <div class="footer_body_container">
+            <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
+            <Footer
+              v-for="footerData in footerDatas"
+              :key="footerData.id"
+              :data="footerData"
+            >
+            </Footer>
+          </div>
+        </div>
+<!-- footer END -->
     </div>
 </template>
 
@@ -139,20 +153,5 @@ export default {
 </script>
 
 <style scoped>
-    .main_text{
-    margin: 0;
-    width: 100%;
-    font-size: 1.5rem;
-    color: #333;
-    padding: 10px;
-    text-align: center;
-    background: #e6e6e6;
-    }
 
-.chanpion_stetus_data{
-    display: flex;
-    width: 1280px;
-    height: 500px;
-    margin: 35px auto;
-}
 </style>

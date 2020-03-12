@@ -1,7 +1,7 @@
     <div class="d-flex justify-content-between bg-light text-center mb-5" style="font-size: 18px;letter-spacing:.1rem;height:50px;line-height:50px;">
     <span class="justify-content-start ml-2" style="letter-spacing:.1rem;">{{ $paginator->total() }}件のデータが見つかりました</span>
     
-    <div class="mr-2">
+    <div class="mr-2 d-none d-md-block">
     <span>{{ $paginator->firstItem() }}-{{ $paginator->lastItem() }}件</span>/<span>{{ $paginator->total() }}件中</span>
     </div>
     </div>
@@ -11,7 +11,7 @@
         {{-- First Page Link --}}
             <!-- 最初のページへのリンク -->
         <!-- <p class="btn btn-sm mr-1 border-dark text-dark" style="border-radius: 0;" disabled>Page{{ $paginator->firstItem() }} of {{ $paginator->lastItem() }}</p> -->
-        <li class="page-item {{ $paginator->onFirstPage() ? 'd-none' : '' }}">
+        <li class="d-none d-md-block page-item {{ $paginator->onFirstPage() ? 'd-none' : '' }}">
             <a class="text-dark page-link" href="{{ $paginator->url(1) }}">&laquo; Prev</a>
         </li>
 
@@ -66,7 +66,7 @@
             </li>
 
         {{-- Last Page Link --}}
-            <li class="page-item {{ $paginator->currentPage() == $paginator->lastPage() ? 'd-none' : '' }}">
+            <li class="d-none d-md-block page-item {{ $paginator->currentPage() == $paginator->lastPage() ? 'd-none' : '' }}">
                 <a class="text-dark page-link" href="{{ $paginator->url($paginator->lastPage()) }}">Last &raquo;</a>
             </li>
     </ul>
