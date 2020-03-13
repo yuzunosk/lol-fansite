@@ -9,8 +9,11 @@
 <!-- header -->
     <div class="l-header">
         <LikeHeader></LikeHeader>
+        <!-- スクロールテスト -->
+          <!-- <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div> -->
+
 <!-- header_navigation -->
-    <div class="header-link-item">
+    <div :class="jsFloatMenuTurget">
         <HeaderLink
           :id="linkDatas[0].id"
           :data="linkDatas[0]"
@@ -123,6 +126,12 @@ export default {
      totalPage: 5,
      loading: true,
      count: this.chanpionDatas.length, //アイテム総数
+     scrollY: 0,
+     //js-toggle-class
+     jsFloatMenuTurget: {
+       header_link_item: true,
+       float_active: false,
+     },
      //ページング
      prev_A: {
        paginate_btn: true,
@@ -225,9 +234,6 @@ export default {
     Footer,
     Loading,
   },
-    destroyed() {
-    window.removeEventListener('scroll', this.handleScroll);
-    },
   methods: {
     incrementNumber(value) {
       this.number = value
@@ -249,10 +255,14 @@ export default {
      return this.totalPage = Math.ceil(this.chanpionDatas.length / this.perPage);
     },
 
+    culcScrollY() {
+      return this.scrollY = window.scrollY;
+    },
+
   },
   computed: {
     //  getItems() {
-    //    //開始位置をstartで、終了位置をcurrent
+      //    //開始位置をstartで、終了位置をcurrent
     //   let current = this.currentPage * this.parPage;//現在のページが1で１ページ辺りの表示数parPageをかける
     //   let start = current - this.parPage;
     //   return this.chanpionDatas.slice(start, current);
@@ -268,19 +278,19 @@ export default {
     return this.chanpionDatas.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
     },
     prev4() {
-       return this.currentPage - 4;
+      return this.currentPage - 4;
      },
     prev3() {
-       return this.currentPage - 3;
+      return this.currentPage - 3;
      },
     prev2() {
        return this.currentPage - 2;
      },
     prev1() {
-       return this.currentPage - 1;
+      return this.currentPage - 1;
      },
     nowPage() {
-       return this.currentPage;
+      return this.currentPage;
      },
     next1() {
        return this.currentPage + 1;
@@ -289,20 +299,31 @@ export default {
        return this.currentPage + 2;
      },
     next3() {
-       return this.currentPage + 3;
+      return this.currentPage + 3;
      },
     next4() {
-       return this.currentPage + 4;
+      return this.currentPage + 4;
      },
-   },
-    mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
-      // this.totalPageCount();
-      this.getItems();
+     floatHeader() {
+       if(this.scrollY >= 90){
+         this.toggleClassFloatActive();
+       }
+     },
+      toggleClassFloatActive() {
+        this.float_active = !this.float_active;
     },
+   },
+   mounted() {
+     setTimeout(() => {
+       this.loading = false;
+     }, 1000);
+     // this.totalPageCount();
+   this.getItems;
+   window.addEventListener('scroll', this.culcScrollY);
+   },
+   beforeDestroy() {
+   window.removeEventListener('scroll', this.culcScrollY);
+ },
 };
 </script>
 
@@ -312,14 +333,7 @@ export default {
 /* @import ResetCss from ".././public/reset"; */
 
 
-    .header-link-item{
-      width: 600px;
-      display: flex;
-      justify-content: flex-end;
-      height: 100px;
-      line-height: 100px;
-      padding-right: 70px;
-    }
+
 
     .sub_title{
       font-size: 20px;
@@ -422,6 +436,24 @@ export default {
     width: 1280px;
     margin: 0 auto;
     }
+    /* js */
+    .header_link_item{
+      background: rdba(255, 255, 255);
+      width: 60%;
+      display: flex;
+      justify-content: flex-end;
+      height: 100px;
+      line-height: 100px;
+      padding-right: 70px;
+      position: fixed;
+      transition: .3s;
+      z-index: 2;
+    }
+
+    .float_active{
+      background: rdba(255, 255, 255, .9);
+      transition: .3s;
+    }
 
     /* ページネートCSS */
     .paginate_container{
@@ -457,6 +489,8 @@ export default {
     }
 
     /* ページネートCSS END */
+
+
 
     .footer_body_container{
       width: 1280px;

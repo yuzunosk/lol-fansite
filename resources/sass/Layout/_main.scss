@@ -45,35 +45,58 @@
       flex: 4;
       }
 }
+// -------------------------------
+// informatiom
+// -------------------------------
 
 .l-information{
     display: flex;
-    height: auto;
-    margin: $space__3l auto 0;
+    flex-wrap: wrap;
+    height: 400px;
+    margin: $space__4l auto $space__4l;
     width: 85%;
+    @include mq() {
+      width: 100%;
+      margin: 0;
+    }
     &-left{
       flex: 1;
-      height: 100%;
+      width: calc(30% - #{$space__l});
+      margin-right: $space__l;
+       @include mq() {
+         width: 100%;
+         margin: 0;
     }
     &-right{
       flex: 4;
-      height: 100%;
-
+      width: calc(70% - #{$space__l});
+      @include mq(md) {
+        width: 100%;
+        margin: 0;
+   }
     }
 }
+}
+
+// -------------------------------
+// archive
+// -------------------------------
 .l-main-archive{
-    @include absPosition($top: 0,$left: 0);
+   @include absPosition($top: 0,$left: 0);
     border: 2px solid $base-color__default;
     border-radius: 5px 0 5px 5px;
     display: flex;
     margin-bottom: $space__3l;
     overflow: hidden;
-    position: relative;
     width: 100%;
+    height: 350px;
 }
 
+// -------------------------------
+// tag Group
+// -------------------------------
 .l-tagGroup{
-    height: 300px;
+    height: 25rem;
     margin: 0 auto;
     width: 85%;
 }
@@ -83,3 +106,4 @@
     padding: $space__xxl;
     text-align: center;
 }
+

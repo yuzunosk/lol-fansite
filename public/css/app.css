@@ -11320,19 +11320,42 @@ img {
 
 .l-information {
   display: flex;
-  height: auto;
-  margin: 40px auto 0;
+  flex-wrap: wrap;
+  height: 400px;
+  margin: 50px auto 50px;
   width: 85%;
+}
+
+@media screen and (max-width: 414px) {
+  .l-information {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .l-information-left {
   flex: 1;
-  height: 100%;
+  width: calc(30% - 15px);
+  margin-right: 15px;
 }
 
-.l-information-right {
+@media screen and (max-width: 414px) {
+  .l-information-left {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.l-information-left-right {
   flex: 4;
-  height: 100%;
+  width: calc(70% - 15px);
+}
+
+@media screen and (max-width: 768px) {
+  .l-information-left-right {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .l-main-archive {
@@ -11346,12 +11369,12 @@ img {
   display: flex;
   margin-bottom: 40px;
   overflow: hidden;
-  position: relative;
   width: 100%;
+  height: 350px;
 }
 
 .l-tagGroup {
-  height: 300px;
+  height: 25rem;
   margin: 0 auto;
   width: 85%;
 }
@@ -11541,21 +11564,22 @@ img {
   border-radius: 3%;
   color: #f6f5f4;
   font-size: 20px;
-  margin: 50px 0 30px 0;
+  margin: 0 0 30px 0;
   text-align: center;
-  width: 60%;
+  width: 85%;
   height: 50px;
   line-height: 50px;
 }
 
 .p-information__tabHeader {
-  width: 980px;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
 .p-information__tabHeader__tab-btn {
   width: 100px;
+  height: 100%;
   text-align: center;
   height: 45px;
   line-height: 45px;
@@ -11590,6 +11614,65 @@ img {
 .p-main-archive__right__text {
   font-size: 16px;
   margin: 0;
+}
+
+.js_p_main_iconArea {
+  background: #f6f5f4;
+  text-align: center;
+  padding: 40px;
+}
+
+.js_p_main_iconArea__area {
+  margin-top: 30px;
+}
+
+.js_p_main_iconArea__area__title {
+  font-size: 20px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.js_p_main_iconArea__area__na-title {
+  font-size: 14px;
+}
+
+.js_p_main_iconArea__icon {
+  border-radius: 10%;
+  border: 3px solid #33333324;
+  box-sizing: border-box;
+}
+
+.p-tagGroup__icon img {
+  margin-right: 10px;
+  vertical-align: text-top;
+  width: 3rem;
+}
+
+.p-tagGroup__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.p-tagGroup__list__item {
+  background: linear-gradient(white, #f6f5f4);
+  border: 1px solid #cacaca;
+  border-radius: 5%;
+  box-sizing: border-box;
+  display: block;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 8px 10px;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+  width: 20rem;
+}
+
+.p-tagGroup__list__item:hover {
+  background: #121212;
+  color: #f6f5f4;
+  transition: all 0.4s;
 }
 
 .over_move {

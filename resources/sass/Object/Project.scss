@@ -33,20 +33,21 @@
     border-radius: 3%;
     color: $font-color__secondary;
     font-size: $font-size__xl;
-    margin: 50px 0 30px 0;
+    margin: 0 0 30px 0;
     text-align: center;
-    width: 60%;
+    width: 85%;
     height: 50px;
     line-height: 50px;
 }
 
 .p-information__tabHeader{
-    width: 980px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 
     &__tab-btn{
         width: 100px;
+        height: 100%;;
         text-align: center;
         height: 45px;
         line-height: 45px;
@@ -63,9 +64,13 @@
             background-color: $base-color__default;
             transition: all .3s;
           }
-    }
+        }
+
 }
 
+// -------------------------
+//  p-main
+// -------------------------
 .p-main-archive{
     &__right{
         box-sizing: border-box;
@@ -83,4 +88,64 @@
     }
 }
 
+.js_p_main_iconArea{
+  background: $base-color__primary;
+  text-align: center;
+  padding: $space__3l;
+    &__area{
+      margin-top: $space__xxl;
+        &__title{
+          font-size: $font-size__xl;
+          margin: 0;
+          margin-top: 10px;
+        }
+        &__na-title{
+          font-size: $font-size__default;
+        }
+    }
+    &__icon{
+      border-radius: 10%;
+      border: 3px solid #33333324;
+      box-sizing: border-box;
+    }
+}
 
+// -------------------------
+//  tagGroup
+// -------------------------
+.p-tagGroup{
+  &__icon{
+      img {
+        margin-right: $space__m;
+        vertical-align: text-top;
+        width: 3rem;
+      }
+  }
+  &__list{
+      display: flex;
+      // justify-content: center; レスポンシブでオンにする
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &__item {
+        background: linear-gradient(white, #f6f5f4);
+        border: 1px solid #cacaca;
+        border-radius: 5%;
+        box-sizing: border-box;
+        display: block;
+        font-size: $space__m;
+        margin-bottom: $space__m;
+        margin-left: $space__m;
+        padding: 8px $space__m;
+        text-align: left;
+        -webkit-box-sizing: border-box;
+        width: 20rem;
+
+        &:hover{
+          background: $base-color__default;
+          color: $base-color__primary;
+          transition: all .4s;
+        }
+      }
+  }
+}

@@ -3,10 +3,13 @@
             <!-- この下からループ処理をする -->
 
             <div class="p-information__tabHeader">
+                <ul>
                         <li v-for="(botton , index) in bottons" :key="index">
                             <p class="p-information__tabHeader__tab-btn tab_botton"
                             @click="toggleBotton($event);toggleIconShow($event)" :num="index">{{ botton }}</p>
                         </li>
+                                        </ul>
+
             </div>
 
 <div class="table_body">
@@ -18,16 +21,16 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + p_skillIcon1" alt="" style="width: 150px;">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon2" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + p_skillIcon1" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + p_skillIcon2" style="width: 150px;">
                                 </div>
                             </transition>
-                            <div class="js_p_main_iconArea__area">
-                                <p class="js_p_main_iconArea__area__title">{{ p_skillName }}</p>
-                                <p class="js_p_main_iconArea__area__na-title">{{ p_skillNa_name }}</p>
+                            <div class="name_container">
+                                <p>{{ p_skillName }}</p>
+                                <p>{{ p_skillNa_name }}</p>
                             </div>
                         </div>
                     </div>
@@ -49,17 +52,17 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + q_skillIcon1" alt="" style="width: 150px;">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1" width="150px">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon2" width="10px">
+                                    <img class="skill_icon" :src="storage + q_skillIcon1" width="100px">
+                                    <img class="skill_icon" :src="storage + q_skillIcon2" width="100px">
                                 </div>
                             </transition>
 
-                            <div class="js_p_main_iconArea__area">
-                                <p class="js_p_main_iconArea__area__title">{{ q_skillName }}</p>
-                                <p class="js_p_main_iconArea__area__na-title">{{ q_skillNa_name }}</p>
+                            <div class="name_container">
+                                <p>{{ q_skillName }}</p>
+                                <p>{{ q_skillNa_name }}</p>
                             </div>
                         </div>
                     </div>
@@ -81,18 +84,18 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + w_skillIcon1" alt="" style="width: 150px;">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1"  style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon2" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + w_skillIcon1"  style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + w_skillIcon2" style="width: 150px;">
                                 </div>
                             </transition>
 
 
-                            <div class="js_p_main_iconArea__area">
-                                <p class="js_p_main_iconArea__area__title">{{ w_skillName }}</p>
-                                <p class="js_p_main_iconArea__area__na-title">{{ w_skillNa_name }}</p>
+                            <div class="name_container">
+                                <p>{{ w_skillName }}</p>
+                                <p>{{ w_skillNa_name }}</p>
                             </div>
                         </div>
                     </div>
@@ -114,16 +117,16 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + e_skillIcon1" alt="" style="width: 150px;">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon2" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + e_skillIcon1" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + e_skillIcon2" style="width: 150px;">
                                 </div>
                             </transition>
-                            <div class="js_p_main_iconArea__area">
-                                <p class="js_p_main_iconArea__area__title">{{ e_skillName }}</p>
-                                <p class="js_p_main_iconArea__area__na-title">{{ e_skillNa_name }}</p>
+                            <div class="name_container">
+                                <p>{{ e_skillName }}</p>
+                                <p>{{ e_skillNa_name }}</p>
                             </div>
                         </div>
                     </div>
@@ -145,16 +148,16 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + u_skillIcon1" alt="" style="width: 150px;">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon2" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + u_skillIcon1" style="width: 150px;">
+                                    <img class="skill_icon" :src="storage + u_skillIcon2" style="width: 150px;">
                                 </div>
                             </transition>
-                            <div class="js_p_main_iconArea__area">
-                                <p class="js_p_main_iconArea__area__title">{{ u_skillName }}</p>
-                                <p class="js_p_main_iconArea__area__na-title">{{ u_skillNa_name }}</p>
+                            <div class="name_container">
+                                <p>{{ u_skillName }}</p>
+                                <p>{{ u_skillNa_name }}</p>
                             </div>
                         </div>
                     </div>
@@ -187,9 +190,9 @@ export default {
                     tab_botton: true,
             },
             js_toggle_class: {
-                    js_p_main_iconArea: true,
+                    table_body_left: true,
                     p_0: false,
-                    pt_40: false,
+                    pt_50: false,
                     flex_2: true,
                     flex_4: false,
             },
@@ -251,19 +254,19 @@ export default {
                 // console.log({ val });
                 if(val){
                     this.secondIconShow = false;
-                    this.js_toggle_class.p_0 = true;
-                    this.js_toggle_class.pt_40 = true;
-                    this.js_toggle_class.flex_4 = true;
-                    this.js_toggle_class.flex_2 = false;
+                    this.table_body_left.p_0 = true;
+                    this.table_body_left.pt_50 = true;
+                    this.table_body_left.flex_4 = true;
+                    this.table_body_left.flex_2 = false;
                 return
                 }
                 else
                 {
                     this.secondIconShow = true;
-                    this.js_toggle_class.p_0 = false;
-                    this.js_toggle_class.pt_40 = false;
-                    this.js_toggle_class.flex_4 = false;
-                    this.js_toggle_class.flex_2 = true;
+                    this.table_body_left.p_0 = false;
+                    this.table_body_left.pt_50 = false;
+                    this.table_body_left.flex_4 = false;
+                    this.table_body_left.flex_2 = true;
                 }
             },
 
@@ -392,18 +395,49 @@ export default {
     position: relative;
     width: 100%;
 }
+.skill_icon{
+    border-radius: 10%;
+    border: 3px solid #33333324;
+    box-sizing: border-box;
+}
+
+
+.icon_container{
+    display: flex;
+}
+
+.name_container{
+    margin-top: 30px;
+}
 
 .p_0{
     padding: 0;
 }
-.pt_40{
+.pt_50{
     padding: 50px;
 }
+
 .flex_2 {
     flex: 2;
 }
-.flex_4 {
+
+.flex_4{
     flex: 4;
+}
+
+.table_body_left {
+    background: #f6f5f4;
+    text-align: center;
+    padding: 50px;
+}
+.table_body_left > p{
+    font-size: 22px;
+    margin-top: 10px;
+    margin: 0;
+    margin-top: 10px;
+    }
+.table_body_left p:last-child{
+    font-size: 14px;
 }
 
 

@@ -2022,6 +2022,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2040,6 +2043,12 @@ __webpack_require__.r(__webpack_exports__);
       loading: true,
       count: this.chanpionDatas.length,
       //アイテム総数
+      scrollY: 0,
+      //js-toggle-class
+      jsFloatMenuTurget: {
+        header_link_item: true,
+        float_active: false
+      },
       //ページング
       prev_A: {
         paginate_btn: true,
@@ -2178,9 +2187,6 @@ __webpack_require__.r(__webpack_exports__);
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Loading: _components_management_showLoading__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
-  destroyed: function destroyed() {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
   methods: {
     incrementNumber: function incrementNumber(value) {
       this.number = value; // eslint-disable-next-line no-console
@@ -2200,6 +2206,9 @@ __webpack_require__.r(__webpack_exports__);
     totalPageCount: function totalPageCount() {
       //総ページ数
       return this.totalPage = Math.ceil(this.chanpionDatas.length / this.perPage);
+    },
+    culcScrollY: function culcScrollY() {
+      return this.scrollY = window.scrollY;
     }
   },
   computed: {
@@ -2245,17 +2254,28 @@ __webpack_require__.r(__webpack_exports__);
     },
     next4: function next4() {
       return this.currentPage + 4;
+    },
+    floatHeader: function floatHeader() {
+      if (this.scrollY >= 90) {
+        this.toggleClassFloatActive();
+      }
+    },
+    toggleClassFloatActive: function toggleClassFloatActive() {
+      this.float_active = !this.float_active;
     }
   },
   mounted: function mounted() {
     var _this = this;
 
-    window.addEventListener('scroll', this.handleScroll);
     setTimeout(function () {
       _this.loading = false;
     }, 1000); // this.totalPageCount();
 
-    this.getItems();
+    this.getItems;
+    window.addEventListener('scroll', this.culcScrollY);
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('scroll', this.culcScrollY);
   }
 });
 
@@ -3016,10 +3036,10 @@ __webpack_require__.r(__webpack_exports__);
         border_bottom: true,
         tab_botton: true
       },
-      table_body_left: {
-        js_l_main_archive__left: true,
+      js_toggle_class: {
+        js_p_main_iconArea: true,
         p_0: false,
-        p_30: false,
+        pt_40: false,
         flex_2: true,
         flex_4: false
       },
@@ -3081,17 +3101,17 @@ __webpack_require__.r(__webpack_exports__);
 
       if (val) {
         this.secondIconShow = false;
-        this.table_body_left.p_0 = true;
-        this.table_body_left.p_30 = true;
-        this.table_body_left.flex_4 = true;
-        this.table_body_left.flex_2 = false;
+        this.js_toggle_class.p_0 = true;
+        this.js_toggle_class.pt_40 = true;
+        this.js_toggle_class.flex_4 = true;
+        this.js_toggle_class.flex_2 = false;
         return;
       } else {
         this.secondIconShow = true;
-        this.table_body_left.p_0 = false;
-        this.table_body_left.p_30 = false;
-        this.table_body_left.flex_4 = false;
-        this.table_body_left.flex_2 = true;
+        this.js_toggle_class.p_0 = false;
+        this.js_toggle_class.pt_40 = false;
+        this.js_toggle_class.flex_4 = false;
+        this.js_toggle_class.flex_2 = true;
       }
     },
     passiveSkill: function passiveSkill() {
@@ -8030,7 +8050,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.header-link-item[data-v-35a92206]{\n      width: 600px;\n      display: flex;\n      justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n}\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: flex;\n      align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n\n    /* .news_container{ */\n      /* display: flex;\n      justify-content: space-between; */\n      /* margin: 0 auto;\n      margin-bottom: 100px; */\n    /* } */\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: flex;\n      justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      transition: .3s;\n}\n    /* .chanpion_data_container{\n    background: #e6e6e6;\n    padding-bottom: 100px; */\n    /* } */\n.chanpion_card_holder[data-v-35a92206]{\n    display: flex;\n    justify-content: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: flex;\n      justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: flex;\n      align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n\n    /* .news_container{ */\n      /* display: flex;\n      justify-content: space-between; */\n      /* margin: 0 auto;\n      margin-bottom: 100px; */\n    /* } */\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: flex;\n      justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      transition: .3s;\n}\n    /* .chanpion_data_container{\n    background: #e6e6e6;\n    padding-bottom: 100px; */\n    /* } */\n.chanpion_card_holder[data-v-35a92206]{\n    display: flex;\n    justify-content: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n    /* js */\n.header_link_item[data-v-35a92206]{\n      background: rdba(255, 255, 255);\n      width: 60%;\n      display: flex;\n      justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n      position: fixed;\n      transition: .3s;\n      z-index: 2;\n}\n.float_active[data-v-35a92206]{\n      background: rdba(255, 255, 255, .9);\n      transition: .3s;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: flex;\n      justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -8171,25 +8191,6 @@ exports.push([module.i, "\n.news_body[data-v-12793f84]{\n    letter-spacing: 2px
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .chanpion_tag_container {\n    width: 1280px;\n    height: 300px;\n    margin: 0 auto;\n} */\n.tag_title img[data-v-29a4f2f6]{\nvertical-align: text-top;\nmargin-right: 10px;\n}\n.tag_form[data-v-29a4f2f6]{\ndisplay: flex;\nflex-direction: row;\nflex-wrap: wrap;\n}\n.tag_body[data-v-29a4f2f6] {\nbackground: linear-gradient(white, #f6f5f4);\ndisplay: block;\nwidth: 200px;\ntext-align: left;\nborder: 1px solid #cacaca;\nborder-radius: 5px;\npadding: 8px 10px;\nbox-sizing: border-box;\nmargin-left: 10px;\nmargin-bottom: 10px;\n}\n.tag_body[data-v-29a4f2f6]:hover{\n    background: #333;\n    /* opacity: .9; */\n    color: #f6f5f4;\n    transition: all .4s;\n}\n.tag_body p[data-v-29a4f2f6]{\n    margin: 0;\n    font-size: 12px;\n    font-weight: bold;\n}\n.tag_body span[data-v-29a4f2f6]{\n    font-size: 10px;\n}\n.tag_btn[data-v-29a4f2f6]{\n    text-decoration: none;\n    color: #333;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
@@ -8202,7 +8203,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.skill_icon[data-v-00d17c7c]{\n    border-radius: 10%;\n    border: 3px solid #33333324;\n    box-sizing: border-box;\n}\n.icon_container[data-v-00d17c7c]{\n    display: flex;\n}\n.name_container[data-v-00d17c7c]{\n    margin-top: 30px;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.p_30[data-v-00d17c7c]{\n    padding: 30px;\n}\n.flex_2[data-v-00d17c7c] {\n    flex: 2;\n}\n.flex_4[data-v-00d17c7c]{\n    flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    transition: all 1s ease;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n}\n\n\n\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_40[data-v-00d17c7c]{\n    padding: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    flex: 2;\n}\n.flex_4[data-v-00d17c7c] {\n    flex: 4;\n}\n\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n}\n/* アニメーション END */\n\n\n", ""]);
 
 // exports
 
@@ -39285,36 +39286,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/chanpionPage/ChanpionSkill.vue?vue&type=style&index=0&id=00d17c7c&scoped=true&lang=css& ***!
@@ -39980,7 +39951,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "header-link-item" },
+                  { class: _vm.jsFloatMenuTurget },
                   [
                     _c("HeaderLink", {
                       attrs: { id: _vm.linkDatas[0].id, data: _vm.linkDatas[0] }
@@ -40827,69 +40798,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "l-main-container l-tagGoup" }, [
+  return _c("div", { staticClass: "l-main-container l-tagGroup p-tagGroup" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
       "ul",
       _vm._l(_vm.data, function(tagdata, index) {
-        return _c("li", { key: index, staticClass: "tag_form" }, [
+        return _c("li", { key: index, staticClass: "p-tagGroup__list" }, [
           tagdata.chanpion_tag_id_1 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_1))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_2 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_2))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_3 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_3))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_4 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_4))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_5 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_5))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_6 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_6))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_7 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_7))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_8 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_8))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_9 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_9))
               ])
             : _vm._e(),
           _vm._v(" "),
           tagdata.chanpion_tag_id_10 !== null
-            ? _c("span", { staticClass: "tag_body" }, [
+            ? _c("span", { staticClass: "p-tagGroup__list__item" }, [
                 _vm._v("#" + _vm._s(tagdata.chanpion_tag_id_10))
               ])
             : _vm._e()
@@ -40904,7 +40875,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "tag_title" }, [
+    return _c("div", { staticClass: "p-tagGroup__icon" }, [
       _c("h3", [
         _c("img", {
           attrs: {
@@ -41083,390 +41054,452 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "l-information-right" },
-    [
-      _c(
-        "div",
-        { staticClass: "p-information__tabHeader" },
-        _vm._l(_vm.bottons, function(botton, index) {
-          return _c("li", { key: index }, [
-            _c(
-              "p",
-              {
-                staticClass: "p-information__tabHeader__tab-btn tab_botton",
-                attrs: { num: index },
-                on: {
-                  click: function($event) {
-                    _vm.toggleBotton($event)
-                    _vm.toggleIconShow($event)
-                  }
+  return _c("div", { staticClass: "l-information-right" }, [
+    _c(
+      "div",
+      { staticClass: "p-information__tabHeader" },
+      _vm._l(_vm.bottons, function(botton, index) {
+        return _c("li", { key: index }, [
+          _c(
+            "p",
+            {
+              staticClass: "p-information__tabHeader__tab-btn tab_botton",
+              attrs: { num: index },
+              on: {
+                click: function($event) {
+                  _vm.toggleBotton($event)
+                  _vm.toggleIconShow($event)
                 }
-              },
-              [_vm._v(_vm._s(botton))]
-            )
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "change" } }, [
-        _vm.cheack_P
-          ? _c("div", { staticClass: "l-main-archive" }, [
-              _c("div", { class: _vm.table_body_left }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "c-main-archive__banner",
-                    style: _vm.banerColor[0].style
-                  },
-                  [_vm._v(_vm._s(_vm.bottons[0]))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("transition", { attrs: { name: "fade" } }, [
-                      _vm.secondIconShow
-                        ? _c("div", { key: "oneSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: {
-                                src: _vm.storage + _vm.p_skillIcon1,
-                                alt: ""
-                              }
-                            })
-                          ])
-                        : _vm._e(),
+              }
+            },
+            [_vm._v(_vm._s(botton))]
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "table_body" },
+      [
+        _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+          _vm.cheack_P
+            ? _c("div", { staticClass: "l-main-archive" }, [
+                _c("div", { class: _vm.js_toggle_class }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "c-main-archive__banner",
+                      style: _vm.banerColor[0].style
+                    },
+                    [_vm._v(_vm._s(_vm.bottons[0]))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.secondIconShow
+                            ? _c("div", { key: "oneSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: {
+                                    src: _vm.storage + _vm.p_skillIcon1,
+                                    alt: ""
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.secondIconShow
+                            ? _c("div", { key: "twoSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.p_skillIcon1 }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.p_skillIcon2 }
+                                })
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !_vm.secondIconShow
-                        ? _c("div", { key: "twoSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.p_skillIcon1 }
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.p_skillIcon2 }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "name_container" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.p_skillName))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.p_skillNa_name))])
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-main-archive__right" }, [
-                _c("h2", { staticClass: "p-main-archive__right__title" }, [
-                  _vm._v("スキル解説")
+                      _c("div", { staticClass: "js_p_main_iconArea__area" }, [
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__title" },
+                          [_vm._v(_vm._s(_vm.p_skillName))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__na-title" },
+                          [_vm._v(_vm._s(_vm.p_skillNa_name))]
+                        )
+                      ])
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "p-main-archive__right__text" }, [
-                  _vm._v(_vm._s(_vm.p_skillTaxt))
+                _c("div", { staticClass: "p-main-archive__right" }, [
+                  _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                    _vm._v("スキル解説")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-main-archive__right__text" }, [
+                    _vm._v(_vm._s(_vm.p_skillTaxt))
+                  ])
                 ])
               ])
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "change" } }, [
-        _vm.cheack_Q
-          ? _c("div", { staticClass: "l-main-archive" }, [
-              _c("div", { class: _vm.table_body_left }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "c-main-archive__banner",
-                    style: _vm.banerColor[1].style
-                  },
-                  [_vm._v(_vm._s(_vm.bottons[1]))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("transition", { attrs: { name: "fade" } }, [
-                      _vm.secondIconShow
-                        ? _c("div", { key: "oneSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: {
-                                src: _vm.storage + _vm.q_skillIcon1,
-                                alt: ""
-                              }
-                            })
-                          ])
-                        : _vm._e(),
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+          _vm.cheack_Q
+            ? _c("div", { staticClass: "l-main-archive" }, [
+                _c("div", { class: _vm.js_toggle_class }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "c-main-archive__banner",
+                      style: _vm.banerColor[1].style
+                    },
+                    [_vm._v(_vm._s(_vm.bottons[1]))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.secondIconShow
+                            ? _c("div", { key: "oneSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: {
+                                    src: _vm.storage + _vm.q_skillIcon1,
+                                    alt: ""
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.secondIconShow
+                            ? _c("div", { key: "twoSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  attrs: {
+                                    src: _vm.storage + _vm.q_skillIcon1,
+                                    width: "150px"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  attrs: {
+                                    src: _vm.storage + _vm.q_skillIcon2,
+                                    width: "10px"
+                                  }
+                                })
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !_vm.secondIconShow
-                        ? _c("div", { key: "twoSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              attrs: {
-                                src: _vm.storage + _vm.q_skillIcon1,
-                                width: "100px"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              attrs: {
-                                src: _vm.storage + _vm.q_skillIcon2,
-                                width: "100px"
-                              }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "name_container" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.q_skillName))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.q_skillNa_name))])
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-main-archive__right" }, [
-                _c("h2", { staticClass: "p-main-archive__right__title" }, [
-                  _vm._v("スキル解説")
+                      _c("div", { staticClass: "js_p_main_iconArea__area" }, [
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__title" },
+                          [_vm._v(_vm._s(_vm.q_skillName))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__na-title" },
+                          [_vm._v(_vm._s(_vm.q_skillNa_name))]
+                        )
+                      ])
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "p-main-archive__right__text" }, [
-                  _vm._v(_vm._s(_vm.q_skillTaxt))
+                _c("div", { staticClass: "p-main-archive__right" }, [
+                  _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                    _vm._v("スキル解説")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-main-archive__right__text" }, [
+                    _vm._v(_vm._s(_vm.q_skillTaxt))
+                  ])
                 ])
               ])
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "change" } }, [
-        _vm.cheack_W
-          ? _c("div", { staticClass: "l-main-archive" }, [
-              _c("div", { class: _vm.table_body_left }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "c-main-archive__banner",
-                    style: _vm.banerColor[2].style
-                  },
-                  [_vm._v(_vm._s(_vm.bottons[2]))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("transition", { attrs: { name: "fade" } }, [
-                      _vm.secondIconShow
-                        ? _c("div", { key: "oneSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: {
-                                src: _vm.storage + _vm.w_skillIcon1,
-                                alt: ""
-                              }
-                            })
-                          ])
-                        : _vm._e(),
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+          _vm.cheack_W
+            ? _c("div", { staticClass: "l-main-archive" }, [
+                _c("div", { class: _vm.js_toggle_class }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "c-main-archive__banner",
+                      style: _vm.banerColor[2].style
+                    },
+                    [_vm._v(_vm._s(_vm.bottons[2]))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.secondIconShow
+                            ? _c("div", { key: "oneSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: {
+                                    src: _vm.storage + _vm.w_skillIcon1,
+                                    alt: ""
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.secondIconShow
+                            ? _c("div", { key: "twoSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.w_skillIcon1 }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.w_skillIcon2 }
+                                })
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !_vm.secondIconShow
-                        ? _c("div", { key: "twoSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.w_skillIcon1 }
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.w_skillIcon2 }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "name_container" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.w_skillName))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.w_skillNa_name))])
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-main-archive__right" }, [
-                _c("h2", { staticClass: "p-main-archive__right__title" }, [
-                  _vm._v("スキル解説")
+                      _c("div", { staticClass: "js_p_main_iconArea__area" }, [
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__title" },
+                          [_vm._v(_vm._s(_vm.w_skillName))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__na-title" },
+                          [_vm._v(_vm._s(_vm.w_skillNa_name))]
+                        )
+                      ])
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "p-main-archive__right__text" }, [
-                  _vm._v(_vm._s(_vm.w_skillTaxt))
+                _c("div", { staticClass: "p-main-archive__right" }, [
+                  _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                    _vm._v("スキル解説")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-main-archive__right__text" }, [
+                    _vm._v(_vm._s(_vm.w_skillTaxt))
+                  ])
                 ])
               ])
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "change" } }, [
-        _vm.cheack_E
-          ? _c("div", { staticClass: "l-main-archive" }, [
-              _c("div", { class: _vm.table_body_left }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "c-main-archive__banner",
-                    style: _vm.banerColor[3].style
-                  },
-                  [_vm._v(_vm._s(_vm.bottons[3]))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("transition", { attrs: { name: "fade" } }, [
-                      _vm.secondIconShow
-                        ? _c("div", { key: "oneSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: {
-                                src: _vm.storage + _vm.e_skillIcon1,
-                                alt: ""
-                              }
-                            })
-                          ])
-                        : _vm._e(),
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+          _vm.cheack_E
+            ? _c("div", { staticClass: "l-main-archive" }, [
+                _c("div", { class: _vm.js_toggle_class }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "c-main-archive__banner",
+                      style: _vm.banerColor[3].style
+                    },
+                    [_vm._v(_vm._s(_vm.bottons[3]))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.secondIconShow
+                            ? _c("div", { key: "oneSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: {
+                                    src: _vm.storage + _vm.e_skillIcon1,
+                                    alt: ""
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.secondIconShow
+                            ? _c("div", { key: "twoSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.e_skillIcon1 }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.e_skillIcon2 }
+                                })
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !_vm.secondIconShow
-                        ? _c("div", { key: "twoSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.e_skillIcon1 }
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.e_skillIcon2 }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "name_container" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.e_skillName))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.e_skillNa_name))])
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-main-archive__right" }, [
-                _c("h2", { staticClass: "p-main-archive__right__title" }, [
-                  _vm._v("スキル解説")
+                      _c("div", { staticClass: "js_p_main_iconArea__area" }, [
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__title" },
+                          [_vm._v(_vm._s(_vm.e_skillName))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__na-title" },
+                          [_vm._v(_vm._s(_vm.e_skillNa_name))]
+                        )
+                      ])
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "p-main-archive__right__text" }, [
-                  _vm._v(_vm._s(_vm.e_skillTaxt))
+                _c("div", { staticClass: "p-main-archive__right" }, [
+                  _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                    _vm._v("スキル解説")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-main-archive__right__text" }, [
+                    _vm._v(_vm._s(_vm.e_skillTaxt))
+                  ])
                 ])
               ])
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "change" } }, [
-        _vm.cheack_U
-          ? _c("div", { staticClass: "l-main-archive" }, [
-              _c("div", { class: _vm.table_body_left }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "c-main-archive__banner",
-                    style: _vm.banerColor[4].style
-                  },
-                  [_vm._v(_vm._s(_vm.bottons[4]))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("transition", { attrs: { name: "fade" } }, [
-                      _vm.secondIconShow
-                        ? _c("div", { key: "oneSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: {
-                                src: _vm.storage + _vm.u_skillIcon1,
-                                alt: ""
-                              }
-                            })
-                          ])
-                        : _vm._e(),
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("transition", { attrs: { name: "change", mode: "out-in" } }, [
+          _vm.cheack_U
+            ? _c("div", { staticClass: "l-main-archive" }, [
+                _c("div", { class: _vm.js_toggle_class }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "c-main-archive__banner",
+                      style: _vm.banerColor[4].style
+                    },
+                    [_vm._v(_vm._s(_vm.bottons[4]))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade", mode: "out-in" } },
+                        [
+                          _vm.secondIconShow
+                            ? _c("div", { key: "oneSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: {
+                                    src: _vm.storage + _vm.u_skillIcon1,
+                                    alt: ""
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.secondIconShow
+                            ? _c("div", { key: "twoSkill" }, [
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.u_skillIcon1 }
+                                }),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "js_p_main_iconArea__icon",
+                                  staticStyle: { width: "150px" },
+                                  attrs: { src: _vm.storage + _vm.u_skillIcon2 }
+                                })
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
                       _vm._v(" "),
-                      !_vm.secondIconShow
-                        ? _c("div", { key: "twoSkill" }, [
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.u_skillIcon1 }
-                            }),
-                            _vm._v(" "),
-                            _c("img", {
-                              staticClass: "skill_icon",
-                              staticStyle: { width: "150px" },
-                              attrs: { src: _vm.storage + _vm.u_skillIcon2 }
-                            })
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "name_container" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.u_skillName))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.u_skillNa_name))])
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-main-archive__right" }, [
-                _c("h2", { staticClass: "p-main-archive__right__title" }, [
-                  _vm._v("スキル解説")
+                      _c("div", { staticClass: "js_p_main_iconArea__area" }, [
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__title" },
+                          [_vm._v(_vm._s(_vm.u_skillName))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "js_p_main_iconArea__area__na-title" },
+                          [_vm._v(_vm._s(_vm.u_skillNa_name))]
+                        )
+                      ])
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "p-main-archive__right__text" }, [
-                  _vm._v(_vm._s(_vm.u_skillTaxt))
+                _c("div", { staticClass: "p-main-archive__right" }, [
+                  _c("h2", { staticClass: "p-main-archive__right__title" }, [
+                    _vm._v("スキル解説")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-main-archive__right__text" }, [
+                    _vm._v(_vm._s(_vm.u_skillTaxt))
+                  ])
                 ])
               ])
-            ])
-          : _vm._e()
-      ])
-    ],
-    1
-  )
+            : _vm._e()
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -60604,9 +60637,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=template&id=29a4f2f6&scoped=true&");
 /* harmony import */ var _ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=script&lang=js& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -60614,7 +60645,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ChanpionPageTag_vue_vue_type_template_id_29a4f2f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -60643,22 +60674,6 @@ component.options.__file = "resources/js/components/chanpionPage/ChanpionPageTag
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&":
-/*!***************************************************************************************************************************!*\
-  !*** ./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/chanpionPage/ChanpionPageTag.vue?vue&type=style&index=0&id=29a4f2f6&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChanpionPageTag_vue_vue_type_style_index_0_id_29a4f2f6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
