@@ -18,11 +18,11 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon2" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon1">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + p_skillIcon2">
                                 </div>
                             </transition>
                             <div class="js_p_main_iconArea__area">
@@ -49,11 +49,11 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1" width="150px">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon2" width="10px">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon1">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + q_skillIcon2">
                                 </div>
                             </transition>
 
@@ -81,11 +81,11 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1"  style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon2" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon1">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + w_skillIcon2">
                                 </div>
                             </transition>
 
@@ -114,11 +114,11 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon2" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon1">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + e_skillIcon2">
                                 </div>
                             </transition>
                             <div class="js_p_main_iconArea__area">
@@ -145,11 +145,11 @@
                         <div>
                             <transition name="fade" mode="out-in">
                                 <div v-if="secondIconShow" key="oneSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1" alt="" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1">
                                 </div>
                                 <div v-if="!secondIconShow" key="twoSkill">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1" style="width: 150px;">
-                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon2" style="width: 150px;">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon1">
+                                    <img class="js_p_main_iconArea__icon" :src="storage + u_skillIcon2">
                                 </div>
                             </transition>
                             <div class="js_p_main_iconArea__area">

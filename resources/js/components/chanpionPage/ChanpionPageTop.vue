@@ -1,13 +1,15 @@
 <template>
     <div class="l-main-container l-hero c-hero-section">
             <div class="l-hero-imgArea" :style="topImage">
-                    <div class="pic_date">
-                        <img :src="storage + data.chanpion_img" alt="" width="50%">
+                    <div class="c-hero-section__hero">
+                        <div class="c-hero-section__area">
+                            <img class="c-hero-section__area--img" :src="storage + data.chanpion_img">
+                            <div class="c-hero-section__area--data">
+                                <p class="c-hero-section__area--data--first">実装日<span>/</span>{{ data.created_at }}</p>
+                                <p>更新日<span>/</span>{{ data.updated_at }}</p>
+                            </div>
+                        </div>
                     </div>
-                <div class="p-hero__data">
-                        <p>実装日<span>/</span>{{ data.created_at }}</p>
-                        <p>更新日<span>/</span>{{ data.updated_at }}</p>
-                </div>
             </div>
 
 

@@ -2025,6 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2163,18 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
         id: 3,
         linkTitle: "JGについて",
         linkItems: ['ガンク', 'カウンターJG', 'オブジェクト管理', 'レーンのフォロー', 'JGチャンピオンのタイプ']
-      }],
-      eventData: {
-        title: "",
-        maxNumber: 0,
-        host: "",
-        detail: "",
-        isPrivate: false,
-        target: [],
-        price: "無料",
-        location: "東京",
-        link: "リンク１"
-      }
+      }]
     };
   },
   components: {
@@ -2782,6 +2772,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -40912,27 +40904,26 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "l-main-container l-hero c-hero-section" }, [
     _c("div", { staticClass: "l-hero-imgArea", style: _vm.topImage }, [
-      _c("div", { staticClass: "pic_date" }, [
-        _c("img", {
-          attrs: {
-            src: _vm.storage + _vm.data.chanpion_img,
-            alt: "",
-            width: "50%"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-hero__data" }, [
-        _c("p", [
-          _vm._v("実装日"),
-          _c("span", [_vm._v("/")]),
-          _vm._v(_vm._s(_vm.data.created_at))
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v("更新日"),
-          _c("span", [_vm._v("/")]),
-          _vm._v(_vm._s(_vm.data.updated_at))
+      _c("div", { staticClass: "c-hero-section__hero" }, [
+        _c("div", { staticClass: "c-hero-section__area" }, [
+          _c("img", {
+            staticClass: "c-hero-section__area--img",
+            attrs: { src: _vm.storage + _vm.data.chanpion_img }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "c-hero-section__area--data" }, [
+            _c("p", { staticClass: "c-hero-section__area--data--first" }, [
+              _vm._v("実装日"),
+              _c("span", [_vm._v("/")]),
+              _vm._v(_vm._s(_vm.data.created_at))
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v("更新日"),
+              _c("span", [_vm._v("/")]),
+              _vm._v(_vm._s(_vm.data.updated_at))
+            ])
+          ])
         ])
       ])
     ]),
@@ -41107,11 +41098,7 @@ var render = function() {
                             ? _c("div", { key: "oneSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
-                                  attrs: {
-                                    src: _vm.storage + _vm.p_skillIcon1,
-                                    alt: ""
-                                  }
+                                  attrs: { src: _vm.storage + _vm.p_skillIcon1 }
                                 })
                               ])
                             : _vm._e(),
@@ -41120,13 +41107,11 @@ var render = function() {
                             ? _c("div", { key: "twoSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.p_skillIcon1 }
                                 }),
                                 _vm._v(" "),
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.p_skillIcon2 }
                                 })
                               ])
@@ -41189,11 +41174,7 @@ var render = function() {
                             ? _c("div", { key: "oneSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
-                                  attrs: {
-                                    src: _vm.storage + _vm.q_skillIcon1,
-                                    alt: ""
-                                  }
+                                  attrs: { src: _vm.storage + _vm.q_skillIcon1 }
                                 })
                               ])
                             : _vm._e(),
@@ -41202,18 +41183,12 @@ var render = function() {
                             ? _c("div", { key: "twoSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  attrs: {
-                                    src: _vm.storage + _vm.q_skillIcon1,
-                                    width: "150px"
-                                  }
+                                  attrs: { src: _vm.storage + _vm.q_skillIcon1 }
                                 }),
                                 _vm._v(" "),
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  attrs: {
-                                    src: _vm.storage + _vm.q_skillIcon2,
-                                    width: "10px"
-                                  }
+                                  attrs: { src: _vm.storage + _vm.q_skillIcon2 }
                                 })
                               ])
                             : _vm._e()
@@ -41275,11 +41250,7 @@ var render = function() {
                             ? _c("div", { key: "oneSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
-                                  attrs: {
-                                    src: _vm.storage + _vm.w_skillIcon1,
-                                    alt: ""
-                                  }
+                                  attrs: { src: _vm.storage + _vm.w_skillIcon1 }
                                 })
                               ])
                             : _vm._e(),
@@ -41288,13 +41259,11 @@ var render = function() {
                             ? _c("div", { key: "twoSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.w_skillIcon1 }
                                 }),
                                 _vm._v(" "),
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.w_skillIcon2 }
                                 })
                               ])
@@ -41357,11 +41326,7 @@ var render = function() {
                             ? _c("div", { key: "oneSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
-                                  attrs: {
-                                    src: _vm.storage + _vm.e_skillIcon1,
-                                    alt: ""
-                                  }
+                                  attrs: { src: _vm.storage + _vm.e_skillIcon1 }
                                 })
                               ])
                             : _vm._e(),
@@ -41370,13 +41335,11 @@ var render = function() {
                             ? _c("div", { key: "twoSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.e_skillIcon1 }
                                 }),
                                 _vm._v(" "),
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.e_skillIcon2 }
                                 })
                               ])
@@ -41439,11 +41402,7 @@ var render = function() {
                             ? _c("div", { key: "oneSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
-                                  attrs: {
-                                    src: _vm.storage + _vm.u_skillIcon1,
-                                    alt: ""
-                                  }
+                                  attrs: { src: _vm.storage + _vm.u_skillIcon1 }
                                 })
                               ])
                             : _vm._e(),
@@ -41452,13 +41411,11 @@ var render = function() {
                             ? _c("div", { key: "twoSkill" }, [
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.u_skillIcon1 }
                                 }),
                                 _vm._v(" "),
                                 _c("img", {
                                   staticClass: "js_p_main_iconArea__icon",
-                                  staticStyle: { width: "150px" },
                                   attrs: { src: _vm.storage + _vm.u_skillIcon2 }
                                 })
                               ])

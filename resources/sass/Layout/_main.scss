@@ -6,7 +6,7 @@
     // max-width :1280px;
     height: auto;
     &-container {
-        width: $content-width;
+        width: $content-width__default;
    }
 }
 
@@ -27,22 +27,33 @@
 // -------------------------------
 .l-hero {
     background-color: black;
-    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    height: 30rem; //縦の高さもレスポンシブにする必要がある
     height: 300px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
     width: 85%;
       &-imgArea{
+      height: 100%;
       flex: 6;
       order: 1;
-      height: 100%;
+        @include mq() {
+            flex: none;
+            height: 50%;
+            order: 0;
+            width: 100%;
+        }
       }
       &-listArea{
       flex: 4;
+        @include mq() {
+          order: 1;
+          flex: none;
+      }
+      }
+      @include mq(){
+          margin: 0;
+          width: 100%;
       }
 }
 // -------------------------------
@@ -56,26 +67,30 @@
     margin: $space__4l auto $space__4l;
     width: 85%;
     @include mq() {
-      width: 100%;
-      margin: 0;
+        flex-direction: column;
+        height: 1000px;
+        margin: 0;
+        width: 100%;
     }
     &-left{
       flex: 1;
-      width: calc(30% - #{$space__l});
       margin-right: $space__l;
-       @include mq() {
-         width: 100%;
-         margin: 0;
+      width: calc(30% - #{$space__l});
+      @include mq() {
+           margin-bottom: $space__3l;
+           margin-right: 0;
+           width: 100%;
+
+        }
     }
     &-right{
       flex: 4;
       width: calc(70% - #{$space__l});
       @include mq(md) {
+          margin: 0;
         width: 100%;
-        margin: 0;
-   }
+      }
     }
-}
 }
 
 // -------------------------------
@@ -88,8 +103,13 @@
     display: flex;
     margin-bottom: $space__3l;
     overflow: hidden;
-    width: 100%;
     height: 350px;
+    width: 100%;
+    @include mq() {
+        border-radius: unset;
+        flex-direction: column;
+        height: 500px;
+    }
 }
 
 // -------------------------------
@@ -97,8 +117,13 @@
 // -------------------------------
 .l-tagGroup{
     height: 25rem;
-    margin: 0 auto;
+    margin: $space__xxl auto;
     width: 85%;
+    @include mq() {
+        width: 100%;
+        margin-top: $space__l;
+
+    }
 }
 
 .js_l_main_archive__left{

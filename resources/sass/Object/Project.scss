@@ -4,15 +4,6 @@
 // -------------------------
 //chanpion data
 // -------------------------
-.p-hero__data{
-    color: $font-color__secondary;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    font-size: $font-size__s;
-    @include absPosition($right: 2% , $bottom: 10%);
-  }
-
 .p-hero__featureText{
     background: $sub-color;
     display: flex;
@@ -23,6 +14,9 @@
     padding: $space__m;
     text-align: center;
     width: 100%;
+     @include mq() {
+      text-align: left;
+     }
 }
 
 // -------------------------
@@ -38,6 +32,10 @@
     width: 85%;
     height: 50px;
     line-height: 50px;
+     @include mq() {
+       width: 30%;
+       margin-right: auto;
+     }
 }
 
 .p-information__tabHeader{
@@ -77,13 +75,22 @@
         flex: 6;
         text-align: left;
         padding: $space__xxl;
+        @include mq() {
+          flex: 4;
+          padding: $space__l;
+        }
           &__title{
             margin: 0;
             margin-bottom: $space__s;
+            @include mq() {
+              font-size: $font-size__xl;
+            }
           }
           &__text{
             font-size: $font-size__l;
             margin: 0;
+            @include mq() {
+            }
           }
     }
 }
@@ -92,8 +99,15 @@
   background: $base-color__primary;
   text-align: center;
   padding: $space__3l;
+  @include mq() {
+    flex: 1;
+    padding: $space__m;
+  }
     &__area{
       margin-top: $space__xxl;
+      @include mq() {
+        margin-top: 0;
+      }
         &__title{
           font-size: $font-size__xl;
           margin: 0;
@@ -107,6 +121,10 @@
       border-radius: 10%;
       border: 3px solid #33333324;
       box-sizing: border-box;
+      width: 150px;
+      @include mq() {
+        width: 100px;
+      }
     }
 }
 
@@ -115,10 +133,15 @@
 // -------------------------
 .p-tagGroup{
   &__icon{
+    width: 100%;
       img {
         margin-right: $space__m;
         vertical-align: text-top;
         width: 3rem;
+        @include mq() {
+          vertical-align: middle;
+          width: 4rem;
+        }
       }
   }
   &__list{
@@ -126,20 +149,29 @@
       // justify-content: center; レスポンシブでオンにする
       flex-direction: row;
       flex-wrap: wrap;
-
+      padding: $space__l;
+       @include mq() {
+        justify-content: space-between;
+       }
       &__item {
         background: linear-gradient(white, #f6f5f4);
         border: 1px solid #cacaca;
         border-radius: 5%;
         box-sizing: border-box;
         display: block;
-        font-size: $space__m;
-        margin-bottom: $space__m;
-        margin-left: $space__m;
+        font-size: $font-size__s;
+        margin-bottom: $space__xl;
+        margin-left: $space__xl;
         padding: 8px $space__m;
         text-align: left;
         -webkit-box-sizing: border-box;
-        width: 20rem;
+        width: 16rem;
+        @include mq() {
+          font-size: $font-size__s;
+          flex-shrink: 1;
+          margin-left: 0;
+          justify-content: space-between;
+         }
 
         &:hover{
           background: $base-color__default;

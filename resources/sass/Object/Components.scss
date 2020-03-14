@@ -1,25 +1,93 @@
 // ==========================================================
 // Component
 // ==========================================================
-.c-hero-listArea{
+
+
+// ==========================================================
+// Chanpion Page
+// ==========================================================
+// -------------------------
+// chanpion top
+// -------------------------
+.c-hero{
+  &-section{
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    @include mq(){
+      height: 700px;
+    }
+      &__area{
+        display: flex;
+        height: 300px;
+        overflow: hidden;
+        &--img{
+          height: 100%;
+          width: 50%;
+          object-fit: cover;
+          object-position: top;
+          flex: 1;
+            @include mq(){
+              height: 100%;
+              width: 100%;
+        }
+      }
+      &--data{
+        color: $font-color__secondary;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-right: 15px;
+        font-size: $font-size__default;
+          @include mq(){
+            display: none;
+          }
+            &--first{
+              margin-bottom: 0;
+            }
+      }
+    }
+    &__hero{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+        }
+  }
+  &-listArea{
     display: flex;
     flex-flow: column;
     height: 100%;
     justify-content: flex-start;
-    margin-top: $space__3l;
-
+    margin-top: $space__xxl;
+    text-align: center;
+      @include mq(){
+        margin-top: $space__xl;
+        width: 100%;
+      }
       &__text{
-      align-self: center;
+        align-self: center;
       color: $font-color__secondary;
-        @include notlast{
-            margin-bottom: $space__m;
+      @include notlast{
+        margin-bottom: $space__m;
+        }
+        @include mq() {
+          margin: 0;
         }
       }
       &__header{
         font-size: $font-size__xxl;
+        width: 100%;
       }
       &__subTitle{
         font-size: $font-size__s;
+        width: 100%;
+        @include mq() {
+          font-size: $font-size__xl;
+        }
       }
       &__hr{
         margin: 10px auto;
@@ -29,62 +97,82 @@
       &__lead{
           font-size: $font-size__xl;
           margin-bottom: $space__l;
-      }
+          width: 100%;
+          @include mq() {
+            margin-bottom: $space__s;
+          }
+        }
       &-unit{
           display: flex;
           width: 70%;
-        //   margin-bottom: 0;
+          @include mq() {
+            flex-direction: column;
+          }
          &__item{
             background: lighten($base-color__secondary ,15%);
             border: 1.5px solid $base-color__primary;
             flex: 1;
             height: $space__3l;
             line-height: $space__3l;
-            padding-left: 25%;
+            padding-left: 15%;
             position: relative;
+            @include mq() {
+              font-size: $font-size__l;
+            }
 
             &--right{
                 margin-left: $space__xl;
+                @include mq() {
+                  margin-left: 0;
+                }
             }
             &::before{
-                content: "MAIN";
-                text-align: center;
-                background: $base-color__primary;
-                font-weight: bold;
+              content: "MAIN";
+              text-align: center;
+              background: $base-color__primary;
+              font-weight: bold;
                 height: -webkit-fill-available;
                 @include absPosition($left:0);
                 color: $font-color__default;
                 width: 35%;
-            }
-            @include last{
+              }
+              @include last{
                 &::before{
-                    content: "SUB";
-                    background: $base-color__primary;
+                  content: "SUB";
+                  background: $base-color__primary;
                 }
-
+              }
             }
-         }
-      }
-      &-costList{
-        align-items: center;
-        color: $font-color__secondary;
-        display: flex;
-        font-size: $font-size__default;
-        justify-content: center;
-        width: 50%;
-        &__item{
-            // padding: $space__m;
-        }
-        &__right{
-            margin-left: $space__xl;
-        }
-        &__img{
+          }
+          &-costList{
+            align-items: center;
+            color: $font-color__secondary;
+            display: flex;
+            font-size: $font-size__default;
+            justify-content: center;
+            width: 50%;
+             @include mq() {
+               font-size: $font-size__xl;
+             }
+            &__item{
+              // padding: $space__m;
+            }
+            &__right{
+              margin-left: $space__xl;
+               @include mq() {
+                 margin-left: $space__xl;
+               }
+            }
+            &__img{
             // vertical-align: center;
             width: 30%;
+             @include mq() {
+               width: 50%;
+             }
         }
       }
-}
-
+    }
+  }
 // ------------------------------------------------
 // information
 // ------------------------------------------------
@@ -95,16 +183,22 @@
     &__item{
       font-size: $font-size__default;
       margin-bottom: 0;
+       @include mq() {
+         font-size: $font-size__xl
+       }
     }
     &--square{
         border-radius: 2%;
         font-size: $font-size__l;
+         @include mq() {
+          font-size: $font-size__xl
+        }
     }
 
 }
 
 // ------------------------------------------------
-// buner
+// banner
 // ------------------------------------------------
 .c-hero-section{
     &::before{
@@ -132,4 +226,15 @@
     font-size: $font-size__l;
     transform: rotate(-37deg);
     z-index: 2;
+    @include mq() {
+      left: -10%;
+    }
+}
+
+// ==========================================================
+// Footer
+// ==========================================================
+c-footer-container{
+  width: $content-width__l;
+  margin: 0 auto;
 }

@@ -85,6 +85,7 @@
 
     </div>
 
+
 <!-- footer -->
         <div class="l-footer">
           <div class="footer_body_container">
@@ -210,18 +211,6 @@ export default {
         {id: 2 ,linkTitle:"ゲームの進め方", linkItems: ['チャンピオン','操作','ゲームルール','チャンピオンを成長させよう','アイテムを買おう','仲間と行動しよう']},
         {id: 3 ,linkTitle:"JGについて", linkItems: ['ガンク','カウンターJG','オブジェクト管理','レーンのフォロー','JGチャンピオンのタイプ']},
       ],
-
-      eventData: {
-        title: "",
-        maxNumber: 0,
-        host: "",
-        detail: "",
-        isPrivate: false,
-        target: [],
-        price: "無料",
-        location: "東京",
-        link: "リンク１"
-      }
     }
   },
   components: {
