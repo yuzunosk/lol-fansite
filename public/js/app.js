@@ -2026,6 +2026,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2047,7 +2058,7 @@ __webpack_require__.r(__webpack_exports__);
       scrollY: 0,
       //js-toggle-class
       jsFloatMenuTurget: {
-        header_link_item: true,
+        l_header__nav_unit: true,
         float_active: false
       },
       //ページング
@@ -2099,9 +2110,6 @@ __webpack_require__.r(__webpack_exports__);
       number: 14,
       test: 'いいね',
       currentComponent: true,
-      formShow: false,
-      locations: ["東京", "大阪", "神奈川"],
-      links: ["リンク１", "リンク２", "リンク３"],
       // chanpCards: [],
       paginate: ['chanpionsDatas'],
       linkDatas: [{
@@ -2438,10 +2446,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"]
 });
@@ -2481,10 +2485,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
@@ -2494,10 +2494,10 @@ __webpack_require__.r(__webpack_exports__);
       X: 0,
       Y: 0,
       listItems: {
-        list: true
+        item: true
       },
-      listClass: {
-        sublistItem: true
+      bordItems: {
+        bordItem: true
       }
     };
   },
@@ -2587,6 +2587,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2598,10 +2600,10 @@ __webpack_require__.r(__webpack_exports__);
       scrollLeft: 0,
       x: 0,
       y: 0,
-      sliderContainer: {
+      js_Slider: {
         slide: true,
         carousel: true,
-        slider_container: true
+        c_slider__container: true
       },
       slideItem: {
         slider_item: true
@@ -3345,6 +3347,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionSkill_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChanpionSkill.vue */ "./resources/js/components/chanpionPage/ChanpionSkill.vue");
 /* harmony import */ var _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue */ "./resources/js/components/chanpionPage/ChanpionStatus.vue");
 /* harmony import */ var _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChanpionPageTag */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue");
+/* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.././components/Footer.vue */ "./resources/js/components/Footer.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3403,6 +3413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3410,14 +3421,32 @@ __webpack_require__.r(__webpack_exports__);
       currentChampionId: "",
       currentSkillData: {},
       currentTagData: {},
-      removeTagData: []
+      removeTagData: [],
+      footerDatas: [{
+        id: 0,
+        linkTitle: "役割について",
+        linkItems: ['TOP', 'JG', 'MID', 'BOTTOM', 'SUPPORT']
+      }, {
+        id: 1,
+        linkTitle: "オブジェクトについて",
+        linkItems: ['タワー', 'インヒビター', 'ネクサス', 'ドラゴン', 'バロン']
+      }, {
+        id: 2,
+        linkTitle: "ゲームの進め方",
+        linkItems: ['チャンピオン', '操作', 'ゲームルール', 'チャンピオンを成長させよう', 'アイテムを買おう', '仲間と行動しよう']
+      }, {
+        id: 3,
+        linkTitle: "JGについて",
+        linkItems: ['ガンク', 'カウンターJG', 'オブジェクト管理', 'レーンのフォロー', 'JGチャンピオンのタイプ']
+      }]
     };
   },
   components: {
     ChanpionPageTop: _ChanpionPageTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ChanpionSkill: _ChanpionSkill_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     ChanpionStatus: _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ChanpionPageTag: _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__["default"]
+    ChanpionPageTag: _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   methods: {
     roopSkillData: function roopSkillData() {
@@ -8042,7 +8071,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Mav
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n/* @import ResetCss from \".././public/reset\"; */\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: flex;\n      align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n\n    /* .news_container{ */\n      /* display: flex;\n      justify-content: space-between; */\n      /* margin: 0 auto;\n      margin-bottom: 100px; */\n    /* } */\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: flex;\n      justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45px;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      transition: .3s;\n}\n    /* .chanpion_data_container{\n    background: #e6e6e6;\n    padding-bottom: 100px; */\n    /* } */\n.chanpion_card_holder[data-v-35a92206]{\n    display: flex;\n    justify-content: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n    /* js */\n.header_link_item[data-v-35a92206]{\n      background: rdba(255, 255, 255);\n      width: 60%;\n      display: flex;\n      justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n      position: fixed;\n      transition: .3s;\n      z-index: 2;\n}\n.float_active[data-v-35a92206]{\n      background: rdba(255, 255, 255, .9);\n      transition: .3s;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: flex;\n      justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n.footer_body_container[data-v-35a92206]{\n      width: 1280px;\n      margin: 0 auto;\n}\n.footer_logo[data-v-35a92206]{\n    width: 200px;\n    margin-left: 50px;\n    margin-bottom: 30px;\n}\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
+exports.push([module.i, "\n.sub_title[data-v-35a92206]{\n      font-size: 20px;\n      letter-spacing: 2.5px;\n}\n.sub_title_item[data-v-35a92206]{\n      font-size: 12px;\n      font-weight: 800px;\n      margin-left: 10px;\n      font-weight: normal;\n}\n.news_title[data-v-35a92206]{\n      display: flex;\n      align-items: center;\n}\n.center[data-v-35a92206]{\n      text-align: center;\n      padding-top: 50px;\n      padding-bottom: 30px;\n}\n.news_container .test[data-v-35a92206]:last-child {\n    border-bottom: 1px dashed #333;\n}\n.news_header[data-v-35a92206]{\n      display: flex;\n      justify-content: space-between;\n      margin-bottom: 40px;\n}\n.news_List_button[data-v-35a92206]{\n    font-size: 14px;\n    text-align: left;\n    width: 180px;\n    height: 45x;\n    padding: 0;\n    padding-left: 20px;\n    background: #fff;\n    border: 2px solid #333;\n    font-weight: bold;\n    position: relative;\n    overflow: hidden;\n    color: #333;\n    z-index: 1;\n    transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover {\n      color: #fff;\n      transition: .3s;\n      cursor: pointer;\n}\n.news_List_button[data-v-35a92206]::before{\n      content: \"\";\n      width: 180px;\n      height: 45px;\n      background: #717070;\n      position: absolute;\n      top: 0;\n      right: 180px;\n      transition: .3s;\n      z-index: -1;\n      transition: .3s;\n}\n.news_List_button[data-v-35a92206]:hover::before{\n      position: absolute;\n      top: 0;\n      right: 0;\n      transition: .3s;\n      background: black;\n}\n.news_List_button[data-v-35a92206]::after{\n    content: \"\\FF1E\";\n    font-size: 20px;\n    position: absolute;\n    top: 5px;\n    right: 30px;\n    z-index: -1;\n}\n.news_List_button[data-v-35a92206]:hover::after {\n      color: #fff;\n      transition: .3s;\n}\n.chanpion_card_holder[data-v-35a92206]{\n    display: flex;\n    justify-content: center;\n    flex-direction: row;\n    flex-wrap: wrap;\n    width: 1280px;\n    margin: 0 auto;\n}\n    /* js */\n.header_link_item[data-v-35a92206]{\n      background: rdba(255, 255, 255);\n      width: 60%;\n      display: flex;\n      justify-content: flex-end;\n      height: 100px;\n      line-height: 100px;\n      padding-right: 70px;\n      position: fixed;\n      transition: .3s;\n      z-index: 2;\n}\n.float_active[data-v-35a92206]{\n      background: rdba(255, 255, 255, .9);\n      transition: .3s;\n}\n\n    /* ページネートCSS */\n.paginate_container[data-v-35a92206]{\n      display: flex;\n      justify-content: center;\n      margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206]{\n    background: #858883;\n    text-align: center;\n    padding: 3px;\n    width: 30px;\n    height: 35px;\n    margin-left: 13px;\n    box-sizing: border-box;\n    color: #f6f5f4;\n    font-size: 12px;\n    font-weight: 300;\n}\n.ml_0[data-v-35a92206]{\n      margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover{\n    transition: all .2s;\n    background: #aeadb5;\n    color: #333;\n    font-size: 14px;\n    font-weight: 500;\n    transform: scale(1.2);\n}\n.active[data-v-35a92206]{\n    opacity: .5;\n}\n\n    /* ページネートCSS END */\n\n\n    /* アニメーション */\n.fade-enter-active[data-v-35a92206], .fade-leave-active[data-v-35a92206]{\n        transition: all .8s;\n}\n.fade-enter[data-v-35a92206], .fade-leave-to[data-v-35a92206]{\n        opacity: 0;\n        background: #fff;\n}\n\n", ""]);
 
 // exports
 
@@ -8119,7 +8148,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.header-nuv{\n    /* padding: 0 10px; */\n    flex-basis: 25%;\n}\n.list_warapper {\n    padding: 0;\n    margin: 0;\n    height: 100px;\n}\nli {\n  list-style:none;\n}\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    transition: 2s;\n}\n.sublistItem{\n    font-size: 12px;\n    box-sizing: border-box;\n    transition: .5s;\n    height: 30px;\n    padding: 8px 20px;\n    flex-basis: 25%;\n}\n.nav_itemBord{\n    background: #fff;\n    width: 100%;\n    height: 150px;\n    box-sizing: border-box;\n    margin: 0 auto;\n    padding-left: 200px;\n    position: absolute;\n    top: 85px;\n    left: 0;\n    z-index: 5;\n}\n.nav_itemBord > ul{\n  display: flex;\n  flex-wrap: wrap;\n  height: 100px;\n  max-width: 100%;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 不要コード整理する */\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    transition: 2s;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -8138,7 +8167,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.slider_container[data-v-1c7348a6]{\n  padding: 0;\n  overflow: hidden;\n  margin: 0;\n  position: relative;\n  transition: .5s;\n  margin-bottom:50px;\n}\n.slider_item[data-v-1c7348a6]{\n  overflow: hidden;\n  width: 1280px;\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav[data-v-1c7348a6]{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav[data-v-1c7348a6]:active{\n  opacity: 1;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg[data-v-1c7348a6]{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message[data-v-1c7348a6]{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    text-shadow: 2px 2px 6px #232222;\n}\n.top[data-v-1c7348a6]{\n    position: absolute;\n    top: 10px;\n    right: 50px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom[data-v-1c7348a6]{\n  position: absolute;\n  bottom: 70px;\n  left: 50px;\n  z-index: 2;\n}\n.mainMessage[data-v-1c7348a6]{\n  font-size: 45px;\n}\n.subMessage[data-v-1c7348a6]{\n  font-size: 24px;\n}\n.pointer[data-v-1c7348a6]{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.slider_item[data-v-1c7348a6]{\n  overflow: hidden;\n  width: 1280px;\n  float: left;\n  text-align: center;\n  line-height: 400px;\n}\n.slider_nav[data-v-1c7348a6]{\n  color: #1e192f;;\n  position: absolute;\n  top: 250px;\n  font-size: 20px;\n  cursor: pointer;\n  z-index: 2;\n  background: #f7f6f5;\n  opacity: .5;\n  border-radius: 50%;\n  width: 30px;\n  line-height: 30px;\n  text-align: center;\n}\n.slider_nav[data-v-1c7348a6]:active{\n  opacity: 1;\n  transition: .1s;\n  /* もう少しアニメーションさせる */\n}\nimg[data-v-1c7348a6]{\n   max-width: 100%;\n    height: auto;\n}\n.hero_message[data-v-1c7348a6]{\n    font-family: 'Open Sans Condensed', sans-serif;\n    color: #f6f5f4;\n    padding: 2px 15px;\n    text-shadow: 2px 2px 6px #232222;\n}\n.top[data-v-1c7348a6]{\n    position: absolute;\n    top: 10px;\n    right: 50px;\n    font-size: 45px;\n    z-index: 2;\n}\n.bottom[data-v-1c7348a6]{\n  position: absolute;\n  bottom: 70px;\n  left: 50px;\n  z-index: 2;\n}\n.mainMessage[data-v-1c7348a6]{\n  font-size: 45px;\n}\n.subMessage[data-v-1c7348a6]{\n  font-size: 24px;\n}\n.pointer[data-v-1c7348a6]{\n  z-index: 5;\n  font-size: 20px;\n  color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -8157,7 +8186,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n.logo_container[data-v-e9c888a2]{\n    /* display: flex; */\n}\nh1[data-v-e9c888a2]{\n    /* padding-left: 15px;\n    margin: 0;\n    font-size: 35px;\n    display: inline-block;\n    letter-spacing: .8px;\n    color: #f4f3f2; */\n}\n.logo[data-v-e9c888a2]{\n    width: 150px;\n    height: 60px;\n    margin-left: 100px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n", ""]);
 
 // exports
 
@@ -39907,329 +39936,330 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Loading", {
+  return _c("div", [
+    _c(
+      "div",
+      {
         directives: [
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.loading,
-            expression: "loading"
+            value: !_vm.loading,
+            expression: "!loading"
           }
         ]
-      }),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
+      },
+      [
         _c(
           "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.loading,
-                expression: "!loading"
-              }
-            ]
-          },
+          { staticClass: "l_header" },
           [
-            _c(
-              "div",
-              { staticClass: "l-header" },
-              [
-                _c("LikeHeader"),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { class: _vm.jsFloatMenuTurget },
-                  [
-                    _c("HeaderLink", {
-                      attrs: { id: _vm.linkDatas[0].id, data: _vm.linkDatas[0] }
-                    }),
-                    _vm._v(" "),
-                    _c("HeaderLink", {
-                      attrs: { id: _vm.linkDatas[1].id, data: _vm.linkDatas[1] }
-                    }),
-                    _vm._v(" "),
-                    _c("HeaderLink", {
-                      attrs: { id: _vm.linkDatas[2].id, data: _vm.linkDatas[2] }
-                    }),
-                    _vm._v(" "),
-                    _c("HeaderLink", {
-                      attrs: { id: _vm.linkDatas[3].id, data: _vm.linkDatas[3] }
-                    })
-                  ],
-                  1
-                )
-              ],
-              1
-            ),
+            _c("LikeHeader"),
+            _vm._v(" "),
+            _c("div", { staticStyle: { position: "fixed", color: "#fff" } }, [
+              _vm._v("垂直方向のスクロール量："),
+              _c("span", [_vm._v(_vm._s(_vm.scrollY))])
+            ]),
             _vm._v(" "),
             _c(
               "div",
-              { attrs: { id: "l-main" } },
+              { class: _vm.jsFloatMenuTurget },
               [
-                _c("HeroSlider"),
+                _c("HeaderLink", {
+                  attrs: { id: _vm.linkDatas[0].id, data: _vm.linkDatas[0] }
+                }),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "l-main-container-news" },
-                  [
-                    _c("div", { staticClass: "news_header" }, [
-                      _c("h2", { staticClass: "sub_title news_title" }, [
-                        _vm._v("更新情報"),
-                        _c("span", { staticClass: "sub_title_item" }, [
-                          _vm._v("NEWS")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "news_List_button",
-                          attrs: { type: "button" },
-                          on: { click: _vm.clickUpdateNews }
-                        },
-                        [_c("span", [_vm._v("一覧を見る")])]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.newsDatas, function(newsData) {
-                      return _c("News", {
-                        key: newsData.id,
-                        staticClass: "test",
-                        attrs: { data: newsData }
-                      })
-                    })
-                  ],
-                  2
-                ),
+                _c("HeaderLink", {
+                  attrs: { id: _vm.linkDatas[1].id, data: _vm.linkDatas[1] }
+                }),
                 _vm._v(" "),
-                _c("div", { staticClass: "l-main-container-products" }, [
-                  _c("h2", { staticClass: "sub_title center" }, [
-                    _vm._v("- Chanpions - ")
-                  ]),
+                _c("HeaderLink", {
+                  attrs: { id: _vm.linkDatas[2].id, data: _vm.linkDatas[2] }
+                }),
+                _vm._v(" "),
+                _c("HeaderLink", {
+                  attrs: { id: _vm.linkDatas[3].id, data: _vm.linkDatas[3] }
+                })
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { attrs: { id: "l-main" } },
+          [
+            _c("HeroSlider"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "l-main-container-news" },
+              [
+                _c("div", { staticClass: "news_header" }, [
+                  _vm._m(0),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticClass: "chanpion_card_holder" },
-                    _vm._l(_vm.getItems, function(chanpionData, i) {
-                      return _c("ChanpionData", {
-                        key: i,
-                        attrs: {
-                          id: i,
-                          data: _vm.chanpionDatas[i],
-                          skilldata: _vm.skillDatas,
-                          tagdata: _vm.tagDatas,
-                          tags: _vm.tags
-                        }
-                      })
-                    }),
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "paginate_container" }, [
-                    _c("li", [
+                    "button",
+                    {
+                      staticClass: "news_List_button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.clickUpdateNews }
+                    },
+                    [_c("span", [_vm._v("一覧を見る")])]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.newsDatas, function(newsData) {
+                  return _c("News", {
+                    key: newsData.id,
+                    staticClass: "test",
+                    attrs: { data: newsData }
+                  })
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "l-main-container-products" }, [
+              _c("h2", { staticClass: "sub_title center" }, [
+                _vm._v("- Chanpions - ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "chanpion_card_holder" },
+                _vm._l(_vm.getItems, function(chanpionData, i) {
+                  return _c("ChanpionData", {
+                    key: i,
+                    attrs: {
+                      id: i,
+                      data: _vm.chanpionDatas[i],
+                      skilldata: _vm.skillDatas,
+                      tagdata: _vm.tagDatas,
+                      tags: _vm.tags
+                    }
+                  })
+                }),
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "paginate_container" }, [
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.prev_A,
+                      attrs: { num: "1" },
+                      on: { click: _vm.clickCallback }
+                    },
+                    [_vm._v(_vm._s(_vm.minPage))]
+                  )
+                ]),
+                _vm._v(" "),
+                (_vm.currentPage == _vm.totalPage
+                ? true
+                : false)
+                  ? _c("li", [
                       _c(
                         "button",
                         {
-                          class: _vm.prev_A,
-                          attrs: { num: "1" },
+                          class: _vm.prev_E,
+                          attrs: { num: _vm.prev4 },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.minPage))]
+                        [_vm._v(_vm._s(_vm.prev4))]
                       )
-                    ]),
-                    _vm._v(" "),
-                    (_vm.currentPage == _vm.totalPage
-                    ? true
-                    : false)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.prev_E,
-                              attrs: { num: _vm.prev4 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.prev4))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage >= _vm.totalPage - 1
-                    ? true
-                    : false)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.prev_D,
-                              attrs: { num: _vm.prev3 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.prev3))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage <= 2
-                    ? false
-                    : true)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.prev_B,
-                              attrs: { num: _vm.prev2 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.prev2))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage == 1
-                    ? false
-                    : true)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.prev_C,
-                              attrs: { num: _vm.prev1 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.prev1))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("li", [
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage >= _vm.totalPage - 1
+                ? true
+                : false)
+                  ? _c("li", [
                       _c(
                         "button",
                         {
-                          class: _vm.now,
-                          attrs: { num: _vm.nowPage },
+                          class: _vm.prev_D,
+                          attrs: { num: _vm.prev3 },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.nowPage))]
+                        [_vm._v(_vm._s(_vm.prev3))]
                       )
-                    ]),
-                    _vm._v(" "),
-                    (_vm.currentPage == _vm.totalPage
-                    ? false
-                    : true)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.next_A,
-                              attrs: { num: _vm.next1 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.next1))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage >= _vm.totalPage - 1
-                    ? false
-                    : true)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.next_B,
-                              attrs: { num: _vm.next2 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.next2))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage == 1
-                    ? true
-                    : false)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.next_C,
-                              attrs: { num: _vm.next3 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.next3))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    (_vm.currentPage <= 2
-                    ? true
-                    : false)
-                      ? _c("li", [
-                          _c(
-                            "button",
-                            {
-                              class: _vm.next_D,
-                              attrs: { num: _vm.next4 },
-                              on: { click: _vm.clickCallback }
-                            },
-                            [_vm._v(_vm._s(_vm.next4))]
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("li", [
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage <= 2
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_B,
+                          attrs: { num: _vm.prev2 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev2))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage == 1
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.prev_C,
+                          attrs: { num: _vm.prev1 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.prev1))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.now,
+                      attrs: { num: _vm.nowPage },
+                      on: { click: _vm.clickCallback }
+                    },
+                    [_vm._v(_vm._s(_vm.nowPage))]
+                  )
+                ]),
+                _vm._v(" "),
+                (_vm.currentPage == _vm.totalPage
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_A,
+                          attrs: { num: _vm.next1 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next1))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage >= _vm.totalPage - 1
+                ? false
+                : true)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_B,
+                          attrs: { num: _vm.next2 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next2))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage == 1
+                ? true
+                : false)
+                  ? _c("li", [
                       _c(
                         "button",
                         {
                           class: _vm.next_C,
-                          attrs: { num: _vm.totalPage },
+                          attrs: { num: _vm.next3 },
                           on: { click: _vm.clickCallback }
                         },
-                        [_vm._v(_vm._s(_vm.maxPage))]
+                        [_vm._v(_vm._s(_vm.next3))]
                       )
                     ])
-                  ])
+                  : _vm._e(),
+                _vm._v(" "),
+                (_vm.currentPage <= 2
+                ? true
+                : false)
+                  ? _c("li", [
+                      _c(
+                        "button",
+                        {
+                          class: _vm.next_D,
+                          attrs: { num: _vm.next4 },
+                          on: { click: _vm.clickCallback }
+                        },
+                        [_vm._v(_vm._s(_vm.next4))]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.next_C,
+                      attrs: { num: _vm.totalPage },
+                      on: { click: _vm.clickCallback }
+                    },
+                    [_vm._v(_vm._s(_vm.maxPage))]
+                  )
                 ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "l-footer" }, [
-              _c(
-                "div",
-                { staticClass: "footer_body_container" },
-                [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "footer_logo",
-                      attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.footerDatas, function(footerData) {
-                    return _c("Footer", {
-                      key: footerData.id,
-                      attrs: { data: footerData }
-                    })
-                  })
-                ],
-                2
-              )
+              ])
             ])
-          ]
-        )
-      ])
-    ],
-    1
-  )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "l-footer" }, [
+          _c("div", { staticClass: "c-footer-container" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "c-footer-container-body" },
+              _vm._l(_vm.footerDatas, function(footerData) {
+                return _c("Footer", {
+                  key: footerData.id,
+                  attrs: { data: footerData }
+                })
+              }),
+              1
+            )
+          ])
+        ])
+      ]
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "sub_title news_title" }, [
+      _vm._v("更新情報"),
+      _c("span", { staticClass: "sub_title_item" }, [_vm._v("NEWS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "c-footer-container-header" }, [
+      _c("div", { staticClass: "logo__unit" }, [
+        _c("img", {
+          staticClass: "logo__unit--img",
+          attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
+        })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40422,26 +40452,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "footer_body" }, [
-    _c("ul", [
-      _c("li", { staticClass: "footer_link_waraper" }, [
-        _c("a", { staticClass: "footer_title", attrs: { href: "" } }, [
-          _vm._v(_vm._s(_vm.data.linkTitle))
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          _vm._l(_vm.data.linkItems, function(item, index) {
-            return _c("ul", { key: index }, [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("- " + _vm._s(item))])
-              ])
-            ])
-          }),
-          0
-        )
-      ])
-    ])
+  return _c("div", { staticClass: "info" }, [
+    _c("div", { staticClass: "info-head" }, [
+      _vm._v("\n        " + _vm._s(_vm.data.linkTitle) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "info-body" },
+      _vm._l(_vm.data.linkItems, function(item, index) {
+        return _c("li", { key: index }, [
+          _c("a", { staticClass: "info-body__item", attrs: { href: "#" } }, [
+            _vm._v("- " + _vm._s(item))
+          ])
+        ])
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []
@@ -40469,63 +40496,56 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "header-nuv",
+      staticClass: "p-nav-unit-container",
       on: { mouseover: _vm.mouseOverShow, mouseout: _vm.mouseOutHide }
     },
     [
-      _c("ul", { staticClass: "list_warapper" }, [
-        _c(
-          "li",
-          { staticClass: "list-item" },
-          [
-            _c(
-              "router-link",
-              {
-                class: _vm.listItems,
-                attrs: { to: "#", "active-class": "done_link", exact: "" }
-              },
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.data.linkTitle) +
-                    "\n                "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("transition", { attrs: { name: "nav_fade" } }, [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.show,
-                      expression: "show"
-                    }
-                  ],
-                  staticClass: "nav_itemBord"
-                },
-                [
-                  _c(
-                    "ul",
-                    _vm._l(_vm.data.linkItems, function(item, index) {
-                      return _c("li", { key: index, class: _vm.listClass }, [
-                        _c("a", { attrs: { href: "#", label: item } }, [
-                          _vm._v(_vm._s(item))
-                        ])
-                      ])
-                    }),
-                    0
-                  )
-                ]
+      _c(
+        "li",
+        { staticClass: "p-nav-unit-container__item" },
+        [
+          _c(
+            "router-link",
+            {
+              class: _vm.listItems,
+              attrs: { to: "#", "active-class": "done_link", exact: "" }
+            },
+            [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.data.linkTitle) +
+                  "\n                "
               )
-            ])
-          ],
-          1
-        )
-      ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("transition", { attrs: { name: "nav_fade" } }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.show,
+                    expression: "show"
+                  }
+                ],
+                staticClass: "js-show-navList"
+              },
+              _vm._l(_vm.data.linkItems, function(item, index) {
+                return _c("li", { key: index, class: _vm.bordItems }, [
+                  _c("a", { attrs: { href: "#", label: item } }, [
+                    _vm._v(_vm._s(item))
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        ],
+        1
+      )
     ]
   )
 }
@@ -40554,7 +40574,7 @@ var render = function() {
   return _c(
     "div",
     {
-      class: _vm.sliderContainer,
+      class: _vm.js_Slider,
       staticStyle: { width: "100%", height: "600px" },
       attrs: { "data-ride": "carousel" }
     },
@@ -40710,13 +40730,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "logo_container" }, [
-      _c("span", [
-        _c("img", {
-          staticClass: "logo",
-          attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
-        })
-      ])
+    return _c("div", { staticClass: "l_header__logo-unit" }, [
+      _c("img", {
+        staticClass: "p-logo-unit__img",
+        attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
+      })
     ])
   }
 ]
@@ -41604,21 +41622,21 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "l-footer" }, [
-        _c(
-          "div",
-          { staticClass: "footer_body_container" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
+        _c("div", { staticClass: "c-footer-container" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "c-footer-container-body" },
             _vm._l(_vm.footerDatas, function(footerData) {
               return _c("Footer", {
                 key: footerData.id,
                 attrs: { data: footerData }
               })
-            })
-          ],
-          2
-        )
+            }),
+            1
+          )
+        ])
       ])
     ],
     1
@@ -41629,11 +41647,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("img", {
-        staticClass: "footer_logo",
-        attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
-      })
+    return _c("div", { staticClass: "c-footer-container-header" }, [
+      _c("div", { staticClass: "logo__unit" }, [
+        _c("img", {
+          staticClass: "logo__unit--img",
+          attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
+        })
+      ])
     ])
   }
 ]

@@ -1,27 +1,23 @@
 <template>
-    <div class="header-nuv" @mouseover="mouseOverShow" @mouseout="mouseOutHide">
-        <ul class="list_warapper">
-            <li class="list-item">
+    <div class="p-nav-unit-container" @mouseover="mouseOverShow" @mouseout="mouseOutHide">
+            <li  class="p-nav-unit-container__item">
                 <router-link
                     to="#"
                     :class="listItems"
                     active-class="done_link"
-                    exact
-                    >
+                    exact>
                     {{ data.linkTitle }}
                     </router-link> 
+
                 <transition name="nav_fade">
-                    <div class="nav_itemBord" v-show="show">
-                        <ul>
-                            <li :class="listClass" v-for="(item,index) in data.linkItems" :key="index">
+                    <div class="js-show-navList" v-show="show">
+                            <li :class="bordItems" v-for="(item,index) in data.linkItems" :key="index">
                                 <a href="#" :label="item">{{ item }}</a>
                             </li>
-                        </ul>
                     </div>
                 </transition>
 
             </li>
-        </ul>
         <!-- <p>{{ X }}、{{ Y }}</p> -->
     </div>
 </template>
@@ -36,10 +32,10 @@ export default {
                 X: 0,
                 Y: 0,
                 listItems: {
-                    list: true,
+                    item: true,
                 },
-                listClass: {
-                    sublistItem: true,
+                bordItems: {
+                    bordItem: true,
                 },
         }
     },
@@ -69,18 +65,8 @@ export default {
 </script>
 
 <style scope>
-.header-nuv{
-    /* padding: 0 10px; */
-    flex-basis: 25%;
-}
-.list_warapper {
-    padding: 0;
-    margin: 0;
-    height: 100px;
-}
-li {
-  list-style:none;
-}
+/* 不要コード整理する */
+
 .list_warapper a {
   color:#333;
   text-decoration:none;
@@ -113,34 +99,6 @@ li {
 .hide{
     opacity: 0;
     transition: 2s;
-}
-.sublistItem{
-    font-size: 12px;
-    box-sizing: border-box;
-    -webkit-transition: .5s;
-    transition: .5s;
-    height: 30px;
-    padding: 8px 20px;
-    -ms-flex-preferred-size: 30%;
-    flex-basis: 25%;
-}
-.nav_itemBord{
-    background: #fff;
-    width: 100%;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding-left: 200px;
-    position: absolute;
-    top: 85px;
-    left: 0;
-    z-index: 5;
-    }
-.nav_itemBord > ul{
-  display: flex;
-  flex-wrap: wrap;
-  height: 100px;
-  max-width: 100%;
 }
 
 /* アニメーション */

@@ -1,17 +1,13 @@
 <template>
-    <div class="footer_body">
-        <ul>
-            <li class="footer_link_waraper">
-                <a href="" class="footer_title">{{ data.linkTitle }}</a>
-                <div>
-                    <ul v-for="(item,index) in data.linkItems" :key="index">
-                        <li>
-                            <a href="#">- {{ item }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <div class="info">
+        <div class="info-head">
+            {{ data.linkTitle }}
+        </div>
+             <div class="info-body">
+                    <li  v-for="(item,index) in data.linkItems" :key="index">
+                        <a class="info-body__item" href="#">- {{ item }}</a>
+                    </li>
+            </div>
     </div>
 </template>
 

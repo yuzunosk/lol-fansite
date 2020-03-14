@@ -1,46 +1,51 @@
 <template>
   <div>
 <!-- Loading -->
-      <Loading v-show="loading"></Loading>
+      <!-- <Loading v-show="loading"></Loading> -->
 
-        <transition name="fade" mode="out-in">
+        <!-- <transition name="fade" mode="out-in"> -->
           <div v-show="!loading">
 
 <!-- header -->
-    <div class="l-header">
+    <div class="l_header">
         <LikeHeader></LikeHeader>
         <!-- スクロールテスト -->
-          <!-- <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div> -->
+          <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div>
 
 <!-- header_navigation -->
-    <div :class="jsFloatMenuTurget">
-        <HeaderLink
-          :id="linkDatas[0].id"
-          :data="linkDatas[0]"
-        >
-        </HeaderLink>
-        <HeaderLink
-          :id="linkDatas[1].id"
-          :data="linkDatas[1]"
-        >
-        </HeaderLink>
-        <HeaderLink
-          :id="linkDatas[2].id"
-          :data="linkDatas[2]"
-        >
-        </HeaderLink>
-        <HeaderLink
-          :id="linkDatas[3].id"
-          :data="linkDatas[3]"
-        >
-        </HeaderLink>
-    </div>
+        <div :class="jsFloatMenuTurget">
+
+                <HeaderLink
+                  :id="linkDatas[0].id"
+                  :data="linkDatas[0]">
+                </HeaderLink>
+
+                <HeaderLink
+                  :id="linkDatas[1].id"
+                  :data="linkDatas[1]">
+                </HeaderLink>
+
+                <HeaderLink
+                  :id="linkDatas[2].id"
+                  :data="linkDatas[2]">
+                </HeaderLink>
+
+                <HeaderLink
+                  :id="linkDatas[3].id"
+                  :data="linkDatas[3]">
+                </HeaderLink>
+
+            </div>
+            
     <!-- header_navigation end -->
   </div>
 <!-- header end -->
 
 <div id="l-main">
+
+<!-- hero slider -->
     <HeroSlider></HeroSlider>
+<!-- hero slider  end -->
 
     <div class="l-main-container-news">
       <div class="news_header">
@@ -88,14 +93,20 @@
 
 <!-- footer -->
         <div class="l-footer">
-          <div class="footer_body_container">
-            <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
-            <Footer
-              v-for="footerData in footerDatas"
-              :key="footerData.id"
-              :data="footerData"
-            >
-            </Footer>
+          <div class="c-footer-container">
+            <div class="c-footer-container-header">
+                <div class="logo__unit">
+                  <img class="logo__unit--img" src="/storage/img/logo/lol_logo.png" alt="">
+                </div>
+            </div>
+            <div class="c-footer-container-body">
+              <Footer
+                v-for="footerData in footerDatas"
+                :key="footerData.id"
+                :data="footerData">
+              </Footer>
+            </div>
+
           </div>
         </div>
 <!-- footer END -->
@@ -130,7 +141,7 @@ export default {
      scrollY: 0,
      //js-toggle-class
      jsFloatMenuTurget: {
-       header_link_item: true,
+       l_header__nav_unit: true,
        float_active: false,
      },
      //ページング
@@ -182,13 +193,7 @@ export default {
       number: 14,
       test: 'いいね',
       currentComponent: true,
-      formShow: false,
-      locations: [
-        "東京","大阪","神奈川"
-        ],
-      links: [
-        "リンク１","リンク２","リンク３"
-        ],
+ 
       // chanpCards: [],
       paginate: ['chanpionsDatas'],
       linkDatas: [
@@ -319,9 +324,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
-/* @import ResetCss from ".././public/reset"; */
-
-
 
 
     .sub_title{
@@ -345,12 +347,6 @@ export default {
       padding-bottom: 30px;
     }
 
-    /* .news_container{ */
-      /* display: flex;
-      justify-content: space-between; */
-      /* margin: 0 auto;
-      margin-bottom: 100px; */
-    /* } */
 
     .news_container .test:last-child {
     border-bottom: 1px dashed #333;
@@ -364,7 +360,7 @@ export default {
     font-size: 14px;
     text-align: left;
     width: 180px;
-    height: 45px;
+    height: 45x;
     padding: 0;
     padding-left: 20px;
     background: #fff;
@@ -413,10 +409,7 @@ export default {
       color: #fff;
       transition: .3s;
     }
-    /* .chanpion_data_container{
-    background: #e6e6e6;
-    padding-bottom: 100px; */
-    /* } */
+ 
     .chanpion_card_holder{
     display: flex;
     justify-content: center;
@@ -479,17 +472,6 @@ export default {
 
     /* ページネートCSS END */
 
-
-
-    .footer_body_container{
-      width: 1280px;
-      margin: 0 auto;
-    }
-    .footer_logo{
-    width: 200px;
-    margin-left: 50px;
-    margin-bottom: 30px;
-    }
 
     /* アニメーション */
     .fade-enter-active , .fade-leave-active{

@@ -1,51 +1,53 @@
 <template>
-<div :class="sliderContainer" data-ride="carousel" style="width:100%;height:600px;">
-    <ol class="carousel-indicators">
-    <li data-target="#example-3" data-slide-to="0" class="active"></li>
-    <li data-target="#example-3" data-slide-to="1"></li>
-    <li data-target="#example-3" data-slide-to="2"></li>
-    <li data-target="#example-3" data-slide-to="3"></li>
-    <li data-target="#example-3" data-slide-to="4"></li>
-    <li data-target="#example-3" data-slide-to="5"></li>
-    <li data-target="#example-3" data-slide-to="6"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img :src="icons[0].img" alt="1st slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[1].img" alt="2nd slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[2].img" alt="3th slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[3].img" alt="4th slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[4].img" alt="5th slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[5].img" alt="6th slide">
-    </div>
-    <div class="carousel-item">
-      <img :src="icons[6].img" alt="7th slide">
-    </div>
+    <div :class="js_Slider" data-ride="carousel" style="width:100%;height:600px;">
+      
+        <ol class="carousel-indicators">
+          <li data-target="#example-3" data-slide-to="0" class="active"></li>
+          <li data-target="#example-3" data-slide-to="1"></li>
+          <li data-target="#example-3" data-slide-to="2"></li>
+          <li data-target="#example-3" data-slide-to="3"></li>
+          <li data-target="#example-3" data-slide-to="4"></li>
+          <li data-target="#example-3" data-slide-to="5"></li>
+          <li data-target="#example-3" data-slide-to="6"></li>
+      </ol>
 
-    <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon pointer" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
-      <span class="carousel-control-next-icon pointer" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img :src="icons[0].img" alt="1st slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[1].img" alt="2nd slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[2].img" alt="3th slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[3].img" alt="4th slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[4].img" alt="5th slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[5].img" alt="6th slide">
+        </div>
+        <div class="carousel-item">
+          <img :src="icons[6].img" alt="7th slide">
+        </div>
 
-  </div>
-  <p :class="heroMessageTop">Summoners Lift Guide , started League of Legends</p>
-  <p :class="heroMessageBottom">Only those who have never feed throw stones<br> at those who have feed ...</p> 
+        <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon pointer" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
+          <span class="carousel-control-next-icon pointer" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
 
-</div>
+      </div>
+      <p :class="heroMessageTop">Summoners Lift Guide , started League of Legends</p>
+      <p :class="heroMessageBottom">Only those who have never feed throw stones<br> at those who have feed ...</p> 
+
+    </div>
 
 </template>
 
@@ -61,10 +63,10 @@ export default {
       scrollLeft: 0,
       x: 0,
       y: 0,
-      sliderContainer: {
+      js_Slider: {
         slide: true,
         carousel: true,
-        slider_container: true,
+        c_slider__container: true,
       },
       slideItem: {
         slider_item: true,
@@ -102,15 +104,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
-
-.slider_container{
-  padding: 0;
-  overflow: hidden;
-  margin: 0;
-  position: relative;
-  transition: .5s;
-  margin-bottom:50px;
-}
 .slider_item{
   overflow: hidden;
   width: 1280px;

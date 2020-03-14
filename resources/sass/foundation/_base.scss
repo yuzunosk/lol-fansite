@@ -85,9 +85,14 @@ a:hover {
     transition: .3s;
 }
 
+ul, li {
+  list-style: none;
+}
+
+
 img {
   vertical-align: bottom;
-  width: 50%;
+  // width: 50%;
 }
 
 // ==============================

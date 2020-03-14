@@ -96,3 +96,11 @@ type="radio"
         location: "東京",
         link: "リンク１"
       }
+
+           formShow: false,
+      locations: [
+        "東京","大阪","神奈川"
+        ],
+      links: [
+        "リンク１","リンク２","リンク３"
+        ],

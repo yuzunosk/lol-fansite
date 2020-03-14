@@ -35,19 +35,26 @@
         >
         </ChanpionPageTag>
 
-        <!-- footer -->
+<!-- footer -->
         <div class="l-footer">
-          <div class="footer_body_container">
-            <span><img class="footer_logo" src="/storage/img/logo/lol_logo.png" alt=""></span>
-            <Footer
-              v-for="footerData in footerDatas"
-              :key="footerData.id"
-              :data="footerData"
-            >
-            </Footer>
+          <div class="c-footer-container">
+            <div class="c-footer-container-header">
+                <div class="logo__unit">
+                  <img class="logo__unit--img" src="/storage/img/logo/lol_logo.png" alt="">
+                </div>
+            </div>
+            <div class="c-footer-container-body">
+              <Footer
+                v-for="footerData in footerDatas"
+                :key="footerData.id"
+                :data="footerData">
+              </Footer>
+            </div>
           </div>
         </div>
 <!-- footer END -->
+
+
     </div>
 </template>
 
@@ -57,23 +64,34 @@ import ChanpionPageTop from "./ChanpionPageTop.vue";
 import ChanpionSkill from "./ChanpionSkill.vue";
 import ChanpionStatus from "./ChanpionStatus.vue";
 import ChanpionPageTag from "./ChanpionPageTag";
+import Footer from "../.././components/Footer.vue";
 
 export default {
     data() {
         return {
-            key: 0,
-            currentChampionId: "",
-            currentSkillData: {},
-            currentTagData: {},
-            removeTagData: [],
+        key: 0,
+        currentChampionId: "",
+        currentSkillData: {},
+        currentTagData: {},
+        removeTagData: [],
+
+        footerDatas: [
+        {id: 0 ,linkTitle:"役割について", linkItems: ['TOP','JG','MID','BOTTOM','SUPPORT']},
+        {id: 1 ,linkTitle:"オブジェクトについて", linkItems: ['タワー','インヒビター','ネクサス','ドラゴン','バロン']},
+        {id: 2 ,linkTitle:"ゲームの進め方", linkItems: ['チャンピオン','操作','ゲームルール','チャンピオンを成長させよう','アイテムを買おう','仲間と行動しよう']},
+        {id: 3 ,linkTitle:"JGについて", linkItems: ['ガンク','カウンターJG','オブジェクト管理','レーンのフォロー','JGチャンピオンのタイプ']},
+        ],
+
         }
     },
     components: {
         ChanpionPageTop,
         ChanpionSkill,
         ChanpionStatus,
-        ChanpionPageTag
+        ChanpionPageTag,
+        Footer
     },
+    
     methods: {
         roopSkillData(){
         let num = 0;

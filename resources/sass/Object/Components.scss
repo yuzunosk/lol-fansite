@@ -9,19 +9,22 @@
 // -------------------------
 // chanpion top
 // -------------------------
-.c-hero{
-  &-section{
+.c-hero {
+
+  &-section {
     display: flex;
     flex-wrap: wrap;
     height: 300px;
     @include mq(){
       height: 700px;
     }
-      &__area{
+
+      &__area {
         display: flex;
         height: 300px;
         overflow: hidden;
-        &--img{
+
+        &--img {
           height: 100%;
           width: 50%;
           object-fit: cover;
@@ -32,7 +35,8 @@
               width: 100%;
         }
       }
-      &--data{
+
+      &--data {
         color: $font-color__secondary;
         display: flex;
         flex: 1;
@@ -45,19 +49,22 @@
           @include mq(){
             display: none;
           }
-            &--first{
+
+            &--first {
               margin-bottom: 0;
             }
       }
     }
-    &__hero{
+
+    &__hero {
       width: 100%;
       height: 100%;
       position: relative;
       overflow: hidden;
         }
   }
-  &-listArea{
+
+  &-listArea {
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -68,33 +75,38 @@
         margin-top: $space__xl;
         width: 100%;
       }
-      &__text{
-        align-self: center;
+
+      &__text {
+      align-self: center;
       color: $font-color__secondary;
-      @include notlast{
-        margin-bottom: $space__m;
-        }
-        @include mq() {
-          margin: 0;
-        }
+       @include notlast{
+         margin-bottom: $space__m;
+         }
+         @include mq() {
+           margin: 0;
+         }
       }
-      &__header{
+
+      &__header {
         font-size: $font-size__xxl;
         width: 100%;
       }
-      &__subTitle{
+
+      &__subTitle {
         font-size: $font-size__s;
         width: 100%;
         @include mq() {
           font-size: $font-size__xl;
         }
       }
-      &__hr{
+
+      &__hr {
         margin: 10px auto;
         width: 85%;
         background-color: $base-color__primary;
       }
-      &__lead{
+
+      &__lead {
           font-size: $font-size__xl;
           margin-bottom: $space__l;
           width: 100%;
@@ -102,13 +114,15 @@
             margin-bottom: $space__s;
           }
         }
-      &-unit{
+
+      &-unit {
           display: flex;
           width: 70%;
           @include mq() {
             flex-direction: column;
           }
-         &__item{
+
+         &__item {
             background: lighten($base-color__secondary ,15%);
             border: 1.5px solid $base-color__primary;
             flex: 1;
@@ -120,13 +134,13 @@
               font-size: $font-size__l;
             }
 
-            &--right{
+            &--right {
                 margin-left: $space__xl;
                 @include mq() {
                   margin-left: 0;
                 }
             }
-            &::before{
+            &::before {
               content: "MAIN";
               text-align: center;
               background: $base-color__primary;
@@ -136,7 +150,7 @@
                 color: $font-color__default;
                 width: 35%;
               }
-              @include last{
+              @include last {
                 &::before{
                   content: "SUB";
                   background: $base-color__primary;
@@ -144,7 +158,8 @@
               }
             }
           }
-          &-costList{
+
+          &-costList {
             align-items: center;
             color: $font-color__secondary;
             display: flex;
@@ -154,16 +169,19 @@
              @include mq() {
                font-size: $font-size__xl;
              }
-            &__item{
+
+            &__item {
               // padding: $space__m;
             }
-            &__right{
+
+            &__right {
               margin-left: $space__xl;
                @include mq() {
                  margin-left: $space__xl;
                }
             }
-            &__img{
+
+            &__img {
             // vertical-align: center;
             width: 30%;
              @include mq() {
@@ -176,65 +194,142 @@
 // ------------------------------------------------
 // information
 // ------------------------------------------------
-.p-information__section{
+.p-information__section {
   display: flex;
   font-size: $font-size__default;
   flex-direction: column;
-    &__item{
+
+    &__item {
       font-size: $font-size__default;
       margin-bottom: 0;
        @include mq() {
          font-size: $font-size__xl
        }
     }
-    &--square{
+
+    &--square {
         border-radius: 2%;
         font-size: $font-size__l;
          @include mq() {
           font-size: $font-size__xl
         }
     }
-
 }
+
+
+// ------------------------------------------------
+// slider
+// ------------------------------------------------
+.c_slider__container{
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    transition: .5s;
+    margin-bottom:50px;
+    width: 100%;
+}
+
 
 // ------------------------------------------------
 // banner
 // ------------------------------------------------
-.c-hero-section{
-    &::before{
+.c-hero-section {
+
+    &::before{ 
         content: "・Chanpion Guide";
-        @include absPosition($top: 0,$left: 0);
-        color:$font-size__default;
-        background: $banner-color;
-        float: center;
-        font-size: $font-size__default;
-        font-weight: bold;
-        padding: 8px 10px 8px 5px;
-        text-align: center;
-        transform: rotate(-10deg);
+          @include absPosition($top: 0,$left: 0);
+          color:$font-size__default;
+          background: $banner-color;
+          float: center;
+          font-size: $font-size__default;
+          font-weight: bold;
+          padding: 8px 10px 8px 5px;
+          text-align: center;
+          transform: rotate(-10deg);
       }
 }
 
 .c-main-archive__banner {
     @include absPosition($top: 7%,$left: -5%);
-    display: flex;
     align-items: center;
-    justify-content: center;
     background: #39ff0a;
-    width: 200px;
-    height: 30px;
+    display: flex;
     font-size: $font-size__l;
+    height: 30px;
+    justify-content: center;
     transform: rotate(-37deg);
+    width: 200px;
     z-index: 2;
-    @include mq() {
-      left: -10%;
-    }
+     @include mq() {
+       left: -10%;
+     }
 }
 
 // ==========================================================
 // Footer
 // ==========================================================
-c-footer-container{
-  width: $content-width__l;
+.c-footer-container {
   margin: 0 auto;
+  width: $content-width__l;
+
+   &-header {
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    margin-bottom: $space__xxl;
+    width: 100%;
+
+      .logo__unit {
+        height: 100%;
+        width: 15%;
+
+        &--img {
+          height: 100%;
+          object-fit: contain;
+          width: 100%;
+        }
+      }
+   }
+
+   &-body {
+     align-items: flex-start;
+     color: $font-color__secondary;
+     display: flex;
+     flex-direction: column;
+     font-size: $font-size__s;
+     height: 100%;
+     justify-content: space-around;
+     margin-left: $space__m;
+     width: 100%;
+
+     .info {
+       display: flex;
+       height: 30px;
+       margin-bottom: $space__l;
+       width: 100%;
+
+       &-head {
+         flex: 1;
+       }
+
+       &-body {
+         display: flex;
+         flex: 7;
+         justify-content: flex-start;
+         
+
+         &__item {
+           color: $font-color__secondary;
+           flex: 1;
+           margin-left: $space__l;
+           text-decoration: none;
+            &:hover {
+              color: $font-color-link__hover;
+            }
+         }
+       }
+     }
+   }
+
 }
