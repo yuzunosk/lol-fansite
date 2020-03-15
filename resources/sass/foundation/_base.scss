@@ -15,7 +15,7 @@ $base-color__secondary: #333;
 $sub-color: #e6e6e6;
 $banner-color: #FFEB3B;
 
-$font-size_root: 10px;
+$font-size_root: 14px;
 $font-size__s: 12px;
 $font-size__default: 14px;
 $font-size__l: 16px;
@@ -34,6 +34,7 @@ $font-family__default: 'Open Sans Condensed', sans-serif;
 
 $content-width__default: 980px;
 $content-width__l: 1280px;
+
 
 
 // マップ型変数を使うと便利
@@ -83,6 +84,8 @@ a {
 a:hover {
     color: $font-color-link__hover;
     transition: .3s;
+    text-decoration: none;
+
 }
 
 ul, li {
@@ -105,6 +108,28 @@ img {
   content: '';
   display: inline-block;
 }
+
+// 13__ie11only
+// ----------------------------------------------------------
+@mixin ie11only {
+  @media all and (-ms-high-contrast: none), print {
+      @content;
+  }
+}
+
+@mixin ie11only_sm {
+  @media screen and (max-width: $breakPoint - 1) and (-ms-high-contrast: none) {
+      @content;
+  }
+}
+
+@mixin ie11only_lg {
+  @media screen and (min-width: $breakPoint) and (-ms-high-contrast: none) {
+      @content;
+  }
+}
+
+
 // ----------------------------------------------------------
 //position用
 // ----------------------------------------------------------
@@ -146,8 +171,8 @@ img {
   }
 
   @include ie11only() {
-      margin-bottom: 1px !important;
-  }
+    margin-bottom: 1px !important;
+}
 }
 // -----------------------------------------------------------------------------
 // 17__first, notfirst  ※include first{ // ここに記述 }といった

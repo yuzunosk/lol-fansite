@@ -7,26 +7,37 @@
     height: auto;
     &-container {
         width: $content-width__default;
+
+        &-news{
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 100px;
+
+            @include mq() {
+                width: 100%;
+            }
+
+                 li {
+                    border-top: 1px dashed #333;
+                }
+        }
+
+        &-products {
+            background: $sub-color;
+            width: 100%;
+            height: 100%;
+            padding-top: $space__3l;
+            padding-bottom: $space__4l;
+
+
+        }
    }
-}
-
-// ==============================
-// Layout
-// ==============================
-.l-news {
-    margin: 0 auto;
-    margin-bottom: 100px;
-}
-
-.l-products {
-    background: #e6e6e6;
-    padding-bottom: 100px; //conponent側で調整していく
 }
 // -------------------------------
 // chanpion page
 // -------------------------------
 .l-hero {
-    background-color: black;
+    background-color: $base-color__default;
     flex-direction: row;
     height: 300px;
     margin: 0 auto;
@@ -105,6 +116,7 @@
     overflow: hidden;
     height: 350px;
     width: 100%;
+
     @include mq() {
         border-radius: unset;
         flex-direction: column;

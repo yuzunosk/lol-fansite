@@ -1,14 +1,12 @@
 <template>
-    <div class="news_body" @mouseover="mouseOverMove" @mouseout="mouseOutRemove">
-        <ul>
+    <div class="c-news_list" @mouseover="mouseOverMove" @mouseout="mouseOutRemove">
             <li>
                 <a href="" :class="newsBodyContents">
-                    <span class="news_update">{{ data.date }}</span>
-                    <span class="news_index">{{ data.index }}</span>
-                    <span class="news_content">{{ data.content }}</span>
+                    <span class="c-news_list--data news_update">{{ data.date }}</span>
+                    <span class="c-news_list--index news_index">{{ data.index }}</span>
+                    <span class="c-news_list--body news_content">{{ data.content }}</span>
                 </a>
             </li>
-        </ul>
     </div>
 </template>
 
@@ -19,22 +17,22 @@ export default {
     data() {
         return {
             newsBodyContents: {
-            news_body_contents: true,
-            over_move: false
+            c_news_items: true,
+            c_news_items__move: false
             },
         }
     },
     methods: {
         mouseOverMove() {
-            this.newsBodyContents.over_move = true;
+            this.newsBodyContents.c_news_items__move = true;
             //eslint-disable-next-line no-console
-            // console.log(this.newsBodyContents.over_move);
+            // console.log(this.newsBodyContents.c_news_items__move);
             return
             },
         mouseOutRemove() {
-            this.newsBodyContents.over_move = false;
+            this.newsBodyContents.c_news_items__move = false;
             //eslint-disable-next-line no-console
-            // console.log(this.newsBodyContents.over_move);
+            // console.log(this.newsBodyContents.c_news_items__move);
             return
         }
     }
@@ -43,48 +41,17 @@ export default {
 
 
 <style scoped>
-.news_body{
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-    transition: .3s;
-}
-.news_body:hover{
-    background: #333;
-    transition: .3s;
 
-}
-.news_body_contents{
-    color:#333;
-    display: block;
-}
-.over_move{
-    color: #f6f5f4;
-    margin-left: 20px;
-}
-
-.news_body > ul {
+/* .c_news_items > ul {
     margin: 0;
     padding: 0;
 }
 
-.news_body > ul > li {
+.c_news_items > ul > li {
     border-top: 1px dashed #333;
     font-size: 12px;
     height: 40px;
-    line-height: 40px;
-}
-.news_body > ul > li > a {
-    text-decoration:none;
-    transition: .3s;
-}
+    line-height: 40px; */
 
-.news_update{
-    margin-right: 30px;
-}
-
-.news_index{
-    margin-right: 70px;
-}
 
 </style>

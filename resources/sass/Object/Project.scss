@@ -1,6 +1,10 @@
 // ==========================================================
 // Project
 // ==========================================================
+// =========================
+// Header
+// =========================
+
 // -------------------------
 // header
 // -------------------------
@@ -66,6 +70,9 @@
       padding-left: 25%;
       width: 100%;
       z-index: 5;
+          @include mq() {
+            margin-left: 0;
+          }
 
       .bordItem{
         align-items: center;
@@ -107,8 +114,11 @@
     }
 }
 
+// ================================
+// Chanpion Data
+// ================================
 // -------------------------
-//chanpion data
+//  feature text
 // -------------------------
 .p-hero__featureText{
     background: $sub-color;
@@ -162,6 +172,7 @@
         border-bottom: none;
         border-right: 1px solid $base-color__default;
         border-left: 1px solid $base-color__default;
+        
           &:hover{
             cursor: pointer;
             color: $base-color__primary;
@@ -286,4 +297,38 @@
         }
       }
   }
+}
+
+// ================================
+// Main Section
+// ================================
+.p-main-section{
+
+    &__head{
+      padding-bottom: $space__4l;
+      padding-top: $space__xxl;
+      text-align: center;
+      width: 100%;
+    }
+
+    &__wrapper{
+
+        &--center{
+          margin: 0 auto;
+          width: 80%;
+
+          @include mq(md){
+            width: 100%;
+          }
+        }
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: $space__xl;
+      width: 100%;
+
+
+    }
 }

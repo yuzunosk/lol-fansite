@@ -23,6 +23,7 @@
         display: flex;
         height: 300px;
         overflow: hidden;
+        
 
         &--img {
           height: 100%;
@@ -221,18 +222,313 @@
 // slider
 // ------------------------------------------------
 .c_slider__container{
-    padding: 0;
-    overflow: hidden;
-    margin: 0;
-    position: relative;
-    transition: .5s;
-    margin-bottom:50px;
-    width: 100%;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  transition: .5s;
+  width: 100%;
+  height:600px;
+  margin-bottom: 100px;
+  
+  @include mq() {
+    display: none;
+      }
+
+    @include mq() {
+      display: none;
+    }
+
+    .hero_message{
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: $font-color__secondary;
+      padding: 2px 15px;
+      text-shadow: 2px 2px 6px #232222;
+
+      &__main{
+        font-size: 45px;
+
+        &_top{
+            @include absPosition($top: 3%, $right: 10%);
+            z-index: 2;
+        }
+      }
+
+      &__sub{
+        font-size: 24px;
+
+            &_bottom{
+                @include absPosition($bottom:7% , $left: 5%);
+                z-index: 2;
+            }
+      }
+  }
 }
 
 
 // ------------------------------------------------
-// banner
+// Hero section 1colum
+// ------------------------------------------------
+.c-hero-container-1colum {
+  display: none;
+  margin-bottom: 100px;
+
+      @include mq() {
+        display: block;
+        width: 100%;
+        height: 600px;
+        background-image: url('../../../storage/app/public/img/TOP/Screenshot_4.jpg');
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+    &__area {
+        width: 100%;
+        height: 100%;
+
+        &--img {
+          width: 100%;
+          height: 100%;
+        }
+
+    }
+}
+
+
+// ==========================================================
+// News
+// ==========================================================
+.c-news__header{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: space-between;
+  margin-bottom: $space__3l;
+  width: 100%;
+
+  @include mq() {
+    flex-direction: column;
+
+  }
+
+  .c-news-head-unit{
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 15%;
+
+    @include mq() {
+      width: auto;
+    }
+
+      &__title{
+        font-size: $font-size__xl;
+        letter-spacing: 2.5px;
+      }
+    
+      &__subTitle{
+        align-self: center;
+        font-size: $font-size__s;
+        letter-spacing: 2px;
+      }
+  }
+
+  &__btn{
+    height: 100%;
+    width: 180px;
+    font-size: $font-size__default;
+    text-align: left;
+    padding-left: $space__l;
+    background: #fff;
+    border: 2px solid #333;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    color: $font-color__default;
+    transition: .3s;
+    z-index: 1;
+      @include mq() {
+         display: none;
+      }
+
+      &:hover{
+          color: $font-color__secondary;
+          transition: .4s;
+          cursor: pointer;
+
+          &::before{
+            @include absPosition($top: 0,$right: 0);
+            transition: .4s ease-out;
+            background: $base-color__default;
+            }
+          
+          &::after{
+              color: $base-color__secondary;
+              transition: .4s ease-out;
+          }
+      }
+
+      &::before{
+        content: "";
+        width: 180px;
+        height: 100%;
+        background: #717070;
+        @include absPosition($top: 0, $right: 200%);
+        z-index: -1;
+        transition: .3s;
+      }
+
+      &::after{
+        @include arrow(20, 3, $base-color__default , right);
+        @include absPosition($top: 20%, $right: 30px);
+        z-index: -1;
+        }
+  }
+}
+
+.c-news_list{
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+  width: 100%;
+
+  &:hover {
+    background: $base-color__default;
+    transition: .3s;
+}
+  
+  &--data{
+    margin-right: $space__xxl;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+      &:hover{
+        color: $font-color__secondary;
+      }
+    }
+
+    &--index{
+      align-self: center;
+      flex: 1;
+        @include mq() {
+          display: none;
+        }
+
+      &:hover{
+        color: $font-color__secondary;
+      }
+    }
+
+    &--body{
+      align-items: center;
+      display: flex;
+      height: 100%;
+      flex: 7;
+      &:hover{
+        color: $font-color__secondary;
+      }
+    }
+  }
+  
+  .c_news_items
+{
+  font-size: $font-size__s;
+  height: $space__3l;
+  color: $font-color__default;
+  display: block;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+  &__move {
+    color: $font-color__secondary;
+    margin-left: $space__l;
+    transition: .3s;
+  }
+
+}
+//aタグの影響下の為、追記
+
+a.c_news_items {
+
+  &:hover{
+    color: #ffffff;
+  }
+}
+// ==========================================================
+// Main Section Card
+// ==========================================================
+.c-main-card-unit{
+    margin-right: $space__xxl;
+    margin-bottom: $space__xxl;
+    box-sizing: border-box;
+    width: calc(25% - #{$space__xxl});
+    overflow: hidden;
+    text-align: center;
+
+    @include mq(md) {
+      margin-right: $space__xl;
+      margin-bottom: $space__xl;
+      width: calc(50% - #{$space__xxl});
+    }
+
+    @include mq() {
+      width: 100%;
+      margin-bottom: $space__xl;
+      margin-right: 0;
+    }
+
+    &__thmbnail{
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &__img{
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+
+        &:hover{
+          transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);
+          transition: .3s;
+        }
+      }
+
+    &__text{
+      color: $font-color__secondary;
+      font-size: $font-size__l;
+      font-weight: bold;
+      font-family: 'IBM Plex Serif', serif;
+      text-shadow: 0px 0px 5px #000;
+
+        &--top{
+        margin: 0;
+        @include absPosition($top: 3%, $right: 5%);
+        letter-spacing: 1px;
+        } 
+
+        &--bottom{
+        font-size: $font-size__xl;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        @include absPosition($bottom: 0, $left: 5%);
+        }
+    }
+}
+
+// ------------------------------------------------
+// Banner
 // ------------------------------------------------
 .c-hero-section {
 
@@ -271,18 +567,21 @@
 // ==========================================================
 .c-footer-container {
   margin: 0 auto;
-  width: $content-width__l;
+  width: 100%;
 
    &-header {
     display: flex;
     height: 100%;
     justify-content: flex-start;
     margin-bottom: $space__xxl;
-    width: 100%;
+    width: 80%;
 
       .logo__unit {
         height: 100%;
         width: 15%;
+          @include mq() {
+             width: 60%;
+          }
 
         &--img {
           height: 100%;
@@ -301,14 +600,22 @@
      height: 100%;
      justify-content: space-around;
      margin-left: $space__m;
-     width: 100%;
+     width: 80%;
+        @include mq() {
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100%;
+          font-size: $font-size__l;
+        }
 
      .info {
        display: flex;
        height: 30px;
        margin-bottom: $space__l;
        width: 100%;
-
+          @include mq (){
+            width: 50%;
+          }
        &-head {
          flex: 1;
        }
@@ -317,6 +624,9 @@
          display: flex;
          flex: 7;
          justify-content: flex-start;
+            @include mq() {
+               display: none;
+            }
          
 
          &__item {

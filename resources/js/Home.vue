@@ -9,8 +9,9 @@
 <!-- header -->
     <div class="l_header">
         <LikeHeader></LikeHeader>
+
         <!-- スクロールテスト -->
-          <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div>
+          <!-- <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div> -->
 
 <!-- header_navigation -->
         <div :class="jsFloatMenuTurget">
@@ -45,45 +46,56 @@
 
 <!-- hero slider -->
     <HeroSlider></HeroSlider>
+    <ToggleHero></ToggleHero>
 <!-- hero slider  end -->
 
     <div class="l-main-container-news">
-      <div class="news_header">
-        <h2 class="sub_title news_title">更新情報<span class="sub_title_item">NEWS</span></h2>
-        <button @click="clickUpdateNews" class="news_List_button" type="button"><span>一覧を見る</span></button>
-      </div>
-      <News class="test"
+          <div class="c-news__header">
+
+            <div class="c-news-head-unit">
+                <h2 class="c-news-head-unit__title">更新情報<span class="c-news-head-unit__subTitle">NEWS</span></h2>
+            </div>
+            <button @click="clickUpdateNews" class="c-news__header__btn" type="button"><span>一覧を見る</span></button>
+          </div>
+
+      <News
          v-for="newsData in newsDatas"
          :key="newsData.id"
-         :data="newsData"
-      >
+         :data="newsData">
       </News>
     </div>
 
     <div class="l-main-container-products">
-      <h2 class="sub_title center">- Chanpions - </h2>
-        <div class="chanpion_card_holder">
-              <ChanpionData
-                v-for="(chanpionData, i) in getItems"
-                :key="i"
-                :id="i"
-                :data="chanpionDatas[i]"
-                :skilldata="skillDatas"
-                :tagdata="tagDatas"
-                :tags="tags">
-              </ChanpionData>
-        </div>
+      <h2 class="p-main-section__head">- Chanpions - </h2>
+
+      <div class="p-main-section__wrapper--center">
+          <div class="p-main-section__wrapper">
+                <ChanpionData
+                  v-for="(chanpionData, i) in getItems"
+                  :key="i"
+                  :id="i"
+                  :data="chanpionDatas[i]"
+                  :skilldata="skillDatas"
+                  :tagdata="tagDatas"
+                  :tags="tags">
+                </ChanpionData>
+          </div>
+      </div>
             <div class="paginate_container">
                   <li ><button :class="prev_A" @click="clickCallback" num="1">{{ minPage }}</button></li>
+
                   <li v-if="(currentPage == totalPage) ? true : false"><button :class="prev_E" @click="clickCallback" :num="prev4">{{ prev4 }}</button></li>
                   <li v-if="(currentPage >= totalPage -1) ? true : false"><button :class="prev_D" @click="clickCallback" :num="prev3">{{ prev3 }}</button></li>
                   <li v-if="(currentPage <= 2) ? false : true"><button :class="prev_B" @click="clickCallback" :num="prev2">{{ prev2 }}</button></li>
                   <li v-if="(currentPage == 1) ? false : true"><button :class="prev_C" @click="clickCallback" :num="prev1">{{ prev1 }}</button></li>
+
                   <li ><button :class="now" @click="clickCallback" :num="nowPage">{{ nowPage }}</button></li>
+
                   <li v-if="(currentPage == totalPage) ? false : true"><button :class="next_A" @click="clickCallback" :num="next1">{{ next1 }}</button></li>
                   <li v-if="(currentPage >= totalPage -1) ? false : true"><button :class="next_B" @click="clickCallback" :num="next2">{{ next2 }}</button></li>
                   <li v-if="(currentPage == 1 ) ? true : false"><button :class="next_C" @click="clickCallback" :num="next3">{{ next3 }}</button></li>
                   <li v-if="(currentPage <= 2) ? true : false"><button :class="next_D" @click="clickCallback" :num="next4">{{ next4 }}</button></li>
+
                   <li ><button :class="next_C" @click="clickCallback" :num="totalPage">{{ maxPage }}</button></li>
             </div>
         </div>
@@ -115,7 +127,6 @@
   </div>
 
 </transition>
-
 </div>
 </template>
 
@@ -124,10 +135,13 @@ import LikeHeader from "./components/LikeHeader.vue";
 import HeaderLink from "./components/HeaderLink.vue";
 import ChanpionData from "./components/ChanpionData.vue";
 import HeroSlider from "./components/HeroSlider.vue";
+import ToggleHero from "./components/ToggleHero.vue";
 import News from "./components/News.vue";
 import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
 import Loading from "./components/ management/showLoading";
+
+
 
 export default {
   props: ["chanpionDatas","skillDatas","tagDatas","tags"],
@@ -139,11 +153,13 @@ export default {
      loading: true,
      count: this.chanpionDatas.length, //アイテム総数
      scrollY: 0,
+
      //js-toggle-class
      jsFloatMenuTurget: {
        l_header__nav_unit: true,
-       float_active: false,
+      //  float_active: false,
      },
+
      //ページング
      prev_A: {
        paginate_btn: true,
@@ -190,8 +206,7 @@ export default {
      minPage: '<<',
      maxPage: '>>',
      //ページング用 end
-      number: 14,
-      test: 'いいね',
+
       currentComponent: true,
  
       // chanpCards: [],
@@ -222,6 +237,7 @@ export default {
     LikeHeader,
     HeaderLink,
     HeroSlider,
+    ToggleHero,
     ChanpionData,
     News,
     EventTitle,
@@ -250,7 +266,10 @@ export default {
     },
 
     culcScrollY() {
-      return this.scrollY = window.scrollY;
+      this.scrollY = window.scrollY;
+      //es-lint-disable-next-line
+      // console.log(this.scrollY);
+      return
     },
 
   },
@@ -303,9 +322,9 @@ export default {
          this.toggleClassFloatActive();
        }
      },
-      toggleClassFloatActive() {
-        this.float_active = !this.float_active;
-    },
+    //   toggleClassFloatActive() {
+    //     this.float_active = !this.float_active;
+    // },
    },
    mounted() {
      setTimeout(() => {
@@ -325,116 +344,12 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
-
-    .sub_title{
-      font-size: 20px;
-      letter-spacing: 2.5px;
-    }
-    .sub_title_item{
-      font-size: 12px;
-      font-weight: 800px;
-      margin-left: 10px;
-      font-weight: normal;
-    }
-    .news_title{
-      display: flex;
-      align-items: center;
-    }
-
-    .center{
-      text-align: center;
-      padding-top: 50px;
-      padding-bottom: 30px;
-    }
-
-
-    .news_container .test:last-child {
-    border-bottom: 1px dashed #333;
-}
-    .news_header{
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 40px;
-    }
-    .news_List_button{
-    font-size: 14px;
-    text-align: left;
-    width: 180px;
-    height: 45x;
-    padding: 0;
-    padding-left: 20px;
-    background: #fff;
-    border: 2px solid #333;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    color: #333;
-    z-index: 1;
-    transition: .3s;
-    }
-    .news_List_button:hover {
-      color: #fff;
-      transition: .3s;
-      cursor: pointer;
-    }
-    .news_List_button::before{
-      content: "";
-      width: 180px;
-      height: 45px;
-      background: #717070;
-      position: absolute;
-      top: 0;
-      right: 180px;
-      transition: .3s;
-      z-index: -1;
-      transition: .3s;
-    }
-    .news_List_button:hover::before{
-      position: absolute;
-      top: 0;
-      right: 0;
-      transition: .3s;
-      background: black;
-    }
-    .news_List_button::after{
-    content: "＞";
-    font-size: 20px;
-    position: absolute;
-    top: 5px;
-    right: 30px;
-    z-index: -1;
-    }
-
-    .news_List_button:hover::after {
-      color: #fff;
-      transition: .3s;
-    }
- 
-    .chanpion_card_holder{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 1280px;
-    margin: 0 auto;
-    }
     /* js */
-    .header_link_item{
-      background: rdba(255, 255, 255);
-      width: 60%;
-      display: flex;
-      justify-content: flex-end;
-      height: 100px;
-      line-height: 100px;
-      padding-right: 70px;
-      position: fixed;
-      transition: .3s;
-      z-index: 2;
-    }
 
     .float_active{
       background: rdba(255, 255, 255, .9);
       transition: .3s;
+      z-index: 3;
     }
 
     /* ページネートCSS */
@@ -443,6 +358,7 @@ export default {
       justify-content: center;
       margin-left: 3px;
     }
+
     .paginate_btn{
     background: #858883;
     text-align: center;
@@ -455,9 +371,11 @@ export default {
     font-size: 12px;
     font-weight: 300;
     }
+
     .ml_0{
       margin-left: 0;
     }
+
     .paginate_btn:hover{
     transition: all .2s;
     background: #aeadb5;
@@ -466,10 +384,10 @@ export default {
     font-weight: 500;
     transform: scale(1.2);
     }
+
     .active{
     opacity: .5;
     }
-
     /* ページネートCSS END */
 
 

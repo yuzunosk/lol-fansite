@@ -1,5 +1,5 @@
 <template>
-    <div :class="js_Slider" data-ride="carousel" style="width:100%;height:600px;">
+    <div :class="js_Slider" data-ride="carousel">
       
         <ol class="carousel-indicators">
           <li data-target="#example-3" data-slide-to="0" class="active"></li>
@@ -76,13 +76,13 @@ export default {
       },
       heroMessageTop: {
         hero_message: true,
-        top: true,
-        mainMessage: true,
+        hero_message__main: true,
+        hero_message__main_top: true,
       },
       heroMessageBottom: {
         hero_message: true,
-        bottom: true,
-        subMessage: true,
+        hero_message__sub: true,
+        hero_message__sub_bottom: true,
       },
    icons: [
      {id: 1 , img: '/storage/img/TOP/runeterra-bilgewater-01.jpg'},
@@ -132,40 +132,6 @@ export default {
   /* もう少しアニメーションさせる */
 }
 
-img{
-   max-width: 100%;
-    height: auto;
-}
-
-.hero_message{
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #f6f5f4;
-    padding: 2px 15px;
-    text-shadow: 2px 2px 6px #232222;
-}
-
-.top{
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    font-size: 45px;
-    z-index: 2;
-}
-
-.bottom{
-  position: absolute;
-  bottom: 70px;
-  left: 50px;
-  z-index: 2;
-}
-
-.mainMessage{
-  font-size: 45px;
-}
-
-.subMessage{
-  font-size: 24px;
-}
 .pointer{
   z-index: 5;
   font-size: 20px;
