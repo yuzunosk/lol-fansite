@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeCard</title>
+</head>
+<style>
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+}
+.card-deak
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.container{
+    position: relative;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    flex:  1;
+}
+
+.container .card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container .card:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(150px at 80% 20%);
+    transition: .5s ease-in-out;
+}
+
+.container .card:hover:before {
+    /* ホバーアニメーション */
+    clip-path: circle(300px at 80% -20%);
+}
+.container .card:after{
+    content: 'Fizz';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    font-size: 12em;
+    font-weight: bold;
+    font-style: italic;
+    color: rgba(255,255,255, .04);
+    transition: .5s ease-in-out;
+}
+.container .card .imgBx{
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    transform: scale(0.7);
+    z-index: 5;
+    width: 100%;
+    height: 220px;
+    transition: .5s;
+}
+.container .card:hover .imgBx{
+    top: 10%;
+    left: 20%;
+    transform: translateY(0%);
+    transition: .5s;
+}
+
+.container .card .imgBx img{
+    position: absolute;
+    top: -30%;
+    left: -5%;
+    transform: translate(-50% , -50%) rotate(20%);
+    width: 100%;
+}
+.container .card .textBx
+{
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+.container .card:hover .textBx{
+    height: 210px;
+}
+.container .card .textBx h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #f6f5f4;
+}
+.container .card .textBx .name,
+.container .card .textBx .roll
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.container .card:hover .textBx .name
+{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+.container .card:hover .textBx .roll
+{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .6s;
+}
+.container .card .textBx .name h3,
+.container .card .textBx .roll h3
+{
+    color: #f6f5f4;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .textBx .name span
+{
+    width: 30%;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #333;
+    background: #f6f5f4;
+    margin: 0 5px;
+    transition: .5s;
+    border-radius: 4px;
+}
+
+.container .card .textBx .roll span
+{
+    width: 30%;
+    height: 20px;
+    background: #ff0;
+    border-radius: 4px;
+    margin: 0 5px;
+    color: #f6f5f4;
+}
+.container .card .textBx .roll span:nth-child(2)
+{
+    background: #03a5e4;
+}
+.container .card .textBx .roll span:nth-child(3)
+{
+    background: #e91e63;
+}
+.container .card .textBx a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f6f5f4;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+.container .card:hover .textBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .75s;
+}
+.container .green:before{    
+background: #9bdc28;
+}
+
+.container .purple:before {
+    background: #5f3474;
+}
+
+.container .red:before {
+  background: #f51737;
+}
+
+.container .yellow:before {
+  background: #cffe00;
+}
+.container .black:before {
+  background: black;
+}
+</style>
+
+<body>
+<section class="card-deak">
+
+    <div class="container">
+        <div class="card green">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/fizzーtorim.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>Fizz</span>
+                    <span>フィズ</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Asassin</span>
+                    <span>Mage</span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+        <div class="card red">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/kda-torim.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>Ahri</span>
+                    <span>アーリ</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Mage</span>
+                    <span>Assasin</span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div class="container">
+        <div class="card purple">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/akari-trim-2.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>AKari</span>
+                    <span>アカリ</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Assasin</span>
+                    <span></span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <div class="card yellow">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/champion-ezreal-battle-academia-splash.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>Ezreal</span>
+                    <span>エズリアル</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Marksman</span>
+                    <span>Mage</span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card black">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/jayce-fullmetal-trim.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>Jayce</span>
+                    <span>ジェイス</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Fighter</span>
+                    <span>Marksman</span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="card yellow">
+            <div class="imgBx">
+                <img src="../../../../storage/app/public/img/chanpion/tristana-demon-trim.png" alt="">
+            </div>
+            <div class="textBx">
+                <h2>Chanpion Cards</h2>
+                <div class="name">
+                    <h3>Name :</h3>
+                    <span>Tristana</span>
+                    <span>トリスターナ</span>
+                </div>
+                <div class="roll">
+                    <h3>Roll :</h3>
+                    <span>Marksman</span>
+                    <span>Assasin</span>
+                </div>
+                <a href="#">View Data</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+</body>
+</html>
