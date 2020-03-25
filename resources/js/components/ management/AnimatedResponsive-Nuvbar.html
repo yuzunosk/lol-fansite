@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <title>AnimatedResponsivNavbar</title>
 </head>
@@ -130,14 +130,10 @@ main{
     width: 100%;
 }
 .rotat-logo{
-    transform: rotate(0deg);
-    /* transition: transform var(--transition-speed); */
     transition: .5s;
 }
 .navbar:hover .rotat-logo{
-    transform: rotate(-540deg);
     margin-left: 2rem;
-    /* transition: .5s; */
     transition-delay: .7;
 }
 
@@ -179,7 +175,7 @@ main{
     }
 
     .navbar:hover .link-text {
-        display: inline;
+        /* display: inline; */
         transform: opacity var(--transition-speed);
     }
 
@@ -188,16 +184,17 @@ main{
 </style>
 
 <body>
-    <nav class="navbar">
-        <ul class="navbar-nav fa-ul">
-            <li class="logo">
-                <a href="" class="nav-link">
-                    <span class="link-text" style="font-size: 1.5rem;">Top Menu</span>
-                    <i class="fas fa-angle-double-right fa-fw  fa-3x fa-primary rotat-logo">
-                    </i>
+    <section id="move">
+
+        <nav class="navbar">
+            <ul class="navbar-nav fa-ul">
+                <li class="logo">
+                    <a href="" class="nav-link">
+                        <span class="link-text" style="font-size: 1.5rem;">Top Menu</span>
+                        <div id="lottie"></div>
                 </a>
             </li>
-
+            
             <li class="nav-item">
                 <a href="" class="nav-link">
                     <i class="fas fa-fw fa-heading fa-3x fa-primary">
@@ -205,7 +202,7 @@ main{
                     <span class="link-text" style="font-size: 1.5rem;">Top</span>
                 </a>
             </li>
-
+            
             <li class="nav-item">
                 <a href="" class="nav-link">
                     <i class="far fa-newspaper fa-fw  fa-3x fa-primary">
@@ -213,7 +210,7 @@ main{
                     <span class="link-text"  style="font-size: 1.5rem;">News</span>
                 </a>
             </li>
-
+            
             <li class="nav-item">
                 <a href="" class="nav-link">
                     <i class="fas fa-chess-queen fa-fw  fa-3x fa-primary">
@@ -231,12 +228,22 @@ main{
 
         </ul>
     </nav>
+</section>
 
     <main>
+        <div id="lottie-logo"></div>
         <h1>Hellow in the World...</h1>
         <h2>Test text</h2>
         <p>aaaa</p>
 
     </main>
+    <script src="./js/lottie.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="./js/animatedNavbar.js" type="text/javascript"></script>
+
+
+
+
 </body>
 </html>

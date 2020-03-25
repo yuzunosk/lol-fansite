@@ -106,9 +106,9 @@ section .content{
     </section>
 
     <script type="text/javascript">
-        let video = document.querySelecter('video');
+        var video = document.querySelecter('video');
         window.addEventListener('scroll' , function() {
-             let value = 1 +  window.scrollY/ -600;
+             var value = 1 +  window.scrollY/ -600;
              video.style.opacity = value;
         })
 

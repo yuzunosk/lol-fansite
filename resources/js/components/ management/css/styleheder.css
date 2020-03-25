@@ -1,0 +1,118 @@
+    @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+    
+    body
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Cremona' , 'Poppins', sans-serif ;
+        background: #111;
+
+    }
+    .zoom
+    {
+        width: 100%;
+        height: 120vh;
+        position: relative;
+        overflow: hidden;
+        background-image: url('../img/runeterra-shurima-01.jpg');
+        background-size: cover;
+        object-fit: content;
+        margin-bottom: 200px;
+    }
+
+    .zoom:before
+    {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 1000;
+        background: linear-gradient(transparent, #fff);
+    }
+    .zoom #layer1
+    {
+        position: absolute;
+        left: 30%;
+        width: 100%;
+        transform: translateX(-50%);
+        z-index: 9;
+        /* display: none; */
+    }
+    .zoom #layer2
+    {
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        width: 90%;
+        transform: translateX(-15%);
+        z-index: 10;
+        /* display: none; */
+
+    }
+    .zoom #hero_text
+    {
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        width: 100%;
+        transform: translateY(50%);
+        /* text-shadow: 6px -6px 0px #fff; */
+        color: #f6f5f4;
+        letter-spacing: 1.2px;
+    }
+    /* section 
+    {
+        position: relative;
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 100px;
+    }
+    section video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    } */
+
+.content
+{
+    width: 100vw;
+    padding: 100px;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.content h1
+{
+    position: relative;
+    color: #f6f5f4;
+    font-size: 3em;
+    text-align: center;
+}
+
+.content h2
+{
+    position: relative;
+    color: #3dd64a;
+    font-size: 1.4em;
+    margin-bottom: 10vh;
+}
+.content p
+{
+    width: 100%;
+    position: relative;
+    color: #f6f5f4;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 10vh;
+}
