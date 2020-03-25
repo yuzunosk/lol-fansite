@@ -28,6 +28,7 @@
     "dependencies": {
         "vue-img-preview": "^1.1.1",
         "vue-loading-template": "^1.3.2",
+        "vue-lottie": "^0.2.1",
         "vue-paginate": "^3.6.0",
         "vuejs-paginate": "^2.1.0"
     }
