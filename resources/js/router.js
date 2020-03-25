@@ -11,8 +11,8 @@ export default new Router({
     mode: "history",
     routes: [
         //ルーティング
-        { path: "/", component: Home },
-        { path: "/chanpion/:id", component: Chanpion },
+        { path: "/home", component: Home },
+        { path: "/home/chanpion/:id", component: Chanpion },
         // { path: '/article/create', component: require('./components/Articles/Create.vue') },
 
     ],
