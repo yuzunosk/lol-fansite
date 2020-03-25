@@ -101,7 +101,7 @@ Route::get('/passreset', 'PassResetControler@showView')->name('mypage.passreset'
 
 
 //home画面表示
-Route::get('/home{any}', 'HomeController@showHome')->where('any', '.*')->name('Home.show');
+Route::get('/{any}', 'HomeController@showHome')->where('any', '.*')->name('Home.show');
 
 
 
