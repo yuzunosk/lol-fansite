@@ -2,46 +2,37 @@
     <div :class="js_Slider" data-ride="carousel">
       
         <ol class="carousel-indicators">
-          <li data-target="#example-3" data-slide-to="0" class="active"></li>
-          <li data-target="#example-3" data-slide-to="1"></li>
-          <li data-target="#example-3" data-slide-to="2"></li>
-          <li data-target="#example-3" data-slide-to="3"></li>
-          <li data-target="#example-3" data-slide-to="4"></li>
-          <li data-target="#example-3" data-slide-to="5"></li>
-          <li data-target="#example-3" data-slide-to="6"></li>
+          <li data-target="#example-3" data-slide-to="0" class="active" style="cursor:none;"></li>
+          <li data-target="#example-3" data-slide-to="1" style="cursor:none;"></li>
+          <li data-target="#example-3" data-slide-to="2" style="cursor:none;"></li> 
+          <li data-target="#example-3" data-slide-to="3" style="cursor:none;"></li>
+          <li data-target="#example-3" data-slide-to="4" style="cursor:none;"></li>
+          <li data-target="#example-3" data-slide-to="5" style="cursor:none;"></li>
+          <li data-target="#example-3" data-slide-to="6" style="cursor:none;"></li>
       </ol>
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img :src="icons[0].img" alt="1st slide">
+          <img :src="icons[0].img" alt="1st slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[1].img" alt="2nd slide">
+          <img :src="icons[1].img" alt="2nd slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[2].img" alt="3th slide">
+          <img :src="icons[2].img" alt="3th slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[3].img" alt="4th slide">
+          <img :src="icons[3].img" alt="4th slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[4].img" alt="5th slide">
+          <img :src="icons[4].img" alt="5th slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[5].img" alt="6th slide">
+          <img :src="icons[5].img" alt="6th slide" style="object-fit:cover;">
         </div>
         <div class="carousel-item">
-          <img :src="icons[6].img" alt="7th slide">
+          <img :src="icons[6].img" alt="7th slide" style="object-fit:cover;">
         </div>
-
-        <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon pointer" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon pointer" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
 
       </div>
       <p :class="heroMessageTop">Summoners Lift Guide , started League of Legends</p>
@@ -85,13 +76,13 @@ export default {
         hero_message__sub_bottom: true,
       },
    icons: [
-     {id: 1 , img: asset('/storage/app/public/img/TOP/runeterra-bilgewater-01.jpg')},
-    //  {id: 2 , img: './storage/img/TOP/runeterra-demacia-01.jpg'},
-     {id: 3 , img: },
-     {id: 4 , img: 'storage/img/TOP/runeterra-ionia-01.jpg'},
-     {id: 5 , img: 'storage/img//TOP/runeterra-shurima-02.jpg'},
-     {id: 6 , img: 'storage/img/TOP/runeterra-piltover-10.jpg'},
-     {id: 7 , img: 'storage/img/TOP/runeterra-noxus-01.jpg'},
+     {id: 1 , img: '/assets/img/TOP/runeterra-bilgewater-01.jpg'},
+     {id: 2 , img: '/assets/img/TOP/runeterra-demacia-01.jpg'},
+     {id: 3 , img: '/assets/img/TOP/runeterra-freljord-02.jpg'},
+     {id: 4 , img: '/assets/img/TOP/runeterra-ionia-01.jpg'},
+     {id: 5 , img: '/assets/img//TOP/runeterra-shurima-02.jpg'},
+     {id: 6 , img: '/assets/img/TOP/runeterra-piltover-10.jpg'},
+     {id: 7 , img: '/assets/img/TOP/runeterra-noxus-01.jpg'},
     ]
     }
     },
