@@ -18,7 +18,7 @@
             renderer: "svg",
             loop: false,
             autoplay: false,
-            path: ".././logo/menuicon2.json",
+            path: "logo/menuicon2.json",
             rendererSettings: {
                 className: 'anmIcon'
             }
