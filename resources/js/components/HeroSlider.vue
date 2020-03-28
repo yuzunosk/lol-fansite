@@ -96,6 +96,7 @@
         <p :class="heroMessageBottom">
             Only those who have never feed throw stones<br />
             at those who have feed ...
+            <span>何かがおかしい。</span>
         </p>
     </div>
 </template>
