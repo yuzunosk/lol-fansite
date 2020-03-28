@@ -2,7 +2,6 @@
 // Component
 // ==========================================================
 
-
 // ==========================================================
 // Chanpion Page
 // ==========================================================
@@ -10,30 +9,28 @@
 // chanpion top
 // -------------------------
 .c-hero {
-
   &-section {
     display: flex;
     flex-wrap: wrap;
     height: 300px;
-    @include mq(){
+    @include mq() {
       height: 700px;
     }
 
-      &__area {
-        display: flex;
-        height: 300px;
-        overflow: hidden;
-        
+    &__area {
+      display: flex;
+      height: 300px;
+      overflow: hidden;
 
-        &--img {
+      &--img {
+        height: 100%;
+        width: 50%;
+        object-fit: cover;
+        object-position: top;
+        flex: 1;
+        @include mq() {
           height: 100%;
-          width: 50%;
-          object-fit: cover;
-          object-position: top;
-          flex: 1;
-            @include mq(){
-              height: 100%;
-              width: 100%;
+          width: 100%;
         }
       }
 
@@ -47,13 +44,13 @@
         flex-direction: column;
         margin-right: 15px;
         font-size: $font-size__default;
-          @include mq(){
-            display: none;
-          }
+        @include mq() {
+          display: none;
+        }
 
-            &--first {
-              margin-bottom: 0;
-            }
+        &--first {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -62,7 +59,7 @@
       height: 100%;
       position: relative;
       overflow: hidden;
-        }
+    }
   }
 
   &-listArea {
@@ -72,126 +69,126 @@
     justify-content: flex-start;
     margin-top: $space__xxl;
     text-align: center;
-      @include mq(){
-        margin-top: $space__xl;
-        width: 100%;
-      }
+    @include mq() {
+      margin-top: $space__xl;
+      width: 100%;
+    }
 
-      &__text {
+    &__text {
       align-self: center;
       color: $font-color__secondary;
-       @include notlast{
-         margin-bottom: $space__m;
-         }
-         @include mq() {
-           margin: 0;
-         }
+      @include notlast {
+        margin-bottom: $space__m;
+      }
+      @include mq() {
+        margin: 0;
+      }
+    }
+
+    &__header {
+      font-size: $font-size__xxl;
+      width: 100%;
+    }
+
+    &__subTitle {
+      font-size: $font-size__s;
+      width: 100%;
+      @include mq() {
+        font-size: $font-size__xl;
+      }
+    }
+
+    &__hr {
+      margin: 10px auto;
+      width: 85%;
+      background-color: $base-color__primary;
+    }
+
+    &__lead {
+      font-size: $font-size__xl;
+      margin-bottom: $space__l;
+      width: 100%;
+      @include mq() {
+        margin-bottom: $space__s;
+      }
+    }
+
+    &-unit {
+      display: flex;
+      width: 70%;
+      @include mq() {
+        flex-direction: column;
       }
 
-      &__header {
-        font-size: $font-size__xxl;
-        width: 100%;
-      }
-
-      &__subTitle {
-        font-size: $font-size__s;
-        width: 100%;
+      &__item {
+        background: lighten($base-color__secondary, 15%);
+        border: 1.5px solid $base-color__primary;
+        flex: 1;
+        height: $space__3l;
+        line-height: $space__3l;
+        padding-left: 15%;
+        position: relative;
         @include mq() {
-          font-size: $font-size__xl;
+          font-size: $font-size__l;
+        }
+
+        &--right {
+          margin-left: $space__xl;
+          @include mq() {
+            margin-left: 0;
+          }
+        }
+        &::before {
+          content: "MAIN";
+          text-align: center;
+          background: $base-color__primary;
+          font-weight: bold;
+          height: -webkit-fill-available;
+          @include absPosition($left: 0);
+          color: $font-color__default;
+          width: 35%;
+        }
+        @include last {
+          &::before {
+            content: "SUB";
+            background: $base-color__primary;
+          }
+        }
+      }
+    }
+
+    &-costList {
+      align-items: center;
+      color: $font-color__secondary;
+      display: flex;
+      font-size: $font-size__default;
+      justify-content: center;
+      width: 50%;
+      @include mq() {
+        font-size: $font-size__xl;
+      }
+
+      &__item {
+        // padding: $space__m;
+      }
+
+      &__right {
+        margin-left: $space__xl;
+        @include mq() {
+          margin-left: $space__xl;
         }
       }
 
-      &__hr {
-        margin: 10px auto;
-        width: 85%;
-        background-color: $base-color__primary;
-      }
-
-      &__lead {
-          font-size: $font-size__xl;
-          margin-bottom: $space__l;
-          width: 100%;
-          @include mq() {
-            margin-bottom: $space__s;
-          }
-        }
-
-      &-unit {
-          display: flex;
-          width: 70%;
-          @include mq() {
-            flex-direction: column;
-          }
-
-         &__item {
-            background: lighten($base-color__secondary ,15%);
-            border: 1.5px solid $base-color__primary;
-            flex: 1;
-            height: $space__3l;
-            line-height: $space__3l;
-            padding-left: 15%;
-            position: relative;
-            @include mq() {
-              font-size: $font-size__l;
-            }
-
-            &--right {
-                margin-left: $space__xl;
-                @include mq() {
-                  margin-left: 0;
-                }
-            }
-            &::before {
-              content: "MAIN";
-              text-align: center;
-              background: $base-color__primary;
-              font-weight: bold;
-                height: -webkit-fill-available;
-                @include absPosition($left:0);
-                color: $font-color__default;
-                width: 35%;
-              }
-              @include last {
-                &::before{
-                  content: "SUB";
-                  background: $base-color__primary;
-                }
-              }
-            }
-          }
-
-          &-costList {
-            align-items: center;
-            color: $font-color__secondary;
-            display: flex;
-            font-size: $font-size__default;
-            justify-content: center;
-            width: 50%;
-             @include mq() {
-               font-size: $font-size__xl;
-             }
-
-            &__item {
-              // padding: $space__m;
-            }
-
-            &__right {
-              margin-left: $space__xl;
-               @include mq() {
-                 margin-left: $space__xl;
-               }
-            }
-
-            &__img {
-            // vertical-align: center;
-            width: 30%;
-             @include mq() {
-               width: 50%;
-             }
+      &__img {
+        // vertical-align: center;
+        width: 30%;
+        @include mq() {
+          width: 50%;
         }
       }
     }
   }
+}
 // ------------------------------------------------
 // information
 // ------------------------------------------------
@@ -200,71 +197,69 @@
   font-size: $font-size__default;
   flex-direction: column;
 
-    &__item {
-      font-size: $font-size__default;
-      margin-bottom: 0;
-       @include mq() {
-         font-size: $font-size__xl
-       }
+  &__item {
+    font-size: $font-size__default;
+    margin-bottom: 0;
+    @include mq() {
+      font-size: $font-size__xl;
     }
+  }
 
-    &--square {
-        border-radius: 2%;
-        font-size: $font-size__l;
-         @include mq() {
-          font-size: $font-size__xl
-        }
+  &--square {
+    border-radius: 2%;
+    font-size: $font-size__l;
+    @include mq() {
+      font-size: $font-size__xl;
     }
+  }
 }
-
 
 // ------------------------------------------------
 // slider
 // ------------------------------------------------
-.c_slider__container{
+.c_slider__container {
   padding: 0;
   overflow: hidden;
   margin: 0;
   position: relative;
-  transition: .5s;
+  transition: 0.5s;
   width: 100%;
-  height:600px;
+  height: 600px;
   margin-bottom: 100px;
-  
+
   @include mq() {
     display: none;
-      }
+  }
 
-    @include mq() {
-      display: none;
+  @include mq() {
+    display: none;
+  }
+
+  .hero_message {
+    font-family: "Open Sans Condensed", sans-serif;
+    color: $font-color__secondary;
+    padding: 2px 15px;
+    text-shadow: 2px 2px 6px #232222;
+
+    &__main {
+      font-size: 45px;
+
+      &_top {
+        @include absPosition($top: 3%, $right: 10%);
+        z-index: 2;
+      }
     }
 
-    .hero_message{
-      font-family: 'Open Sans Condensed', sans-serif;
-      color: $font-color__secondary;
-      padding: 2px 15px;
-      text-shadow: 2px 2px 6px #232222;
+    &__sub {
+      font-size: 24px;
 
-      &__main{
-        font-size: 45px;
-
-        &_top{
-            @include absPosition($top: 3%, $right: 10%);
-            z-index: 2;
-        }
+      &_bottom {
+        @include absPosition($bottom: 7%, $left: 5%);
+        z-index: 2;
       }
-
-      &__sub{
-        font-size: 24px;
-
-            &_bottom{
-                @include absPosition($bottom:7% , $left: 5%);
-                z-index: 2;
-            }
-      }
+    }
   }
 }
-
 
 // ------------------------------------------------
 // Hero section 1colum
@@ -273,37 +268,35 @@
   display: none;
   margin-bottom: 100px;
 
-      @include mq() {
-        display: block;
-        width: 100%;
-        height: 600px;
-        background-image: url('/assets/img/TOP/Screenshot_4.jpg');
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+  @include mq() {
+    display: block;
+    width: 100%;
+    height: 600px;
+    background-image: url("/assets/img/TOP/Screenshot_4.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__area {
-        width: 100%;
-        height: 100%;
+  &__area {
+    width: 100%;
+    height: 100%;
 
-        &--img {
-          width: 100%;
-          height: 100%;
-        }
-
+    &--img {
+      width: 100%;
+      height: 100%;
     }
+  }
 }
-
 
 // ==========================================================
 // News
 // ==========================================================
-.c-news__header{
+.c-news__header {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -314,10 +307,9 @@
 
   @include mq() {
     flex-direction: column;
-
   }
 
-  .c-news-head-unit{
+  .c-news-head-unit {
     align-items: center;
     display: flex;
     height: 100%;
@@ -327,19 +319,19 @@
       width: auto;
     }
 
-      &__title{
-        font-size: $font-size__xl;
-        letter-spacing: 2.5px;
-      }
-    
-      &__subTitle{
-        align-self: center;
-        font-size: $font-size__s;
-        letter-spacing: 2px;
-      }
+    &__title {
+      font-size: $font-size__xl;
+      letter-spacing: 2.5px;
+    }
+
+    &__subTitle {
+      align-self: center;
+      font-size: $font-size__s;
+      letter-spacing: 2px;
+    }
   }
 
-  &__btn{
+  &__btn {
     height: 100%;
     width: 180px;
     font-size: $font-size__default;
@@ -351,215 +343,211 @@
     position: relative;
     overflow: hidden;
     color: $font-color__default;
-    transition: .3s;
+    transition: 0.3s;
     z-index: 1;
-      @include mq() {
-         display: none;
+    @include mq() {
+      display: none;
+    }
+
+    &:hover {
+      color: $font-color__secondary;
+      transition: 0.4s;
+      cursor: pointer;
+
+      &::before {
+        @include absPosition($top: 0, $right: 0);
+        transition: 0.4s ease-out;
+        background: $base-color__default;
       }
 
-      &:hover{
-          color: $font-color__secondary;
-          transition: .4s;
-          cursor: pointer;
-
-          &::before{
-            @include absPosition($top: 0,$right: 0);
-            transition: .4s ease-out;
-            background: $base-color__default;
-            }
-          
-          &::after{
-              color: $base-color__secondary;
-              transition: .4s ease-out;
-          }
+      &::after {
+        color: $base-color__secondary;
+        transition: 0.4s ease-out;
       }
+    }
 
-      &::before{
-        content: "";
-        width: 180px;
-        height: 100%;
-        background: #717070;
-        @include absPosition($top: 0, $right: 200%);
-        z-index: -1;
-        transition: .3s;
-      }
+    &::before {
+      content: "";
+      width: 180px;
+      height: 100%;
+      background: #717070;
+      @include absPosition($top: 0, $right: 200%);
+      z-index: -1;
+      transition: 0.3s;
+    }
 
-      &::after{
-        @include arrow(20, 3, $base-color__default , right);
-        @include absPosition($top: 20%, $right: 30px);
-        z-index: -1;
-        }
+    &::after {
+      @include arrow(20, 3, $base-color__default, right);
+      @include absPosition($top: 20%, $right: 30px);
+      z-index: -1;
+    }
   }
 }
 
-.c-news_list{
+.c-news_list {
   letter-spacing: 2px;
   position: relative;
   overflow: hidden;
-  transition: .3s;
+  transition: 0.3s;
   width: 100%;
 
   &:hover {
     background: $base-color__default;
-    transition: .3s;
-}
-  
-  &--data{
+    transition: 0.3s;
+  }
+
+  &--data {
     margin-right: $space__xxl;
     height: 100%;
     display: flex;
     align-items: center;
     flex: 1;
 
-      &:hover{
-        color: $font-color__secondary;
-      }
-    }
-
-    &--index{
-      align-self: center;
-      flex: 1;
-        @include mq() {
-          display: none;
-        }
-
-      &:hover{
-        color: $font-color__secondary;
-      }
-    }
-
-    &--body{
-      align-items: center;
-      display: flex;
-      height: 100%;
-      flex: 7;
-      &:hover{
-        color: $font-color__secondary;
-      }
+    &:hover {
+      color: $font-color__secondary;
     }
   }
-  
-  .c_news_items
-{
+
+  &--index {
+    align-self: center;
+    flex: 1;
+    @include mq() {
+      display: none;
+    }
+
+    &:hover {
+      color: $font-color__secondary;
+    }
+  }
+
+  &--body {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    flex: 7;
+    &:hover {
+      color: $font-color__secondary;
+    }
+  }
+}
+
+.c_news_items {
   font-size: $font-size__s;
   height: $space__3l;
   color: $font-color__default;
   display: block;
-  transition: .3s;
+  transition: 0.3s;
   display: flex;
   align-items: center;
   width: 100%;
-  
+
   &__move {
     color: $font-color__secondary;
     margin-left: $space__l;
-    transition: .3s;
+    transition: 0.3s;
   }
-
 }
 //aタグの影響下の為、追記
 
 a.c_news_items {
-
-  &:hover{
+  &:hover {
     color: #ffffff;
   }
 }
 // ==========================================================
 // Main Section Card
 // ==========================================================
-.c-main-card-unit{
-    margin-right: $space__xxl;
-    margin-bottom: $space__xxl;
-    box-sizing: border-box;
-    width: calc(25% - #{$space__xxl});
+.c-main-card-unit {
+  margin-right: $space__xxl;
+  margin-bottom: $space__xxl;
+  box-sizing: border-box;
+  width: calc(25% - #{$space__xxl});
+  overflow: hidden;
+  text-align: center;
+
+  @include mq(md) {
+    margin-right: $space__xl;
+    margin-bottom: $space__xl;
+    width: calc(50% - #{$space__xxl});
+  }
+
+  @include mq() {
+    width: 100%;
+    margin-bottom: $space__xl;
+    margin-right: 0;
+  }
+
+  &__thmbnail {
+    height: 350px;
     overflow: hidden;
-    text-align: center;
+    position: relative;
+  }
 
-    @include mq(md) {
-      margin-right: $space__xl;
-      margin-bottom: $space__xl;
-      width: calc(50% - #{$space__xxl});
+  &__img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+
+    &:hover {
+      transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);
+      transition: 0.3s;
+    }
+  }
+
+  &__text {
+    color: $font-color__secondary;
+    font-size: $font-size__l;
+    font-weight: bold;
+    font-family: "IBM Plex Serif", serif;
+    text-shadow: 0px 0px 5px #000;
+
+    &--top {
+      margin: 0;
+      @include absPosition($top: 3%, $right: 5%);
+      letter-spacing: 1px;
     }
 
-    @include mq() {
-      width: 100%;
-      margin-bottom: $space__xl;
-      margin-right: 0;
+    &--bottom {
+      font-size: $font-size__xl;
+      font-family: "Sawarabi Mincho", sans-serif;
+      @include absPosition($bottom: 0, $left: 5%);
     }
-
-    &__thmbnail{
-      height: 350px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    &__img{
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      width: 100%;
-
-        &:hover{
-          transform: scale(1.4) translate(0, 35px) rotateZ(-8deg);
-          transition: .3s;
-        }
-      }
-
-    &__text{
-      color: $font-color__secondary;
-      font-size: $font-size__l;
-      font-weight: bold;
-      font-family: 'IBM Plex Serif', serif;
-      text-shadow: 0px 0px 5px #000;
-
-        &--top{
-        margin: 0;
-        @include absPosition($top: 3%, $right: 5%);
-        letter-spacing: 1px;
-        } 
-
-        &--bottom{
-        font-size: $font-size__xl;
-        font-family: 'Sawarabi Mincho', sans-serif;
-        @include absPosition($bottom: 0, $left: 5%);
-        }
-    }
+  }
 }
 
 // ------------------------------------------------
 // Banner
 // ------------------------------------------------
 .c-hero-section {
-
-    &::before{ 
-        content: "・Chanpion Guide";
-          @include absPosition($top: 0,$left: 0);
-          color:$font-size__default;
-          background: $banner-color;
-          float: center;
-          font-size: $font-size__default;
-          font-weight: bold;
-          padding: 8px 10px 8px 5px;
-          text-align: center;
-          transform: rotate(-10deg);
-      }
+  &::before {
+    content: "・Chanpion Guide";
+    @include absPosition($top: 0, $left: 0);
+    color: $font-size__default;
+    background: $banner-color;
+    float: center;
+    font-size: $font-size__default;
+    font-weight: bold;
+    padding: 8px 10px 8px 5px;
+    text-align: center;
+    transform: rotate(-10deg);
+  }
 }
 
 .c-main-archive__banner {
-    @include absPosition($top: 7%,$left: -5%);
-    align-items: center;
-    background: #39ff0a;
-    display: flex;
-    font-size: $font-size__l;
-    height: 30px;
-    justify-content: center;
-    transform: rotate(-37deg);
-    width: 200px;
-    z-index: 2;
-     @include mq() {
-       left: -10%;
-     }
+  @include absPosition($top: 7%, $left: -5%);
+  align-items: center;
+  background: #39ff0a;
+  display: flex;
+  font-size: $font-size__l;
+  height: 30px;
+  justify-content: center;
+  transform: rotate(-37deg);
+  width: 200px;
+  z-index: 2;
+  @include mq() {
+    left: -10%;
+  }
 }
 
 // ==========================================================
@@ -569,77 +557,75 @@ a.c_news_items {
   margin: 0 auto;
   width: 100%;
 
-   &-header {
+  &-header {
     display: flex;
     height: 100%;
     justify-content: flex-start;
     margin-bottom: $space__xxl;
     width: 80%;
 
-      .logo__unit {
-        height: 100%;
-        width: 15%;
-          @include mq() {
-             width: 60%;
-          }
+    .logo__unit {
+      height: 100%;
+      width: 15%;
+      @include mq() {
+        width: 60%;
+      }
 
-        &--img {
-          height: 100%;
-          object-fit: contain;
-          width: 100%;
+      &--img {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+
+  &-body {
+    align-items: flex-start;
+    color: $font-color__secondary;
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size__s;
+    height: 100%;
+    justify-content: space-around;
+    margin-left: $space__m;
+    width: 80%;
+    @include mq() {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      font-size: $font-size__l;
+    }
+
+    .info {
+      display: flex;
+      height: 30px;
+      margin-bottom: $space__l;
+      width: 100%;
+      @include mq() {
+        width: 50%;
+      }
+      &-head {
+        flex: 1;
+      }
+
+      &-body {
+        display: flex;
+        flex: 7;
+        justify-content: flex-start;
+        @include mq() {
+          display: none;
+        }
+
+        &__item {
+          color: $font-color__secondary;
+          flex: 1;
+          margin-left: $space__l;
+          text-decoration: none;
+          &:hover {
+            color: $font-color-link__hover;
+          }
         }
       }
-   }
-
-   &-body {
-     align-items: flex-start;
-     color: $font-color__secondary;
-     display: flex;
-     flex-direction: column;
-     font-size: $font-size__s;
-     height: 100%;
-     justify-content: space-around;
-     margin-left: $space__m;
-     width: 80%;
-        @include mq() {
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 100%;
-          font-size: $font-size__l;
-        }
-
-     .info {
-       display: flex;
-       height: 30px;
-       margin-bottom: $space__l;
-       width: 100%;
-          @include mq (){
-            width: 50%;
-          }
-       &-head {
-         flex: 1;
-       }
-
-       &-body {
-         display: flex;
-         flex: 7;
-         justify-content: flex-start;
-            @include mq() {
-               display: none;
-            }
-         
-
-         &__item {
-           color: $font-color__secondary;
-           flex: 1;
-           margin-left: $space__l;
-           text-decoration: none;
-            &:hover {
-              color: $font-color-link__hover;
-            }
-         }
-       }
-     }
-   }
-
+    }
+  }
 }

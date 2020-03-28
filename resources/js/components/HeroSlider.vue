@@ -133,28 +133,28 @@ export default {
                 hero_message__sub_bottom: true
             },
             icons: [
-                { id: 1, img: "/TOP/runeterra-bilgewater-01.jpg" },
+                { id: 1, img: "/storage/img/TOP/runeterra-bilgewater-01.jpg" },
                 {
                     id: 2,
-                    img: "/public/storage/img/TOP/runeterra-demacia-01.jpg"
+                    img: "/storage/img/TOP/runeterra-demacia-01.jpg"
                 },
                 {
                     id: 3,
-                    img: "/public/storage/img/TOP/runeterra-freljord-02.jpg"
+                    img: "/storage/img/TOP/runeterra-freljord-02.jpg"
                 },
                 {
                     id: 4,
-                    img: "/public/storage/img/TOP/runeterra-ionia-01.jpg"
+                    img: "/storage/img/TOP/runeterra-ionia-01.jpg"
                 },
                 {
                     id: 5,
-                    img: "/public/storage/img/TOP/runeterra-shurima-02.jpg"
+                    img: "/storage/img/TOP/runeterra-shurima-02.jpg"
                 },
                 {
                     id: 6,
-                    img: "/public/storage/img/TOP/runeterra-piltover-10.jpg"
+                    img: "/storage/img/TOP/runeterra-piltover-10.jpg"
                 },
-                { id: 7, img: "/public/storage/img/TOP/runeterra-noxus-01.jpg" }
+                { id: 7, img: "/storage/img/TOP/runeterra-noxus-01.jpg" }
             ]
         };
     },
