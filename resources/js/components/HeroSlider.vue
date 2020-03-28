@@ -133,28 +133,34 @@ export default {
                 hero_message__sub_bottom: true
             },
             icons: [
-                { id: 1, img: "/storage/img/TOP/runeterra-bilgewater-01.jpg" },
+                {
+                    id: 1,
+                    img: "//lol-fansite.com/top/img/runeterra-bilgewater-01.jpg"
+                },
                 {
                     id: 2,
-                    img: "/storage/img/TOP/runeterra-demacia-01.jpg"
+                    img: "//lol-fansite.com/top/imgruneterra-demacia-01.jpg"
                 },
                 {
                     id: 3,
-                    img: "/storage/img/TOP/runeterra-freljord-02.jpg"
+                    img: "//lol-fansite.com/top/imgruneterra-freljord-02.jpg"
                 },
                 {
                     id: 4,
-                    img: "/storage/img/TOP/runeterra-ionia-01.jpg"
+                    img: "//lol-fansite.com/top/imgruneterra-ionia-01.jpg"
                 },
                 {
                     id: 5,
-                    img: "/storage/img/TOP/runeterra-shurima-02.jpg"
+                    img: "//lol-fansite.com/top/imgruneterra-shurima-02.jpg"
                 },
                 {
                     id: 6,
-                    img: "/storage/img/TOP/runeterra-piltover-10.jpg"
+                    img: "//lol-fansite.com/top/imgruneterra-piltover-10.jpg"
                 },
-                { id: 7, img: "/storage/img/TOP/runeterra-noxus-01.jpg" }
+                {
+                    id: 7,
+                    img: "//lol-fansite.com/top/imgruneterra-noxus-01.jpg"
+                }
             ]
         };
     },
@@ -163,8 +169,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
-
 .slider_item {
     overflow: hidden;
     width: 1280px;

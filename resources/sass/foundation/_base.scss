@@ -13,7 +13,7 @@ $base-color__primary: #f6f5f4;
 $base-color__secondary: #333;
 
 $sub-color: #e6e6e6;
-$banner-color: #FFEB3B;
+$banner-color: #ffeb3b;
 
 $font-size_root: 14px;
 $font-size__s: 12px;
@@ -30,19 +30,17 @@ $space__xxl: 30px;
 $space__3l: 40px;
 $space__4l: 50px;
 
-$font-family__default: 'Open Sans Condensed', sans-serif;
+$font-family__default: "Open Sans Condensed", sans-serif;
 
 $content-width__default: 980px;
 $content-width__l: 1280px;
 
-
-
 // マップ型変数を使うと便利
 $breakpoints: (
-  'sm': 'screen and (max-width: 414px)',
-  'md': 'screen and (max-width: 768px)',
-  'lg': 'screen and (max-width: 1000px)',
-  'xl': 'screen and (max-width: 1200px)',
+  "sm": "screen and (max-width: 414px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 1000px)",
+  "xl": "screen and (max-width: 1200px)",
 ) !default;
 
 // ==============================
@@ -60,38 +58,43 @@ $breakpoints: (
 // ==============================
 // base
 // ==============================
-html, body{
+@import url("//fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap");
+@import url("//fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
+
+html,
+body {
   width: 100%;
   color: $font-color__default;
   font-size: $font-size__default;
   line-height: 1.6;
-  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif $font-family__default; // TODO:リファクタ必要
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro",
+    メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif $font-family__default; // TODO:リファクタ必要
   text-size-adjust: 100%;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-size: $font-size_root;
 }
 
-p, a {
-    -webkit-font-smoothing: antialiased;
-  }
+p,
+a {
+  -webkit-font-smoothing: antialiased;
+}
 
 a {
   color: $font-color__default;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 a:hover {
-    color: $font-color-link__hover;
-    transition: .3s;
-    text-decoration: none;
-
+  color: $font-color-link__hover;
+  transition: 0.3s;
+  text-decoration: none;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }
-
 
 img {
   vertical-align: bottom;
@@ -105,7 +108,7 @@ img {
 // ----------------------------------------------------------
 // 09__疑似要素初期化
 @mixin icon-ini {
-  content: '';
+  content: "";
   display: inline-block;
 }
 
@@ -113,27 +116,26 @@ img {
 // ----------------------------------------------------------
 @mixin ie11only {
   @media all and (-ms-high-contrast: none), print {
-      @content;
+    @content;
   }
 }
 
 @mixin ie11only_sm {
   @media screen and (max-width: $breakPoint - 1) and (-ms-high-contrast: none) {
-      @content;
+    @content;
   }
 }
 
 @mixin ie11only_lg {
   @media screen and (min-width: $breakPoint) and (-ms-high-contrast: none) {
-      @content;
+    @content;
   }
 }
-
 
 // ----------------------------------------------------------
 //position用
 // ----------------------------------------------------------
-@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+@mixin absPosition($top: auto, $right: auto, $bottom: auto, $left: auto) {
   position: absolute;
   bottom: $bottom;
   left: $left;
@@ -154,25 +156,19 @@ img {
   vertical-align: middle;
   width: #{$width}px;
   //角度
-  @if ($deg == 'left') {
-      transform: rotate(135deg);
-  }
-
-@else if ($deg == 'top') {
-      transform: rotate(225deg);
-  }
-
-@else if ($deg == 'right') {
-      transform: rotate(-45deg);
-  }
-
-@else if ($deg == 'bottom') {
-      transform: rotate(45deg);
+  @if ($deg == "left") {
+    transform: rotate(135deg);
+  } @else if ($deg == "top") {
+    transform: rotate(225deg);
+  } @else if ($deg == "right") {
+    transform: rotate(-45deg);
+  } @else if ($deg == "bottom") {
+    transform: rotate(45deg);
   }
 
   @include ie11only() {
     margin-bottom: 1px !important;
-}
+  }
 }
 // -----------------------------------------------------------------------------
 // 17__first, notfirst  ※include first{ // ここに記述 }といった
@@ -183,13 +179,13 @@ img {
 // -----------------------------------------------------------------------------
 @mixin first {
   &:first-of-type {
-      @content;
+    @content;
   }
 }
 
 @mixin notfirst {
   &:not(:first-of-type) {
-      @content;
+    @content;
   }
 }
 
@@ -197,12 +193,12 @@ img {
 // ----------------------------------------------------------
 @mixin last {
   &:last-of-type {
-      @content;
+    @content;
   }
 }
 
 @mixin notlast {
   &:not(:last-of-type) {
-      @content;
+    @content;
   }
 }

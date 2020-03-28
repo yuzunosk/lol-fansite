@@ -13,7 +13,7 @@
     <script src="{{ asset('js/master.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="{{ asset('css/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/webfonts') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
