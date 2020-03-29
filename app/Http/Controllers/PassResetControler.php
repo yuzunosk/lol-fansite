@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class PassResetControler extends Controller
 {
-    public function showView(){
+    public function showView()
+    {
         return redirect('/chanpions')->with('flash_message', __('Currently in preparation.'));
     }
-}
+};
