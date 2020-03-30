@@ -37,7 +37,6 @@
     <p :class="heroMessageBottom">
       Only those who have never feed throw stones
       <br />at those who have feed ...
-      <span>何かがおかしい。</span>
     </p>
   </div>
 </template>
@@ -77,31 +76,31 @@ export default {
       icons: [
         {
           id: 1,
-          img: "/top/img/runeterra-bilgewater-01.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-bilgewater-01.jpg"
         },
         {
           id: 2,
-          img: "/top/imgruneterra-demacia-01.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-demacia-01.jpg"
         },
         {
           id: 3,
-          img: "/top/imgruneterra-freljord-02.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-freljord-02.jpg"
         },
         {
           id: 4,
-          img: "/top/imgruneterra-ionia-01.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-ionia-01.jpg"
         },
         {
           id: 5,
-          img: "/top/imgruneterra-shurima-02.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-shurima-02.jpg"
         },
         {
           id: 6,
-          img: "/top/imgruneterra-piltover-10.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-piltover-10.jpg"
         },
         {
           id: 7,
-          img: "/top/imgruneterra-noxus-01.jpg"
+          img: "https://lol-fansite.com/top/img/runeterra-noxus-01.jpg"
         }
       ]
     };

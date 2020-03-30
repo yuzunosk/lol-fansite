@@ -16,6 +16,7 @@ class CreateChanpionTagsTable extends Migration
         Schema::create('chanpionTags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('sub_name');
             $table->timestamps();
         });
     }

@@ -19,8 +19,7 @@ class CreateChanpionSkillsTable extends Migration
             $table->string('na_name');
             $table->string('skill_type');
             $table->unsignedBigInteger('chanpion_id');
-            // $table->foreign('chanpion_id')->references('id')->on('chanpions');
-            $table->string('text' , 255);
+            $table->string('text', 255);
             $table->string('skill_icon_1');
             $table->string('skill_icon_2');
             $table->timestamps();

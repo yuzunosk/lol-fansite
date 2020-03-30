@@ -14,15 +14,13 @@ class CreateChanpionsTable extends Migration
     public function up()
     {
         Schema::create('chanpions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id', 20);
             $table->string('name');
             $table->string('sub_name');
-            $table->string('popular_name' , 60);
+            $table->string('popular_name', 60);
             $table->string('feature');
-            $table->unsignedBigInteger('main_roll_id');
-            // $table->foreign('main_roll_id')->references('id')->on('chanpionRolls');
-            $table->unsignedBigInteger('sub_roll_id');
-            // $table->foreign('sub_roll_id')->references('id')->on('chanpionRolls');
+            $table->string('main_roll_id');
+            $table->string('sub_roll_id');
             $table->unsignedBigInteger('be_cost');
             $table->unsignedBigInteger('rp_cost');
             $table->string('chanpion_img');
@@ -32,9 +30,6 @@ class CreateChanpionsTable extends Migration
             $table->unsignedBigInteger('st_mobility');
             $table->unsignedBigInteger('st_difficulty');
             $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('chanpion_tag_id');
-            // $table->foreign('chanpion_tag_id')->references('id')->on('chanpionTags');
             $table->timestamps();
         });
     }
