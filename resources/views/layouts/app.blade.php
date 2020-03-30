@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +15,14 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="{{ asset('css/css/all.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/webfonts') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/webfonts') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app2">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -42,42 +44,42 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ $user->name }} <span class="caret"></span>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ $user->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- フラッシュメッセージ -->
-        @if (session('flash_message'))　<!-- sessionに'flash_message'が入った時に表示する -->
-            <div class="alert alert-primary text-center" role="alert">
-                {{ session('flash_message') }}
-            </div>
+        @if (session('flash_message'))　
+        <!-- sessionに'flash_message'が入った時に表示する -->
+        <div class="alert alert-primary text-center" role="alert">
+            {{ session('flash_message') }}
+        </div>
         @endif
 
 
@@ -91,105 +93,90 @@
                             <div class="row justify-content-end">
                                 <div class="col list-group list-group-flush">
                                     <p class="list-group-item list-group-item-dark">Top Menu</p>
-<!-- menu profile-->
+                                    <!-- menu profile-->
                                     <div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        {{ __('My page') }}
+                                        <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                            {{ __('My page') }}
                                         </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('mypage.index') }}" class="dropdown-item">{{ __('My Chanpions List') }}</a>
-                                                <a href="{{ route('mypage.profile') }}" class="dropdown-item">{{ __('Profile') }}</a>
-                                                <a href="#" class="dropdown-item">{{ __('E-mail') }}</a>
-                                                <a href="{{ route('mypage.passreset') }}" class="dropdown-item">{{ __('Password') }}</a>
-                                            </div>
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('mypage.index') }}" class="dropdown-item">{{ __('My Chanpions List') }}</a>
+                                            <a href="{{ route('mypage.profile') }}" class="dropdown-item">{{ __('Profile') }}</a>
+                                            <a href="#" class="dropdown-item">{{ __('E-mail') }}</a>
+                                            <a href="{{ route('mypage.passreset') }}" class="dropdown-item">{{ __('Password') }}</a>
+                                        </div>
                                     </div>
-<!-- menu profile end-->
+                                    <!-- menu profile end-->
 
-<!-- chanpion -->
+                                    <!-- chanpion -->
                                     <div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        {{ __('Chanpions') }}
+                                        <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                            {{ __('Chanpions') }}
                                         </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('chanpions.new') }}" class="dropdown-item">{{__('New Chanpion Registration')}}</a>
-                                                <a href="{{ route('chanpions.create') }}" class="dropdown-item">{{ __('Registration Chanpions List') }}</a>
-                                            </div>
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('chanpions.new') }}" class="dropdown-item">{{__('New Chanpion Registration')}}</a>
+                                            <a href="{{ route('chanpions.create') }}" class="dropdown-item">{{ __('Registration Chanpions List') }}</a>
+                                        </div>
                                     </div>
-<!-- chanpion End -->
-<div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        {{__('Chanpion Skills') }}
+                                    <!-- chanpion End -->
+                                    <div class="btn-group dropleft list-group-item p-0">
+                                        <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                            {{__('Chanpion Skills') }}
                                         </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('skills.new') }}" class="dropdown-item">{{ __('New Skill Registration') }}</a>
-                                            </div>
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('skills.new') }}" class="dropdown-item">{{ __('New Skill Registration') }}</a>
+                                        </div>
                                     </div>
 
 
-<!-- Roll -->
+                                    <!-- Roll -->
                                     <div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        {{ __('Chanpion Rolls') }}
+                                        <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                            {{ __('Chanpion Rolls') }}
                                         </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('rolls.new') }}" class="dropdown-item">{{ __('New Roll Registration') }}</a>
-                                                <a href="{{ route('rolls.create') }}" class="dropdown-item">{{ __('Registration Rolls List') }}</a>
-                                            </div>
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('rolls.new') }}" class="dropdown-item">{{ __('New Roll Registration') }}</a>
+                                            <a href="{{ route('rolls.create') }}" class="dropdown-item">{{ __('Registration Rolls List') }}</a>
+                                        </div>
                                     </div>
-<!-- Roll END -->
+                                    <!-- Roll END -->
 
-<!-- Tag -->
+                                    <!-- Tag -->
                                     <div class="btn-group dropleft list-group-item p-0">
-                                        <button 
-                                        type="button" class="btn btn-white dropdown-toggle p-3" 
-                                        data-toggle="dropdown" aria-haspopup="true" 
-                                        aria-expanded="false" style="width: 100%;box-sizing: border-box">
-                                        {{ __('Chanpion Tags') }}
+                                        <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                            {{ __('Chanpion Tags') }}
                                         </button>
-                                            <div class="dropdown-menu">
-                                                <a href="{{ route('tags.new') }}" class="dropdown-item">{{ __('New Tag Registration') }}</a>
-                                                <a href="{{ route('tags.create') }}" class="dropdown-item">{{ __('Registration Tags List') }}</a>
-                                            </div>
-<!-- Tag END -->
+                                        <div class="dropdown-menu">
+                                            <a href="{{ route('tags.new') }}" class="dropdown-item">{{ __('New Tag Registration') }}</a>
+                                            <a href="{{ route('tags.create') }}" class="dropdown-item">{{ __('Registration Tags List') }}</a>
+                                        </div>
+                                        <!-- Tag END -->
 
-<!-- content -->
-                                            <div class="btn-group dropleft list-group-item p-0">
-                                                <button 
-                                                type="button" class="btn btn-white dropdown-toggle p-3" 
-                                                data-toggle="dropdown" aria-haspopup="true" 
-                                                aria-expanded="false" style="width: 100%;box-sizing: border-box">
+                                        <!-- content -->
+                                        <div class="btn-group dropleft list-group-item p-0">
+                                            <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
                                                 Contents
-                                                </button>
+                                            </button>
                                             <div class="dropdown-menu">
                                                 <a href="{{ route('articles.new') }}" class="dropdown-item">New Articles Registration</a>
                                                 <a href="{{ route('categorys.new') }}" class="dropdown-item">New Category Registration</a>
                                                 <a href="{{ route('articles.create') }}" class="dropdown-item">Registration Articles List</a>
                                             </div>
-<!-- content end-->
+                                            <!-- content end-->
 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                <div> <!-- col2 -->
-                    @show
-            <div> <!-- row -->
-            </div> <!-- container -->
+                            <div>
+                                <!-- col2 -->
+                                @show
+                                <div>
+                                    <!-- row -->
+                                </div> <!-- container -->
         </main>
     </div>
 
 
 </body>
+
 </html>

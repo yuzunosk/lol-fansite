@@ -19,7 +19,7 @@ lottie.loadAnimation({
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "logo/menuicon2.json",
+    path: "https://lol-fansite.com/top/logo/menuicon2.json",
     rendererSettings: {
         className: "anmIcon"
     }
@@ -50,7 +50,7 @@ lottie.loadAnimation({
     renderer: "svg",
     loop: true,
     autoplay: true,
-    path: "/resources/js/components/management/logo/yuzunosk.logo.json",
+    path: "https://lol-fansite.com/top/logo/yuzunosk.logo.json",
     rendererSettings: {
         className: "anmLogo"
     }
@@ -63,7 +63,7 @@ lottie.loadAnimation({
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "/resources/js/components/management/logo/NEWS-icon-2.json",
+    path: "https://lol-fansite.com/top/logo/NEWS-icon-2.json",
     rendererSettings: {
         className: "anmNews"
     }
@@ -87,14 +87,14 @@ news.addEventListener("mouseleave", e => {
 });
 
 // -------------------------
-// news
+// card
 // -------------------------
 lottie.loadAnimation({
     container: document.getElementById("lottie-card"),
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "/resources/js/components/management/logo/card-mv.json",
+    path: "https://lol-fansite.com/top/logo/card-mv.json",
     rendererSettings: {
         className: "anmNews"
     }
