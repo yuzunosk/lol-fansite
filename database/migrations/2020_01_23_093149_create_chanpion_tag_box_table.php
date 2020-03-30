@@ -26,17 +26,6 @@ class CreateChanpionTagBoxTable extends Migration
             $table->unsignedBigInteger('chanpion_tag_id_8');
             $table->unsignedBigInteger('chanpion_tag_id_9');
             $table->unsignedBigInteger('chanpion_tag_id_10');
-            // $table->foreign('chanpion_id')->references('id');
-            // $table->foreign('chanpion_tag_id_1')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_2')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_3')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_4')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_5')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_6')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_7')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_8')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_9')->references('id')->on('chanpionTags');
-            // $table->foreign('chanpion_tag_id_10')->references('id')->on('chanpionTags');
             $table->timestamps();
         });
     }
