@@ -19,10 +19,10 @@
   display: flex;
   font-size: $font-size__s;
   justify-content: center;
-  transition: .5s;
+  transition: 0.5s;
   width: 60%;
 
-    &__item {
+  &__item {
     margin: auto;
     list-style: none;
     text-align: center;
@@ -30,7 +30,7 @@
     height: 100%;
 
     .item {
-      border-bottom: 0px solid lighten($base-color__secondary ,15%);
+      border-bottom: 0px solid lighten($base-color__secondary, 15%);
       display: block;
       height: 100px;
       line-height: 100px;
@@ -38,80 +38,78 @@
       text-decoration: none;
       width: 100%;
 
-        &::after{
-          content: "";
-          @include absPosition($bottom: 2px, $left: 0);
-          background-color: $base-color__default;
-          height: 2px;
-          transform-origin: center bottom;
-          transform: scale(0,1);
-          transition: .3s;
-          width: 100%;
-
-        }
-        &:hover {
-            &::after{
-              transform: scale(1,1);
-              transition: .3s;
-            }
+      &::after {
+        content: "";
+        @include absPosition($bottom: 2px, $left: 0);
+        background-color: $base-color__default;
+        height: 2px;
+        transform-origin: center bottom;
+        transform: scale(0, 1);
+        transition: 0.3s;
+        width: 100%;
+      }
+      &:hover {
+        &::after {
+          transform: scale(1, 1);
+          transition: 0.3s;
         }
       }
     }
+  }
 
-    .js-show-navList {
+  .js-show-navList {
+    align-items: center;
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    @include absPosition($top: 98px, $left: 0);
+    height: auto;
+    margin: 0 auto;
+    padding-left: 25%;
+    width: 100%;
+    z-index: 5;
+    @include mq() {
+      margin-left: 0;
+    }
+
+    .bordItem {
       align-items: center;
-      background: #fff;
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
-      @include absPosition($top: 100px, $left: 0);
-      height: auto;
-      margin: 0 auto;
-      padding-left: 25%;
-      width: 100%;
-      z-index: 5;
-          @include mq() {
-            margin-left: 0;
-          }
+      flex-basis: 20%;
+      font-size: $font-size__s;
+      height: 70px;
+      justify-content: center;
+      text-align: center;
+      transition: 0.5s;
+      padding: 8px 20px;
+      position: relative;
 
-      .bordItem{
-        align-items: center;
-        box-sizing: border-box;
-        display: flex;
-        flex-wrap: wrap;
-        flex-basis: 20%;
-        font-size: $font-size__s;
-        height: 70px;
-        justify-content: center;
-        text-align: center;
-        transition: 0.5s;
-        padding: 8px 20px;
-        position: relative;
+      &::after {
+        content: "";
+        @include absPosition($bottom: 2px, $left: 0);
+        width: 100%;
+        height: 2px;
+        background-color: $base-color__default;
+        transform-origin: center bottom;
+        transform: scale(0, 1);
+        transition: 0.3s;
+      }
 
-        &::after{
-          content: "";
-          @include absPosition($bottom: 2px, $left: 0);
-          width: 100%;
-          height: 2px;
-          background-color: $base-color__default;
-          transform-origin: center bottom;
-          transform: scale(0,1);
-          transition: .3s;
-
-        }
-        
-          &:hover {
-              &::after{
-                transform: scale(1,1);
-                transition: .3s;
-              }
-          }
-
-        a{
-          text-decoration: none;
+      &:hover {
+        &::after {
+          transform: scale(1, 1);
+          transition: 0.3s;
         }
       }
+
+      a {
+        text-decoration: none;
+      }
     }
+  }
 }
 
 // ================================
@@ -120,99 +118,98 @@
 // -------------------------
 //  feature text
 // -------------------------
-.p-hero__featureText{
-    background: $sub-color;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: $font-size__l;
-    justify-content: center;
-    margin: 0;
-    padding: $space__m;
-    text-align: center;
-    width: 100%;
-     @include mq() {
-      text-align: left;
-     }
+.p-hero__featureText {
+  background: $sub-color;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $font-size__l;
+  justify-content: center;
+  margin: 0;
+  padding: $space__m;
+  text-align: center;
+  width: 100%;
+  @include mq() {
+    text-align: left;
+  }
 }
 
 // -------------------------
 //  information
 // -------------------------
-.p-information__header{
-    background: $base-color__default;
-    border-radius: 3%;
-    color: $font-color__secondary;
-    font-size: $font-size__xl;
-    margin: 0 0 30px 0;
-    text-align: center;
-    width: 85%;
-    height: 50px;
-    line-height: 50px;
-     @include mq() {
-       width: 30%;
-       margin-right: auto;
-     }
+.p-information__header {
+  background: $base-color__default;
+  border-radius: 3%;
+  color: $font-color__secondary;
+  font-size: $font-size__xl;
+  margin: 0 0 30px 0;
+  text-align: center;
+  width: 85%;
+  height: 50px;
+  line-height: 50px;
+  @include mq() {
+    width: 30%;
+    margin-right: auto;
+  }
 }
 
-.p-information__tabHeader{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+.p-information__tabHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 
-    &__tab-btn{
-        width: 100px;
-        height: 100%;;
-        text-align: center;
-        height: 45px;
-        line-height: 45px;
-        margin: 0;
-        font-size: $font-size__s;
-        border-top: 2px solid $base-color__default;
-        border-radius: 10% 10% 0 0;
-        border-bottom: none;
-        border-right: 1px solid $base-color__default;
-        border-left: 1px solid $base-color__default;
-        
-          &:hover{
-            cursor: pointer;
-            color: $base-color__primary;
-            background-color: $base-color__default;
-            transition: all .3s;
-          }
-        }
+  &__tab-btn {
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    margin: 0;
+    font-size: $font-size__s;
+    border-top: 2px solid $base-color__default;
+    border-radius: 10% 10% 0 0;
+    border-bottom: none;
+    border-right: 1px solid $base-color__default;
+    border-left: 1px solid $base-color__default;
 
+    &:hover {
+      cursor: pointer;
+      color: $base-color__primary;
+      background-color: $base-color__default;
+      transition: all 0.3s;
+    }
+  }
 }
 
 // -------------------------
 //  p-main
 // -------------------------
-.p-main-archive{
-    &__right{
-        box-sizing: border-box;
-        flex: 6;
-        text-align: left;
-        padding: $space__xxl;
-        @include mq() {
-          flex: 4;
-          padding: $space__l;
-        }
-          &__title{
-            margin: 0;
-            margin-bottom: $space__s;
-            @include mq() {
-              font-size: $font-size__xl;
-            }
-          }
-          &__text{
-            font-size: $font-size__l;
-            margin: 0;
-            @include mq() {
-            }
-          }
+.p-main-archive {
+  &__right {
+    box-sizing: border-box;
+    flex: 6;
+    text-align: left;
+    padding: $space__xxl;
+    @include mq() {
+      flex: 4;
+      padding: $space__l;
     }
+    &__title {
+      margin: 0;
+      margin-bottom: $space__s;
+      @include mq() {
+        font-size: $font-size__xl;
+      }
+    }
+    &__text {
+      font-size: $font-size__l;
+      margin: 0;
+      @include mq() {
+      }
+    }
+  }
 }
 
-.js_p_main_iconArea{
+.js_p_main_iconArea {
   background: $base-color__primary;
   text-align: center;
   padding: $space__3l;
@@ -220,115 +217,111 @@
     flex: 1;
     padding: $space__m;
   }
-    &__area{
-      margin-top: $space__xxl;
-      @include mq() {
-        margin-top: 0;
-      }
-        &__title{
-          font-size: $font-size__xl;
-          margin: 0;
-          margin-top: 10px;
-        }
-        &__na-title{
-          font-size: $font-size__default;
-        }
+  &__area {
+    margin-top: $space__xxl;
+    @include mq() {
+      margin-top: 0;
     }
-    &__icon{
-      border-radius: 10%;
-      border: 3px solid #33333324;
-      box-sizing: border-box;
-      width: 150px;
-      @include mq() {
-        width: 100px;
-      }
+    &__title {
+      font-size: $font-size__xl;
+      margin: 0;
+      margin-top: 10px;
     }
+    &__na-title {
+      font-size: $font-size__default;
+    }
+  }
+  &__icon {
+    border-radius: 10%;
+    border: 3px solid #33333324;
+    box-sizing: border-box;
+    width: 150px;
+    @include mq() {
+      width: 100px;
+    }
+  }
 }
 
 // -------------------------
 //  tagGroup
 // -------------------------
-.p-tagGroup{
-  &__icon{
+.p-tagGroup {
+  &__icon {
     width: 100%;
-      img {
-        margin-right: $space__m;
-        vertical-align: text-top;
-        width: 3rem;
-        @include mq() {
-          vertical-align: middle;
-          width: 4rem;
-        }
+    img {
+      margin-right: $space__m;
+      vertical-align: text-top;
+      width: 3rem;
+      @include mq() {
+        vertical-align: middle;
+        width: 4rem;
       }
+    }
   }
-  &__list{
-      display: flex;
-      // justify-content: center; レスポンシブでオンにする
-      flex-direction: row;
-      flex-wrap: wrap;
-      padding: $space__l;
-       @include mq() {
-        justify-content: space-between;
-       }
-      &__item {
-        background: linear-gradient(white, #f6f5f4);
-        border: 1px solid #cacaca;
-        border-radius: 5%;
-        box-sizing: border-box;
-        display: block;
+  &__list {
+    display: flex;
+    // justify-content: center; レスポンシブでオンにする
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: $space__l;
+    @include mq() {
+      justify-content: space-between;
+    }
+    &__item {
+      background: linear-gradient(white, #f6f5f4);
+      border: 1px solid #cacaca;
+      border-radius: 5%;
+      box-sizing: border-box;
+      display: block;
+      font-size: $font-size__s;
+      margin-bottom: $space__xl;
+      margin-left: $space__xl;
+      padding: 8px $space__m;
+      text-align: left;
+      -webkit-box-sizing: border-box;
+      width: 16rem;
+      @include mq() {
         font-size: $font-size__s;
-        margin-bottom: $space__xl;
-        margin-left: $space__xl;
-        padding: 8px $space__m;
-        text-align: left;
-        -webkit-box-sizing: border-box;
-        width: 16rem;
-        @include mq() {
-          font-size: $font-size__s;
-          flex-shrink: 1;
-          margin-left: 0;
-          justify-content: space-between;
-         }
-
-        &:hover{
-          background: $base-color__default;
-          color: $base-color__primary;
-          transition: all .4s;
-        }
+        flex-shrink: 1;
+        margin-left: 0;
+        justify-content: space-between;
       }
+
+      &:hover {
+        background: $base-color__default;
+        color: $base-color__primary;
+        transition: all 0.4s;
+      }
+    }
   }
 }
 
 // ================================
 // Main Section
 // ================================
-.p-main-section{
+.p-main-section {
+  &__head {
+    padding-bottom: $space__4l;
+    padding-top: $space__xxl;
+    text-align: center;
+    width: 100%;
+  }
 
-    &__head{
-      padding-bottom: $space__4l;
-      padding-top: $space__xxl;
-      text-align: center;
-      width: 100%;
+  &__wrapper {
+    &--center {
+      margin: 0 auto;
+      width: 80%;
+
+      @include mq(md) {
+        width: 100%;
+      }
     }
 
-    &__wrapper{
-
-        &--center{
-          margin: 0 auto;
-          width: 80%;
-
-          @include mq(md){
-            width: 100%;
-          }
-        }
-
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      padding: $space__xl;
-      width: 100%;
-
-
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: $space__xl;
+    width: 100%;
+  }
 }
