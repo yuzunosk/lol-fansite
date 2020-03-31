@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if(config('app.env') !== 'production') {
+        if (config('app.env') !== 'production') {
             DB::listen(function ($query) {
                 $sql = $query->sql;
                 for ($i = 0; $i < count($query->bindings); $i++) {
@@ -34,6 +35,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (request()->isSecure()) {
+            URL::forceScheme('https');
+        }
         Paginator::defaultView('vendor.pagination.original');
     }
 }
