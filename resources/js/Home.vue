@@ -1,138 +1,126 @@
 <template>
   <div>
     <!-- Loading -->
-    <!-- <Loading v-show="loading"></Loading> -->
+    <Loading v-show="loading"></Loading>
 
-    <!-- <transition name="fade" mode="out-in"> -->
-    <!-- <div v-show="!loading"> -->
+    <transition name="fade" mode="out-in">
+      <div v-show="!loading">
+        <!-- header -->
+        <div class="l_header">
+          <LikeHeader></LikeHeader>
 
-    <!-- header -->
-    <div class="l_header">
-      <LikeHeader></LikeHeader>
+          <!-- スクロールテスト -->
+          <!-- <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div> -->
 
-      <!-- スクロールテスト -->
-      <!-- <div style="position:fixed;color:#fff;">垂直方向のスクロール量：<span>{{ scrollY }}</span></div> -->
+          <!-- header_navigation -->
+          <div :class="jsFloatMenuTurget">
+            <HeaderLink :id="linkDatas[0].id" :data="linkDatas[0]"></HeaderLink>
 
-      <!-- header_navigation -->
-      <div :class="jsFloatMenuTurget">
-        <HeaderLink :id="linkDatas[0].id" :data="linkDatas[0]"></HeaderLink>
+            <HeaderLink :id="linkDatas[1].id" :data="linkDatas[1]"></HeaderLink>
 
-        <HeaderLink :id="linkDatas[1].id" :data="linkDatas[1]"></HeaderLink>
+            <HeaderLink :id="linkDatas[2].id" :data="linkDatas[2]"></HeaderLink>
 
-        <HeaderLink :id="linkDatas[2].id" :data="linkDatas[2]"></HeaderLink>
-
-        <HeaderLink :id="linkDatas[3].id" :data="linkDatas[3]"></HeaderLink>
-      </div>
-
-      <!-- header_navigation end -->
-    </div>
-    <!-- header end -->
-
-    <div id="l-main">
-      <!-- hero slider -->
-      <HeroSlider></HeroSlider>
-      <ToggleHero></ToggleHero>
-      <!-- hero slider  end -->
-
-      <div class="l-main-container-news">
-        <div class="c-news__header">
-          <div class="c-news-head-unit">
-            <h2 class="c-news-head-unit__title">
-              更新情報
-              <span class="c-news-head-unit__subTitle">NEWS</span>
-            </h2>
+            <HeaderLink :id="linkDatas[3].id" :data="linkDatas[3]"></HeaderLink>
           </div>
-          <button @click="clickUpdateNews" class="c-news__header__btn" type="button">
-            <span>一覧を見る</span>
-          </button>
+
+          <!-- header_navigation end -->
         </div>
+        <!-- header end -->
 
-        <News v-for="newsData in newsDatas" :key="newsData.id" :data="newsData"></News>
-      </div>
+        <div id="l-main">
+          <!-- hero slider -->
+          <HeroSlider></HeroSlider>
+          <ToggleHero></ToggleHero>
+          <!-- hero slider  end -->
 
-      <div class="l-main-container-products">
-        <h2 class="p-main-section__head">- Chanpions -</h2>
+          <div class="l-main-container-news">
+            <div class="c-news__header">
+              <div class="c-news-head-unit">
+                <h2 class="c-news-head-unit__title">
+                  更新情報
+                  <span class="c-news-head-unit__subTitle">NEWS</span>
+                </h2>
+              </div>
+              <button @click="clickUpdateNews" class="c-news__header__btn" type="button">
+                <span>一覧を見る</span>
+              </button>
+            </div>
 
-        <div class="p-main-section__wrapper--center">
-          <div class="p-main-section__wrapper">
-            <ChanpionData
-              v-for="(chanpionData, i) in getItems"
-              :key="i"
-              :id="i"
-              :data="chanpionDatas[i]"
-              :skilldata="skillDatas"
-              :tagdata="tagDatas"
-              :tags="tags"
-            ></ChanpionData>
+            <News v-for="newsData in newsDatas" :key="newsData.id" :data="newsData"></News>
           </div>
-        </div>
-        <div class="paginate_container">
-          <li>
-            <button :class="prev_A" @click="clickCallback" num="1">{{ minPage }}</button>
-          </li>
 
-          <li v-if="currentPage == totalPage ? true : false">
-            <button :class="prev_E" @click="clickCallback" :num="prev4">{{ prev4 }}</button>
-          </li>
-          <li
-            v-if="
-                                    currentPage >= totalPage - 1 ? true : false
-                                "
-          >
-            <button :class="prev_D" @click="clickCallback" :num="prev3">{{ prev3 }}</button>
-          </li>
-          <li v-if="currentPage <= 2 ? false : true">
-            <button :class="prev_B" @click="clickCallback" :num="prev2">{{ prev2 }}</button>
-          </li>
-          <li v-if="currentPage == 1 ? false : true">
-            <button :class="prev_C" @click="clickCallback" :num="prev1">{{ prev1 }}</button>
-          </li>
+          <div class="l-main-container-products">
+            <h2 class="p-main-section__head">- Chanpions -</h2>
 
-          <li>
-            <button :class="now" @click="clickCallback" :num="nowPage">{{ nowPage }}</button>
-          </li>
+            <div class="p-main-section__wrapper--center">
+              <div class="p-main-section__wrapper">
+                <ChanpionData
+                  v-for="(chanpionData, i) in getItems"
+                  :key="i"
+                  :id="i"
+                  :data="chanpionDatas[i]"
+                  :skilldata="skillDatas"
+                  :tagdata="tagDatas"
+                  :tags="tags"
+                ></ChanpionData>
+              </div>
+            </div>
+            <div class="paginate_container">
+              <li>
+                <button :class="prev_A" @click="clickCallback" num="1">{{ minPage }}</button>
+              </li>
 
-          <li v-if="currentPage == totalPage ? false : true">
-            <button :class="next_A" @click="clickCallback" :num="next1">{{ next1 }}</button>
-          </li>
-          <li
-            v-if="
-                                    currentPage >= totalPage - 1 ? false : true
-                                "
-          >
-            <button :class="next_B" @click="clickCallback" :num="next2">{{ next2 }}</button>
-          </li>
-          <li v-if="currentPage == 1 ? true : false">
-            <button :class="next_C" @click="clickCallback" :num="next3">{{ next3 }}</button>
-          </li>
-          <li v-if="currentPage <= 2 ? true : false">
-            <button :class="next_D" @click="clickCallback" :num="next4">{{ next4 }}</button>
-          </li>
-
-          <li>
-            <button :class="next_C" @click="clickCallback" :num="totalPage">{{ maxPage }}</button>
-          </li>
-        </div>
-      </div>
-    </div>
-
-    <!-- footer -->
-    <div class="l-footer">
-      <div class="c-footer-container">
-        <div class="c-footer-container-header">
-          <div class="logo__unit">
-            <img class="logo__unit--img" src="https://lol-fansite.com/top/img/lol_logo.png" />
+              <li v-if="currentPage == totalPage ? true : false">
+                <button :class="prev_E" @click="clickCallback" :num="prev4">{{ prev4 }}</button>
+              </li>
+              <li v-if="currentPage >= totalPage - 1 ? true : false">
+                <button :class="prev_D" @click="clickCallback" :num="prev3">{{ prev3 }}</button>
+              </li>
+              <li v-if="currentPage <= 2 ? false : true">
+                <button :class="prev_B" @click="clickCallback" :num="prev2">{{ prev2 }}</button>
+              </li>
+              <li v-if="currentPage == 1 ? false : true">
+                <button :class="prev_C" @click="clickCallback" :num="prev1">{{ prev1 }}</button>
+              </li>
+              <li>
+                <button :class="now" @click="clickCallback" :num="nowPage">{{ nowPage }}</button>
+              </li>
+              <li v-if="currentPage == totalPage ? false : true">
+                <button :class="next_A" @click="clickCallback" :num="next1">{{ next1 }}</button>
+              </li>
+              <li v-if="currentPage >= totalPage - 1 ? false : true">
+                <button :class="next_B" @click="clickCallback" :num="next2">{{ next2 }}</button>
+              </li>
+              <li v-if="currentPage == 1 ? true : false">
+                <button :class="next_C" @click="clickCallback" :num="next3">{{ next3 }}</button>
+              </li>
+              <li v-if="currentPage <= 2 ? true : false">
+                <button :class="next_D" @click="clickCallback" :num="next4">{{ next4 }}</button>
+              </li>
+              <li>
+                <button :class="next_C" @click="clickCallback" :num="totalPage">{{ maxPage }}</button>
+              </li>
+            </div>
           </div>
         </div>
-        <div class="c-footer-container-body">
-          <Footer v-for="footerData in footerDatas" :key="footerData.id" :data="footerData"></Footer>
+
+        <!-- footer -->
+        <div class="l-footer">
+          <div class="c-footer-container">
+            <div class="c-footer-container-header">
+              <div class="logo__unit">
+                <img class="logo__unit--img" src="https://lol-fansite.com/top/img/lol_logo.png" />
+              </div>
+            </div>
+            <div class="c-footer-container-body">
+              <Footer v-for="footerData in footerDatas" :key="footerData.id" :data="footerData"></Footer>
+            </div>
+          </div>
         </div>
+        <!-- footer END -->
       </div>
-    </div>
-    <!-- footer END -->
+    </transition>
   </div>
-  <!-- </transition> -->
-  <!-- </div> -->
 </template>
 
 <script>
@@ -144,7 +132,7 @@ import ToggleHero from "./components/ToggleHero.vue";
 import News from "./components/News.vue";
 import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
-// import Loading from "./components/management/showLoading";
+import Loading from "./components/management/showLoading";
 
 export default {
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
@@ -153,7 +141,7 @@ export default {
       perPage: 8,
       currentPage: 1,
       totalPage: 5,
-      //   loading: true,
+      loading: true,
       count: this.chanpionDatas.length, //アイテム総数
       scrollY: 0,
 

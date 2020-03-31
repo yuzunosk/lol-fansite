@@ -25,7 +25,7 @@ class LoginController extends Controller
     /**
      * Where to redirect users after login.
      *
-     * @var string
+     * @var stringc
      */
     protected $redirectTo = '/chanpions';
 
@@ -39,10 +39,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-         protected function loggedOut(Request $request)
-         {
-             //vendor/laravel/framework/src/Illuminate/Routing/Router.phpを参照にする
-             return redirect(route('login'));
-         }
-
+    protected function loggedOut(Request $request)
+    {
+        //vendor/laravel/framework/src/Illuminate/Routing/Router.phpを参照にする
+        return redirect(route('login'));
+    }
 }

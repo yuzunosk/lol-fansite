@@ -1919,13 +1919,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["value"],
   data: function data() {
     return {
-      uploadedImage: '',
-      storage: '/storage/',
-      noImage: '/storage/img/etc/img_no.png',
+      uploadedImage: "",
+      storage: "https://lol-fansite.com/public/storage/",
+      noImage: "https://lol-fansite.com/public/storage/img/etc/img_no.png",
       show: false
     };
   },
@@ -1955,7 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var reader = new FileReader();
 
-      if (file.type.indexOf('image') < 0) {
+      if (file.type.indexOf("image") < 0) {
         return false;
       }
 
@@ -6650,7 +6655,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.imgContent[data-v-45534950] {\n   width: 90%;\n    max-width: 700px;\n    margin:auto;\n     margin-bottom:40px;\n}\n.imagePreview[data-v-45534950] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n     margin-bottom:30px;\n     position: relative;\n}\n.imgFile[data-v-45534950]{\n   width: 100%;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input[data-v-45534950] {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input[data-v-45534950]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.fileUpload[data-v-45534950] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.imgContent[data-v-45534950] {\n  width: 90%;\n  max-width: 700px;\n  margin: auto;\n  margin-bottom: 40px;\n}\n.imagePreview[data-v-45534950] {\n  height: 30vh;\n  background: rgb(240, 240, 240);\n  overflow: hidden;\n  border-radius: 10px;\n  background-position: center center;\n  background-size: cover;\n  margin-bottom: 30px;\n  position: relative;\n}\n.imgFile[data-v-45534950] {\n  width: 100%;\n  height: 300px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.file_input[data-v-45534950] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: inline-block;\n  opacity: 0;\n}\n.file_input[data-v-45534950]:hover {\n  border: 2px dotted #333;\n  -webkit-transition: border 0.5s;\n  transition: border 0.5s;\n}\n.fileUpload[data-v-45534950] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color: rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
 
 // exports
 

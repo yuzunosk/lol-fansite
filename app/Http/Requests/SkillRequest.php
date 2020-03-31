@@ -26,8 +26,8 @@ class SkillRequest extends FormRequest
         return [
             'name'            => 'string|max:255',
             'na_name'         => 'string|max:255',
-            'skill_type'      => Rule::unique('chanpionSkills')->ignore($request->chanpion_id , 'chanpion_id')->where(function ($query) {
-                return $query->where('skill_type' , 'skill_type');
+            'skill_type'      => Rule::unique('chanpionSkills')->ignore($request->chanpion_id, 'chanpion_id')->where(function ($query) {
+                return $query->where('skill_type', 'skill_type');
             }),
             'chanpion_id'     => 'required|numeric',
             'text'            => 'string|nullable|max:255',
@@ -36,7 +36,7 @@ class SkillRequest extends FormRequest
         ];
     }
 
-        public function messages()
+    public function messages()
     {
         return [
             'name.required'    => '名前は必須入力です',
@@ -57,5 +57,4 @@ class SkillRequest extends FormRequest
             'skill_icon_2.max'      => 'データが大きすぎます',
         ];
     }
-
 }
