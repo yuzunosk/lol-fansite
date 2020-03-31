@@ -12,25 +12,25 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img :src="icons[0].img" alt="1st slide" style="object-fit:cover;" />
+        <img :src="icons[0].img" alt="1st slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[1].img" alt="2nd slide" style="object-fit:cover;" />
+        <img :src="icons[1].img" alt="2nd slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[2].img" alt="3th slide" style="object-fit:cover;" />
+        <img :src="icons[2].img" alt="3th slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[3].img" alt="4th slide" style="object-fit:cover;" />
+        <img :src="icons[3].img" alt="4th slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[4].img" alt="5th slide" style="object-fit:cover;" />
+        <img :src="icons[4].img" alt="5th slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[5].img" alt="6th slide" style="object-fit:cover;" />
+        <img :src="icons[5].img" alt="6th slide" style="object-fit:cover;width:100%;" />
       </div>
       <div class="carousel-item">
-        <img :src="icons[6].img" alt="7th slide" style="object-fit:cover;" />
+        <img :src="icons[6].img" alt="7th slide" style="object-fit:cover;width:100%;" />
       </div>
     </div>
     <p :class="heroMessageTop">Summoners Lift Guide , started League of Legends</p>

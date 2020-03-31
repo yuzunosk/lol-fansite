@@ -40443,49 +40443,49 @@ var render = function() {
       _c("div", { staticClass: "carousel-inner" }, [
         _c("div", { staticClass: "carousel-item active" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[0].img, alt: "1st slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[1].img, alt: "2nd slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[2].img, alt: "3th slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[3].img, alt: "4th slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[4].img, alt: "5th slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[5].img, alt: "6th slide" }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "carousel-item" }, [
           _c("img", {
-            staticStyle: { "object-fit": "cover" },
+            staticStyle: { "object-fit": "cover", width: "100%" },
             attrs: { src: _vm.icons[6].img, alt: "7th slide" }
           })
         ])
