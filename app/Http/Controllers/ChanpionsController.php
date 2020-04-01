@@ -84,7 +84,7 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             Log::info('ファイルデータnext:' . $filename);
 
-            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion', $filename);
+            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('', $filename, ['chanpion' => 'public']);
         }
 
         //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
@@ -138,7 +138,7 @@ class ChanpionsController extends Controller
         if ($request->file('chanpion_img')) {
             $file = $request->file('chanpion_img');
             $filename = $file->getClientOriginalName();
-            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('img/chanpion', $filename);
+            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('', $filename, ['chanpion' => 'public']);
         }
         //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
         $chanpionData->name          = $request->name;
