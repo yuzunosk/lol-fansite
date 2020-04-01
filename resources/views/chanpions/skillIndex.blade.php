@@ -28,12 +28,12 @@
                     <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
-                    <!-- @if ($skillData->skill_icon_2 != null
+                    <!-- @if ($skillData->skill_icon_2 != null)
                     <img src="{{ secure_asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
                     <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif -->
-                    <!-- iconの有無で表示が変化する end-->
+                    <!-- iconの有無で表示が変化する end -->
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
