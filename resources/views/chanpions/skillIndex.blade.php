@@ -20,9 +20,20 @@
                     Passive
                 </h5>
                 <div class="card-body p-0">
-                    <img src="@if($skillData->skill_icon_1 != null){{ asset('/storage/'.$skillData->skill_icon_1) }}@else{{ asset('/storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                    <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                    <!-- iconの有無で表示が変化する -->
+                    @if ($skillData->skill_icon_1 != null)
+                    <img src="{{ asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif
+
+                    <!-- @if ($skillData->skill_icon_2 != null
+                    <img src="{{ asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif -->
+                    <!-- iconの有無で表示が変化する end-->
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
@@ -67,9 +78,19 @@
                     Qスキル
                 </h5>
                 <div class="card-body p-0">
-                    <img src="@if($skillData->skill_type == 'Qスキル' || $skillData->skill_icon_1 != null){{ asset('/storage/'.$skillData->skill_icon_1) }}@else{{ asset('/storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
+                    <!-- iconの有無で表示が変化する -->
+                    @if ($skillData->skill_type == 'Qスキル' || $skillData->skill_icon_1 != null)
+                    <img src="{{ asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif
 
-                    <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                    <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
+                    <img src="{{ asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif -->
+                    <!-- iconの有無で表示が変化する -->
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
@@ -112,9 +133,20 @@
                     Wスキル
                 </h5>
                 <div class="card-body p-0">
-                    <img src="@if($skillData->skill_type == 'Wスキル' || $skillData->skill_icon_1 != null){{ asset('/storage/'.$skillData->skill_icon_1) }}@else{{ asset('/storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
+                    <!-- iconの有無で表示が変化する -->
+                    @if ($skillData->skill_type == 'Wスキル' || $skillData->skill_icon_1 != null)
+                    <img src="{{ asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif
 
-                    <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                    <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
+                    <img src="{{ asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif -->
+                    <!-- iconの有無で表示が変化する -->
+
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
@@ -159,9 +191,19 @@
                     Eスキル
                 </h5>
                 <div class="card-body p-0">
-                    <img src="@if($skillData->skill_type == 'Eスキル' || $skillData->skill_icon_1 != null){{ asset('/storage/'.$skillData->skill_icon_1) }}@else{{ asset('/storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
 
-                    <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                    @if ($skillData->skill_type == 'Eスキル' || $skillData->skill_icon_1 != null)
+                    <img src="{{ asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif
+
+                    <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
+                    <img src="{{ asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif -->
+                    <!-- iconの有無で表示が変化する -->
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>
@@ -205,9 +247,18 @@
                     Ultimate
                 </h5>
                 <div class="card-body p-0">
-                    <img src="@if($skillData->skill_type == 'Ultimate' || $skillData->skill_icon_1 != null){{ asset('/storage/'.$skillData->skill_icon_1) }}@else{{ asset('/storage/img/etc/img_no.png') }}@endif" alt="アイコン1" class="card-img" style="height:100px;object-fit:cover;">
+                    @if ($skillData->skill_type == 'Ultimate' || $skillData->skill_icon_1 != null)
+                    <img src="{{ asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif
 
-                    <img src="@if($skillData->skill_icon_2 != null){{ asset('storage/'.$skillData->skill_icon_2) }}@endif" alt="アイコン2" class="card-image-top" style="height:100px;object-fit:cover; display:none;">
+                    <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
+                    <img src="{{ asset('storage/'.$skillData->skill_icon_2) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @else
+                    <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    @endif -->
+                    <!-- iconの有無で表示が変化する -->
 
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->name }}</h5>
                     <h5 class="card-title col-10 m-0 mt-2 ml-2 p-0" style="font-size: 14px;">{{ $skillData->na_name }}</h5>

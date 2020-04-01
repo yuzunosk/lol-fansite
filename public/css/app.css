@@ -12425,9 +12425,9 @@ img {
 }
 
 .c-news__header__btn:hover::after {
-  color: #333;
-  -webkit-transition: 0.4s ease-out;
-  transition: 0.4s ease-out;
+  border-color: #f6f5f4;
+  -webkit-transition: 1s ease-out;
+  transition: 1s ease-out;
 }
 
 .c-news__header__btn::before {
@@ -12438,7 +12438,7 @@ img {
   position: absolute;
   bottom: auto;
   left: auto;
-  right: 200%;
+  right: 100%;
   top: 0;
   z-index: -1;
   -webkit-transition: 0.3s;

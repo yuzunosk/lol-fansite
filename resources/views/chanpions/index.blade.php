@@ -56,9 +56,15 @@
 
         <div class="col-md-6 col-lg-3 mb-4" style="display:flex;justify-content: center;">
             <div class="card bg-dark text-white" style="width:270px;">
-                <img src="@if($chanpionData->chanpion_img)
-                      {{ asset('/storage/' .$chanpionData->chanpion_img) }}
-                      @else{{ asset('/storage/img/etc/img_no.png') }} @endif" class="card-img" style="position:relative;height:300px;object-fit:cover">
+
+                @if ($chanpionData->chanpion_img)
+                <img src="{{ asset('/storage/' .$chanpionData->chanpion_img) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+
+                @else
+                <img src="{{ asset('/storage/img/etc/img_no.png') }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+
+                @endif
+
                 <div class="card-img-top">
                     <p class="card-title font-weight-boldre" style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;font-size:1.3rem;">
                         {{ $chanpionData -> name }}</p>

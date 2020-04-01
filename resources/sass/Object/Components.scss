@@ -361,8 +361,8 @@
       }
 
       &::after {
-        color: $base-color__secondary;
-        transition: 0.4s ease-out;
+        border-color: $base-color__primary;
+        transition: 1s ease-out;
       }
     }
 
@@ -371,7 +371,7 @@
       width: 180px;
       height: 100%;
       background: #717070;
-      @include absPosition($top: 0, $right: 200%);
+      @include absPosition($top: 0, $right: 100%);
       z-index: -1;
       transition: 0.3s;
     }
