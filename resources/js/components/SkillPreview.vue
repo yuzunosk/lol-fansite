@@ -1,90 +1,98 @@
 <template>
-<div class="container">
-  <h5 class="col-12">スキル画像をアップロード</h5>
-  <div class="skill_icon_container row col-12">
+  <div class="container">
+    <h5 class="col-12">スキル画像をアップロード</h5>
+    <div class="skill_icon_container row col-12">
+      <!-- スキルアイコン１ -->
+      <div class="imgContent col-12 mb-3">
+        <div class="imagePreview_1">
+          <img :src="uploadedImage_1" class="imgFile" />
+          <input
+            type="file"
+            class="file_input_1"
+            name="skill_icon_1"
+            @change="onFileChange_1"
+            accept="image/*"
+          />
+        </div>
+      </div>
 
-<!-- スキルアイコン１ -->
-    <div class="imgContent col-12 mb-3">
-          <div class="imagePreview_1">
-          <img :src="uploadedImage_1" class="imgFile">
-             <input type="file" class="file_input_1" name="skill_icon_1"
-             @change="onFileChange_1"  accept="image/*" />
-          </div>
+      <!-- スキルアイコン2 -->
+      <div class="imgContent col-12 mb-3">
+        <div class="imagePreview_2">
+          <img :src="uploadedImage_2" class="imgFile" />
+          <input
+            type="file"
+            class="file_input_2"
+            name="skill_icon_2"
+            @change="onFileChange_2"
+            accept="image/*"
+          />
         </div>
-        
-<!-- スキルアイコン2 -->
-            <div class="imgContent col-12 mb-3">
-          <div class="imagePreview_2">
-          <img :src="uploadedImage_2" class="imgFile">
-             <input type="file" class="file_input_2" name="skill_icon_2"
-             @change="onFileChange_2"  accept="image/*" />
-          </div>
-        </div>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
   props: ["value"],
-   data() {
-      return{
-        uploadedImage_1: '',
-        uploadedImage_2: '',
-        storage: '/storage/',
-        noImage: '/storage/img/etc/img_no.png',
-        show: false,
-      }
-   },
-   computed: {
-     judgmentData_1() {
-       // alert('読み込みました');
-       let $value = this.value;
-       //disable eslint-next-line no-console
-       console.log({ $$value });
+  data() {
+    return {
+      uploadedImage_1: "",
+      uploadedImage_2: "",
+      storage: "https://lol-fansite.com/top/",
+      noImage: "https://lol-fansite.com/top/img/img_no.png",
+      show: false
+    };
+  },
+  computed: {
+    judgmentData_1() {
+      // alert('読み込みました');
+      let $value = this.value;
+      //disable eslint-next-line no-console
+      console.log({ $$value });
       //  alert('中身は、' + $value);
-       if($value.skill_icon_1){
+      if ($value.skill_icon_1) {
         //  alert('処理を実行します');
-         this.uploadedImage_1 = this.storage + $value;
+        this.uploadedImage_1 = this.storage + $value;
         //  alert(this.uploadedImage_1);
-         return
-       }else{
-         return this.uploadedImage_1 =  this.noImage;
-       }
-     },
-      judgmentData_2() {
-       // alert('読み込みました');
-       let $value = this.value;
-       //disable eslint-next-line no-console
-       console.log({ $$value });
-       //  alert('中身は、' + $value);
-       if($value.skill_icon_2){
+        return;
+      } else {
+        return (this.uploadedImage_1 = this.noImage);
+      }
+    },
+    judgmentData_2() {
+      // alert('読み込みました');
+      let $value = this.value;
+      //disable eslint-next-line no-console
+      console.log({ $$value });
+      //  alert('中身は、' + $value);
+      if ($value.skill_icon_2) {
         //  alert('処理を実行します');
-         this.uploadedImage_2 = this.storage + $value;
+        this.uploadedImage_2 = this.storage + $value;
         //  alert(this.uploadedImage);
-         return
-       }else{
-         return this.uploadedImage_2 =  this.noImage;
-       }
-     }
-
-   },
-   methods: {
-      onFileChange_1(e) {
+        return;
+      } else {
+        return (this.uploadedImage_2 = this.noImage);
+      }
+    }
+  },
+  methods: {
+    onFileChange_1(e) {
       let files = e.target.files || e.dataTransfer.files;
       this.createImage_1(files[0]);
     },
-      onFileChange_2(e) {
+    onFileChange_2(e) {
       let files = e.target.files || e.dataTransfer.files;
       this.createImage_2(files[0]);
     },
     // アップロードした画像を表示
     createImage_1(file) {
       let reader = new FileReader();
-      if(file.type.indexOf('image') < 0) {
+      if (file.type.indexOf("image") < 0) {
         return false;
       }
-      reader.onload = (e) => {
+      reader.onload = e => {
         this.uploadedImage_1 = e.target.result;
         console.log(this.uploadedImage_1);
       };
@@ -92,92 +100,88 @@ export default {
     },
     createImage_2(file) {
       let reader = new FileReader();
-      if(file.type.indexOf('image') < 0) {
+      if (file.type.indexOf("image") < 0) {
         return false;
       }
-      reader.onload = (e) => {
+      reader.onload = e => {
         this.uploadedImage_2 = e.target.result;
         console.log(this.uploadedImage_2);
       };
       reader.readAsDataURL(file);
-
-    },
-
-   },
-   beforeCreate() {
-              this.judgmentData_1();
-              this.judgmentData_2();
-   }
-
-}
+    }
+  },
+  beforeCreate() {
+    this.judgmentData_1();
+    this.judgmentData_2();
+  }
+};
 </script>
 
 
 <style scoped>
-.skill_icon_container{
+.skill_icon_container {
   display: flex;
   position: relative;
-
 }
 
 .imgContent {
-    max-width: 300px;
-    margin:auto;
-    margin-bottom:40px;
-} 
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 40px;
+}
 .imagePreview_1 {
-    height:30vh;
-    background: rgb(240, 240, 240);
-    overflow: hidden;
-    border-radius: 10px;
-    background-position: center center;
-    background-size: cover;
-    margin-bottom:30px;
- }
- .imagePreview_2 {
-    height:30vh;
-    background: rgb(240, 240, 240);
-    overflow: hidden;
-    border-radius: 10px;
-    background-position: center center;
-    background-size: cover;
-    margin-bottom:30px;
- }
- .imgFile{
-   width: 300px;
-   height: 300px;
-   object-fit: contain;
- }
- .file_input_1 {
-    position: absolute;
-    top: 0;
-    left: 3%;
-    width: 45%;
-    height: 100%;
-    display: inline-block;
-    opacity: 0;
- }
+  height: 30vh;
+  background: rgb(240, 240, 240);
+  overflow: hidden;
+  border-radius: 10px;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 30px;
+}
+.imagePreview_2 {
+  height: 30vh;
+  background: rgb(240, 240, 240);
+  overflow: hidden;
+  border-radius: 10px;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 30px;
+}
+.imgFile {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+.file_input_1 {
+  position: absolute;
+  top: 0;
+  left: 3%;
+  width: 45%;
+  height: 100%;
+  display: inline-block;
+  opacity: 0;
+}
 
-  .file_input_2 {
-    position: absolute;
-    top: 0;
-    right: 3%;
-    width: 45%;
-    height: 100%;
-    display: inline-block;
-    opacity: 0;
- }
+.file_input_2 {
+  position: absolute;
+  top: 0;
+  right: 3%;
+  width: 45%;
+  height: 100%;
+  display: inline-block;
+  opacity: 0;
+}
 
- .file_input_1:hover{
-   border: 2px dotted #333;
-   transition: border .5s;
- }
-  .file_input_2:hover{
-   border: 2px dotted #333;
-   transition: border .5s;
- }
+.file_input_1:hover {
+  border: 2px dotted #333;
+  transition: border 0.5s;
+}
+.file_input_2:hover {
+  border: 2px dotted #333;
+  transition: border 0.5s;
+}
 
- .fileUpload {
+.fileUpload {
   text-align: center;
   position: absolute;
   height: 25px;
@@ -186,7 +190,7 @@ export default {
   left: 0;
   right: 0;
   margin: auto;
-  color:rgb(134, 134, 134);
+  color: rgb(134, 134, 134);
   padding: 20px;
 }
 </style>

@@ -58,10 +58,10 @@
             <div class="card bg-dark text-white" style="width:270px;">
 
                 @if ($chanpionData->chanpion_img)
-                <img src="{{ secure_asset('storage/' .$chanpionData->chanpion_img) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+                <img src="{{ url('top/' .$chanpionData->chanpion_img) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
 
                 @else
-                <img src="https://lol-fansite.com/top/img/img_no.png" class="card-img" style="position:relative;height:300px;object-fit:cover">
+                <img src="{{ url('top/img/img_no.png') }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
 
                 @endif
 

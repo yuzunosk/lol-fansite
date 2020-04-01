@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       uploadedImage: "",
-      storage: "https://lol-fansite.com/public/storage/",
-      noImage: "https://lol-fansite.com/public/storage/img/etc/img_no.png",
+      storage: "https://lol-fansite.com/top/",
+      noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };
   },

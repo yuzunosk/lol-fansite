@@ -23,9 +23,9 @@
 
                     <!-- iconの有無で表示が変化する -->
                     @if ($skillData->skill_icon_1 != null)
-                    <img src="{{ secure_asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
-                    <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/img/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
                     <!-- @if ($skillData->skill_icon_2 != null)
@@ -80,9 +80,9 @@
                 <div class="card-body p-0">
                     <!-- iconの有無で表示が変化する -->
                     @if ($skillData->skill_type == 'Qスキル' || $skillData->skill_icon_1 != null)
-                    <img src="{{ secure_asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
-                    <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('/top/img/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
                     <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
@@ -135,9 +135,9 @@
                 <div class="card-body p-0">
                     <!-- iconの有無で表示が変化する -->
                     @if ($skillData->skill_type == 'Wスキル' || $skillData->skill_icon_1 != null)
-                    <img src="{{ secure_asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
-                    <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('/top/img/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
                     <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
@@ -193,9 +193,9 @@
                 <div class="card-body p-0">
 
                     @if ($skillData->skill_type == 'Eスキル' || $skillData->skill_icon_1 != null)
-                    <img src="{{ secure_asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
-                    <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('/top/img/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
                     <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)
@@ -248,9 +248,9 @@
                 </h5>
                 <div class="card-body p-0">
                     @if ($skillData->skill_type == 'Ultimate' || $skillData->skill_icon_1 != null)
-                    <img src="{{ secure_asset('/storage/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/'.$skillData->skill_icon_1) }}" class="card-img" style="height:100px;object-fit:cover;">
                     @else
-                    <img src="{{ secure_asset('/storage/img/etc/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
+                    <img src="{{ url('top/img/img_no.png') }}" class="card-img" style="height:100px;object-fit:cover;">
                     @endif
 
                     <!-- @if ($skillData->skill_type == 'Qスキル' ||$skillData->skill_icon_2 != null)

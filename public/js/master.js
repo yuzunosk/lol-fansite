@@ -1929,8 +1929,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       uploadedImage: "",
-      storage: "https://lol-fansite.com/public/storage/",
-      noImage: "https://lol-fansite.com/public/storage/img/etc/img_no.png",
+      storage: "https://lol-fansite.com/top/",
+      noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };
   },
@@ -2014,14 +2014,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["value"],
   data: function data() {
     return {
-      uploadedImage_1: '',
-      uploadedImage_2: '',
-      storage: '/storage/',
-      noImage: '/storage/img/etc/img_no.png',
+      uploadedImage_1: "",
+      uploadedImage_2: "",
+      storage: "https://lol-fansite.com/top/",
+      noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };
   },
@@ -2076,7 +2085,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var reader = new FileReader();
 
-      if (file.type.indexOf('image') < 0) {
+      if (file.type.indexOf("image") < 0) {
         return false;
       }
 
@@ -2092,7 +2101,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var reader = new FileReader();
 
-      if (file.type.indexOf('image') < 0) {
+      if (file.type.indexOf("image") < 0) {
         return false;
       }
 
@@ -6674,7 +6683,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.skill_icon_container[data-v-a98446fc]{\n  display: -webkit-box;\n  display: flex;\n  position: relative;\n}\n.imgContent[data-v-a98446fc] {\n    max-width: 300px;\n    margin:auto;\n    margin-bottom:40px;\n}\n.imagePreview_1[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imagePreview_2[data-v-a98446fc] {\n    height:30vh;\n    background: rgb(240, 240, 240);\n    overflow: hidden;\n    border-radius: 10px;\n    background-position: center center;\n    background-size: cover;\n    margin-bottom:30px;\n}\n.imgFile[data-v-a98446fc]{\n   width: 300px;\n   height: 300px;\n   -o-object-fit: contain;\n      object-fit: contain;\n}\n.file_input_1[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    left: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_2[data-v-a98446fc] {\n    position: absolute;\n    top: 0;\n    right: 3%;\n    width: 45%;\n    height: 100%;\n    display: inline-block;\n    opacity: 0;\n}\n.file_input_1[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.file_input_2[data-v-a98446fc]:hover{\n   border: 2px dotted #333;\n   -webkit-transition: border .5s;\n   transition: border .5s;\n}\n.fileUpload[data-v-a98446fc] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color:rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.skill_icon_container[data-v-a98446fc] {\n  display: -webkit-box;\n  display: flex;\n  position: relative;\n}\n.imgContent[data-v-a98446fc] {\n  max-width: 300px;\n  margin: auto;\n  margin-bottom: 40px;\n}\n.imagePreview_1[data-v-a98446fc] {\n  height: 30vh;\n  background: rgb(240, 240, 240);\n  overflow: hidden;\n  border-radius: 10px;\n  background-position: center center;\n  background-size: cover;\n  margin-bottom: 30px;\n}\n.imagePreview_2[data-v-a98446fc] {\n  height: 30vh;\n  background: rgb(240, 240, 240);\n  overflow: hidden;\n  border-radius: 10px;\n  background-position: center center;\n  background-size: cover;\n  margin-bottom: 30px;\n}\n.imgFile[data-v-a98446fc] {\n  width: 300px;\n  height: 300px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.file_input_1[data-v-a98446fc] {\n  position: absolute;\n  top: 0;\n  left: 3%;\n  width: 45%;\n  height: 100%;\n  display: inline-block;\n  opacity: 0;\n}\n.file_input_2[data-v-a98446fc] {\n  position: absolute;\n  top: 0;\n  right: 3%;\n  width: 45%;\n  height: 100%;\n  display: inline-block;\n  opacity: 0;\n}\n.file_input_1[data-v-a98446fc]:hover {\n  border: 2px dotted #333;\n  -webkit-transition: border 0.5s;\n  transition: border 0.5s;\n}\n.file_input_2[data-v-a98446fc]:hover {\n  border: 2px dotted #333;\n  -webkit-transition: border 0.5s;\n  transition: border 0.5s;\n}\n.fileUpload[data-v-a98446fc] {\n  text-align: center;\n  position: absolute;\n  height: 25px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  color: rgb(134, 134, 134);\n  padding: 20px;\n}\n", ""]);
 
 // exports
 
