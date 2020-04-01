@@ -84,7 +84,7 @@ class ChanpionsController extends Controller
             $filename = $file->getClientOriginalName();
             Log::info('ファイルデータnext:' . $filename);
 
-            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('chanpion', $filename, ['disk' => 'public']);
+            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('chanpion', $filename, ['disk' => 's3']);
         } else {
             $chanpionData->chanpion_img = null;
         }
@@ -140,7 +140,7 @@ class ChanpionsController extends Controller
         if ($request->file('chanpion_img')) {
             $file = $request->file('chanpion_img');
             $filename = $file->getClientOriginalName();
-            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('chanpion', $filename, ['disk' => 'public']);
+            $chanpionData->chanpion_img = $request->file('chanpion_img')->storeAs('chanpion', $filename, ['disk' => 's3']);
         } else {
             $chanpionData->chanpion_img = null;
         }
@@ -234,7 +234,7 @@ class ChanpionsController extends Controller
             $filename_1 = $file_1->getClientOriginalName();
             Log::info('ファイルデータnext:' . $filename_1);
 
-            $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('skill', $filename_1, ['disk' => 'public']);
+            $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('skill', $filename_1, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_1 = null;
@@ -244,7 +244,7 @@ class ChanpionsController extends Controller
             Log::info('ファイル名前:' . $request->file('skill_icon_2'));
             $file_2 = $request->file('skill_icon_2');
             $filename_2 = $file_2->getClientOriginalName();
-            $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('skill', $filename_2, ['disk' => 'public']);
+            $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('skill', $filename_2, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_2 = null;
@@ -296,7 +296,7 @@ class ChanpionsController extends Controller
             $filename_1 = $file_1->getClientOriginalName();
             Log::info('ファイルデータnext:' . $filename_1);
 
-            $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('skill', $filename_1, ['disk' => 'public']);
+            $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('skill', $filename_1, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_1 = null;
@@ -307,7 +307,7 @@ class ChanpionsController extends Controller
             Log::info('ファイル名前:' . $request->file('skill_icon_2'));
             $file_2 = $request->file('skill_icon_2');
             $filename_2 = $file_2->getClientOriginalName();
-            $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('skill', $filename_2, ['disk' => 'public']);
+            $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('skill', $filename_2, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_2 = null;

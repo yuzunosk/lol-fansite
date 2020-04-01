@@ -57,76 +57,61 @@
         <div class="col-md-6 col-lg-3 mb-4" style="display:flex;justify-content: center;">
             <div class="card bg-dark text-white" style="width:270px;">
 
-                <!-- chanpion_img -->
-
-                @if (($chanpionData->chanpion_img))
+                @if ($chanpionData->chanpion_img)
                 <img src="{{ secure_asset('storage/' .$chanpionData->chanpion_img) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+
                 @else
-                <img src="{{ secure_asset('storage/img/etc/img_no.png') }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+                <img src="https://lol-fansite.com/top/img/img_no.png" class="card-img" style="position:relative;height:300px;object-fit:cover">
+
                 @endif
-
-                <!-- chanpion_img END -->
-
-                <!-- chanpion_name -->
 
                 <div class="card-img-top">
                     <p class="card-title font-weight-boldre" style="position: absolute;top:5%;box-shadow:inset 0px 0px 12px 14px #2c29c354;padding: 0 25px 0 10px;border-radius: 5%;font-size:1.3rem;">
                         {{ $chanpionData -> name }}</p>
-
-                    <!-- chanpion_name END -->
-
-                    <!-- chanpion_roll -->
-
-                    <div class="card-text row ml-2" style="position: absolute;bottom:20%;font-size:.7rem;">
-                        <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Main Roll<span class="badge badge-dark ml-2">{{ $chanpionData->main_roll_id }}</span></p>
-                        <p class="text-right bg-secondary p-0 px-2 font-weight-bold">Sub Roll<span class="badge badge-dark  ml-2">{{ $chanpionData->sub_roll_id }}</span></p>
-                    </div>
-
-                    <!-- chanpion_roll END -->
-
-                    <!-- chanpion_link -->
-
-                    <div class="card-footer p-0" style="display:flex;max-width:100%;">
-                        <form style="flex: 25%;align-self: stretch;" action="{{ route('tagbox.edit',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
-                            @csrf
-                            <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
-                                <i class="fas fa-bookmark fa-2x fa-fw row m-0 mr-0" style="display:flex;justify-content:center;"></i>Tag
-                            </button>
-                        </form>
-
-                        <form style="flex: 25%;align-self: stretch;" action="{{ route('skills.index',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
-                            @csrf
-                            <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
-                                <i class="fas fa-star fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Skill
-                            </button>
-                        </form>
-
-                        <form style="flex: 25%;align-self: stretch;" action="{{ route('chanpions.edit',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
-                            @csrf
-                            <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
-                                <i class="fas fa-edit fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Edit
-                            </button>
-                        </form>
-
-                        <form style="flex: 25%;align-self: stretch;" action="{{ route('chanpions.delete',$chanpionData->id) }}" method="post" class="m-0 border border-dark">
-                            @csrf
-                            <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;" onclick="return confirm('本当に削除しますか？');">
-                                <i class="fas fa-trash fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Delete
-                            </button>
-                        </form>
-
-                        <!-- chanpion_link END -->
-
-                        <!-- </div> -->
+                    <div class="card-text row m-0" style="font-size:1rem;text-align:center;display:flex;width:100%;">
+                        <p class="font-weight-bold m-0" style="flex:1">Main Roll<span class="badge ml-1" style="background-color: #3c80c3;font-size:9px;">{{ $chanpionData->main_roll_id }}</span></p>
+                        <p class="font-weight-bold m-0" style="flex:1">Sub Roll<span class="badge ml-1" style="background-color: #3c80c3;font-size:9px;">{{ $chanpionData->sub_roll_id }}</span></p>
                     </div>
                 </div>
-                <!--card -->
+                <div class="card-footer p-0" style="display:flex;max-width:100%;">
+                    <form style="flex: 25%;align-self: stretch;" action="{{ route('tagbox.edit',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
+                        @csrf
+                        <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
+                            <i class="fas fa-bookmark fa-2x fa-fw row m-0 mr-0" style="display:flex;justify-content:center;"></i>Tag
+                        </button>
+                    </form>
+
+                    <form style="flex: 25%;align-self: stretch;" action="{{ route('skills.index',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
+                        @csrf
+                        <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
+                            <i class="fas fa-star fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Skill
+                        </button>
+                    </form>
+
+                    <form style="flex: 25%;align-self: stretch;" action="{{ route('chanpions.edit',$chanpionData->id) }}" method="get" class="m-0 border border-dark">
+                        @csrf
+                        <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;">
+                            <i class="fas fa-edit fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Edit
+                        </button>
+                    </form>
+
+                    <form style="flex: 25%;align-self: stretch;" action="{{ route('chanpions.delete',$chanpionData->id) }}" method="post" class="m-0 border border-dark">
+                        @csrf
+                        <button class="btn-sm border-dark text-dark bg-white pt-2" style="cursor:pointer;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;" onclick="return confirm('本当に削除しますか？');">
+                            <i class="fas fa-trash fa-2x fa-fw row m-0" style="display:flex;justify-content:center;"></i>Delete
+                        </button>
+                    </form>
+
+                    <!-- </div> -->
+                </div>
             </div>
-            @endforeach
+            <!--card -->
         </div>
-
-
+        @endforeach
     </div>
-    @parent
-    @endsection
-    @endsection
+
+
+</div>
+@parent
+@endsection
+@endsection
