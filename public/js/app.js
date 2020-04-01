@@ -1916,7 +1916,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_News_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/News.vue */ "./resources/js/components/News.vue");
 /* harmony import */ var _components_EventTitle_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/EventTitle.vue */ "./resources/js/components/EventTitle.vue");
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue");
-/* harmony import */ var _components_management_showLoading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/management/showLoading */ "./resources/js/components/management/showLoading.vue");
+/* harmony import */ var _components_management_showLoading_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/management/showLoading.vue */ "./resources/js/components/management/showLoading.vue");
 //
 //
 //
@@ -2186,8 +2186,8 @@ __webpack_require__.r(__webpack_exports__);
     ChanpionData: _components_ChanpionData_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     News: _components_News_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     EventTitle: _components_EventTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_7__["default"] // Loading
-
+    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    Loading: _components_management_showLoading_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   methods: {
     incrementNumber: function incrementNumber(value) {
@@ -3346,30 +3346,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // import {chanpionDatas} from "../.././chanpionDatas"
 
 
@@ -3387,19 +3363,19 @@ __webpack_require__.r(__webpack_exports__);
       footerDatas: [{
         id: 0,
         linkTitle: "役割について",
-        linkItems: ['TOP', 'JG', 'MID', 'BOTTOM', 'SUPPORT']
+        linkItems: ["TOP", "JG", "MID", "BOTTOM", "SUPPORT"]
       }, {
         id: 1,
         linkTitle: "オブジェクトについて",
-        linkItems: ['タワー', 'インヒビター', 'ネクサス', 'ドラゴン', 'バロン']
+        linkItems: ["タワー", "インヒビター", "ネクサス", "ドラゴン", "バロン"]
       }, {
         id: 2,
         linkTitle: "ゲームの進め方",
-        linkItems: ['チャンピオン', '操作', 'ゲームルール', 'チャンピオンを成長させよう', 'アイテムを買おう', '仲間と行動しよう']
+        linkItems: ["チャンピオン", "操作", "ゲームルール", "チャンピオンを成長させよう", "アイテムを買おう", "仲間と行動しよう"]
       }, {
         id: 3,
         linkTitle: "JGについて",
-        linkItems: ['ガンク', 'カウンターJG', 'オブジェクト管理', 'レーンのフォロー', 'JGチャンピオンのタイプ']
+        linkItems: ["ガンク", "カウンターJG", "オブジェクト管理", "レーンのフォロー", "JGチャンピオンのタイプ"]
       }]
     };
   },
@@ -3457,7 +3433,7 @@ __webpack_require__.r(__webpack_exports__);
     roopNullRemove: function roopNullRemove() {
       // alert('読み込みました');
       var num = 0;
-      var id = 'chanpion_tag_id_';
+      var id = "chanpion_tag_id_";
 
       for (var i = 0; i < 10; i++) {
         // alert('ループ開始');
@@ -3509,19 +3485,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'loading',
+  name: "loading",
   color: {
     loading_color: true
   },
   components: {
     VueLoading: vue_loading_template__WEBPACK_IMPORTED_MODULE_0__["VueLoading"]
+  },
+  beforeMount: function beforeMount() {
+    //es-lint-disable-next-line no-console
+    console.log("showLoadingを読み込みました。");
   }
 });
 
@@ -8223,7 +8198,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.fullview {\n  width: 100%;\n  height: 100%;\n  background: #fefefe;\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.loading-spacer {\n  height: 50%;\n}\n\n\n/* アニメーション */\n.fade-enter-active , .fade-leave-active{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter , .fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fullview {\n  width: 100%;\n  height: 100%;\n  background: #fefefe;\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n.loading-spacer {\n  height: 50%;\n}\n\n/* アニメーション */\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 

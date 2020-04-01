@@ -132,7 +132,7 @@ import ToggleHero from "./components/ToggleHero.vue";
 import News from "./components/News.vue";
 import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
-import Loading from "./components/management/showLoading";
+import Loading from "./components/management/showLoading.vue";
 
 export default {
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
@@ -328,8 +328,8 @@ export default {
     ChanpionData,
     News,
     EventTitle,
-    Footer
-    // Loading
+    Footer,
+    Loading
   },
   methods: {
     incrementNumber(value) {

@@ -1,30 +1,28 @@
 <template>
-        <div v-show="loading">
-          <div class="fullview">
-            <div class="loading-spacer"></div>
-            <vue-loading 
-              type="cylon"
-              color="#d9544e"
-              :size="{ width: '80px', height: '80px' }"
-              >
-            </vue-loading>
-          </div>
-        </div>
+  <div v-show="loading">
+    <div class="fullview">
+      <div class="loading-spacer"></div>
+      <vue-loading type="cylon" color="#d9544e" :size="{ width: '80px', height: '80px' }"></vue-loading>
+    </div>
+  </div>
 </template>
 
 <script>
-import { VueLoading } from 'vue-loading-template'
+import { VueLoading } from "vue-loading-template";
 
 export default {
-  name: 'loading',
+  name: "loading",
   color: {
-      loading_color: true,
+    loading_color: true
   },
   components: {
-    VueLoading,
+    VueLoading
   },
-
-}
+  beforeMount() {
+    //es-lint-disable-next-line no-console
+    console.log("showLoadingを読み込みました。");
+  }
+};
 </script>
 
 <style>
@@ -40,12 +38,13 @@ export default {
   height: 50%;
 }
 
-
 /* アニメーション */
-.fade-enter-active , .fade-leave-active{
-    transition: all .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s;
 }
-.fade-enter , .fade-leave-to{
-    opacity: 0;
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

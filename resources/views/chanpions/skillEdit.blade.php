@@ -149,7 +149,7 @@
                                                     style="position: absolute;top:5%;left:5%;">
                                                     drag&drop
                                                     </span>
-                                                    <img src="@if($skillData->skill_icon_1){{ asset('storage/'.$skillData->skill_icon_1) }}@else{{ asset('storage/img/etc/img_no.png') }}@endif"
+                                                    <img src="@if($skillData->skill_icon_1){{ secure_asset('storage/'.$skillData->skill_icon_1) }}@else{{ secure_asset('storage/img/etc/img_no.png') }}@endif"
                                                         style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover; @if(empty($skillData->skill_icon_1)) display:none @endif">
                                                         <input name="skill_icon_1"
                                                         type = "file"
