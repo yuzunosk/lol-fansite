@@ -2311,7 +2311,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["id", "data", "skilldata"],
   data: function data() {
     return {
-      storage: "https://lol-fansite.com/public/storage/"
+      storage: "https://lol-fansite.com/"
     };
   },
   computed: {
@@ -2788,7 +2788,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["data"],
   data: function data() {
     return {
-      storage: "https://lol-fansite.com/public/storage/",
+      storage: "https://lol-fansite.com/",
       bgColor: "bule"
     };
   }
