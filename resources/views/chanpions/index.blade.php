@@ -34,6 +34,7 @@
                             </select>
                         </div> -->
 
+
                 <div class="col-2 px-1">
                     <select name="roll" id="js-tag-data" class="btn border-info py-1 px-2 rounded-0 text-truncate" style="max-width: 100%;font-size:12px;">
                         <option class="dropdown-item text-truncate" value="" id="0" readonly>{{__('Search Roll')}}</option>
@@ -58,7 +59,7 @@
             <div class="card bg-dark text-white" style="width:270px;">
 
                 @if ($chanpionData->chanpion_img)
-                <img src="{{ url('top/' .$chanpionData->chanpion_img) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
+                <img src="{{ url( $chanpionData->chanpion_img ) }}" class="card-img" style="position:relative;height:300px;object-fit:cover">
 
                 @else
                 <img src="{{ url('top/img/img_no.png') }}" class="card-img" style="position:relative;height:300px;object-fit:cover">

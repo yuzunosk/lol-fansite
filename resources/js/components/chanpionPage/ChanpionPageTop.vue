@@ -64,7 +64,7 @@ export default {
   props: ["data"],
   data() {
     return {
-      storage: "https://lol-fansite.com/public/storage/",
+      storage: "https://lol-fansite.com/",
       bgColor: "bule"
     };
   }

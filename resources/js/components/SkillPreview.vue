@@ -40,7 +40,7 @@ export default {
     return {
       uploadedImage_1: "",
       uploadedImage_2: "",
-      storage: "https://lol-fansite.com/top/",
+      storage: "https://lol-fansite.com/",
       noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };

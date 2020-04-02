@@ -15,7 +15,7 @@ export default {
   props: ["id", "data", "skilldata"],
   data() {
     return {
-      storage: "https://lol-fansite.com/public/storage/"
+      storage: "https://lol-fansite.com/"
     };
   },
   computed: {
