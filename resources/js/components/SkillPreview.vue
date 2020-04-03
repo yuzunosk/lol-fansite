@@ -45,39 +45,43 @@ export default {
       show: false
     };
   },
-  computed: {
+  methods: {
     judgmentData_1() {
       // alert('読み込みました');
-      let $value = this.value;
-      //disable eslint-next-line no-console
-      console.log({ $$value });
-      //  alert('中身は、' + $value);
-      if ($value.skill_icon_1) {
-        //  alert('処理を実行します');
-        this.uploadedImage_1 = this.storage + $value;
-        //  alert(this.uploadedImage_1);
-        return;
-      } else {
-        return (this.uploadedImage_1 = this.noImage);
+      if (this.value) {
+        let $value = this.value;
+        //disable eslint-next-line no-console
+        console.log({ $value });
+        //  alert('中身は、' + $value);
+        if ($value.skill_icon_1.length !== undefined) {
+          //  alert('処理を実行します');
+          this.uploadedImage_1 = this.storage + $value;
+          //  alert(this.uploadedImage_1);
+          return;
+        } else {
+          return (this.uploadedImage_1 = null);
+        }
       }
+      return;
     },
     judgmentData_2() {
       // alert('読み込みました');
-      let $value = this.value;
-      //disable eslint-next-line no-console
-      console.log({ $$value });
-      //  alert('中身は、' + $value);
-      if ($value.skill_icon_2) {
-        //  alert('処理を実行します');
-        this.uploadedImage_2 = this.storage + $value;
-        //  alert(this.uploadedImage);
-        return;
-      } else {
-        return (this.uploadedImage_2 = this.noImage);
+      if (this.value) {
+        let $value = this.value;
+        //disable eslint-next-line no-console
+        console.log({ $value });
+        //  alert('中身は、' + $value);
+        if ($value.skill_icon_2.length !== undefined) {
+          //  alert('処理を実行します');
+          this.uploadedImage_2 = this.storage + $value;
+          //  alert(this.uploadedImage);
+          return;
+        } else {
+          return (this.uploadedImage_2 = null);
+        }
       }
-    }
-  },
-  methods: {
+      return;
+    },
     onFileChange_1(e) {
       let files = e.target.files || e.dataTransfer.files;
       this.createImage_1(files[0]);
@@ -110,7 +114,7 @@ export default {
       reader.readAsDataURL(file);
     }
   },
-  beforeCreate() {
+  beforeMount() {
     this.judgmentData_1();
     this.judgmentData_2();
   }

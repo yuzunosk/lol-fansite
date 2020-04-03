@@ -1929,7 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       uploadedImage: "",
-      storage: "https://lol-fansite.com/top/",
+      storage: "https://lol-fansite.com/",
       noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };
@@ -2034,43 +2034,49 @@ __webpack_require__.r(__webpack_exports__);
       show: false
     };
   },
-  computed: {
+  methods: {
     judgmentData_1: function judgmentData_1() {
       // alert('読み込みました');
-      var $value = this.value; //disable eslint-next-line no-console
+      if (this.value) {
+        var $value = this.value; //disable eslint-next-line no-console
 
-      console.log({
-        $$value: $$value
-      }); //  alert('中身は、' + $value);
+        console.log({
+          $value: $value
+        }); //  alert('中身は、' + $value);
 
-      if ($value.skill_icon_1) {
-        //  alert('処理を実行します');
-        this.uploadedImage_1 = this.storage + $value; //  alert(this.uploadedImage_1);
+        if ($value.skill_icon_1.length !== undefined) {
+          //  alert('処理を実行します');
+          this.uploadedImage_1 = this.storage + $value; //  alert(this.uploadedImage_1);
 
-        return;
-      } else {
-        return this.uploadedImage_1 = this.noImage;
+          return;
+        } else {
+          return this.uploadedImage_1 = null;
+        }
       }
+
+      return;
     },
     judgmentData_2: function judgmentData_2() {
       // alert('読み込みました');
-      var $value = this.value; //disable eslint-next-line no-console
+      if (this.value) {
+        var $value = this.value; //disable eslint-next-line no-console
 
-      console.log({
-        $$value: $$value
-      }); //  alert('中身は、' + $value);
+        console.log({
+          $value: $value
+        }); //  alert('中身は、' + $value);
 
-      if ($value.skill_icon_2) {
-        //  alert('処理を実行します');
-        this.uploadedImage_2 = this.storage + $value; //  alert(this.uploadedImage);
+        if ($value.skill_icon_2.length !== undefined) {
+          //  alert('処理を実行します');
+          this.uploadedImage_2 = this.storage + $value; //  alert(this.uploadedImage);
 
-        return;
-      } else {
-        return this.uploadedImage_2 = this.noImage;
+          return;
+        } else {
+          return this.uploadedImage_2 = null;
+        }
       }
-    }
-  },
-  methods: {
+
+      return;
+    },
     onFileChange_1: function onFileChange_1(e) {
       var files = e.target.files || e.dataTransfer.files;
       this.createImage_1(files[0]);
@@ -2113,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     }
   },
-  beforeCreate: function beforeCreate() {
+  beforeMount: function beforeMount() {
     this.judgmentData_1();
     this.judgmentData_2();
   }
