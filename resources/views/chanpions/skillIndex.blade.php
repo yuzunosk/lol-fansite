@@ -9,12 +9,12 @@
 <div class="container">
     <div class="row">
         <div class="card-deck col-12 border border-dark p-0 ">
-            <h3 class="col-12 text-center my-3">{{ $skillDatas->name }}</h3>
+            <h2 class="col-12 text-center my-5">{{ $skillDatas->name }}</h2>
 
             <!-- passive card -->
             @foreach($skillDatas->skills as $skillData)
             @if($skillData->skill_type == 'Passive')
-            <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
+            <div class="card  col-2 bg-dark text-light p-0 " style="box-sizing: border-box;">
                 <h5 class="card-header">
 
                     Passive
@@ -73,7 +73,7 @@
             <!--  Qスキル card -->
             @foreach($skillDatas->skills as $skillData)
             @if($skillData->skill_type == 'Qスキル')
-            <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
+            <div class="card  col-2 bg-dark text-light p-0 " style="box-sizing: border-box;">
                 <h5 class="card-header">
                     Qスキル
                 </h5>
@@ -128,7 +128,7 @@
             <!-- Wスキル card -->
             @foreach($skillDatas->skills as $skillData)
             @if($skillData->skill_type == 'Wスキル')
-            <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
+            <div class="card  col-2 bg-dark text-light p-0 " style="box-sizing: border-box;">
                 <h5 class="card-header">
                     Wスキル
                 </h5>
@@ -186,7 +186,7 @@
             <!-- Eスキル card -->
             @foreach($skillDatas->skills as $skillData)
             @if($skillData->skill_type == 'Eスキル')
-            <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
+            <div class="card  col-2 bg-dark text-light p-0 " style="box-sizing: border-box;">
                 <h5 class="card-header">
                     Eスキル
                 </h5>
@@ -242,7 +242,7 @@
             <!-- Ultimaiteスキル card -->
             @foreach($skillDatas->skills as $skillData)
             @if($skillData->skill_type == 'Ultimate')
-            <div class="card  col-2 bg-dark text-light p-0 mb-5" style="box-sizing: border-box;">
+            <div class="card  col-2 bg-dark text-light p-0 " style="box-sizing: border-box;">
                 <h5 class="card-header">
                     Ultimate
                 </h5>
@@ -292,9 +292,21 @@
             @endforeach
             <!-- Ultimateスキル card END-->
 
+            <!-- Return -->
+            <div class="text-center my-5 col-12">
+                <form method="GET" action="{{route('chanpions.sort')}}">
+                    <button type="submit" class="btn btn-danger border-dark px-5 text-light">
+                        {{ __('Return') }}
+                    </button>
+                    </fotm>
+            </div>
+            <!-- Return END -->
+
         </div>
     </div>
     <!--div=row -->
+
+
 </div> <!-- div=container -->
 
 
