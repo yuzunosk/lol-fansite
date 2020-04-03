@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="col-sm-12 col-md-9 col-lg-10">
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-12">
             <div class="card">
                 <div class="card-header text-center">{{ __('Chanpion Editer') }}</div>
 
@@ -281,15 +281,23 @@
                         <div class="container text-center my-5">
                             <div class="form-group row">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-primary px-5">
+                                    <button type="submit" class="btn btn-light border-dark px-5">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
+
                             </div>
                         </div>
                         <!-- submit END-->
-
                     </form>
+
+                    <div class="text-center">
+                        <form method="GET" action="{{route('chanpions.sort')}}">
+                            <button type="submit" class="btn btn-danger border-dark px-5 text-light">
+                                {{ __('Return') }}
+                            </button>
+                            </fotm>
+                    </div>
                 </div>
             </div>
         </div>

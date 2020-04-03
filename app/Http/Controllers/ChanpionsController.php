@@ -209,7 +209,7 @@ class ChanpionsController extends Controller
         return redirect('/chanpions')->with('flash_message', __('Skill not registered yet.'));
     }
 
-    public function newSkill(Request $request)
+    public function newSkill(SkillRequest $request)
     {
         //chanpionスキル登録画面を呼ぶ
         $chanpionDatas = Chanpion::all();

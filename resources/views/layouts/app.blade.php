@@ -118,6 +118,8 @@
                                         </div>
                                     </div>
                                     <!-- chanpion End -->
+
+                                    <!-- Skill -->
                                     <div class="btn-group dropleft list-group-item p-0">
                                         <button type="button" class="btn btn-white dropdown-toggle p-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;box-sizing: border-box">
                                             {{__('Chanpion Skills') }}
@@ -126,7 +128,7 @@
                                             <a href="{{ route('skills.new') }}" class="dropdown-item">{{ __('New Skill Registration') }}</a>
                                         </div>
                                     </div>
-
+                                    <!-- Skill END -->
 
                                     <!-- Roll -->
                                     <div class="btn-group dropleft list-group-item p-0">
