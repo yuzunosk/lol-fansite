@@ -226,28 +226,34 @@ class ChanpionsController extends Controller
         $skillDatas = new Skill;
 
         //ファイル・リサイズ
-        if ($request->file('skill_icon_1')) {
+        if (!is_null($request->file('skill_icon_1'))) {
             Log::info('ファイル名前:' . $request->file('skill_icon_1'));
             $file_1 = $request->file('skill_icon_1');
             Log::info('ファイルデータ:' . $file_1);
 
             $filename_1 = $file_1->getClientOriginalName();
-            Log::info('ファイルデータnext:' . $filename_1);
+            Log::info('ファイルデータnext1:' . $filename_1);
 
             $skillDatas->skill_icon_1 = $request->file('skill_icon_1')->storeAs('top/skill', $filename_1, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_1 = null;
+            Log::info('skill_icon_1に、nullが入りました');
         }
 
-        if ($request->file('skill_icon_2')) {
+        if (!is_null($request->file('skill_icon_2'))) {
             Log::info('ファイル名前:' . $request->file('skill_icon_2'));
             $file_2 = $request->file('skill_icon_2');
+            Log::info('ファイルデータ:' . $file_2);
+
             $filename_2 = $file_2->getClientOriginalName();
+            Log::info('ファイルデータnext2:' . $filename_2);
+
             $skillDatas->skill_icon_2 = $request->file('skill_icon_2')->storeAs('top/skill', $filename_2, ['disk' => 's3']);
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_2 = null;
+            Log::info('skill_icon_2に、nullが入りました');
         }
 
         //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
@@ -288,7 +294,7 @@ class ChanpionsController extends Controller
         $skillDatas = new Skill;
 
         //ファイル・リサイズ
-        if ($request->file('skill_icon_1')) {
+        if (!is_null($request->file('skill_icon_1'))) {
             Log::info('ファイル名前:' . $request->file('skill_icon_1'));
             $file_1 = $request->file('skill_icon_1');
             Log::info('ファイルデータ:' . $file_1);
@@ -300,10 +306,11 @@ class ChanpionsController extends Controller
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_1 = null;
+            Log::info('skill_icon_1に、nullが入りました');
         }
 
 
-        if ($request->file('skill_icon_2')) {
+        if (!is_null($request->file('skill_icon_2'))) {
             Log::info('ファイル名前:' . $request->file('skill_icon_2'));
             $file_2 = $request->file('skill_icon_2');
             $filename_2 = $file_2->getClientOriginalName();
@@ -311,6 +318,7 @@ class ChanpionsController extends Controller
         } else //データがなければnullをいれる
         {
             $skillDatas->skill_icon_2 = null;
+            Log::info('skill_icon_2に、nullが入りました');
         }
 
         //一度に入れてしまうとDBのimgパスと保存されるパスが異なる為、一つ一つ入れていく
