@@ -194,6 +194,43 @@
     }
   }
 }
+// -------------------------------
+// Anim Navbar
+// -------------------------------
+.c-navbar {
+  &__container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 8rem;
+    height: 100%;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    min-width: 2rem;
+    height: 5rem;
+    text-decoration: none;
+  }
+
+  &__text {
+    color: $font-color__default;
+    margin-left: 20px;
+    font-size: $font-size__xl;
+  }
+}
 // ------------------------------------------------
 // information
 // ------------------------------------------------

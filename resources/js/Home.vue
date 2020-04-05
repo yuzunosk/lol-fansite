@@ -24,7 +24,9 @@
           </div>
 
           <!-- header_navigation end -->
+          <AnmNavbar></AnmNavbar>
         </div>
+
         <!-- header end -->
 
         <div id="l-main">
@@ -133,6 +135,7 @@ import News from "./components/News.vue";
 import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
 import Loading from "./components/management/showLoading.vue";
+import AnmNavbar from "./components/anm-navbar.vue";
 
 export default {
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
@@ -329,7 +332,8 @@ export default {
     News,
     EventTitle,
     Footer,
-    Loading
+    Loading,
+    AnmNavbar
   },
   methods: {
     incrementNumber(value) {

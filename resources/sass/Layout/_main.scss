@@ -33,6 +33,26 @@
     }
 }
 // -------------------------------
+// Anim Navbar
+// -------------------------------
+.l-nav-container {
+    @include mq() {
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        transition: 0.4s;
+        height: 7rem;
+    }
+}
+#js-move_filed {
+    display: none;
+    @include mq() {
+        display: block;
+    }
+}
+
+// -------------------------------
 // chanpion page
 // -------------------------------
 .l-hero {
