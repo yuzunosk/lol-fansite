@@ -17,40 +17,42 @@ use Illuminate\Foundation\Console\Presets\React;
 
 class MypageController extends Controller
 {
-    public function indexMypage(Request $request){
+    public function indexMypage(Request $request)
+    {
         //今ログインしているユーザーの登録情報を取得する
         $chanpionsData = Auth::user()->chanpions()->orderBy('id', 'desc')->paginate(8);
         $tagDatas      = Tag::all();
         $rollDatas     = Roll::all();
         $tagBoxDatas   = TagBox::all();
-        $sort          = $request->sort;
-        $roll          = $request->roll;
-        $tag           = $request->tag;
 
-        Log::info('タグボックスデータ'.$tagBoxDatas);
+        Log::info('タグボックスデータ' . $tagBoxDatas);
 
-        return view('mypages.index' , compact(['chanpionsData','tagDatas','rollDatas','tagBoxDatas','sort','roll','tag']));
+        return view('mypages.index', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
     }
 
-    public function showProfile(){
+    public function showProfile()
+    {
         //現在ログインしているユーザー情報取得
         $user = Auth::user()->first();
         Log::info($user);
-        return view('mypages.edit' , compact('user'));
+        return view('mypages.edit', compact('user'));
     }
 
-    public function updateProfile(Request $request , $id) {
+    public function updateProfile(Request $request, $id)
+    {
         //不正な$idでないかチェックする
-        if(!ctype_digit($id)){
+        if (!ctype_digit($id)) {
             return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
         }
         //バリデーション開始
-        $request->validate([
-            'name' => 'string|max:255',
-        ],
-        [
-            'name.max' => '名前は255文字以内で入力してください'
-        ]);
+        $request->validate(
+            [
+                'name' => 'string|max:255',
+            ],
+            [
+                'name.max' => '名前は255文字以内で入力してください'
+            ]
+        );
         //ユーザーインスタンス定義
         $user = new User;
         $user = User::find($id);

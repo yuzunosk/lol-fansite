@@ -86,8 +86,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 // });
 
-//ログアウト
-Route::post('/logout', 'LoginController@loggedOut');
 //E-mailアドレス変更
 // Route::GET('/email/verify', 'ForgotPasswordController@show')->name('e-mail.change');
 //パスワードリセット
