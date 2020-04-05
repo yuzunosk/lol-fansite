@@ -22,7 +22,11 @@
       <div class="c-footer-container">
         <div class="c-footer-container-header">
           <div class="logo__unit">
-            <img class="logo__unit--img" src="/storage/img/logo/lol_logo.png" alt />
+            <img
+              class="logo__unit--img"
+              src="https://lol-fansite.com/top/img/logo/lol_logo.png"
+              alt
+            />
           </div>
         </div>
         <div class="c-footer-container-body">

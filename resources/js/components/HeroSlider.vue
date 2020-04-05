@@ -1,36 +1,36 @@
 <template>
   <div :class="js_Slider" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#example-3" data-slide-to="0" class="active" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="1" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="2" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="3" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="4" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="5" style="cursor:none;"></li>
-      <li data-target="#example-3" data-slide-to="6" style="cursor:none;"></li>
+      <li data-target="#example-3" data-slide-to="0" class="active"></li>
+      <li data-target="#example-3" data-slide-to="1"></li>
+      <li data-target="#example-3" data-slide-to="2"></li>
+      <li data-target="#example-3" data-slide-to="3"></li>
+      <li data-target="#example-3" data-slide-to="4"></li>
+      <li data-target="#example-3" data-slide-to="5"></li>
+      <li data-target="#example-3" data-slide-to="6"></li>
     </ol>
 
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img :src="icons[0].img" alt="1st slide" style="object-fit:cover;width:100%;" />
+    <div class="carousel-inner" style="height:100%;">
+      <div class="carousel-item active" style="height:100%;">
+        <img :src="icons[0].img" alt="1st slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[1].img" alt="2nd slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[1].img" alt="2nd slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[2].img" alt="3th slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[2].img" alt="3th slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[3].img" alt="4th slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[3].img" alt="4th slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[4].img" alt="5th slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[4].img" alt="5th slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[5].img" alt="6th slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[5].img" alt="6th slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
-      <div class="carousel-item">
-        <img :src="icons[6].img" alt="7th slide" style="object-fit:cover;width:100%;" />
+      <div class="carousel-item" style="height:100%;">
+        <img :src="icons[6].img" alt="7th slide" style="object-fit: cover;width:100%;height:100%;" />
       </div>
     </div>
     <p :class="heroMessageTop">Summoners Lift Guide , started League of Legends</p>

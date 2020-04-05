@@ -91,15 +91,16 @@
     }
 
     &__subTitle {
-      font-size: $font-size__s;
+      font-size: $font-size__l;
       width: 100%;
+      letter-spacing: 3px;
       @include mq() {
         font-size: $font-size__xl;
       }
     }
 
     &__hr {
-      margin: 10px auto;
+      margin: 5px auto;
       width: 85%;
       background-color: $base-color__primary;
     }
@@ -118,6 +119,10 @@
       width: 70%;
       @include mq() {
         flex-direction: column;
+        width: 70%;
+      }
+      @include mq(md) {
+        width: 100%;
       }
 
       &__item {
@@ -161,7 +166,7 @@
       align-items: center;
       color: $font-color__secondary;
       display: flex;
-      font-size: $font-size__default;
+      font-size: $font-size__l;
       justify-content: center;
       width: 50%;
       @include mq() {
@@ -224,15 +229,15 @@
   position: relative;
   transition: 0.5s;
   width: 100%;
-  height: 600px;
+  height: 80vh;
   margin-bottom: 100px;
 
   @include mq() {
     display: none;
   }
 
-  @include mq() {
-    display: none;
+  @include mq(md) {
+    height: 40vh;
   }
 
   .hero_message {
@@ -241,7 +246,11 @@
     text-shadow: 2px 2px 6px #232222;
 
     &__main {
-      font-size: 45px;
+      font-size: $font-size__xxl;
+
+      @include mq(md) {
+        font-size: 30px;
+      }
 
       &_top {
         @include absPosition($top: 3%, $right: 10%);
@@ -251,6 +260,9 @@
 
     &__sub {
       font-size: 24px;
+      @include mq(md) {
+        font-size: $font-size__l;
+      }
 
       &_bottom {
         @include absPosition($bottom: 7%, $left: 5%);
@@ -271,7 +283,7 @@
     display: block;
     width: 100%;
     height: 600px;
-    background-image: url("/assets/img/TOP/Screenshot_4.jpg");
+    background-image: url("https://lol-fansite.com/top/img/Screenshot_4.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -463,11 +475,12 @@ a.c_news_items {
   width: calc(25% - #{$space__xxl});
   overflow: hidden;
   text-align: center;
+  background: #333;
 
   @include mq(md) {
     margin-right: $space__xl;
     margin-bottom: $space__xl;
-    width: calc(50% - #{$space__xxl});
+    width: calc(50% - #{$space__xl});
   }
 
   @include mq() {
@@ -554,7 +567,6 @@ a.c_news_items {
 // ==========================================================
 .c-footer-container {
   margin: 0 auto;
-  width: 100%;
 
   &-header {
     display: flex;
@@ -565,7 +577,7 @@ a.c_news_items {
 
     .logo__unit {
       height: 100%;
-      width: 15%;
+      width: 20%;
       @include mq() {
         width: 60%;
       }
@@ -588,16 +600,19 @@ a.c_news_items {
     justify-content: space-around;
     margin-left: $space__m;
     width: 80%;
-    @include mq() {
+    max-width: 100%;
+    @include mq(md) {
       flex-direction: row;
       flex-wrap: wrap;
       width: 100%;
       font-size: $font-size__l;
+      margin-left: none;
+      padding-left: 10px;
     }
 
     .info {
       display: flex;
-      height: 30px;
+      height: 100%;
       margin-bottom: $space__l;
       width: 100%;
       @include mq() {
@@ -605,11 +620,15 @@ a.c_news_items {
       }
       &-head {
         flex: 1;
+        @include mq(md) {
+          flex: 3;
+        }
       }
 
       &-body {
         display: flex;
         flex: 7;
+        flex-wrap: wrap;
         justify-content: flex-start;
         @include mq() {
           display: none;

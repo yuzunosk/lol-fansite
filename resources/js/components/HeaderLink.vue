@@ -67,15 +67,6 @@ export default {
 <style scope>
 /* 不要コード整理する */
 
-.list_warapper a {
-  color:#333;
-  text-decoration:none;
-  transition: .5s;
-}
-.list_warapper a:hover {
-    color: #b9ae6a;
-    transition: .5s;
-}
 .list{
   z-index: 3;
   margin: 0;

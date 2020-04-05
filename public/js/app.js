@@ -2978,6 +2978,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "data"],
   data: function data() {
@@ -3001,7 +3012,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       secondIconShow: true,
       nowNum: 0,
-      bottons: ['Passive', 'Qスキル', 'Wスキル', 'Eスキル', 'Ultimate'],
+      bottons: ["Passive", "Qスキル", "Wスキル", "Eスキル", "Ultimate"],
+      m_btns: ["P", "Q", "W", "e", "R"],
       banerColor: [{
         style: "background-color:#5e5ee4;color:#f6f5f4"
       }, {
@@ -3042,7 +3054,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleBotton: function toggleBotton(event) {
-      this.nowNum = event.currentTarget.attributes[1].value; // this.clickBotton = 
+      this.nowNum = event.currentTarget.attributes[1].value; // this.clickBotton =
       //eslint-disable-next-line
       // console.log(event.currentTarget.attributes);
 
@@ -3077,7 +3089,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 0; i < 5; i++) {
         // eslint-disable-next-line no-console
         // console.log('ループ開始:'+ i + '週目');
-        if (this.data[i].skill_type == 'Passive') {
+        if (this.data[i].skill_type == "Passive") {
           // eslint-disable-next-line no-console
           // console.log('Passive in');
           this.p_skillName = this.data[i].name;
@@ -3085,7 +3097,7 @@ __webpack_require__.r(__webpack_exports__);
           this.p_skillTaxt = this.data[i].text;
           this.p_skillIcon1 = this.data[i].skill_icon_1;
           this.p_skillIcon2 = this.data[i].skill_icon_2;
-        } else if (this.data[i].skill_type == 'Qスキル') {
+        } else if (this.data[i].skill_type == "Qスキル") {
           // eslint-disable-next-line no-console
           // console.log('Qskill in');
           this.q_skillName = this.data[i].name;
@@ -3093,7 +3105,7 @@ __webpack_require__.r(__webpack_exports__);
           this.q_skillTaxt = this.data[i].text;
           this.q_skillIcon1 = this.data[i].skill_icon_1;
           this.q_skillIcon2 = this.data[i].skill_icon_2;
-        } else if (this.data[i].skill_type == 'Wスキル') {
+        } else if (this.data[i].skill_type == "Wスキル") {
           // eslint-disable-next-line no-console
           // console.log('Wskill in');
           this.w_skillName = this.data[i].name;
@@ -3101,7 +3113,7 @@ __webpack_require__.r(__webpack_exports__);
           this.w_skillTaxt = this.data[i].text;
           this.w_skillIcon1 = this.data[i].skill_icon_1;
           this.w_skillIcon2 = this.data[i].skill_icon_2;
-        } else if (this.data[i].skill_type == 'Eスキル') {
+        } else if (this.data[i].skill_type == "Eスキル") {
           // eslint-disable-next-line no-console
           // console.log('Eskill in');
           this.e_skillName = this.data[i].name;
@@ -3310,6 +3322,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChanpionStatus_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChanpionStatus.vue */ "./resources/js/components/chanpionPage/ChanpionStatus.vue");
 /* harmony import */ var _ChanpionPageTag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChanpionPageTag */ "./resources/js/components/chanpionPage/ChanpionPageTag.vue");
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../.././components/Footer.vue */ "./resources/js/components/Footer.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -8103,7 +8119,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 不要コード整理する */\n.list_warapper a {\n  color:#333;\n  text-decoration:none;\n  -webkit-transition: .5s;\n  transition: .5s;\n}\n.list_warapper a:hover {\n    color: #b9ae6a;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 不要コード整理する */\n.list{\n  z-index: 3;\n  margin: 0;\n  font-size: 12px;\n  text-align: center;\n}\n.listItems{\n    height: 100px;\n}\n.list-item a{\n  display: block;\n}\n.done_link{\n    color: green;\n    -webkit-transition: .5s;\n    transition: .5s;\n}\n.show{\n    opacity: 1;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n.hide{\n    opacity: 0;\n    -webkit-transition: 2s;\n    transition: 2s;\n}\n\n/* アニメーション */\n.nav_fade-enter-active , .nav_fade-leave-active{\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.nav_fade-enter , .nav_fade-leave-to{\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -8179,7 +8195,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n    padding-left: 100px;\n}\n.boder_bottom[data-v-00d17c7c]{\n    border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n    position: relative;\n    width: 100%;\n}\n.p_0[data-v-00d17c7c]{\n    padding: 0;\n}\n.pt_40[data-v-00d17c7c]{\n    padding: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n    -webkit-box-flex: 2;\n            flex: 2;\n}\n.flex_4[data-v-00d17c7c] {\n    -webkit-box-flex: 4;\n            flex: 4;\n}\n\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c], .fade-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all .5s;\n    transition: all .5s;\n}\n.fade-enter[data-v-00d17c7c], .fade-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c], .change-leave-active[data-v-00d17c7c]{\n    -webkit-transition: all 1s ease;\n    transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c], .change-leave-to[data-v-00d17c7c]{\n    opacity: 0;\n}\n/* アニメーション END */\n\n\n", ""]);
+exports.push([module.i, "\n.chanpion_skill_container[data-v-00d17c7c] {\n  padding-left: 100px;\n}\n.boder_bottom[data-v-00d17c7c] {\n  border-bottom: none;\n}\n.table_body[data-v-00d17c7c] {\n  position: relative;\n  width: 100%;\n}\n.p_0[data-v-00d17c7c] {\n  padding: 0;\n}\n.pt_40[data-v-00d17c7c] {\n  padding: 50px;\n}\n.flex_2[data-v-00d17c7c] {\n  -webkit-box-flex: 2;\n          flex: 2;\n}\n.flex_4[data-v-00d17c7c] {\n  -webkit-box-flex: 4;\n          flex: 4;\n}\n\n/* アニメーション */\n.fade-enter-active[data-v-00d17c7c],\n.fade-leave-active[data-v-00d17c7c] {\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.fade-enter[data-v-00d17c7c],\n.fade-leave-to[data-v-00d17c7c] {\n  opacity: 0;\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n}\n.change-enter-active[data-v-00d17c7c],\n.change-leave-active[data-v-00d17c7c] {\n  -webkit-transition: all 1s ease;\n  transition: all 1s ease;\n}\n.change-enter[data-v-00d17c7c],\n.change-leave-to[data-v-00d17c7c] {\n  opacity: 0;\n}\n/* アニメーション END */\n", ""]);
 
 // exports
 
@@ -40523,56 +40539,119 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "carousel-inner" }, [
-        _c("div", { staticClass: "carousel-item active" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[0].img, alt: "1st slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[1].img, alt: "2nd slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[2].img, alt: "3th slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[3].img, alt: "4th slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[4].img, alt: "5th slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[5].img, alt: "6th slide" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "carousel-item" }, [
-          _c("img", {
-            staticStyle: { "object-fit": "cover", width: "100%" },
-            attrs: { src: _vm.icons[6].img, alt: "7th slide" }
-          })
-        ])
-      ]),
+      _c(
+        "div",
+        { staticClass: "carousel-inner", staticStyle: { height: "100%" } },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "carousel-item active",
+              staticStyle: { height: "100%" }
+            },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[0].img, alt: "1st slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[1].img, alt: "2nd slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[2].img, alt: "3th slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[3].img, alt: "4th slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[4].img, alt: "5th slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[5].img, alt: "6th slide" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "carousel-item", staticStyle: { height: "100%" } },
+            [
+              _c("img", {
+                staticStyle: {
+                  "object-fit": "cover",
+                  width: "100%",
+                  height: "100%"
+                },
+                attrs: { src: _vm.icons[6].img, alt: "7th slide" }
+              })
+            ]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("p", { class: _vm.heroMessageTop }, [
         _vm._v("Summoners Lift Guide , started League of Legends")
@@ -40594,39 +40673,30 @@ var staticRenderFns = [
     return _c("ol", { staticClass: "carousel-indicators" }, [
       _c("li", {
         staticClass: "active",
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "0" }
       }),
       _vm._v(" "),
       _c("li", {
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "1" }
       }),
       _vm._v(" "),
       _c("li", {
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "2" }
       }),
       _vm._v(" "),
       _c("li", {
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "3" }
       }),
       _vm._v(" "),
       _c("li", {
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "4" }
       }),
       _vm._v(" "),
       _c("li", {
-        staticStyle: { cursor: "none" },
         attrs: { "data-target": "#example-3", "data-slide-to": "5" }
       }),
       _vm._v(" "),
-      _c("li", {
-        staticStyle: { cursor: "none" },
-        attrs: { "data-target": "#example-3", "data-slide-to": "6" }
-      })
+      _c("li", { attrs: { "data-target": "#example-3", "data-slide-to": "6" } })
     ])
   }
 ]
@@ -41032,6 +41102,31 @@ var render = function() {
               }
             },
             [_vm._v(_vm._s(botton))]
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "p-information__tabHeader--compact" },
+      _vm._l(_vm.m_btns, function(m_btn, index) {
+        return _c("li", { key: index }, [
+          _c(
+            "p",
+            {
+              staticClass:
+                "p-information__tabHeader--compact__tab-btn tab_botton",
+              attrs: { num: index },
+              on: {
+                click: function($event) {
+                  _vm.toggleBotton($event)
+                  _vm.toggleIconShow($event)
+                }
+              }
+            },
+            [_vm._v(_vm._s(m_btn))]
           )
         ])
       }),
@@ -41601,7 +41696,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "logo__unit" }, [
         _c("img", {
           staticClass: "logo__unit--img",
-          attrs: { src: "/storage/img/logo/lol_logo.png", alt: "" }
+          attrs: {
+            src: "https://lol-fansite.com/top/img/logo/lol_logo.png",
+            alt: ""
+          }
         })
       ])
     ])

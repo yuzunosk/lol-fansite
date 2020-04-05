@@ -156,15 +156,17 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  @include mq() {
+    display: none;
+  }
 
   &__tab-btn {
     width: 100px;
-    height: 100%;
     text-align: center;
     height: 45px;
     line-height: 45px;
     margin: 0;
-    font-size: $font-size__s;
+    font-size: $font-size__l;
     border-top: 2px solid $base-color__default;
     border-radius: 10% 10% 0 0;
     border-bottom: none;
@@ -176,6 +178,41 @@
       color: $base-color__primary;
       background-color: $base-color__default;
       transition: all 0.3s;
+    }
+  }
+  &--compact {
+    display: none;
+    width: 100%;
+
+    li {
+      @include mq() {
+        width: 100%;
+      }
+    }
+    @include mq() {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__tab-btn {
+      flex: 20%;
+      height: 100%;
+      line-height: 30px;
+      text-align: center;
+      margin: 0;
+      font-size: $font-size__default;
+      border-top: 2px solid $base-color__default;
+      border-radius: 10% 10% 0 0;
+      border-bottom: none;
+      border-right: 1px solid $base-color__default;
+      border-left: 1px solid $base-color__default;
+
+      &:hover {
+        cursor: pointer;
+        color: $base-color__primary;
+        background-color: $base-color__default;
+        transition: all 0.3s;
+      }
     }
   }
 }
@@ -309,11 +346,12 @@
 
   &__wrapper {
     &--center {
-      margin: 0 auto;
-      width: 80%;
+      margin-right: -$space__xxl;
+      padding: 0 15px;
+      box-sizing: border-box;
 
       @include mq(md) {
-        width: 100%;
+        margin-right: -$space__xl;
       }
     }
 
@@ -323,5 +361,6 @@
     justify-content: flex-start;
     padding: $space__xl;
     width: 100%;
+    box-sizing: border-box;
   }
 }

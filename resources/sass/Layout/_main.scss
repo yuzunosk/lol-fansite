@@ -1,14 +1,14 @@
 // ==============================
 // main
 // ==============================
-.l-main{
+.l-main {
     width: 100%;
     // max-width :1280px;
     height: auto;
     &-container {
         width: $content-width__default;
 
-        &-news{
+        &-news {
             width: 80%;
             margin: 0 auto;
             margin-bottom: 100px;
@@ -17,9 +17,9 @@
                 width: 100%;
             }
 
-                 li {
-                    border-top: 1px dashed #333;
-                }
+            li {
+                border-top: 1px dashed #333;
+            }
         }
 
         &-products {
@@ -28,10 +28,9 @@
             height: 100%;
             padding-top: $space__3l;
             padding-bottom: $space__4l;
-
-
+            overflow: hidden;
         }
-   }
+    }
 }
 // -------------------------------
 // chanpion page
@@ -44,34 +43,34 @@
     overflow: hidden;
     position: relative;
     width: 85%;
-      &-imgArea{
-      height: 100%;
-      flex: 6;
-      order: 1;
+    &-imgArea {
+        height: 100%;
+        flex: 6;
+        order: 1;
         @include mq() {
             flex: none;
             height: 50%;
             order: 0;
             width: 100%;
         }
-      }
-      &-listArea{
-      flex: 4;
+    }
+    &-listArea {
+        flex: 4;
         @include mq() {
-          order: 1;
-          flex: none;
-      }
-      }
-      @include mq(){
-          margin: 0;
-          width: 100%;
-      }
+            order: 1;
+            flex: none;
+        }
+    }
+    @include mq(md) {
+        margin: 0;
+        width: 100%;
+    }
 }
 // -------------------------------
 // informatiom
 // -------------------------------
 
-.l-information{
+.l-information {
     display: flex;
     flex-wrap: wrap;
     height: 400px;
@@ -83,32 +82,34 @@
         margin: 0;
         width: 100%;
     }
-    &-left{
-      flex: 1;
-      margin-right: $space__l;
-      width: calc(30% - #{$space__l});
-      @include mq() {
-           margin-bottom: $space__3l;
-           margin-right: 0;
-           width: 100%;
-
+    @include mq(md) {
+        width: 100%;
+    }
+    &-left {
+        flex: 1;
+        margin-right: $space__l;
+        width: calc(30% - #{$space__l});
+        @include mq() {
+            margin-bottom: $space__3l;
+            margin-right: 0;
+            width: 100%;
         }
     }
-    &-right{
-      flex: 4;
-      width: calc(70% - #{$space__l});
-      @include mq(md) {
-          margin: 0;
-        width: 100%;
-      }
+    &-right {
+        flex: 4;
+        width: calc(70% - #{$space__l});
+        @include mq(md) {
+            margin: 0;
+            width: 100%;
+        }
     }
 }
 
 // -------------------------------
 // archive
 // -------------------------------
-.l-main-archive{
-   @include absPosition($top: 0,$left: 0);
+.l-main-archive {
+    @include absPosition($top: 0, $left: 0);
     border: 2px solid $base-color__default;
     border-radius: 5px 0 5px 5px;
     display: flex;
@@ -127,20 +128,18 @@
 // -------------------------------
 // tag Group
 // -------------------------------
-.l-tagGroup{
+.l-tagGroup {
     height: 25rem;
     margin: $space__xxl auto;
     width: 85%;
-    @include mq() {
+    @include mq(md) {
         width: 100%;
         margin-top: $space__l;
-
     }
 }
 
-.js_l_main_archive__left{
+.js_l_main_archive__left {
     background: $base-color__primary;
     padding: $space__xxl;
     text-align: center;
 }
-

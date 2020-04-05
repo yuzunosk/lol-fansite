@@ -11817,6 +11817,7 @@ img {
   height: 100%;
   padding-top: 40px;
   padding-bottom: 50px;
+  overflow: hidden;
 }
 
 .l-hero {
@@ -11864,7 +11865,7 @@ img {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .l-hero {
     margin: 0;
     width: 100%;
@@ -11887,6 +11888,12 @@ img {
             flex-direction: column;
     height: 1000px;
     margin: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .l-information {
     width: 100%;
   }
 }
@@ -11951,7 +11958,7 @@ img {
   width: 85%;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .l-tagGroup {
     width: 100%;
     margin-top: 15px;
@@ -11966,6 +11973,7 @@ img {
 
 .l-footer {
   width: 100%;
+  min-height: 30vh;
   background: #131313;
   padding: 100px 0;
   margin: 0 auto;
@@ -12085,8 +12093,9 @@ img {
 }
 
 .c-hero-listArea__subTitle {
-  font-size: 12px;
+  font-size: 16px;
   width: 100%;
+  letter-spacing: 3px;
 }
 
 @media screen and (max-width: 414px) {
@@ -12096,7 +12105,7 @@ img {
 }
 
 .c-hero-listArea__hr {
-  margin: 10px auto;
+  margin: 5px auto;
   width: 85%;
   background-color: #f6f5f4;
 }
@@ -12124,6 +12133,13 @@ img {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .c-hero-listArea-unit {
+    width: 100%;
   }
 }
 
@@ -12180,7 +12196,7 @@ img {
   color: #f6f5f4;
   display: -webkit-box;
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-pack: center;
           justify-content: center;
   width: 50%;
@@ -12251,7 +12267,7 @@ img {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   width: 100%;
-  height: 600px;
+  height: 80vh;
   margin-bottom: 100px;
 }
 
@@ -12261,9 +12277,9 @@ img {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .c_slider__container {
-    display: none;
+    height: 40vh;
   }
 }
 
@@ -12277,6 +12293,12 @@ img {
   font-size: 45px;
 }
 
+@media screen and (max-width: 768px) {
+  .c_slider__container .hero_message__main {
+    font-size: 30px;
+  }
+}
+
 .c_slider__container .hero_message__main_top {
   position: absolute;
   bottom: auto;
@@ -12288,6 +12310,12 @@ img {
 
 .c_slider__container .hero_message__sub {
   font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .c_slider__container .hero_message__sub {
+    font-size: 16px;
+  }
 }
 
 .c_slider__container .hero_message__sub_bottom {
@@ -12309,7 +12337,7 @@ img {
     display: block;
     width: 100%;
     height: 600px;
-    background-image: url("/assets/img/TOP/Screenshot_4.jpg");
+    background-image: url("https://lol-fansite.com/top/img/Screenshot_4.jpg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -12561,13 +12589,14 @@ a.c_news_items:hover {
   width: calc(25% - 30px);
   overflow: hidden;
   text-align: center;
+  background: #333;
 }
 
 @media screen and (max-width: 768px) {
   .c-main-card-unit {
     margin-right: 20px;
     margin-bottom: 20px;
-    width: calc(50% - 30px);
+    width: calc(50% - 20px);
   }
 }
 
@@ -12676,7 +12705,6 @@ a.c_news_items:hover {
 
 .c-footer-container {
   margin: 0 auto;
-  width: 100%;
 }
 
 .c-footer-container-header {
@@ -12691,7 +12719,7 @@ a.c_news_items:hover {
 
 .c-footer-container-header .logo__unit {
   height: 100%;
-  width: 15%;
+  width: 20%;
 }
 
 @media screen and (max-width: 414px) {
@@ -12721,9 +12749,10 @@ a.c_news_items:hover {
   justify-content: space-around;
   margin-left: 10px;
   width: 80%;
+  max-width: 100%;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .c-footer-container-body {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -12731,13 +12760,15 @@ a.c_news_items:hover {
     flex-wrap: wrap;
     width: 100%;
     font-size: 16px;
+    margin-left: none;
+    padding-left: 10px;
   }
 }
 
 .c-footer-container-body .info {
   display: -webkit-box;
   display: flex;
-  height: 30px;
+  height: 100%;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -12753,11 +12784,19 @@ a.c_news_items:hover {
           flex: 1;
 }
 
+@media screen and (max-width: 768px) {
+  .c-footer-container-body .info-head {
+    -webkit-box-flex: 3;
+            flex: 3;
+  }
+}
+
 .c-footer-container-body .info-body {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 7;
           flex: 7;
+  flex-wrap: wrap;
   -webkit-box-pack: start;
           justify-content: flex-start;
 }
@@ -12962,14 +13001,19 @@ a.c_news_items:hover {
           justify-content: flex-end;
 }
 
+@media screen and (max-width: 414px) {
+  .p-information__tabHeader {
+    display: none;
+  }
+}
+
 .p-information__tabHeader__tab-btn {
   width: 100px;
-  height: 100%;
   text-align: center;
   height: 45px;
   line-height: 45px;
   margin: 0;
-  font-size: 12px;
+  font-size: 16px;
   border-top: 2px solid #121212;
   border-radius: 10% 10% 0 0;
   border-bottom: none;
@@ -12978,6 +13022,49 @@ a.c_news_items:hover {
 }
 
 .p-information__tabHeader__tab-btn:hover {
+  cursor: pointer;
+  color: #f6f5f4;
+  background-color: #121212;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.p-information__tabHeader--compact {
+  display: none;
+  width: 100%;
+}
+
+@media screen and (max-width: 414px) {
+  .p-information__tabHeader--compact li {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .p-information__tabHeader--compact {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+.p-information__tabHeader--compact__tab-btn {
+  -webkit-box-flex: 20%;
+          flex: 20%;
+  height: 100%;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  border-top: 2px solid #121212;
+  border-radius: 10% 10% 0 0;
+  border-bottom: none;
+  border-right: 1px solid #121212;
+  border-left: 1px solid #121212;
+}
+
+.p-information__tabHeader--compact__tab-btn:hover {
   cursor: pointer;
   color: #f6f5f4;
   background-color: #121212;
@@ -13149,16 +13236,18 @@ a.c_news_items:hover {
           justify-content: flex-start;
   padding: 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .p-main-section__wrapper--center {
-  margin: 0 auto;
-  width: 80%;
+  margin-right: -30px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {
   .p-main-section__wrapper--center {
-    width: 100%;
+    margin-right: -20px;
   }
 }
 
