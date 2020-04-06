@@ -24,8 +24,8 @@
           </div>
 
           <!-- header_navigation end -->
-          <AnmNavbar></AnmNavbar>
         </div>
+        <AnmNavbar></AnmNavbar>
 
         <!-- header end -->
 

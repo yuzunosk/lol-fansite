@@ -11826,10 +11826,11 @@ img {
     position: absolute;
     top: 0;
     right: 0;
-    overflow: hidden;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     height: 7rem;
+    width: 30%;
+    z-index: 999;
   }
 }
 
@@ -12251,8 +12252,20 @@ img {
   }
 }
 
+.c-navbar__head {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
 .c-navbar__container {
   list-style: none;
+  background: #fff;
   padding: 0;
   margin: 0;
   display: -webkit-box;
@@ -12260,10 +12273,10 @@ img {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  -webkit-box-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+          align-items: center;
   width: 8rem;
-  height: 100%;
+  height: 100vh;
 }
 
 .c-navbar__item {
@@ -12274,7 +12287,7 @@ img {
   -webkit-box-align: center;
           align-items: center;
   width: 100%;
-  height: 100%;
+  height: 15vh;
 }
 
 .c-navbar__link {
@@ -12289,7 +12302,6 @@ img {
 
 .c-navbar__text {
   color: #333;
-  margin-left: 20px;
   font-size: 20px;
 }
 
@@ -12401,11 +12413,10 @@ img {
   .c-hero-container-1colum {
     display: block;
     width: 100%;
-    height: 600px;
+    height: 90vh;
     background-image: url("https://lol-fansite.com/top/img/Screenshot_4.jpg");
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
     background-repeat: no-repeat;
     display: -webkit-box;
     display: flex;

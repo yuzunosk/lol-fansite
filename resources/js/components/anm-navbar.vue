@@ -2,45 +2,21 @@
   <section id="js-move_filed">
     <nav class="l-nav-container">
       <!-- navbar -->
-      <ul class="c-navbar__container">
-        <li class="c-navbar__item">
-          <a class="c-navbar__link" href>
-            <span class="c-navbar__text">Menu</span>
-          </a>
-        </li>
+      <div class="c-navbar__head" @click="toggleShow">
+        <span class="c-navbar__text">Menu</span>
+      </div>
 
+      <transition name="slideDown" mode="out-in">
         <div v-if="show">
-          <li class="c-navbar__item">
-            <a class="c-navbar__link" href>
-              <span class="c-navbar__text">Top</span>
-            </a>
-          </li>
-
-          <li class="c-navbar__item">
-            <a class="c-navbar__link" href>
-              <span class="c-navbar__text">Information</span>
-            </a>
-          </li>
-
-          <li class="c-navbar__item">
-            <a class="c-navbar__link" href>
-              <span class="c-navbar__text">News</span>
-            </a>
-          </li>
-
-          <li class="c-navbar__item">
-            <a class="c-navbar__link" href>
-              <span class="c-navbar__text">Chanpions</span>
-            </a>
-          </li>
-
-          <li class="c-navbar__item">
-            <a class="c-navbar__link" href>
-              <span class="c-navbar__text">Contact</span>
-            </a>
-          </li>
+          <ul class="c-navbar__container">
+            <li class="c-navbar__item" v-for="item in items" v-bind:key="item">
+              <a class="c-navbar__link" href>
+                <span class="c-navbar__text">{{ item }}</span>
+              </a>
+            </li>
+          </ul>
         </div>
-      </ul>
+      </transition>
       <!-- navbar END -->
     </nav>
   </section>
@@ -51,11 +27,28 @@
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      items: ["Top", "Information", "News", "Chanpions", "Contact"]
     };
+  },
+  methods: {
+    toggleShow() {
+      return (this.show = !this.show);
+    }
   }
 };
 </script>
 
-
-
+<style scoped>
+/* アニメーション */
+.fade-enter-active,
+.fade-leave-active {
+  transform: translateX(-100px);
+  transition: 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  transform: translateX(0px);
+  transition: 1s;
+}
+</style>

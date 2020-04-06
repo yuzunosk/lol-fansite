@@ -40,9 +40,11 @@
         position: absolute;
         top: 0;
         right: 0;
-        overflow: hidden;
+        // overflow: hidden;
         transition: 0.4s;
         height: 7rem;
+        width: 30%;
+        z-index: 999;
     }
 }
 #js-move_filed {

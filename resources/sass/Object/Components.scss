@@ -198,15 +198,23 @@
 // Anim Navbar
 // -------------------------------
 .c-navbar {
+  &__head {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &__container {
     list-style: none;
+    background: #fff;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     width: 8rem;
-    height: 100%;
+    height: 100vh;
   }
 
   &__item {
@@ -214,7 +222,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 15vh;
   }
 
   &__link {
@@ -227,7 +235,6 @@
 
   &__text {
     color: $font-color__default;
-    margin-left: 20px;
     font-size: $font-size__xl;
   }
 }
@@ -319,11 +326,12 @@
   @include mq() {
     display: block;
     width: 100%;
-    height: 600px;
+    height: 90vh;
     background-image: url("https://lol-fansite.com/top/img/Screenshot_4.jpg");
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
+    // スマホだとbackground-attachmentとの併用はできない
+    // background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
