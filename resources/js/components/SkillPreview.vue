@@ -14,10 +14,8 @@
             accept="image/*"
           />
         </div>
-      </div>
-
-      <!-- スキルアイコン2 -->
-      <!-- <div class="imgContent col-12 mb-3">
+      </div>スキルアイコン2 -->
+      <div class="imgContent col-12 mb-3">
         <div class="imagePreview_2">
           <img :src="uploadedImage_2" class="imgFile" />
           <input
@@ -28,7 +26,7 @@
             accept="image/*"
           />
         </div>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +39,7 @@ export default {
       uploadedImage_1: "",
       uploadedImage_2: "",
       storage: "https://lol-fansite.com/",
-      noImage: "https://lol-fansite.com/top/img/img_no.png",
+      noImage: "",
       show: false
     };
   },
@@ -49,7 +47,7 @@ export default {
     judgmentData_1() {
       // alert('読み込みました');
       if (this.value) {
-        let $value = this.value;
+        let $value = this.value.skill_icon_1;
         //disable eslint-next-line no-console
         console.log({ $value });
         //  alert('中身は、' + $value);
@@ -67,7 +65,7 @@ export default {
     judgmentData_2() {
       // alert('読み込みました');
       if (this.value) {
-        let $value = this.value;
+        let $value = this.value.skill_icon_2;
         //disable eslint-next-line no-console
         console.log({ $value });
         //  alert('中身は、' + $value);
