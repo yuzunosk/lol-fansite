@@ -17,7 +17,7 @@
       </div>
 
       <!-- スキルアイコン2 -->
-      <div class="imgContent col-12 mb-3">
+      <!-- <div class="imgContent col-12 mb-3">
         <div class="imagePreview_2">
           <img :src="uploadedImage_2" class="imgFile" />
           <input
@@ -28,7 +28,7 @@
             accept="image/*"
           />
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
