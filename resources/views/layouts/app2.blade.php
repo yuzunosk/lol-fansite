@@ -15,7 +15,6 @@
 
     <!-- Fonts -->
     <link href="{{ asset('/css/css/all.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('/css/webfonts') }}" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -24,6 +23,63 @@
 <body>
     @yield('content')
     @show
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#form',
+            data: {
+                emailSent: false,
+                name: "",
+                email: "",
+                contact: "",
+                errors: {}
+            },
+            methods: {
+                showForms() {
+                    if (this.showText === "お問い合わせ") {
+                        this.showText = "閉じる";
+                    } else {
+                        this.showText = "お問い合わせ";
+                    }
+                    return (this.show = !this.show);
+                },
+                onSubmit() {
+                    if (!confirm("上記内容で送信します。よろしいですか？")) {
+                        return;
+                    }
+                    //errorsの初期化
+                    this.errors = {};
+                    const self = this;
+
+                    const params = {
+                        name: this.name,
+                        email: this.email,
+                        contact: this.contact
+                    };
+
+                    axios
+                        .post("/contact", params)
+                        .then(function(response) {
+                            // 成功した時
+                            self.emailSent = true;
+                        })
+                        .catch(function(error) {
+                            let errors = {};
+
+                            // 失敗したとき
+                            for (const key in error.response.data.errors) {
+                                errors[key] = error.response.data.errors[key].join("<br>");
+                            }
+
+                            self.errors = errors;
+                        });
+                }
+            }
+        });
+    </script>
+
 
 </body>
 

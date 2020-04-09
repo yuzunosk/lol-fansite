@@ -12001,6 +12001,7 @@ img {
   background: #131313;
   padding: 100px 0;
   margin: 0 auto;
+  position: relative;
 }
 
 .c-hero-section {
@@ -12895,6 +12896,95 @@ a.c_news_items:hover {
   color: #b9ae6a;
 }
 
+.c-form {
+  font-size: 20px;
+}
+
+.c-form__container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  color: #f6f5f4;
+  -webkit-box-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 12%;
+  right: 5%;
+  height: auto;
+  padding: 20px 10px;
+  width: 40%;
+  background: #111113;
+  border: 3px solid #333;
+  box-shadow: 2px 2px 5px rgba(51, 51, 51, 0.3), 2px 2px 10px rgba(51, 51, 51, 0.3);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .c-form__container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .c-form__container {
+    width: 100%;
+  }
+}
+
+.c-form__container--title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.c-form__container--btn {
+  background: #b0b0b0;
+  border-radius: 5px;
+  color: #333;
+  padding: 8px;
+  width: 100px;
+  height: 50px;
+}
+
+.c-form__unit {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.c-form__unit--head {
+  margin-bottom: 10px;
+}
+
+.c-form__unit--body {
+  border: 2px solid #b0b0b0;
+  opacity: 0.8;
+  border-radius: 5px;
+  width: 50%;
+  height: 35px;
+}
+
+.c-form__unit--txtAria {
+  border: 2px solid #b0b0b0;
+  opacity: 0.8;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.c-form__error-text {
+  color: red;
+}
+
 .p-logo-unit__img {
   width: 100%;
   height: 100%;
@@ -13332,5 +13422,30 @@ a.c_news_items:hover {
   .p-main-section__wrapper {
     width: 100%;
   }
+}
+
+.p-form__btmContainer--btn {
+  position: absolute;
+  bottom: 0%;
+  right: 3%;
+  overflow: hidden;
+  height: auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.p-form__btmContainer--btn span {
+  background: #e6e6e6;
+  font-size: 16px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  border-radius: 5px 5px 0 0;
 }
 

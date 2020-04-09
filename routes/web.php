@@ -91,7 +91,10 @@ Route::group(['middleware' => 'auth'], function () {
 //パスワードリセット
 Route::get('/passreset', 'PassResetControler@showView')->name('mypage.passreset');
 
-
+// お問い合わせ
+Route::get('contact', 'ContactController@input'); // 入力ページ
+Route::post('contact/send', 'ContactController@send')->name('contact.send'); //送信ページ
+Route::post('contact/process', 'ContactController@process')->name('contact.send'); //送信ページ
 
 
 

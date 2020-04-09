@@ -118,6 +118,7 @@
               <Footer v-for="footerData in footerDatas" :key="footerData.id" :data="footerData"></Footer>
             </div>
           </div>
+          <ViewForm></ViewForm>
         </div>
         <!-- footer END -->
       </div>
@@ -136,6 +137,7 @@ import EventTitle from "./components/EventTitle.vue";
 import Footer from "./components/Footer.vue";
 import Loading from "./components/management/showLoading.vue";
 import AnmNavbar from "./components/anm-navbar.vue";
+import ViewForm from "./components/viewForm.vue";
 
 export default {
   props: ["chanpionDatas", "skillDatas", "tagDatas", "tags"],
@@ -333,7 +335,8 @@ export default {
     EventTitle,
     Footer,
     Loading,
-    AnmNavbar
+    AnmNavbar,
+    ViewForm
   },
   methods: {
     incrementNumber(value) {

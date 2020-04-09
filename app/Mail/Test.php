@@ -11,17 +11,18 @@ class Test extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $greeting;
-
+    private $_params = [];
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($greeting)
+    public function __construct($params)
     {
-        $this->message = $greeting;
+        $this->_params = $params;
     }
+
+
 
     /**
      * Build the message.
@@ -30,6 +31,8 @@ class Test extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.test');
+        return $this->subject('お問い合わせがありました')
+            ->with('params', $this->_params)
+            ->view('mail.contact');
     }
 }
