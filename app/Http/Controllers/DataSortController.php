@@ -19,25 +19,25 @@ class DataSortController extends Controller
 
         //リクエストデータの判定。セッションデータの判定を行う。
         if ($request->sort) {
-            $request->session()->put(['sort', $request->sort]);
+            session(['sort' => $request->sort]);
         } else {
             if (empty(session('sort'))) {
-                $request->session()->put(['sort', '']);
+                session(['sort' => '']);
             } else {
             }
         }
         if ($request->roll) {
-            $request->session()->put(['roll', $request->roll]);
+            session(['roll' => $request->roll]);
         } else {
             if (empty(session('roll'))) {
-                $request->session()->put(['roll', '']);
+                session(['roll' => '']);
             }
         }
         if ($request->tag) {
-            session()->put(['tag' => $request->tag]);
+            session(['tag' => $request->tag]);
         } else {
             if (empty(session('tag'))) {
-                $request->session()->put(['tag', '']);
+                session(['tag' => '']);
             }
         }
 
@@ -63,7 +63,7 @@ class DataSortController extends Controller
                 if (empty($tag)) {
                     //tagが空の場合
                     $chanpionsData = DB::table('chanpions')->orderBy('id', 'desc')->paginate(8);
-                    return view('chanpions.index', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
+                    return redirect('/chanpions', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
                 } else {
                     //tagを条件に加える
                     $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1', $tag)
@@ -512,7 +512,7 @@ class DataSortController extends Controller
                 if (empty($tag)) {
                     //rollがresetであり、tagが空の場合
                     $chanpionsData = DB::table('chanpions')->orderBy('id', 'desc')->paginate(8);
-                    return view('chanpions.index', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
+                    return redirect('/chanpions', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
                 } else {
                     //rollがreset、tag条件あり
                     $chanpionsData = TagBox::with('chanpion')->where('chanpion_tag_id_1', $tag)
@@ -534,7 +534,7 @@ class DataSortController extends Controller
                 if ($chanpionsData->isEmpty()) {
                     return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
                 }
-                return view('chanpions.index', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
+                return redirect('/chanpions', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
             } else {
                 Log::info('ルートroll&tag');
                 //rollがありtagもある場合
@@ -544,7 +544,7 @@ class DataSortController extends Controller
                 if ($chanpionsData->isEmpty()) {
                     return redirect('/chanpions')->with('flash_message', __('Data does not exist.'));
                 }
-                return view('chanpions.index', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
+                return redirect('/chanpions', compact(['chanpionsData', 'tagDatas', 'rollDatas', 'tagBoxDatas']));
             }
         }
         Log::info('チャンピオンデータ:' . $chanpionsData);
