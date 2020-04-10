@@ -1,7 +1,7 @@
 <template>
   <div class="l_header__logo-unit">
     <!-- slotはhtmlのテンプレート全てを送れる -->
-    <img class="p-logo-unit__img" src="https://lol-fansite.com/top/img/lol_logo.png" alt />
+    <img class="p-logo-unit__img" src="https://lol-fansite.com/top/img/LOLFANSITELOGO-2.svg" alt />
   </div>
 </template>
 
