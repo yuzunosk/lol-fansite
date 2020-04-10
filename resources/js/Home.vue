@@ -113,7 +113,7 @@
               <div class="logo__unit">
                 <img
                   class="logo__unit--img"
-                  src="https://lol-fansite.com/top/img/LOLFANSITELOGO-2.svg"
+                  src="https://lol-fansite.com/top/img/LOLFABSITELOGO2.svg"
                 />
               </div>
             </div>
