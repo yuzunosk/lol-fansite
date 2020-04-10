@@ -19,25 +19,25 @@ class DataSortController extends Controller
 
         //リクエストデータの判定。セッションデータの判定を行う。
         if ($request->sort) {
-            session()->put(['sort' => $request->sort]);
+            $request->session()->put(['sort', $request->sort]);
         } else {
             if (empty(session('sort'))) {
-                session()->put(['sort' => '']);
+                $request->session()->put(['sort', '']);
             } else {
             }
         }
         if ($request->roll) {
-            session()->put(['roll' => $request->roll]);
+            $request->session()->put(['roll', $request->roll]);
         } else {
             if (empty(session('roll'))) {
-                session()->put(['roll' => '']);
+                $request->session()->put(['roll', '']);
             }
         }
         if ($request->tag) {
             session()->put(['tag' => $request->tag]);
         } else {
             if (empty(session('tag'))) {
-                session()->put(['tag' => '']);
+                $request->session()->put(['tag', '']);
             }
         }
 
