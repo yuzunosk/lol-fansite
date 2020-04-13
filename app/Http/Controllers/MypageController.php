@@ -34,6 +34,7 @@ class MypageController extends Controller
     {
         //現在ログインしているユーザー情報取得
         $user = Auth::user()->first();
+        Log::info('取得したユーザー情報');
         Log::info($user);
         return view('mypages.edit', compact('user'));
     }
@@ -56,12 +57,17 @@ class MypageController extends Controller
         //ユーザーインスタンス定義
         $user = new User;
         $user = User::find($id);
+        Log::info('取得したユーザー情報');
         Log::info($user);
+        Log::info('ログインしているユーザー');
+        Log::info(Auth::user());
+
+
         //ユーザー情報の更新
         $user->fill($request->all())->save();
 
         //変更連絡Email送信テスト
-        Mail::to($user)->send(new Test('登録内容を変更しました'));
+        // Mail::to($user)->send(new Test('登録内容を変更しました'));
 
         return redirect('/chanpions')->with('flash_message', __('UserData Updated.'));
     }

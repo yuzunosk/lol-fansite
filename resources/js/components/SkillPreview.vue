@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <h5 class="col-12">スキル画像をアップロード</h5>
-    <div class="skill_icon_container row col-12">
+    <div class="skill_icon_container">
       <!-- スキルアイコン１ -->
-      <div class="imgContent col-12 mb-3">
+      <div class="imgContent">
         <div class="imagePreview_1">
           <img :src="uploadedImage_1" class="imgFile" />
           <input
@@ -14,20 +14,23 @@
             accept="image/*"
           />
         </div>
-      </div>スキルアイコン2 -->
-      <div class="imgContent col-12 mb-3">
-        <div class="imagePreview_2">
-          <img :src="uploadedImage_2" class="imgFile" />
-          <input
-            type="file"
-            class="file_input_2"
-            name="skill_icon_2"
-            @change="onFileChange_2"
-            accept="image/*"
-          />
-        </div>
       </div>
+
+        <!-- スキルアイコン2 -->
+        <div class="imgContent">
+          <div class="imagePreview_2">
+            <img :src="uploadedImage_2" class="imgFile" />
+            <input
+              type="file"
+              class="file_input_2"
+              name="skill_icon_2"
+              @change="onFileChange_2"
+              accept="image/*"
+            />
+          </div>
+        </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -39,7 +42,7 @@ export default {
       uploadedImage_1: "",
       uploadedImage_2: "",
       storage: "https://lol-fansite.com/",
-      noImage: "",
+      noImage: "https://lol-fansite.com/top/img/img_no.png",
       show: false
     };
   },
@@ -123,36 +126,43 @@ export default {
 <style scoped>
 .skill_icon_container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   position: relative;
+
+@media screen and (min-width:480px) { 
+    /*　画面サイズが480pxからはここを読み込む　*/
+    flex-direction: column;
+}
 }
 
 .imgContent {
-  max-width: 300px;
-  margin: auto;
-  margin-bottom: 40px;
+  width: 40%;
+  height: 300px;
+  overflow: hidden;
 }
 .imagePreview_1 {
-  height: 30vh;
+  width: 100%;
+  height: 100%;
   background: rgb(240, 240, 240);
-  overflow: hidden;
   border-radius: 10px;
   background-position: center center;
   background-size: cover;
   margin-bottom: 30px;
 }
 .imagePreview_2 {
-  height: 30vh;
+  width: 100%;
+  height: 100%;
   background: rgb(240, 240, 240);
   overflow: hidden;
-  border-radius: 10px;
   background-position: center center;
   background-size: cover;
   margin-bottom: 30px;
 }
 .imgFile {
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .file_input_1 {
   position: absolute;

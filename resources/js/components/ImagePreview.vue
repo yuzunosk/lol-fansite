@@ -83,8 +83,8 @@ export default {
 }
 .imgFile {
   width: 100%;
-  height: 300px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 .file_input {
   position: absolute;

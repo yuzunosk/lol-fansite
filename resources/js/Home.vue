@@ -111,10 +111,7 @@
           <div class="c-footer-container">
             <div class="c-footer-container-header">
               <div class="logo__unit">
-                <img
-                  class="logo__unit--img"
-                  src="https://lol-fansite.com/top/img/LOLFABSITELOGO2.svg"
-                />
+                <img class="logo__unit--img" src="https://lol-fansite.com/top/img/lol_logo.png" />
               </div>
             </div>
             <div class="c-footer-container-body">
