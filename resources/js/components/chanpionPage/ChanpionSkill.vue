@@ -187,7 +187,7 @@ export default {
   props: ["id", "data"],
   data: function() {
     return {
-      storage: "https://lol-fansite.com",
+      storage: "https://lol-fansite.com/",
       cheack_P: true,
       cheack_Q: false,
       cheack_W: false,
