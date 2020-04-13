@@ -15,7 +15,7 @@ class ChangeNullableChanpionsTable extends Migration
     {
         Schema::table('chanpions', function (Blueprint $table) {
             $table->string('feature')->nullable()->change();
-            $table->string('sub_Roll')->nullable()->change();
+            $table->string('sub_Roll_id')->nullable()->change();
             $table->string('chanpion_img')->nullable()->change();
         });
     }
@@ -29,7 +29,7 @@ class ChangeNullableChanpionsTable extends Migration
     {
         Schema::table('chanpions', function (Blueprint $table) {
             $table->string('feature');
-            $table->string('sub_Roll');
+            $table->string('sub_Roll_id');
             $table->string('chanpion_img');
         });
     }
