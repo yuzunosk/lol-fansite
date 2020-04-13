@@ -2047,9 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -3055,7 +3052,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["id", "data"],
   data: function data() {
     return {
-      storage: "https://lol-fansite.com",
+      storage: "https://lol-fansite.com/",
       cheack_P: true,
       cheack_Q: false,
       cheack_W: false,
@@ -8220,7 +8217,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* js */\n.float_active[data-v-35a92206] {\n  background: rdba(255, 255, 255, 0.9);\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n  z-index: 3;\n}\n\n/* ページネートCSS */\n.paginate_container[data-v-35a92206] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206] {\n  background: #858883;\n  text-align: center;\n  padding: 3px;\n  width: 30px;\n  height: 35px;\n  margin-left: 13px;\n  box-sizing: border-box;\n  color: #f6f5f4;\n  font-size: 12px;\n  font-weight: 300;\n}\n.ml_0[data-v-35a92206] {\n  margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover {\n  -webkit-transition: all 0.2s;\n  transition: all 0.2s;\n  background: #aeadb5;\n  color: #333;\n  font-size: 14px;\n  font-weight: 500;\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n}\n.active[data-v-35a92206] {\n  opacity: 0.5;\n}\n/* ページネートCSS END */\n\n/* アニメーション */\n.fade-enter-active[data-v-35a92206],\n.fade-leave-active[data-v-35a92206] {\n  -webkit-transition: all 0.8s;\n  transition: all 0.8s;\n}\n.fade-enter[data-v-35a92206],\n.fade-leave-to[data-v-35a92206] {\n  opacity: 0;\n  background: #fff;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* js */\n.float_active[data-v-35a92206] {\n  background: rdba(255, 255, 255, 0.9);\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n  z-index: 3;\n}\n\n/* ページネートCSS */\n.paginate_container[data-v-35a92206] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-left: 3px;\n}\n.paginate_btn[data-v-35a92206] {\n  background: #858883;\n  text-align: center;\n  padding: 3px;\n  width: 30px;\n  height: 35px;\n  margin-left: 13px;\n  box-sizing: border-box;\n  color: #f6f5f4;\n  font-size: 12px;\n  font-weight: 300;\n}\n.ml_0[data-v-35a92206] {\n  margin-left: 0;\n}\n.paginate_btn[data-v-35a92206]:hover {\n  -webkit-transition: all 0.2s;\n  transition: all 0.2s;\n  background: #aeadb5;\n  color: #333;\n  font-size: 14px;\n  font-weight: 500;\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n}\n.active[data-v-35a92206] {\n  opacity: 0.5;\n}\n/* ページネートCSS END */\n\n/* アニメーション */\n.fade-enter-active[data-v-35a92206],\n.fade-leave-active[data-v-35a92206] {\n  -webkit-transition: all 0.8s;\n  transition: all 0.8s;\n}\n.fade-enter[data-v-35a92206],\n.fade-leave-to[data-v-35a92206] {\n  opacity: 0;\n  background: #fff;\n}\n", ""]);
 
 // exports
 
@@ -40452,8 +40449,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "logo__unit--img",
                         attrs: {
-                          src:
-                            "https://lol-fansite.com/top/img/LOLFABSITELOGO2.svg"
+                          src: "https://lol-fansite.com/top/img/LOLFANLOGO1.svg"
                         }
                       })
                     ])
@@ -40950,10 +40946,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l_header__logo-unit" }, [
       _c("img", {
         staticClass: "p-logo-unit__img",
-        attrs: {
-          src: "https://lol-fansite.com/top/img/LOLFABSITELOGO2.svg",
-          alt: ""
-        }
+        attrs: { src: "https://lol-fansite.com/top/img/LOLFANLOGO1.svg" }
       })
     ])
   }
@@ -41988,7 +41981,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo__unit--img",
           attrs: {
-            src: "https://lol-fansite.com/top/img/logo/lol_logo.png",
+            src: "https://lol-fansite.com/top/img/logo/LOLFANLOGO1.svg",
             alt: ""
           }
         })
