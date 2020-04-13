@@ -40449,7 +40449,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "logo__unit--img",
                         attrs: {
-                          src: "https://lol-fansite.com/top/img/LOLFANLOGO1.svg"
+                          src: "https://lol-fansite.com/top/img/LOLFANLOGO0.svg"
                         }
                       })
                     ])
@@ -40946,7 +40946,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l_header__logo-unit" }, [
       _c("img", {
         staticClass: "p-logo-unit__img",
-        attrs: { src: "https://lol-fansite.com/top/img/LOLFANLOGO1.svg" }
+        attrs: { src: "https://lol-fansite.com/top/img/LOLFANLOGO0.svg" }
       })
     ])
   }
@@ -41981,7 +41981,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo__unit--img",
           attrs: {
-            src: "https://lol-fansite.com/top/img/logo/LOLFANLOGO1.svg",
+            src: "https://lol-fansite.com/top/img/logo/LOLFANLOGO0.svg",
             alt: ""
           }
         })
