@@ -14,9 +14,8 @@ class ChangeNullableChanpionSkillsTable extends Migration
     public function up()
     {
         Schema::table('chanpionSkills', function (Blueprint $table) {
-            $table->string('feature')->nullable()->change();
-            $table->string('sub_Roll')->nullable()->change();
-            $table->string('chanpion_img')->nullable()->change();
+            $table->string('skill_icon_1')->nullable()->change();
+            $table->string('skill_icon_2')->nullable()->change();
         });
     }
 
@@ -28,9 +27,9 @@ class ChangeNullableChanpionSkillsTable extends Migration
     public function down()
     {
         Schema::table('chanpionSkills', function (Blueprint $table) {
-            $table->string('feature');
-            $table->string('sub_Roll');
-            $table->string('chanpion_img');
+
+            $table->string('skill_icon_1');
+            $table->string('skill_icon_2');
         });
     }
 }
