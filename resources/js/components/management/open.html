@@ -6,25 +6,101 @@
             name="viewport"
             content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
         />
-        <title>CreativeCard</title>
-        <link rel="stylesheet" type="text/css" href="./css/swiper.min.css" />
-        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <title>ParalaxBackground</title>
     </head>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://lol-fansite.com/top/css/styleheder.css"
+    />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://lol-fansite.com/top/css/card.css"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 320px;
+            height: 450px;
+        }
+    </style>
 
     <body>
-        <!-- swiper -->
+        <section class="zoom">
+            <img
+                src="https://lol-fansite.com/top/img/nasus-lunarrevel-pls.png"
+                id="layer1"
+                class="js-move-img1"
+                alt=""
+            />
+            <img
+                src="https://lol-fansite.com/top/img/warwick-lunarrevel-pls.png"
+                id="layer2"
+                class="js-move-img2"
+                alt=""
+            />
+            <h1 id="hero_text" style="font-size: 8rem;letter-spacing: 5px;">
+                LEAGE of LEGENDS
+            </h1>
+        </section>
 
-        <div class="swiper-container">
-            <h2 style="text-align: center; color: #fff; margin-bottom:100px;">
-                様々なチャンピオンから、お気に入りのチャンピオンを見つけよう！
+        <div class="content">
+            <h1>LEAGE of LEGENDsのFANサイトです</h1>
+            <hr style="width: 100%;margin: 15px;" />
+            <h2>
+                Only 10 Champions have yet to be picked in a competitive League
+                in 2020, all 138 other champions have already been picked!
             </h2>
 
+            <p>
+                I was bored and looking through stats and stuff and realized
+                that as of February, only the following Champions have yet to be
+                picked this year: Udyr, Teemo, Rammus, Vi, Wukong, Brand, Amumu,
+                Volibear, Janna, Neeko This list includes all of the European
+                ERLs, every Worlds Qualifying competitive league and their 2nd
+                division/academy leagues, most Latin American regional leagues
+                (I think?)! Source:
+                https://lol.gamepedia.com/List_of_Most_Recent_Games_By_Champion
+                PS: Also a fun stat, Master Yi hasn't gotten a single
+                competitive win since July 2018, AKA the funnel days (damn I
+                didn't realize it's almost been 2 years already) From Wikipedia,
+                the free encyclopedia Jump to navigationJump to search This
+                article is about the slang term. For an online game also known
+                as "LOL", see League of Legends. "LMFAO" redirects here. For the
+                music group, see LMFAO (group). LOL is an internet slang term
+                that means "laugh out loud". It is commonly mistaken for "lots
+                of love." LOL is often used in messages meaning "That is really
+                funny." It also means mute in Persian and is a native Dutch word
+                (not an acronym) which means "fun" ("lollig" means "funny"). In
+                Welsh, lol means nonsense - e.g., if a person wanted to say
+                "utter nonsense" in Welsh, they would say "rwtsh lol".[1] LOL is
+                usually used on the internet or when text messaging.[2]
+            </p>
+        </div>
+        <h2 style="text-align: center; color: #fff; margin-bottom:100px;">
+            君だけの最強のチャンピオンを見つけよう！
+        </h2>
+        <!-- Swiper -->
+        <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="creative_card_container">
                         <div class="card green">
                             <div class="imgBx">
-                                <img src="./img/fizzーtorim.png" alt="" />
+                                <img
+                                    src="https://lol-fansite.com/top/img/fizzーtorim.png"
+                                    alt=""
+                                />
                             </div>
                             <div class="textBx">
                                 <h2>Chanpion Cards</h2>
@@ -48,7 +124,10 @@
                     <div class="creative_card_container">
                         <div class="card red">
                             <div class="imgBx">
-                                <img src="./img/kda-torim.png" alt="" />
+                                <img
+                                    src="https://lol-fansite.com/top/img/kda-torim.png"
+                                    alt=""
+                                />
                             </div>
                             <div class="textBx">
                                 <h2>Chanpion Cards</h2>
@@ -72,7 +151,10 @@
                     <div class="creative_card_container">
                         <div class="card purple">
                             <div class="imgBx">
-                                <img src="./img/akari-trim-2.png" alt="" />
+                                <img
+                                    src="https://lol-fansite.com/top/img/akari-trim-2.png"
+                                    alt=""
+                                />
                             </div>
                             <div class="textBx">
                                 <h2>Chanpion Cards</h2>
@@ -97,7 +179,7 @@
                         <div class="card yellow">
                             <div class="imgBx">
                                 <img
-                                    src="./img/champion-ezreal-battle-academia-splash.png"
+                                    src="https://lol-fansite.com/top/img/champion-ezreal-battle-academia-splash.png"
                                     alt=""
                                 />
                             </div>
@@ -124,7 +206,7 @@
                         <div class="card black">
                             <div class="imgBx">
                                 <img
-                                    src="./img/jayce-fullmetal-trim.png"
+                                    src="https://lol-fansite.com/top/img/jayce-fullmetal-trim.png"
                                     alt=""
                                 />
                             </div>
@@ -150,7 +232,10 @@
                     <div class="creative_card_container">
                         <div class="card gray">
                             <div class="imgBx">
-                                <img src="./img/warwick-trim.png" alt="" />
+                                <img
+                                    src="https://lol-fansite.com/top/img/warwick-trim.png"
+                                    alt=""
+                                />
                             </div>
                             <div class="textBx">
                                 <h2>Chanpion Cards</h2>
@@ -175,7 +260,7 @@
                         <div class="card yellow">
                             <div class="imgBx">
                                 <img
-                                    src="./img/tristana-demon-trim.png"
+                                    src="https://lol-fansite.com/top/img/tristana-demon-trim.png"
                                     alt=""
                                 />
                             </div>
@@ -202,7 +287,7 @@
                         <div class="card pink">
                             <div class="imgBx">
                                 <img
-                                    src="./img/soraka-starguardian-trim.png"
+                                    src="https://lol-fansite.com/top/img/soraka-starguardian-trim.png"
                                     alt=""
                                 />
                             </div>
@@ -224,13 +309,34 @@
                     </div>
                 </div>
             </div>
+
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
         </div>
 
-        <!-- swiper END-->
+        <div class="content" style="flex-flow: justify-content:center;">
+            <form action="https://lol-fansite.com/home" method="get">
+                <h1 style="margin-bottom: 10px;">
+                    リーグオブレジェンドについてもっと知りたい！
+                </h1>
+                <button
+                    style="font-size: 2rem; padding: 10px;margin-bottom: 10px;"
+                >
+                    ENTER
+                </button>
+                <hr style="width: 100%;margin: 15px;" />
+            </form>
 
-        <script type="text/javascript" src="swiper.min.js"></script>
+            <h2>
+                I can't look back when I open that door！！
+            </h2>
+
+            <p></p>
+        </div>
+
+        <!-- swiper END-->
+        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
         <script>
             // alert('swiperを読み込みました');
             var swiper = new Swiper(".swiper-container", {
@@ -250,5 +356,10 @@
                 }
             });
         </script>
+
+        <script
+            type="text/javascript"
+            src="https://lol-fansite.com/top/js/scrollmove.js"
+        ></script>
     </body>
 </html>

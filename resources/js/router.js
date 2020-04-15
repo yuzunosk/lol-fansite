@@ -12,7 +12,7 @@ export default new Router({
         { path: "/home", component: Home },
         { path: "/home/chanpion/:id", component: Chanpion },
         // { path: '/article/create', component: require('./components/Articles/Create.vue') },
-        { path: "/contact" }
+        { path: "/contact/c-Form.php" }
     ],
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
