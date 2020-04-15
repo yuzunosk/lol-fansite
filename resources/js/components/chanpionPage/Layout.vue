@@ -24,7 +24,7 @@
           <div class="logo__unit">
             <img
               class="logo__unit--img"
-              src="https://lol-fansite.com/top/img/logo/LOLFANLOGO0.svg"
+              src="https://lol-fansite.com/top/img/logo/LOL-fanlogo.svg"
               alt
             />
           </div>

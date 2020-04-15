@@ -3667,7 +3667,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     routerLink: function routerLink() {
-      return "/contact";
+      return "/contact/c-Form.php";
     }
   }
 });
@@ -40449,7 +40449,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "logo__unit--img",
                         attrs: {
-                          src: "https://lol-fansite.com/top/img/LOLFANLOGO0.svg"
+                          src: "https://lol-fansite.com/top/img/LOL-fanlogo.svg"
                         }
                       })
                     ])
@@ -40946,7 +40946,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "l_header__logo-unit" }, [
       _c("img", {
         staticClass: "p-logo-unit__img",
-        attrs: { src: "https://lol-fansite.com/top/img/LOLFANLOGO0.svg" }
+        attrs: { src: "https://lol-fansite.com/top/img/LOL-fanlogo.svg" }
       })
     ])
   }
@@ -41981,7 +41981,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo__unit--img",
           attrs: {
-            src: "https://lol-fansite.com/top/img/logo/LOLFANLOGO0.svg",
+            src: "https://lol-fansite.com/top/img/logo/LOL-fanlogo.svg",
             alt: ""
           }
         })
@@ -61828,7 +61828,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     component: _components_chanpionPage_Layout__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, // { path: '/article/create', component: require('./components/Articles/Create.vue') },
   {
-    path: "/contact"
+    path: "/contact/c-Form.php"
   }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

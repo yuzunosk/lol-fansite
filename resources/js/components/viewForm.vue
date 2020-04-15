@@ -80,7 +80,7 @@ export default {
   },
   computed: {
     routerLink() {
-      return "/contact";
+      return "/contact/c-Form.php";
     }
   }
 };
