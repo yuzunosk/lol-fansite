@@ -168,7 +168,7 @@ class ChanpionsController extends Controller
 
         return redirect('/chanpions')->with('flash_message', __('Updated.'));
     }
-
+!
     public function deleteChanpion($id)
     {
         if (!ctype_digit($id)) {
